@@ -30,14 +30,14 @@ public class MedianofTwoSortedArrays {
             int partitionPointNums1 = (low + high+1) / 2;
             int partitionPointNums2 = partitionPoint - partitionPointNums1;
 
-            int leftNums1Max = (partitionPointNums1==0) ? nums1[partitionPointNums1-1]
+            int leftNums1Max = (partitionPointNums1!=0) ? nums1[partitionPointNums1-1]
                     : Integer.MIN_VALUE;
-            int leftNums2Max =  (partitionPointNums1==nums1.length) ? nums2[partitionPointNums2-1]
+            int leftNums2Max =  (partitionPointNums2!=0) ? nums2[partitionPointNums2-1]
                     : Integer.MIN_VALUE;
 
-            int rightNums1Min = (partitionPointNums2==0) ? nums1[partitionPointNums1-1]
+            int rightNums1Min = (partitionPointNums1!=nums1.length) ? nums1[partitionPointNums1]
                     : Integer.MAX_VALUE;
-            int rightNums2Min = (partitionPointNums2==nums2.length) ? nums2[partitionPointNums2]
+            int rightNums2Min = (partitionPointNums2!=nums2.length)? nums2[partitionPointNums2]
                     : Integer.MAX_VALUE;
 
             
@@ -55,10 +55,11 @@ public class MedianofTwoSortedArrays {
                if (totalLength % 2 == 0) {
                    int minRight = Math.min(rightNums1Min, rightNums2Min);
 
-                    result = (maxLeft + minRight) / 2;
+                    result = (maxLeft + minRight) / 2.0;
                 } else {
                     result = maxLeft;
                 }
+               break;
             } 
         }
 
