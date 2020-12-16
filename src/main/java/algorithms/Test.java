@@ -17,7 +17,8 @@ public class Test {
         Human muhammed = ali;
         muhammed.name = "Muhammed";
         
-        System.out.println(ali.name);
+        System.out.println(11 / 10);
+        
     }
 }
 
