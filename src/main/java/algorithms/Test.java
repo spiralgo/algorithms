@@ -11,18 +11,20 @@ package algorithms;
  */
 public class Test {
     public static void main(String[] args) {
-        Human ali = new Human();
-        ali.name = "Ali";
-        
-        Human muhammed = ali;
-        muhammed.name = "Muhammed";
-        
-        System.out.println(11 / 10);
-        
-    }
-}
+       
+        drawWindow(3, 3);
+    } 
 
- class Human {
-    String name;
-    
+    private static void drawWindow(int i, int len) {
+        int start = 0;
+        int end = 0;
+                
+        if (len > end - start) {
+            
+            start = i - (len - 1) / 2;
+            end = i + (len) / 2; 
+        }
+        System.out.println("start:" + start + " , end:" + end);
+    }
+
 }
