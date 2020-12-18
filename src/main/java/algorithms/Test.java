@@ -5,26 +5,46 @@
  */
 package algorithms;
 
+import java.util.Stack;
+
 /**
  *
  * @author ASUS
  */
 public class Test {
     public static void main(String[] args) {
+         Stack<String> stackStuff = new Stack();
+          
+         stackStuff.add("kitap");
+         stackStuff.add("elbise");
+         stackStuff.add("ayna");
+         
        
-        drawWindow(3, 3);
-    } 
+         Stack<String> stackFruit = new Stack();
+          
+         stackFruit.add("karpuz");
+         stackFruit.add("ceviz");
+         stackFruit.add("muz");
+         
+         
+         
+         Stack<Stack> matryoshka = new Stack();
 
-    private static void drawWindow(int i, int len) {
-        int start = 0;
-        int end = 0;
-                
-        if (len > end - start) {
+            matryoshka.add(stackStuff);
+            matryoshka.add(stackFruit);
             
-            start = i - (len - 1) / 2;
-            end = i + (len) / 2; 
-        }
-        System.out.println("start:" + start + " , end:" + end);
-    }
-
+            
+          Stack<String> stack;
+         
+          while(!matryoshka.empty()){
+             stack = matryoshka.pop();
+              
+             while(!stack.empty()){
+                   String objectName = stack.pop();
+                   System.out.println(objectName);
+                }
+             
+         }
+         
+     } 
 }
