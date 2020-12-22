@@ -45,7 +45,7 @@ public class AddTwoNumbers {
         
         LinkedList linkedList = new LinkedList();
         linkedList.head = result;
-        LinkedList.printList(linkedList);
+        LinkedList.traverse(LinkedList.head);
     }
 }
  
