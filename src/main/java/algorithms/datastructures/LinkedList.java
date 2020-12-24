@@ -1,8 +1,10 @@
-package algorithms;
+package algorithms.datastructures;
  
+import algorithms.datastructures.ListNode;
+
 public class LinkedList {
 
-    static ListNode head;
+   public static ListNode head;
 
     static void insert(ListNode newNode) {
         ListNode pointer = head;
@@ -51,7 +53,7 @@ public class LinkedList {
    
 
     
-     static void traverse(ListNode head) {
+     public static void traverse(ListNode head) {
         if(head!=null){
              ListNode pointer = head;
         

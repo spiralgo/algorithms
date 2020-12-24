@@ -1,22 +1,22 @@
-package algorithms;
+package algorithms.datastructures;
 
 public class ListNode {
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
    
-    ListNode() {}
+    public ListNode() {}
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+   public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
  
-    ListNode append(int nextVal){
+    public ListNode append(int nextVal){
         ListNode next = new ListNode(nextVal);
         
         this.next = next;

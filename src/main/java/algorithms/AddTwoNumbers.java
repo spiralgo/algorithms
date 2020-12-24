@@ -1,5 +1,8 @@
 package algorithms;
 
+import algorithms.datastructures.LinkedList;
+import algorithms.datastructures.ListNode;
+
 public class AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode theFirstLinkedList, ListNode theSecondLinkedList) {

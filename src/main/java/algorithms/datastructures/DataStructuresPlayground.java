@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algorithms;
+package algorithms.datastructures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.HashMap;
  *
  * @author ASUS
  */
-public class DataStructures {
+public class DataStructuresPlayground {
     
     public static void main(String[] args) {
         
