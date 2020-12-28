@@ -213,5 +213,15 @@ public class BinaryTree {
         System.out.print(" " + value);        
     }
     
-
+    public static void main(String[] args) {
+        Node current = new Node(3);
+        
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.addRecursive(current, 5);
+        binaryTree.addRecursive(current, 2); 
+        
+        //binaryTree.traverseInOrder(current);
+        binaryTree.traversePreOrder(current);
+      
+    }
 }

@@ -33,18 +33,16 @@ public class AddTwoNumbers {
 
     public static void main(String[] args) {
 
-        ListNode theFirstLinkedList = new ListNode(2);
-        theFirstLinkedList.append(4).append(3);
-
-        ListNode theSecondLinkedList = new ListNode(5);
-     
-
-        AddTwoNumbers a = new AddTwoNumbers();
-
-        ListNode result = a.addTwoNumbers(theFirstLinkedList, theSecondLinkedList);
-
-        LinkedList linkedList = new LinkedList();
-        linkedList.head = result;
-        LinkedList.traverse(LinkedList.head);
+        ListNode preadvise = new ListNode(2);
+       
+        preadvise.append(4).append(5).next =  new ListNode(9);
+       
+        preadvise.next.append(77);
+ 
+    
+         LinkedList.traverse(preadvise);
+ 
+ 
+ 
     }
 }
