@@ -3,13 +3,13 @@ package algorithms;
 import java.util.HashMap;
 import java.util.Stack;
 
-class ValidParentheses {
+class Solution {
 
   // Hash table that takes care of the mappings.
   private HashMap<Character, Character> mappings;
 
   // Initialize hash map with mappings. This simply makes the code easier to read.
-  public ValidParentheses() {
+  public Solution() {
     this.mappings = new HashMap<Character, Character>();
     this.mappings.put(')', '(');
     this.mappings.put('}', '{');
