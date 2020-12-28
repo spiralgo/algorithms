@@ -227,8 +227,13 @@ public class BinaryTree {
         binaryTree.add(6);
         binaryTree.add(8); 
         binaryTree.add(9);
-        //binaryTree.traverseInOrder(current);
-        
+       
+          System.out.println("preorder");
+
+        binaryTree.traversePreOrder(binaryTree.root);
+       
+         System.out.println("");
+         System.out.println("levelorder");
         binaryTree.traverseLevelOrder();
       
     }
