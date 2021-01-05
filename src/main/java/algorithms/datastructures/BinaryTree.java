@@ -152,21 +152,20 @@ public class BinaryTree {
     public void traverseInOrderWithoutRecursion() {
         Stack<Node> stack = new Stack<Node>();
         Node current = root;
-        stack.push(root);
-        while(! stack.isEmpty()) {
-            while(current.left != null) {
+       
+        while(current != null || !stack.isEmpty()) {
+            while(current!= null) {
+                stack.push(current); 
                 current = current.left;                
-                stack.push(current);                
             }
             current = stack.pop();
             visit(current.value);
-            if(current.right != null) {
-                current = current.right;                
-                stack.push(current);
-            }
+     
+            current = current.right;                
+            
         }
     }
-    
+     
     public void traversePreOrderWithoutRecursion() {
         Stack<Node> stack = new Stack<Node>();
         Node current = root;
@@ -188,7 +187,7 @@ public class BinaryTree {
         Node prev = root;
         Node current = root;
         stack.push(root);
-
+        
         while (!stack.isEmpty()) {
             current = stack.peek();
             boolean hasChild = (current.left != null || current.right != null);
@@ -228,13 +227,7 @@ public class BinaryTree {
         binaryTree.add(8); 
         binaryTree.add(9);
        
-          System.out.println("preorder");
-
-        binaryTree.traversePreOrder(binaryTree.root);
-       
-         System.out.println("");
-         System.out.println("levelorder");
-        binaryTree.traverseLevelOrder();
       
+        binaryTree.traversePostOrderWithoutRecursion();
     }
 }

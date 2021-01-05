@@ -4,7 +4,7 @@ package algorithms;
  *
  * @author ASUS
  */
-public class FactorialRecurive {
+public class FactorialRecursive {
     static int factorial(int n){    
   if (n == 0)    
     return 1;    
