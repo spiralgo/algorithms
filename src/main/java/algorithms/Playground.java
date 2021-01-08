@@ -1,22 +1,16 @@
 package algorithms;
 
-import java.util.Stack;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class Playground {
     public static void main(String[] args) {
-       Stack vp = new Stack();
-       
-       vp.add("{");
-       vp.add("[");
-       vp.add("(");
-       
-       StringBuilder sb = new StringBuilder();
-       
-       while(!vp.empty()){
-           sb.append(vp.pop()).append(", ");     
-       }
-       
-        System.out.println(sb.toString());
+       HashSet<Integer> linkedHashSet = new  HashSet<Integer>();
+       linkedHashSet.add(1);
+       linkedHashSet.add(2);
+       linkedHashSet.add(3);
+       linkedHashSet.add(4); 
+       System.out.println(linkedHashSet.toString());
     } 
 }
 
