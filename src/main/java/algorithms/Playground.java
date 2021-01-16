@@ -1,7 +1,6 @@
 package algorithms;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.HashSet; 
 
 public class Playground {
     public static void main(String[] args) {

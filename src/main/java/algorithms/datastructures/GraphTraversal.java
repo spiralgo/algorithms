@@ -50,6 +50,6 @@ public class GraphTraversal {
         graph= graph.createGraph();
         
        ;
-        System.out.println(depthFirstTraversal(graph, "Bob").toString());
+        System.out.println(depthFirstTraversal(graph, "1").toString());
     }
 }
