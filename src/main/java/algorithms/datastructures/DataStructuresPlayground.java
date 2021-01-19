@@ -1,12 +1,12 @@
 package algorithms.datastructures;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashMap; 
+import java.util.Map;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.LinkedList;
 
-/**
- *
- * @author ASUS
- */
 public class DataStructuresPlayground {
     
     public static void main(String[] args) {
@@ -20,8 +20,14 @@ public class DataStructuresPlayground {
         hashMap.put("elma", "gerçek elma");
         hashMap.put("armut", "gerçek armut");
         hashMap.put("muz", "gerçek muz");
+      
         
-        System.out.println(hashMap.get("armut"));
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + ":" + value);
+        }
+        
         
         //ARRAYLIST
           ArrayList<String> arrayList = new ArrayList<String>();
@@ -29,10 +35,33 @@ public class DataStructuresPlayground {
           arrayList.add("gerçek armut");
           arrayList.add("gerçek muz");
           
+          
+          
           System.out.println(arrayList.get(1));
           
-         
           
+          System.out.println("Stack:");
+          Stack<String> stack = new Stack<>();
+          stack.add("9");
+          stack.add("8");
+          stack.add("1");
+          stack.add("3");
+          
+
+          Stack<String> stackTemp  = (Stack<String>) stack.clone();
+          while (!stackTemp.empty()) {            
+              System.out.println(stackTemp.pop());
+        }
+         System.out.println(stack.toString());
+          
+          Queue<String> queue  =   new LinkedList<String>(); 
+          queue.add("5");
+          queue.add("6");
+          queue.add("7");
+          queue.add("8");
+        
+         System.out.println(queue.toString());
+
         
     }
 }
