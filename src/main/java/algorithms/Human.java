@@ -6,6 +6,13 @@ public class Human {
  String gender;
  int age;
  
+ Human(){}
+ 
+ Human(String name, String gender, int age){
+     this.name = name;
+     this.gender = gender;
+     this.age = age;
+ }
  void talk(String thought){
      System.out.println(thought);
  }
@@ -16,25 +23,27 @@ public class Human {
      
      return thought;
  }
- public static void main(String[] args) {
-      Human adem = new Human();
-      adem.name = "Adem";
-      adem.gender = "Erkek";
-      adem.age = 30;
-      
-      String thought = adem.createThought(adem);
-      adem.talk(thought);
+  static void createThoughtAndTalk(Human insan){
+     String thought = "Merhaba. Benim adim "+ insan.name 
+                     + ". Cinsiyetim: " + insan.gender + ". Yasim: " +  insan.age;
      
-      Human havva = new Human();
+      System.out.println(thought);
+ }
+ public static void main(String[] args) {
+      Human adem = new Human("Adem", "Erkek", 30);
+      Human havva = new Human("Havva", "Kadin", 30);
+      Human habil = new Human("Habil", "Erkek", 18);
+      Human kabil = new Human("Kabil", "Erkek", 18);
+      Human kabile = new Human("Kabile", "Kadin", 18);   
       
-      
-      havva.name = "Havva";
-      havva.gender = "Kad?n";
-      havva.age = 30;
-      
-      thought = adem.createThought(havva);
-      havva.talk(thought);
+      Human[] humanity = new Human[5];
+       
+      humanity = new Human[] { adem, havva, habil, kabil, kabile};
     
-}
+     
+        for (int counter = 0; counter < humanity.length; counter++) {
+            createThoughtAndTalk(humanity[counter]);
+        }
+ }
     
 }
