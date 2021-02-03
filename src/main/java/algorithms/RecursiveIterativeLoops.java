@@ -8,15 +8,23 @@ public class RecursiveIterativeLoops {
         if(n<0) return;
         
         recursive(n-1);
-        System.out.println(n + "");
+        System.out.println(n);
        
     }
-    static void iterative(int n){
+    static void iterativeFor(int n){
         for (int i = 0; i<=n; i++) {
-            System.out.println(i + "");
+            System.out.println(i);
         }
     }
-    
+ 
+    static void iterativeWhile(int n){
+         int i = 0;
+      
+         while (i<=n) {
+           System.out.println(i);
+           i++;
+        }
+    }
     static void withStack(int n){
          
           Stack<Integer> stack = new Stack<Integer>();
@@ -32,7 +40,7 @@ public class RecursiveIterativeLoops {
      
     }
     public static void main(String[] args) {
-        withStack(5);
+        iterativeWhile(5);
     }
     
 }

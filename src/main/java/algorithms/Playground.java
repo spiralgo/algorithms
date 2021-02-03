@@ -1,15 +1,22 @@
 package algorithms;
-
-import java.util.HashSet; 
-
+ 
 public class Playground {
+    
+   static void add(int a, int b){
+        int result = a + b;
+        
+        System.out.println(result);
+    }
+    
     public static void main(String[] args) {
-       HashSet<Integer> linkedHashSet = new  HashSet<Integer>();
-       linkedHashSet.add(1);
-       linkedHashSet.add(2);
-       linkedHashSet.add(3);
-       linkedHashSet.add(4); 
-       System.out.println(linkedHashSet.toString());
+        if(true){
+            System.out.println("1");
+        }else if(false){
+            System.out.println("2");
+        }else {
+             System.out.println("3");
+        }
+       
     } 
 }
 

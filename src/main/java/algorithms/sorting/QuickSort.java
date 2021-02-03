@@ -1,13 +1,11 @@
 package algorithms.sorting;
 // Watch: https://www.youtube.com/watch?v=Hoixgm4-P4M
+
+import java.util.Arrays;
+
 class QuickSort 
 { 
-	/* This function takes last element as pivot, 
-	places the pivot element at its correct 
-	position in sorted array, and places all 
-	smaller (smaller than pivot) to left of 
-	pivot and all greater elements to right 
-	of pivot */
+ 
 	int partition(int arr[], int low, int high) 
 	{ 
 		int pivot = arr[high]; 
@@ -54,16 +52,8 @@ class QuickSort
 		} 
 	} 
 
-	/* A utility function to print array of size n */
-	static void printArray(int arr[]) 
-	{ 
-		int n = arr.length; 
-		for (int i=0; i<n; ++i) 
-			System.out.print(arr[i]+" "); 
-		System.out.println(); 
-	} 
-
-	// Driver program 
+ 
+ 
 	public static void main(String args[]) 
 	{ 
 		int arr[] = {10, 7, 8, 9, 1, 5}; 
@@ -72,8 +62,8 @@ class QuickSort
 		QuickSort ob = new QuickSort(); 
 		ob.sort(arr, 0, n-1); 
 
-		System.out.println("sorted array"); 
-		printArray(arr); 
+		System.out.println("sorted array:" + Arrays.toString(arr)); 
+		
 	} 
 } 
  
