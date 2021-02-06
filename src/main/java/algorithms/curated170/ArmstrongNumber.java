@@ -10,9 +10,8 @@ public class ArmstrongNumber {
            // Modulo 10 gives us the last digit
            // Add digit ^ k to the result
            result += Math.pow(N % 10, k);
-
-           // Remove the last digit.
-           N /= 10;
+            // Remove the last digit.
+           N = N / 10;
        }
        return result;
     }
@@ -22,5 +21,13 @@ public class ArmstrongNumber {
 
         // Return true if Sum of k'th power of digits equals original number.
         return getSumOfKthPowerOfDigits(N, length) == N;
+    }
+    
+    public static void main(String[] args) {
+        ArmstrongNumber armstrongNumber = new ArmstrongNumber();
+        boolean result = armstrongNumber.isArmstrong(1);
+        
+        System.out.println(result);
+        
     }
 }
