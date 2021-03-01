@@ -1,6 +1,6 @@
 package algorithms;
 
-public class Human {
+public class Human implements InterfaceAnimal {
 
  String name;
  String gender;
@@ -45,5 +45,9 @@ public class Human {
             createThoughtAndTalk(humanity[counter]);
         }
  }
+ 
+ public void reproduce() {
+        System.out.println("insan uremesi");
+    }
     
 }

@@ -1,35 +1,27 @@
-package algorithms;
-
-import java.util.Arrays;
+package algorithms; 
+ 
+import algorithms.datastructures.Node;
 
 public class Playground {
-
     public static void main(String[] args) {
-        int[][] in = {{1, 2},
-        {0, 2}};
-
-        int low = in.length - 1;
-        int high = in.length-1;
-
-        while (high > 0) {
-            while (high > low && in[low][0]>0) {                
-                low--;
-            }
-                
-           while (in[high][0]>0) {                
-                high--;
-            }
-            in[low][0] = in[high][0];
-            in[high][0] = 0;
-        }
-        printArray(in);
+          Node node = new Node(1);
+          node.left = new Node(2);
+          Node node3 = new Node(3);
+          node3.left = new Node(4);
+          node3.right = new Node(5);
+          node.right = node3;
+  
+         preOrder(node);
     }
-
-    static void printArray(int[][] in) {
-        for (int i = 0; i < in.length; i++) {
-            System.out.println(Arrays.toString(in[i]));
-            System.out.println();
-        }
+   
+   static void preOrder(Node node){
+        if(node == null) 
+            return;
+        
+        System.out.println(node.value);
+        preOrder(node.left); 
+        preOrder(node.right);
+         
     }
-
+    
 }

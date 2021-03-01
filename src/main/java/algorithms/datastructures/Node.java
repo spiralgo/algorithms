@@ -1,12 +1,12 @@
 package algorithms.datastructures;
 
-class Node {
+public class Node {
 
-    int value;
-    Node left;
-    Node right;
+    public int value;
+    public Node left;
+    public Node right;
 
-    Node(int value) {
+    public Node(int value) {
         this.value = value;
         right = null;
         left = null;
