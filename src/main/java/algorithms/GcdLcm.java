@@ -1,9 +1,5 @@
 package algorithms;
 
-/**
- *
- * @author tunah
- */
 public class GcdLcm { 
  
     public static void main(String[] args) {
