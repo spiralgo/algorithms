@@ -1,82 +1,97 @@
 package algorithms;
 
-import java.util.Arrays;
-import java.util.Comparator; 
+import java.util.HashMap;
+import java.util.Map;
  
+// A class to represent a disjoint set
 class DisjointSet
 {
-    private int[] parent = null;
-  
+    private Map<Integer, Integer> parent = new HashMap();
+ 
+    // stores the depth of trees
+    private Map<Integer, Integer> rank = new HashMap();
+ 
+    // perform MakeSet operation
+    public void makeSet(int[] universe)
+    {
+        // create `n` disjoint sets (one for each item)
+        for (int i: universe)
+        {
+            parent.put(i, i);
+            rank.put(i, 0);
+        }
+    }
+ 
+    // Find the root of the set in which element `k` belongs
     public int find(int k)
     {
-       
-        if (parent[k] != k)
+        // if `k` is not the root
+        if (parent.get(k) != k)
         {
-            parent[k] = find(parent[k]);
+            // path compression
+            parent.put(k, find(parent.get(k)));
         }
  
-        return parent[k];
+        return parent.get(k);
     }
-    
-    int count;
-  
+ 
+    // Perform Union of two subsets
     public void union(int a, int b)
     {
- 
+        // find the root of the sets in which elements
+        // `x` and `y` belongs
         int x = find(a);
         int y = find(b);
-  
+ 
+        // if `x` and `y` are present in the same set
         if (x == y) {
             return;
         }
  
-        count--;
-       
- 
-          parent[x] = y;
-            
-       
+        // Always attach a smaller depth tree under the
+        // root of the deeper tree.
+        if (rank.get(x) > rank.get(y)) {
+            parent.put(y, x);
+        }
+        else if (rank.get(x) < rank.get(y)) {
+            parent.put(x, y);
+        }
+        else {
+            parent.put(x, y);
+            rank.put(y, rank.get(y) + 1);
+        }
     }
     
+      public static void printSets(int[] universe, DisjointSet ds)
+    {
+        for (int i: universe) {
+            System.out.print(ds.find(i) + " ");
+        }
  
+        System.out.println();
+    }
  
     public static void main(String[] args)
     {
-          int[][] logs = {{3,0,3},{4,1,2},{0,2,0},{2,0,2},{8,0,3},{1,0,1},{5,1,2},{7,3,1},{6,1,0},{9,3,0}};
-;
-         DisjointSet ds = new DisjointSet();
-         System.out.println("all friends" + ds.earliestAcq(logs, 4));
+        // universe of items
+        int[] universe = { 1, 2, 3, 4, 5 };
+ 
+        // initialize `DisjointSet` class
+        DisjointSet ds = new DisjointSet();
+ 
+        // create a singleton set for each element of the universe
+        ds.makeSet(universe);
+        printSets(universe, ds);
+ 
+        ds.union(4, 3);        // 4 and 3 are in the same set
+        printSets(universe, ds);
+ 
+        ds.union(2, 1);        // 1 and 2 are in the same set
+        printSets(universe, ds);
+ 
+        ds.union(1, 3);        // 1, 2, 3, 4 are in the same set
+        printSets(universe, ds);
     }
-    
-        public int earliestAcq(int[][] logs, int N) {
-             parent = new int[N];
-              Arrays.sort(
-                logs,
-                new Comparator<int[]>() {
-            @Override
-            public int compare(int[] a, int[] b) {
-            return ((Integer) a[0]).compareTo(b[0]);
-
-            }
-        });
-            
-    
-            for (int i = 0; i < N; i++) {
-                   parent[i]= i; 
-            }
-         count = N; 
-  
-        for(int[] friendship: logs){
-             union(friendship[1], friendship[2]);       
-             
-               if(count == 1){
-           
-                return friendship[0];
-               } 
-        }
-         return -1;
-        }
-        
 }
  
  

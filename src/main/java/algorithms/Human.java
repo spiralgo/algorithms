@@ -1,6 +1,6 @@
 package algorithms;
 
-public class Human implements InterfaceAnimal {
+public class Human extends LivingThing {
 
  String name;
  String gender;
@@ -30,24 +30,28 @@ public class Human implements InterfaceAnimal {
       System.out.println(thought);
  }
  public static void main(String[] args) {
-      Human adem = new Human("Adem", "Erkek", 30);
-      Human havva = new Human("Havva", "Kadin", 30);
-      Human habil = new Human("Habil", "Erkek", 18);
-      Human kabil = new Human("Kabil", "Erkek", 18);
-      Human kabile = new Human("Kabile", "Kadin", 18);   
+      Animal adem = new Human("Adem", "Erkek", 30);
+      Animal havva = new Human("Havva", "Kadin", 30);
+      Animal habil = new Human("Habil", "Erkek", 18);
+      Animal kabil = new Human("Kabil", "Erkek", 18);
+      Animal kabile = new Human("Kabile", "Kadin", 18);   
       
-      Human[] humanity = new Human[5];
+      Animal[] humanity = new Animal[5];
        
-      humanity = new Human[] { adem, havva, habil, kabil, kabile};
+      humanity = new Animal[] { adem, havva, habil, kabil, kabile};
     
      
         for (int counter = 0; counter < humanity.length; counter++) {
-            createThoughtAndTalk(humanity[counter]);
+            Human human = (Human) humanity[counter];
+            human.reproduce();
+            human.breath();
+            createThoughtAndTalk(human);
         }
  }
- 
- public void reproduce() {
-        System.out.println("insan uremesi");
-    }
+
+ String getName(){
+     return name;
+ }
+   
     
 }
