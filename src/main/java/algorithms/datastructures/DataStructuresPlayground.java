@@ -12,14 +12,14 @@ public class DataStructuresPlayground {
     public static void main(String[] args) {
         
         // ARRAY
-        String[] arrayString = new String[]{"gerçek elma", "gerçek armut", "gerçek muz"};
+        String[] arrayString = new String[]{"gerï¿½ek elma", "gerï¿½ek armut", "gerï¿½ek muz"};
         System.out.println(arrayString[1]);
         
         // HASHMAP
         HashMap<String, String> hashMap = new  HashMap<String, String>();
-        hashMap.put("elma", "gerçek elma");
-        hashMap.put("armut", "gerçek armut");
-        hashMap.put("muz", "gerçek muz");
+        hashMap.put("elma", "gerï¿½ek elma");
+        hashMap.put("armut", "gerï¿½ek armut");
+        hashMap.put("muz", "gerï¿½ek muz");
       
         
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -31,9 +31,9 @@ public class DataStructuresPlayground {
         
         //ARRAYLIST
           ArrayList<String> arrayList = new ArrayList<String>();
-          arrayList.add("gerçek elma");
-          arrayList.add("gerçek armut");
-          arrayList.add("gerçek muz");
+          arrayList.add("gerÃ§ek elma");
+          arrayList.add("gerÃ§ek armut");
+          arrayList.add("gerÃ§ek muz");
           
           
           
