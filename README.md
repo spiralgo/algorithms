@@ -157,7 +157,80 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
     	 
  [Strobogrammatic Number II](https://github.com/altayhunoglu/algorithms/issues/57)
     		 
- 
+  
+ [The Maze II](https://github.com/altayhunoglu/algorithms/issues/56)	
+    
+ [Binary Tree Longest Consecutive Sequence](https://github.com/altayhunoglu/algorithms/issues/58)
+   	
+ [Max Consecutive Ones II](https://github.com/altayhunoglu/algorithms/issues/59)
+  
+ [Factor Combinations](https://github.com/altayhunoglu/algorithms/issues/60)	
+    		
+ [Maximum Size Subarray Sum Equals k](https://github.com/altayhunoglu/algorithms/issues/61)
+    	
+ [Binary Tree Longest Consecutive Sequence II](https://github.com/altayhunoglu/algorithms/issues/62)
+    
+ [Binary Tree Vertical Order Traversal](https://github.com/altayhunoglu/algorithms/issues/63)
+    	
+ [Meeting Rooms II](https://github.com/altayhunoglu/algorithms/issues/64)
+    
+ [Bomb Enemy](https://github.com/altayhunoglu/algorithms/issues/65)
+    	
+ [Sentence Similarity II](https://github.com/altayhunoglu/algorithms/issues/66)
+    	
+ [Flatten 2D Vector](https://github.com/altayhunoglu/algorithms/issues/67)	
+    	
+ [Verify Preorder Sequence in Binary Search Tree](https://github.com/altayhunoglu/algorithms/issues/68)
+    	
+ [Longest Line of Consecutive One in Matrix](https://github.com/altayhunoglu/algorithms/issues/69)
+    	
+ [Reverse Words in a String II](https://github.com/altayhunoglu/algorithms/issues/70)
+    	
+ [Longest Substring with At Most K Distinct Characters](https://github.com/altayhunoglu/algorithms/issues/71)	
+    
+ [Add Bold Tag in String](https://github.com/altayhunoglu/algorithms/issues/73)	
+    		
+ [Closest Leaf in a Binary Tree](https://github.com/altayhunoglu/algorithms/issues/74)	
+    		
+ [Word Pattern II](https://github.com/altayhunoglu/algorithms/issues/75)	
+    	
+ [Find the Celebrity](https://github.com/altayhunoglu/algorithms/issues/76)	
+     		
+ [Graph Valid Tree](https://github.com/altayhunoglu/algorithms/issues/77)
+    		
+ [Inorder Successor in BST](https://github.com/altayhunoglu/algorithms/issues/78)
+    		
+ [All Paths from Source Lead to Destination](https://github.com/altayhunoglu/algorithms/issues/78)	
+    	
+ [Boundary of Binary Tree](https://github.com/altayhunoglu/algorithms/issues/79)
+    	
+ [Maximum Distance in Arrays](https://github.com/altayhunoglu/algorithms/issues/80)
+    	
+ [Paint Fence](https://github.com/altayhunoglu/algorithms/issues/81)
+   	
+ [Largest BST Subtree](https://github.com/altayhunoglu/algorithms/issues/82)
+    	
+ [Palindrome Permutation II](https://github.com/altayhunoglu/algorithms/issues/83)	
+    		
+ [Minimum Knight Moves](https://github.com/altayhunoglu/algorithms/issues/84)
+    		
+ [Design Snake Game](https://github.com/altayhunoglu/algorithms/issues/85)
+    		
+ [One Edit Distance](https://github.com/altayhunoglu/algorithms/issues/86)
+    		
+ [Encode and Decode Strings](https://github.com/altayhunoglu/algorithms/issues/87)
+    		
+ [Insert into a Sorted Circular Linked List](https://github.com/altayhunoglu/algorithms/issues/88)
+   	
+ [Encode N-ary Tree to Binary Tree](https://github.com/altayhunoglu/algorithms/issues/89)
+    		
+ [Robot Room Cleaner](https://github.com/altayhunoglu/algorithms/issues/90)	
+    	
+ [Employee Free Time](https://github.com/altayhunoglu/algorithms/issues/91)	
+    	
+ [Number of Ships in a Rectangle](https://github.com/altayhunoglu/algorithms/issues/92)	
+    	
+
 
 
 
