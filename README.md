@@ -93,7 +93,71 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Dolayısı ile, her ne kadar çözüm uzun görünse de, aşağıdaki çözüm uygun:
  Approach 1: Minimum Spanning Tree (Using Kruskal's algorithm)
 
-
+ [Minimum Swaps to Group All 1's Together](https://github.com/altayhunoglu/algorithms/issues/25)
+    
+ [Design File System](https://github.com/altayhunoglu/algorithms/issues/26)
+   	 
+ [Longest Repeating Substring](https://github.com/altayhunoglu/algorithms/issues/27)
+   		 
+ [Group Shifted Strings](https://github.com/altayhunoglu/algorithms/issues/28)
+  		 
+ [Remove Interval](https://github.com/altayhunoglu/algorithms/issues/29)
+   		 
+ [Number of Distinct Islands](https://github.com/altayhunoglu/algorithms/issues/30)
+    		 
+ [Number of Connected Components in an Undirected Graph](https://github.com/altayhunoglu/algorithms/issues/31)
+    		 
+ [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
+    	 
+ [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
+    		 
+ [Ternary Expression Parser](https://github.com/altayhunoglu/algorithms/issues/34)
+    	 
+ [Walls and Gates](https://github.com/altayhunoglu/algorithms/issues/35)
+    	 
+ [Shortest Word Distance III](https://github.com/altayhunoglu/algorithms/issues/36)
+    	 
+ [Design Tic-Tac-Toe](https://github.com/altayhunoglu/algorithms/issues/37)
+    		 
+ [Missing Element in Sorted Array](https://github.com/altayhunoglu/algorithms/issues/38)
+     
+ [Find the Index of the Large Integer](https://github.com/altayhunoglu/algorithms/issues/39)
+    		 
+ [Meeting Scheduler](https://github.com/altayhunoglu/algorithms/issues/40)
+    		 
+ [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/41)
+    	 
+ [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/42)
+    	 
+ [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
+     
+ [Paint House](https://github.com/altayhunoglu/algorithms/issues/44)
+    		 
+ [Shortest Distance to Target Color](https://github.com/altayhunoglu/algorithms/issues/45)
+  		 
+ [Count Univalue Subtrees](https://github.com/altayhunoglu/algorithms/issues/46)
+    		 
+ [4 Keys Keyboard](https://github.com/altayhunoglu/algorithms/issues/47)
+    		 	
+ [The Maze](https://github.com/altayhunoglu/algorithms/issues/48)
+    	 
+ [Construct Binary Tree from String](https://github.com/altayhunoglu/algorithms/issues/49)
+    		 
+ [Path With Maximum Minimum Value](https://github.com/altayhunoglu/algorithms/issues/50)
+    		 
+ [Longest Substring with At Most Two Distinct Characters](https://github.com/altayhunoglu/algorithms/issues/51)
+    		 
+ [Sort Transformed Array](https://github.com/altayhunoglu/algorithms/issues/51)
+    		 	
+ [First Unique Number](https://github.com/altayhunoglu/algorithms/issues/53)
+    		 
+ [Leftmost Column with at Least a One](https://github.com/altayhunoglu/algorithms/issues/54)
+    	 
+ [3Sum Smaller](https://github.com/altayhunoglu/algorithms/issues/55)
+    	 
+ [Strobogrammatic Number II](https://github.com/altayhunoglu/algorithms/issues/57)
+    		 
+ 
 
 
 
