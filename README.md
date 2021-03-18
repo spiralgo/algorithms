@@ -83,6 +83,15 @@ Approach 1: Sentinel Head + Textbook Addition.
 Burada kuyruk kullanılan Approach 2: Queue of Pointers, daha anlaşılır ve profesyonel görünüyor. 
 
 
+[1135. Connecting Cities With Minimum Cost](https://github.com/altayhunoglu/algorithms/issues/24)
+
+Bu gibi minimum-maksimum istenen sorularda genellik Greedy strateji uygulanır. Yani, neticenin gerçekten de maksimum-minimum olup olmadığına bakılmaksızın, yerel olarak
+eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
+ Böyle yol sorularında standart olarak Kruskal algoritması kullanılır. Kruskal bize çok yabancı gelmeyecektir çünkü kendi içinde "arkadaş grubu" probleminden hatırladığımız 
+ Union-Find veriyapısını kullanıyor.
+ 
+ Dolayısı ile, her ne kadar çözüm uzun görünse de, aşağıdaki çözüm uygun:
+ Approach 1: Minimum Spanning Tree (Using Kruskal's algorithm)
 
 
 
