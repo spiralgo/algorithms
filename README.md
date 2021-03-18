@@ -78,6 +78,11 @@ Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çöz
 Bu soruda standart çözüm gayet uygun ve anlaşılır görünüyor:
 Approach 1: Sentinel Head + Textbook Addition.
 
+[281. Zigzag Iterator](https://github.com/altayhunoglu/algorithms/issues/23)
+
+Burada kuyruk kullanılan Approach 2: Queue of Pointers, daha anlaşılır ve profesyonel görünüyor. 
+
+
 
 
 
