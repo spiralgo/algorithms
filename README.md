@@ -24,6 +24,18 @@ Buradaki çözümü tam olarak kavrayıp, bu notu geliştireceğiz.
  Böyle bir düşünce şekline nasıl vardığını anlamak gerek.
 
 
+[1087. Brace Expansion](https://github.com/altayhunoglu/algorithms/issues/14)
+
+Şuradaki çözüm uygun görünüyor:
+https://leetcode.com/problems/brace-expansion/discuss/312361/Java-DFS
+
+Bu çözüm vesilesi ile TreeSet veri yapısı öğrenilmeli.
+
+[426. Convert Binary Search Tree to Sorted Doubly Linked List](https://github.com/altayhunoglu/algorithms/issues/15)
+
+Bunu tam da düşündüğümüz gibi, Inoder rekürsif kullanarak çözmüş. Çünkü inorder zâten bir Binary Tree'ye, küçükten büyüğe sıralayarak veriyor.
+Çözüm gayet akla yatkın.
+
 [1245. Tree Diameter](https://github.com/altayhunoglu/algorithms/issues/16)
 
 Daha önce bunun altyapısı gibi düşünülebilecek, kısmen daha kolay bir soru olan "1522. Diameter of N-Ary Tree" çözmüştük.
