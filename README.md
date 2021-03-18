@@ -68,7 +68,7 @@ Burada "Approach #2 Better Retrieval" performans bakımından daha iyi olduğund
 [531. Lonely Pixel I ](https://github.com/altayhunoglu/algorithms/issues/21)
 Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çözümde, iki yöntem belirtilmiş. İkinci yöntem daha az yer kapladığı için onu seçtik.
 
-[369. Plus One Linked List] (https://github.com/altayhunoglu/algorithms/issues/22)
+[369. Plus One Linked List](https://github.com/altayhunoglu/algorithms/issues/22)
 Bu soruda standart çözüm gayet uygun ve anlaşılır görünüyor:
 Approach 1: Sentinel Head + Textbook Addition.
 
