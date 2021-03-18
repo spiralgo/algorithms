@@ -59,6 +59,28 @@ Burada en çok oy alan çözümün altındaki, gözden geçirilmiş çözümü s
 Bu soruda Approach 1: Breadth-First Search (Kahn's Algorithm) çözümü gâyet uygun görünüyor.
  Bu vesîle ile Kahn algoritmasını da öğrenmiş olacağız.
 
+[510. Inorder Successor in BST II](https://github.com/altayhunoglu/algorithms/issues/19)
+Bu soruda, "solution" kısmında verilen "Approach 1: Iteration" gayet anlaşılır görünüyor.
+
+[635. Design Log Storage System](https://github.com/altayhunoglu/algorithms/issues/20)
+Burada "Approach #2 Better Retrieval" performans bakımından daha iyi olduğundan ve TreeMap kullanımına dair yeni bir örnek olduğundan ötürü tercih edilmeli.
+
+[531. Lonely Pixel I ](https://github.com/altayhunoglu/algorithms/issues/21)
+Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çözümde, iki yöntem belirtilmiş. İkinci yöntem daha az yer kapladığı için onu seçtik.
+
+[369. Plus One Linked List] (https://github.com/altayhunoglu/algorithms/issues/22)
+Bu soruda standart çözüm gayet uygun ve anlaşılır görünüyor:
+Approach 1: Sentinel Head + Textbook Addition.
+
+
+
+
+
+
+
+
+ 
+
 
 
  
