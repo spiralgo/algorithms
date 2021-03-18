@@ -54,5 +54,12 @@ Diameter, ya alt node'larda çıkabilirdi veyâhud daha üst node'lardan. Hangis
 [1538. Guess the Majority in a Hidden Array](https://github.com/altayhunoglu/algorithms/issues/17)
 Burada en çok oy alan çözümün altındaki, gözden geçirilmiş çözümü submit ettim.
 İnceledikçe, buradaki notu güncelleyeceğim.
+
+[1136. Parallel Courses](https://github.com/altayhunoglu/algorithms/issues/18)
+Bu soruda Approach 1: Breadth-First Search (Kahn's Algorithm) çözümü gâyet uygun görünüyor.
+ Bu vesîle ile Kahn algoritmasını da öğrenmiş olacağız.
+
+
+
  
 
