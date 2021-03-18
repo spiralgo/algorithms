@@ -1,3 +1,6 @@
+Not: LeetCode'da en son submit edilmiş kodu geri yükleyebiliyorsun. Sağ üstte bunun için bir button var.
+
+
 [582. Kill Process:](https://github.com/altayhunoglu/algorithms/issues/10)
 
 Daha önce öğrendiklerimize dayanarak "Approach #3 HashMap + Depth First Search" çözümünün, bizim düşünce şeklimize daha uygun olduğu kanaatindeyim.
@@ -47,3 +50,9 @@ Bir yaprağın uzunluğunu sıfır olarak kabul edip, bunun üzerinden üstteki 
 Diameter, ya alt node'larda çıkabilirdi veyâhud daha üst node'lardan. Hangisi uzun ise (Math.max kullanarak) onu alıyorduk.
 
 İşte bu çözümü aynı şekilde uyguladığı için aşina olduğumuz "Approach 3: DFS (Depth-First Search)" çözümü incelenmelidir.
+
+[1538. Guess the Majority in a Hidden Array](https://github.com/altayhunoglu/algorithms/issues/17)
+Burada en çok oy alan çözümün altındaki, gözden geçirilmiş çözümü submit ettim.
+İnceledikçe, buradaki notu güncelleyeceğim.
+ 
+
