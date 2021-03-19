@@ -102,9 +102,11 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Approach 1: Minimum Spanning Tree (Using Kruskal's algorithm)
 
  [Minimum Swaps to Group All 1's Together](https://github.com/altayhunoglu/algorithms/issues/25)
-    
+ Bu soruda "Approach 1: Sliding Window with Two Pointers" çözümü gâyet uygun görünüyor. Önce pencere ile, en çok 1 içeren kısım bulunuyor. Bu, toplam 1 sayısından çıkarılıyor ve sonuç bulunuyor.
+
  [Design File System](https://github.com/altayhunoglu/algorithms/issues/26)
-   	 
+  Burada HashMap akla gelen ilk çözüm olduğu için, ilk çözüm önerisi olan "Approach 1: Dictionary for storing paths" gâyet makul görünüyor. 
+  
  [Longest Repeating Substring](https://github.com/altayhunoglu/algorithms/issues/27)
    		 
  [Group Shifted Strings](https://github.com/altayhunoglu/algorithms/issues/28)
