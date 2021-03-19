@@ -108,6 +108,7 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
   Burada HashMap akla gelen ilk çözüm olduğu için, ilk çözüm önerisi olan "Approach 1: Dictionary for storing paths" gâyet makul görünüyor. 
   
  [Longest Repeating Substring](https://github.com/altayhunoglu/algorithms/issues/27)
+ Burada "Approach 1: Binary Search + Hashset of Already Seen Strings" gayet anlaşılır görünüyor. Zâten ikinci çözümün de temeli bu. Üçüncüsü ise, şu ân için âcil olmayan bir formül öğretiyor. Buna vakit kaybetmek doğru görünmedi.
    		 
  [Group Shifted Strings](https://github.com/altayhunoglu/algorithms/issues/28)
   		 
