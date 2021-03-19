@@ -21,10 +21,17 @@ Zirâ, post-order'da root en son hesaplanır.
 En yüksek puanı almış olan çözüm, bana kalırsa da uygundur:
 https://leetcode.com/problems/range-addition/discuss/84217/Java-O(K-%2B-N)time-complexity-Solution
 
-Buradaki çözümü tam olarak kavrayıp, bu notu geliştireceğiz.
- Ama şimdilik verdiği örnekten anladığım kadarı ile, indeks aralığındaki tüm rakamlara o anki operasyonu uygulamak yerine, sâdece ilk indexe uyguluyor ve son index'ten bir fazlasına ise sonucun negatif hâlini ekliyor. Diğer operasyon için de farklı bir sonuç arrayi (res) yaratarak aynısını yapıyor.
- Son hamlede ise, soldan sağa toplayarak sonucu elde ediyor.
- Böyle bir düşünce şekline nasıl vardığını anlamak gerek.
+ Aslında anlayınca çok basit.
+ startIndex'i ve endIndex'i, bir tür işâretleme olarak kullanıyor aslında. Bu işaretler, en sonda işe yarayacak.
+ En sonda, bir dalganın daha sonraki dalgaları ileri doğru itmesi gibi; ilk sayıdan başlayarak son sayıya doğru bir dalga başlatıyor.
+ 
+  İşte, bu dalga, önüne aldığı her sayının gücünü aslında bir sonrakilere de aktarıyor.
+  Mesela, bir indexte "3" rakamına rastlamışsa, "3"ün gücünü ondan sonraki tüm rakamlara aktarmış oluyor.
+  İşte, (endIndex +1) numaralı indexe, "value" değerinin negatif hâlini atma sebebi de bu. 
+  Bu negatif değer de, dalga ile birlikte önündeki tüm indexlere gönderilecek.
+  Böylece, startIndex'ten gelen rakamın gücü, endIndex'ten sonraki tüm rakamlar için sıfırlanmış, pasifleşmiş olacak. 
+  Bu sayede sâdece startIndex ile endIndex arasına etki etmiş olacak.
+  Zâten istediği de bu idi.
 
 
 [1087. Brace Expansion](https://github.com/altayhunoglu/algorithms/issues/14)
