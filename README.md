@@ -111,6 +111,14 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Burada "Approach 1: Binary Search + Hashset of Already Seen Strings" gayet anlaşılır görünüyor. Zâten ikinci çözümün de temeli bu. Üçüncüsü ise, şu ân için âcil olmayan bir formül öğretiyor. Buna vakit kaybetmek doğru görünmedi.
    		 
  [Group Shifted Strings](https://github.com/altayhunoglu/algorithms/issues/28)
+ 
+ (Not: Bu sorunun çözüm mantığını daha iyi anlamak için başka bir soru olan "49. Group Anagrams" sorusunu incelemek faydalı olacaktır. Bu sorudaki temel çözüm mantığı, anagramları bir "anahtar" aracılığı ile gruplandırmaktı. Bu anahtar da, anagramın harflerinin küçükten büyüğe sıralanmış hâli olarak seçilmiş.)
+
+ Bu soru için, en çok oy alan çözümün altındaki ilk yorumda verilen çözüm uygun görünüyor. Çünkü açıklamasını yapmış ve kod çok sâde görünüyor.
+ Gene  "49. Group Anagrams" sorusunda olduğu gibi, kelîmeleri gruplandıracak bir anahtar aramış ve harflerin alfâbedeki sırasından yararlanarak bulmuş.
+ 
+O çözüm şuradaki "diddit" adlı yazarın yorumundadır:
+ https://leetcode.com/problems/group-shifted-strings/discuss/67442/My-Concise-JAVA-Solution
   		 
  [Remove Interval](https://github.com/altayhunoglu/algorithms/issues/29)
    		 
