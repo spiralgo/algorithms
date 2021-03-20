@@ -216,17 +216,23 @@ https://leetcode.com/problems/4-keys-keyboard/discuss/105980/Java-4-lines-recurs
 https://leetcode.com/problems/path-with-maximum-minimum-value/discuss/324923/Clear-Code-Dijkstra-Algorithm-(C%2B%2BJavaPythonGoPHP)
 
  [Longest Substring with At Most Two Distinct Characters](https://github.com/altayhunoglu/algorithms/issues/51)
-    		 
+    		 Bu tür sorular genelde pencere yöntemi ile çözülür. Dolayısı ile "Approach 1: Sliding Window" uygundur.
+
  [Sort Transformed Array](https://github.com/altayhunoglu/algorithms/issues/51)
-    		 	
+    		 	Şuradaki çözüm gayet yalın görünüyor:
+   https://leetcode.com/problems/sort-transformed-array/discuss/83322/Java-O(n)-incredibly-short-yet-easy-to-understand-AC-solution
  [First Unique Number](https://github.com/altayhunoglu/algorithms/issues/53)
-    		 
+    		Standart çözümdeki  "Approach 2: Queue and HashMap of Unique-Status" bu soruya uygun görünüyor.
+
  [Leftmost Column with at Least a One](https://github.com/altayhunoglu/algorithms/issues/54)
-    	 
+    Binary search bizim için tanıdık bir yöntem olduğundan	 "Approach 2: Binary Search Each Row" çözümü uygundur.
  [3Sum Smaller](https://github.com/altayhunoglu/algorithms/issues/55)
-    	 
+    	Standart çözümdeki  "Approach #3 (Two Pointers)" bu soru için uygun görünüyor.
+
  [Strobogrammatic Number II](https://github.com/altayhunoglu/algorithms/issues/57)
-    		 
+  
+  Şu başlıktaki çözüm gâyet yalın görünüyor:
+https://leetcode.com/problems/strobogrammatic-number-ii/discuss/67280/AC-clean-Java-solution
   
  [The Maze II](https://github.com/altayhunoglu/algorithms/issues/56)	
     
