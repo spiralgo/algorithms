@@ -157,8 +157,13 @@ https://leetcode.com/problems/ternary-expression-parser/discuss/92166/Very-easy-
  
     	 
  [Shortest Word Distance III](https://github.com/altayhunoglu/algorithms/issues/36)
-    	 
+  Şuradaki çözüm başlığında, "Java fast" başlığı ile gösterilen ikinci çözüm bize uygun görünüyor:
+https://leetcode.com/problems/shortest-word-distance-iii/discuss/67097/12-16-lines-Java-C%2B%2B
+
  [Design Tic-Tac-Toe](https://github.com/altayhunoglu/algorithms/issues/37)
+
+ Başlıkta da belirtildiği gibi gâyet sâde ve anlaşılır bir çözüm:
+https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solution-easy-to-understand
     		 
  [Missing Element in Sorted Array](https://github.com/altayhunoglu/algorithms/issues/38)
      
