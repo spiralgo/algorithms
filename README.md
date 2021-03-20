@@ -129,6 +129,10 @@ https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-lef
   Çözümler arasında en akla yatkın olanı "Approach 3: Hash By Path Signature" olduğu için buna odaklanalım.
 
  [Number of Connected Components in an Undirected Graph](https://github.com/altayhunoglu/algorithms/issues/31)
+  
+  En çok puan almış olan şu çözüm gayet anlaşılır görünüyor:
+  https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/discuss/77574/Easiest-2ms-Java-Solution
+
     		 
  [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
     	 
