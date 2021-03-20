@@ -247,17 +247,22 @@ https://leetcode.com/problems/strobogrammatic-number-ii/discuss/67280/AC-clean-J
 https://leetcode.com/problems/factor-combinations/discuss/68039/A-simple-java-solution
 
  [Maximum Size Subarray Sum Equals k](https://github.com/altayhunoglu/algorithms/issues/61)
-    	
+    	Şuradaki HashMap içeren çözüm gayet yalın ve anlaşılır:
+https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/discuss/77784/O(n)-super-clean-9-line-Java-solution-with-HashMap
  [Binary Tree Longest Consecutive Sequence II](https://github.com/altayhunoglu/algorithms/issues/62)
-    
+    "Approach #2 Single traversal" çözümü gayet anlaşılır ve hızlı.
+
  [Binary Tree Vertical Order Traversal](https://github.com/altayhunoglu/algorithms/issues/63)
-    	
+    	Diğer birçok Tree sorusunda olduğu gibi, burada da derinlik öncelikli arama "Approach 3: Depth-First Search (DFS)" daha uygun görünüyor.
+
  [Meeting Rooms II](https://github.com/altayhunoglu/algorithms/issues/64)
-    
+   Standar çözümdeki "Approach 2: Chronological Ordering" yaklaşımı, zannedersem aynı zamanda en çok puanı almış olan çözüm ile aynı mantığı izliyor.
+
  [Bomb Enemy](https://github.com/altayhunoglu/algorithms/issues/65)
-    	
+    	Burada "Approach 2: Dynamic Programming" yaklaşımı uygundur.
+
  [Sentence Similarity II](https://github.com/altayhunoglu/algorithms/issues/66)
-    	
+    	Burada bize union-find kullanımını hatırlatması açısından "Approach #2: Union-Find" yaklaşımı iyidir. Standart çözümde birkaç değişiklik gerekiyordu. Liste yerine array kullanılmıştı, onu düzelttik.
  [Flatten 2D Vector](https://github.com/altayhunoglu/algorithms/issues/67)	
     	
  [Verify Preorder Sequence in Binary Search Tree](https://github.com/altayhunoglu/algorithms/issues/68)
