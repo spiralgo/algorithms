@@ -103,7 +103,7 @@ eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
 
  [Minimum Swaps to Group All 1's Together](https://github.com/altayhunoglu/algorithms/issues/25)
  Bu soruda "Approach 1: Sliding Window with Two Pointers" çözümü gâyet uygun görünüyor. Önce pencere ile, en çok 1 içeren kısım bulunuyor. Bu, toplam 1 sayısından çıkarılıyor ve sonuç bulunuyor.
-
+  
  [Design File System](https://github.com/altayhunoglu/algorithms/issues/26)
   Burada HashMap akla gelen ilk çözüm olduğu için, ilk çözüm önerisi olan "Approach 1: Dictionary for storing paths" gâyet makul görünüyor. 
   
@@ -235,13 +235,18 @@ https://leetcode.com/problems/path-with-maximum-minimum-value/discuss/324923/Cle
 https://leetcode.com/problems/strobogrammatic-number-ii/discuss/67280/AC-clean-Java-solution
   
  [The Maze II](https://github.com/altayhunoglu/algorithms/issues/56)	
-    
+    Bunda da aynı şekilde ilk Maze (labirent) sorusunda yaptığımız gibi standart çözümdeki "Approach #1 Depth First Search" yöntemini seçelim.
+
  [Binary Tree Longest Consecutive Sequence](https://github.com/altayhunoglu/algorithms/issues/58)
-   	
+   	"Approach #2 (Bottom Up Depth-first Search)"dakine benzer bir çözümü "Tree Diameter" sorusunda kullandığımız için bu çözüm
+    
  [Max Consecutive Ones II](https://github.com/altayhunoglu/algorithms/issues/59)
-  
+   Bununla bağlantılı olan 1151. "Minimum Swaps to Group All 1's Together" sorusunda yaptığımız gibi, bunda da pencere yöntemini (Approach 2: Sliding Window) seçelim.
+
  [Factor Combinations](https://github.com/altayhunoglu/algorithms/issues/60)	
-    		
+    		İkinci en yüksek puanı almış olan çözüm, ilkinden çok daha hızlı:
+https://leetcode.com/problems/factor-combinations/discuss/68039/A-simple-java-solution
+
  [Maximum Size Subarray Sum Equals k](https://github.com/altayhunoglu/algorithms/issues/61)
     	
  [Binary Tree Longest Consecutive Sequence II](https://github.com/altayhunoglu/algorithms/issues/62)
