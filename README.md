@@ -188,12 +188,11 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
      Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
   Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 
-
  [Paint House](https://github.com/altayhunoglu/algorithms/issues/44)
-
-    		 Bu bir "Dynamic Programming" sorusudur.  "Dynamic Programming", bir problemin daha küçük parçaları için yapılan çözümleri hafızaya depolayıp, onu problemin diğer parçaları için de kullanmak olarak tanımlanabilir. Bunu anlamak için öncelikle  "Dynamic Programming" kullanılarak yapılan "faktöriyel" programı yazılabilir.
+ 
+ Bu bir "Dynamic Programming" sorusudur.  "Dynamic Programming", bir problemin daha küçük parçaları için yapılan çözümleri hafızaya depolayıp, onu problemin diğer parçaları için de kullanmak olarak tanımlanabilir. Bunu anlamak için öncelikle  "Dynamic Programming" kullanılarak yapılan "faktöriyel" programı yazılabilir.
         Bu bir  "Dynamic Programming" sorusu olduğundan bunun açıklamasını, "Solution" kısmında en altta yapmışlar. En alttaki çözüm bizim için de uygundur.
-
+ 
  [Count Univalue Subtrees](https://github.com/altayhunoglu/algorithms/issues/45)
   		 Approach 1: Depth First Search, bizim bakış açımıza gayet uygundur.
 
