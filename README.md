@@ -190,19 +190,31 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
 
 
  [Paint House](https://github.com/altayhunoglu/algorithms/issues/44)
-    		 
- [Shortest Distance to Target Color](https://github.com/altayhunoglu/algorithms/issues/45)
-  		 
- [Count Univalue Subtrees](https://github.com/altayhunoglu/algorithms/issues/46)
-    		 
+
+    		 Bu bir "Dynamic Programming" sorusudur.  "Dynamic Programming", bir problemin daha küçük parçaları için yapılan çözümleri hafızaya depolayıp, onu problemin diğer parçaları için de kullanmak olarak tanımlanabilir. Bunu anlamak için öncelikle  "Dynamic Programming" kullanılarak yapılan "faktöriyel" programı yazılabilir.
+        Bu bir  "Dynamic Programming" sorusu olduğundan bunun açıklamasını, "Solution" kısmında en altta yapmışlar. En alttaki çözüm bizim için de uygundur.
+
+ [Count Univalue Subtrees](https://github.com/altayhunoglu/algorithms/issues/45)
+  		 Approach 1: Depth First Search, bizim bakış açımıza gayet uygundur.
+
+ [Shortest Distance to Target Color](https://github.com/altayhunoglu/algorithms/issues/46)
+    		 "Approach 1: Binary Search" bizim için tanıdık bir konu olduğundan, bu çözüm iyidir.
+       
  [4 Keys Keyboard](https://github.com/altayhunoglu/algorithms/issues/47)
-    		 	
+    		 	Şurada dinamik programlama kullanılarak yapılan ikinci çözüm uygundur. Güzel bir şekilde açıklamış:
+https://leetcode.com/problems/4-keys-keyboard/discuss/105980/Java-4-lines-recursion-with-step-by-step-explanation-to-derive-DP
+
  [The Maze](https://github.com/altayhunoglu/algorithms/issues/48)
-    	 
+    	 Standart çözümde verilen "Approach 1: Depth First Search" bize uygun görünüyor.
+
+
  [Construct Binary Tree from String](https://github.com/altayhunoglu/algorithms/issues/49)
-    		 
+    		 Standart çözümde verilen "Approach 2: Stack" yöntemi, bu sorudaki "açık-kapalı" parantez mantığına uygun olduğu için buna odaklanalım.
+
  [Path With Maximum Minimum Value](https://github.com/altayhunoglu/algorithms/issues/50)
-    		 
+    		 Bu çözüm, minimum-maksimum yol problemlerinin gözde algoritması olan Dijkstra'yı çalışmak için iyi bir bahâne olduğundan, şu çözümü seçiyoruz:
+https://leetcode.com/problems/path-with-maximum-minimum-value/discuss/324923/Clear-Code-Dijkstra-Algorithm-(C%2B%2BJavaPythonGoPHP)
+
  [Longest Substring with At Most Two Distinct Characters](https://github.com/altayhunoglu/algorithms/issues/51)
     		 
  [Sort Transformed Array](https://github.com/altayhunoglu/algorithms/issues/51)
