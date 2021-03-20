@@ -171,15 +171,24 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
      
  [Find the Index of the Large Integer](https://github.com/altayhunoglu/algorithms/issues/39)
    Gene Binary Search'ü hatırlatan bir soru. Şuradaki çözüm gayet uygundur:
-https://leetcode.com/problems/find-the-index-of-the-large-integer/discuss/763124/JavaC%2B%2BCPython-Binary-Search 		 
+
+   https://leetcode.com/problems/find-the-index-of-the-large-integer/discuss/763124/JavaC%2B%2BCPython-Binary-Search 		 
+ 
  [Meeting Scheduler](https://github.com/altayhunoglu/algorithms/issues/40)
-    		 
+    		 Bu soruyu, PriorityQueue veri yapısına dair tecrübemizi genişletmek adına bir fırsat olarak görelim. Bu yüzden
+      "Approach 2: Heap" çözümü gâyet yerindedir.
+
  [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/41)
-    	 
+    	 Çözüm kısmında, HashMap kullanılarak yapılan "Approach 1: Using Preprocessed Sorted Indices" bu bakış açısı güzel.
+      
  [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/42)
-    	 
+    	 Şu çözümdeki, ikinci bakış açısı bize uygun görünüyor:
+      https://leetcode.com/problems/campus-bikes-ii/discuss/360037/Step-by-Step-solution-from-400ms-to-1ms-(beating-100)
  [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
-     
+     Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
+  Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
+
+
  [Paint House](https://github.com/altayhunoglu/algorithms/issues/44)
     		 
  [Shortest Distance to Target Color](https://github.com/altayhunoglu/algorithms/issues/45)
