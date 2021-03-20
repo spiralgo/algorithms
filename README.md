@@ -125,7 +125,9 @@ O çözüm şuradaki "diddit" adlı yazarın yorumundadır:
 https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-left-and-right-boundary
    		 
  [Number of Distinct Islands](https://github.com/altayhunoglu/algorithms/issues/30)
-    		 
+
+  Çözümler arasında en akla yatkın olanı "Approach 3: Hash By Path Signature" olduğu için buna odaklanalım.
+
  [Number of Connected Components in an Undirected Graph](https://github.com/altayhunoglu/algorithms/issues/31)
     		 
  [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
