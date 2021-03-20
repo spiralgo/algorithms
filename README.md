@@ -166,9 +166,12 @@ https://leetcode.com/problems/shortest-word-distance-iii/discuss/67097/12-16-lin
 https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solution-easy-to-understand
     		 
  [Missing Element in Sorted Array](https://github.com/altayhunoglu/algorithms/issues/38)
+  Dizinin sıralı olması, bize Binary Search'ü hatırlatıyor. 
+ Bu yüzden ikinci yaklaşım olan "Approach 2: Binary Search" çözümü iyidir.
      
  [Find the Index of the Large Integer](https://github.com/altayhunoglu/algorithms/issues/39)
-    		 
+   Gene Binary Search'ü hatırlatan bir soru. Şuradaki çözüm gayet uygundur:
+https://leetcode.com/problems/find-the-index-of-the-large-integer/discuss/763124/JavaC%2B%2BCPython-Binary-Search 		 
  [Meeting Scheduler](https://github.com/altayhunoglu/algorithms/issues/40)
     		 
  [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/41)
