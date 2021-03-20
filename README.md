@@ -121,6 +121,8 @@ O çözüm şuradaki "diddit" adlı yazarın yorumundadır:
  https://leetcode.com/problems/group-shifted-strings/discuss/67442/My-Concise-JAVA-Solution
   		 
  [Remove Interval](https://github.com/altayhunoglu/algorithms/issues/29)
+ Şuradaki çözüm, standart çözümden daha az ve öz görünüyor:
+https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-left-and-right-boundary
    		 
  [Number of Distinct Islands](https://github.com/altayhunoglu/algorithms/issues/30)
     		 
