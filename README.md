@@ -204,6 +204,7 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
 https://leetcode.com/problems/4-keys-keyboard/discuss/105980/Java-4-lines-recursion-with-step-by-step-explanation-to-derive-DP
 
  [The Maze](https://github.com/altayhunoglu/algorithms/issues/48)
+ 
     	 Standart çözümde verilen "Approach 1: Depth First Search" bize uygun görünüyor.
 
 
@@ -263,7 +264,7 @@ https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/discuss/77784/O
 
  [Sentence Similarity II](https://github.com/altayhunoglu/algorithms/issues/66)
 
-    	Burada bize union-find kullanımını hatırlatması açısından "Approach #2: Union-Find" yaklaşımı iyidir. Standart çözümde birkaç değişiklik gerekiyordu. Liste yerine array kullanılmıştı, onu düzelttik.
+  Burada bize union-find kullanımını hatırlatması açısından "Approach #2: Union-Find" yaklaşımı iyidir. Standart çözümde birkaç değişiklik gerekiyordu. Liste yerine array kullanılmıştı, onu düzelttik.
 
  [Flatten 2D Vector](https://github.com/altayhunoglu/algorithms/issues/67)	
     	Approach 2: Two Pointers, yaklaşımı gayet kolay. Çözüm kısmında lâfı fazla uzatmışlar ama göründüğü kadar zor değil.
@@ -275,7 +276,7 @@ https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/discuss/77784/O
 
  [Longest Line of Consecutive One in Matrix](https://github.com/altayhunoglu/algorithms/issues/69)
 
-    	Standart çözümler pek beğenilmemiş. Şurada en iyi puanı alan Java kodu uygun görünüyor:
+   Standart çözümler pek beğenilmemiş. Şurada en iyi puanı alan Java kodu uygun görünüyor:
 https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/discuss/102266/Java-O(nm)-Time-DP-Solution
 
  [Reverse Words in a String II](https://github.com/altayhunoglu/algorithms/issues/70)
