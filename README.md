@@ -291,44 +291,75 @@ https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/discuss/
 https://leetcode.com/problems/add-bold-tag-in-string/discuss/104248/Java-Solution-boolean-array
 
  [Closest Leaf in a Binary Tree](https://github.com/altayhunoglu/algorithms/issues/74)	
-    		
+ 
+   Binary Tree'yi önce bir Graf'a çevirmeyi öğrettiği için şu çözüm uygun görünüyor: Approach #1: Convert to Graph [Accepted]
+
  [Word Pattern II](https://github.com/altayhunoglu/algorithms/issues/75)	
-    	
+ 
+   Daha önce öğrendiğimiz	"Backtracking" metodu kullandığı için, buradaki çözüm uygun görünüyor.
+https://leetcode.com/problems/word-pattern-ii/discuss/73664/Share-my-Java-backtracking-solution
+
  [Find the Celebrity](https://github.com/altayhunoglu/algorithms/issues/76)	
-     		
+ 
+   Standart çözümdeki "mantıksal çıkarım" yani "Approach 2: Logical Deduction" yöntemi uygun görünüyor.
+	
  [Graph Valid Tree](https://github.com/altayhunoglu/algorithms/issues/77)
-    		
+ 
+    
+   Daha önceden bildiğimiz Union-find kullandığı için "Approach 3: Advanced Graph Theory + Union Find" çözümü uygundur.
+
  [Inorder Successor in BST](https://github.com/altayhunoglu/algorithms/issues/78)
-    		
+ 
+   
+   Bu bir binary search tree olduğu için, doğal olarak "Approach 2: Using BST properties" uygun çözümdür.
+
  [All Paths from Source Lead to Destination](https://github.com/altayhunoglu/algorithms/issues/78)	
+ 
+ Standart çözüm: "Approach: Depth First Search" bize uygun görünüyor.
     	
  [Boundary of Binary Tree](https://github.com/altayhunoglu/algorithms/issues/79)
-    	
+    	Preorder sıralama, az çok burada istediği gibi, bir ağacı sarmalayarak ilerlediği için, en uygun çözüm doğal olarak: 
+    Approach #2 Using PreOrder Traversal 
+
  [Maximum Distance in Arrays](https://github.com/altayhunoglu/algorithms/issues/80)
-    	
+    	Şuradaki çözüm, muhtemelen standart çözümde de kullanılmış:
+https://leetcode.com/problems/maximum-distance-in-arrays/discuss/104613/Java-Solution-Min-and-Max
+
  [Paint Fence](https://github.com/altayhunoglu/algorithms/issues/81)
-   	
+
+  Standart çözümdeki "Approach 2: Dynamic Programming 1D - Bottom Up" bize uygun görünüyor.
+
  [Largest BST Subtree](https://github.com/altayhunoglu/algorithms/issues/82)
     	
+   Şuradaki çözüm uygun görünüyor:
+     https://leetcode.com/problems/largest-bst-subtree/discuss/78899/Very-Short-Simple-Java-O(N)-Solution
+
  [Palindrome Permutation II](https://github.com/altayhunoglu/algorithms/issues/83)	
-    		
+    		Backtracking kullanılan şu yöntem uygun görünüyor: "Approach #2 Backtracking"  
+
  [Minimum Knight Moves](https://github.com/altayhunoglu/algorithms/issues/84)
-    		
+ 
+   Şuradaki çözümde her şey adım adım açıklanmış:
+    https://leetcode.com/problems/minimum-knight-moves/discuss/392053/Here-is-how-I-get-the-formula-(with-graphs)
+ 
  [Design Snake Game](https://github.com/altayhunoglu/algorithms/issues/85)
-    		
+
+   Standart çözüm gâyet uygun görünüyor.
+
  [One Edit Distance](https://github.com/altayhunoglu/algorithms/issues/86)
-    		
+
+  Standart çözüm (Approach 1: One pass algorithm) gayet uygun görünüyor.
+
  [Encode and Decode Strings](https://github.com/altayhunoglu/algorithms/issues/87)
-    		
+ 
+   Şuradaki çözüm en çok oy alanlar arasında ve gâyet anlaşılır görünüyor:
+  https://leetcode.com/problems/encode-and-decode-strings/discuss/70412/AC-Java-Solution
+ 
  [Insert into a Sorted Circular Linked List](https://github.com/altayhunoglu/algorithms/issues/88)
-   	
- [Encode N-ary Tree to Binary Tree](https://github.com/altayhunoglu/algorithms/issues/89)
-    		
- [Robot Room Cleaner](https://github.com/altayhunoglu/algorithms/issues/90)	
-    	
- [Employee Free Time](https://github.com/altayhunoglu/algorithms/issues/91)	
-    	
- [Number of Ships in a Rectangle](https://github.com/altayhunoglu/algorithms/issues/92)	
+   	Böyle Linked List sorularında, iki pointer kullanmak akla yatkın görünüyor:
+   "Approach 1: Two-Pointers Iteration"
+
+
     	
 
 
