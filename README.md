@@ -262,19 +262,34 @@ https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/discuss/77784/O
     	Burada "Approach 2: Dynamic Programming" yaklaşımı uygundur.
 
  [Sentence Similarity II](https://github.com/altayhunoglu/algorithms/issues/66)
+
     	Burada bize union-find kullanımını hatırlatması açısından "Approach #2: Union-Find" yaklaşımı iyidir. Standart çözümde birkaç değişiklik gerekiyordu. Liste yerine array kullanılmıştı, onu düzelttik.
+
  [Flatten 2D Vector](https://github.com/altayhunoglu/algorithms/issues/67)	
-    	
+    	Approach 2: Two Pointers, yaklaşımı gayet kolay. Çözüm kısmında lâfı fazla uzatmışlar ama göründüğü kadar zor değil.
+
  [Verify Preorder Sequence in Binary Search Tree](https://github.com/altayhunoglu/algorithms/issues/68)
-    	
+    	Şuradaki en fazla puan alan çözüm uygundur:
+ 
+  https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/discuss/68142/Java-O(n)-and-O(1)-extra-space
+
  [Longest Line of Consecutive One in Matrix](https://github.com/altayhunoglu/algorithms/issues/69)
-    	
+
+    	Standart çözümler pek beğenilmemiş. Şurada en iyi puanı alan Java kodu uygun görünüyor:
+https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/discuss/102266/Java-O(nm)-Time-DP-Solution
+
  [Reverse Words in a String II](https://github.com/altayhunoglu/algorithms/issues/70)
-    	
+   Standart çözüm uygun görünüyor:
+"Approach 1: Reverse the Whole String and Then Reverse Each Word"
+ 	
  [Longest Substring with At Most K Distinct Characters](https://github.com/altayhunoglu/algorithms/issues/71)	
-    
+   Daha önce çözdüğümüz "159. Longest Substring with At Most Two Distinct Characters" sorusu ile neredeyse aynıdır. Çözüm de aynı şekilde pencere ve HashMap ile yapılacaktır.
+   Bu yüzden "Approach 1: Sliding Window + Hashmap." uygundur.
+
  [Add Bold Tag in String](https://github.com/altayhunoglu/algorithms/issues/73)	
-    		
+    		Şuradaki çözüm zekice görünüyor:
+https://leetcode.com/problems/add-bold-tag-in-string/discuss/104248/Java-Solution-boolean-array
+
  [Closest Leaf in a Binary Tree](https://github.com/altayhunoglu/algorithms/issues/74)	
     		
  [Word Pattern II](https://github.com/altayhunoglu/algorithms/issues/75)	
