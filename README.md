@@ -199,7 +199,13 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
       https://leetcode.com/problems/campus-bikes-ii/discuss/360037/Step-by-Step-solution-from-400ms-to-1ms-(beating-100)
  [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
      Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
-  Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
+    Şurada Abdul Bari, Backtracingi basit bir örnekle anlatmış:
+    https://www.youtube.com/watch?v=DKCbsiDBN6c
+   "İki erkek ve bir kız, 3 sandalyeye kaç farklı şekilde oturabilir?"
+   Bu gene YKS ile ilgili bir permutasyon sorusu.
+   Ama bunu Backtracking ile çözmeye kalkınca ortaya bir ağaç çıkıyor.
+   
+   Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 
  [Paint House](https://github.com/altayhunoglu/algorithms/issues/44)
  
