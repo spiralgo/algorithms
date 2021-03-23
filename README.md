@@ -81,6 +81,16 @@ Bu soruda, "solution" kısmında verilen "Approach 1: Iteration" gayet anlaşıl
 
 Burada "Approach #2 Better Retrieval" performans bakımından daha iyi olduğundan ve TreeMap kullanımına dair yeni bir örnek olduğundan ötürü tercih edilmeli.
 
+Burada convert methodu, tüm tarihleri saniye cinsine çevirmeye yarıyor.
+Tarih aralığı en fazla 2000 olabileceği için, convert metodunda 1999L (long türünde 1999) çıkarılmış. 
+
+Burada granularity metodunda yapılan şey, verilen "gra" değerinden sonraki tüm değerleri sıfırlamak. Çünkü onlar ciddiye alınmayacak.
+Granularity metodundaki (boolean end) parametresi kontrol ediliyor çünkü eğer, bu gelen tarih; tarih aralığının bitişini gösteriyorsa; sıfırlama işleminden sonra "gra" ile belirtilen yerin "1" artırılması gerekiyor.
+
+Çünkü, "put" ile girilen tarihleri TreeMap içerisine saniye cinsinden yazıyor. 
+Tarih aralığına göre sorgulama yaparken TreeMap içerisindeki tailMap(start) netodunu kullanıyor. Bu method, parametre olarak gönderilen tarihe eşit veya ondan büyük olan tarihli listelerin id'lerini döndürür. (Log bilgisi ile gelen ID'yi key olarak kullanmıştık)
+
+
 [531. Lonely Pixel I ](https://github.com/altayhunoglu/algorithms/issues/21)
 
 Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çözümde, iki yöntem belirtilmiş. İkinci yöntem daha az yer kapladığı için onu seçtik.
