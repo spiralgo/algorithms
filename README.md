@@ -93,7 +93,8 @@ Tarih aralığına göre sorgulama yaparken TreeMap içerisindeki tailMap(start)
 
 [531. Lonely Pixel I ](https://github.com/altayhunoglu/algorithms/issues/21)
 
-Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çözümde, iki yöntem belirtilmiş. İkinci yöntem daha az yer kapladığı için onu seçtik.
+Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. 
+
 
 [369. Plus One Linked List](https://github.com/altayhunoglu/algorithms/issues/22)
 
