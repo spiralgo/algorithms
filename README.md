@@ -67,7 +67,12 @@ Burada en çok oy alan çözümün altında, "blackspinner" adlı kullanıcını
 
  Bu soruda Approach 1: Breadth-First Search (Kahn's Algorithm) çözümü gâyet uygun görünüyor.
  Bu vesîle ile Kahn algoritmasını da öğrenmiş olacağız.
-
+ 
+ Türk çayı demlemek üzerinden Kahn's Algorithm'i anlattım.
+Topolojik sıralama için gereken bu algoritmayı basit bir örnekle aklınızda tutmak istiyorsanız izlemenizi öneririm.
+ Kamera sallanıyor ve dik tutmuşum, ama gene de çekim fenâ değil:
+ https://youtu.be/99oTqO51Jh0
+ 
 [510. Inorder Successor in BST II](https://github.com/altayhunoglu/algorithms/issues/19)
 
 Bu soruda, "solution" kısmında verilen "Approach 1: Iteration" gayet anlaşılır görünüyor.
@@ -202,6 +207,12 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
         Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 	
    Detaylı not:	
+   1-
+   Şu videoda Backtrackingi anlattım:
+   Umarım bir faydası olur.
+   Neden algoritma çalışmamız gerektiği gibi daha derin meselelerden de az da olsa bahsettim.
+   https://youtu.be/uYrWVTPGUaw
+   2-
    Şurada Abdul Bari, Backtracingi basit bir örnekle anlatmış:
     https://www.youtube.com/watch?v=DKCbsiDBN6c
    "İki erkek ve bir kız, 3 sandalyeye kaç farklı şekilde oturabilir?"
