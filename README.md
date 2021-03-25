@@ -112,7 +112,7 @@ Bu gibi minimum-maksimum istenen sorularda genellik Greedy strateji uygulanır. 
 eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Böyle en düşük maliyetle şehir birleştirme sorularında standart olarak Kruskal algoritması kullanılır. Çünkü, Kruskal, bir graftaki minimum-spanning tree denilen, en az mâliyetli ağacı bukmak için kullanılan bir algoritmadır. (Prim's Algorithm gibi)
  Kruskal bize çok yabancı gelmeyecektir çünkü kendi içinde "arkadaş grubu" probleminden hatırladığımız 
- Union-Find veriyapısını kullanıyor.
+ Union-Find veri yapısını kullanıyor.
  
  Dolayısı ile, her ne kadar çözüm uzun görünse de, aşağıdaki çözüm uygun:
  Approach 1: Minimum Spanning Tree (Using Kruskal's algorithm)
