@@ -108,6 +108,8 @@ Burada kuyruk kullanılan Approach 2: Queue of Pointers, daha anlaşılır ve pr
 
 [1135. Connecting Cities With Minimum Cost](https://github.com/altayhunoglu/algorithms/issues/24)
 
+[Code](https://github.com/altayhunoglu/algorithms/blob/2f0b4d461c3e9a5afd2712b838aec56a7f7e4dab/src/main/java/algorithms/curated170/medium/ConnectingCitiesWithMinimumCost.java)
+
 Bu gibi minimum-maksimum istenen sorularda genellik Greedy strateji uygulanır. Yani, neticenin gerçekten de maksimum-minimum olup olmadığına bakılmaksızın, yerel olarak
 eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Böyle en düşük maliyetle şehir birleştirme sorularında standart olarak Kruskal algoritması kullanılır. Çünkü, Kruskal, bir graftaki minimum-spanning tree denilen, en az mâliyetli ağacı bukmak için kullanılan bir algoritmadır. (Prim's Algorithm gibi)
