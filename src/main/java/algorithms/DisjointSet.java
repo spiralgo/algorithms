@@ -12,13 +12,11 @@ class DisjointSet
     private Map<Integer, Integer> rank = new HashMap();
  
     // perform MakeSet operation
-    public void makeSet(int[] universe)
+    public void makeSet(int N)
     {
-        // create `n` disjoint sets (one for each item)
-        for (int i: universe)
-        {
-            parent.put(i, i);
-            rank.put(i, 0);
+         for (int i = 1; i <= N; ++i) {
+             parent.put(i, i);
+             rank.put(i, 0);
         }
     }
  
@@ -61,36 +59,26 @@ class DisjointSet
             rank.put(y, rank.get(y) + 1);
         }
     }
-    
-      public static void printSets(int[] universe, DisjointSet ds)
-    {
-        for (int i: universe) {
-            System.out.print(ds.find(i) + " ");
-        }
  
-        System.out.println();
-    }
  
     public static void main(String[] args)
     {
-        // universe of items
-        int[] universe = { 1, 2, 3, 4, 5 };
  
         // initialize `DisjointSet` class
         DisjointSet ds = new DisjointSet();
  
         // create a singleton set for each element of the universe
-        ds.makeSet(universe);
-        printSets(universe, ds);
+        ds.makeSet(5);
+      
  
         ds.union(4, 3);        // 4 and 3 are in the same set
-        printSets(universe, ds);
+      
  
         ds.union(2, 1);        // 1 and 2 are in the same set
-        printSets(universe, ds);
+     
  
         ds.union(1, 3);        // 1, 2, 3, 4 are in the same set
-        printSets(universe, ds);
+        
     }
 }
  

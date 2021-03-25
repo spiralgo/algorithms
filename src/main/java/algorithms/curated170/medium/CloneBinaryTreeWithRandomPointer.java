@@ -1,4 +1,4 @@
-package algorithms.curated170.medium.medium;
+package algorithms.curated170.medium;
 
 import java.util.HashMap;
 import java.util.Map;
