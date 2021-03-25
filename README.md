@@ -67,7 +67,12 @@ Burada en çok oy alan çözümün altında, "blackspinner" adlı kullanıcını
 
  Bu soruda Approach 1: Breadth-First Search (Kahn's Algorithm) çözümü gâyet uygun görünüyor.
  Bu vesîle ile Kahn algoritmasını da öğrenmiş olacağız.
-
+ 
+ Türk çayı demlemek üzerinden Kahn's Algorithm'i anlattım.
+Topolojik sıralama için gereken bu algoritmayı basit bir örnekle aklınızda tutmak istiyorsanız izlemenizi öneririm.
+ Kamera sallanıyor ve dik tutmuşum, ama gene de çekim fenâ değil:
+ https://youtu.be/99oTqO51Jh0
+ 
 [510. Inorder Successor in BST II](https://github.com/altayhunoglu/algorithms/issues/19)
 
 Bu soruda, "solution" kısmında verilen "Approach 1: Iteration" gayet anlaşılır görünüyor.
@@ -76,9 +81,20 @@ Bu soruda, "solution" kısmında verilen "Approach 1: Iteration" gayet anlaşıl
 
 Burada "Approach #2 Better Retrieval" performans bakımından daha iyi olduğundan ve TreeMap kullanımına dair yeni bir örnek olduğundan ötürü tercih edilmeli.
 
+Burada convert methodu, tüm tarihleri saniye cinsine çevirmeye yarıyor.
+Tarih aralığı en fazla 2000 olabileceği için, convert metodunda 1999L (long türünde 1999) çıkarılmış. 
+
+Burada granularity metodunda yapılan şey, verilen "gra" değerinden sonraki tüm değerleri sıfırlamak. Çünkü onlar ciddiye alınmayacak.
+Granularity metodundaki (boolean end) parametresi kontrol ediliyor çünkü eğer, bu gelen tarih; tarih aralığının bitişini gösteriyorsa; sıfırlama işleminden sonra "gra" ile belirtilen yerin "1" artırılması gerekiyor.
+
+Çünkü, "put" ile girilen tarihleri TreeMap içerisine saniye cinsinden yazıyor. 
+Tarih aralığına göre sorgulama yaparken TreeMap içerisindeki tailMap(start) netodunu kullanıyor. Bu method, parametre olarak gönderilen tarihe eşit veya ondan büyük olan tarihli listelerin id'lerini döndürür. (Log bilgisi ile gelen ID'yi key olarak kullanmıştık)
+
+
 [531. Lonely Pixel I ](https://github.com/altayhunoglu/algorithms/issues/21)
 
-Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. Bu çözümde, iki yöntem belirtilmiş. İkinci yöntem daha az yer kapladığı için onu seçtik.
+Bu soruda en fazla puan alan çözüm gâyet anlaşılır görünüyor. 
+
 
 [369. Plus One Linked List](https://github.com/altayhunoglu/algorithms/issues/22)
 
@@ -96,7 +112,7 @@ Bu gibi minimum-maksimum istenen sorularda genellik Greedy strateji uygulanır. 
 eldeki verilerden en uygun görünen ilkleri seçilerek işleme devam edilir.
  Böyle en düşük maliyetle şehir birleştirme sorularında standart olarak Kruskal algoritması kullanılır. Çünkü, Kruskal, bir graftaki minimum-spanning tree denilen, en az mâliyetli ağacı bukmak için kullanılan bir algoritmadır. (Prim's Algorithm gibi)
  Kruskal bize çok yabancı gelmeyecektir çünkü kendi içinde "arkadaş grubu" probleminden hatırladığımız 
- Union-Find veriyapısını kullanıyor.
+ Union-Find veri yapısını kullanıyor.
  
  Dolayısı ile, her ne kadar çözüm uzun görünse de, aşağıdaki çözüm uygun:
  Approach 1: Minimum Spanning Tree (Using Kruskal's algorithm)
@@ -202,6 +218,12 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
         Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 	
    Detaylı not:	
+   1-
+   Şu videoda Backtrackingi anlattım:
+   Umarım bir faydası olur.
+   Neden algoritma çalışmamız gerektiği gibi daha derin meselelerden de az da olsa bahsettim.
+   https://youtu.be/uYrWVTPGUaw
+   2-
    Şurada Abdul Bari, Backtracingi basit bir örnekle anlatmış:
     https://www.youtube.com/watch?v=DKCbsiDBN6c
    "İki erkek ve bir kız, 3 sandalyeye kaç farklı şekilde oturabilir?"
