@@ -172,9 +172,13 @@ https://leetcode.com/problems/shortest-way-to-form-string/discuss/304193/Java-Tw
  
  Bu soru, kodlama editörlerinin nasıl çalıştığına dair fikir verecektir. Çünkü Ternary Expression zaten bizim de sürekli kullandığımız if-else kısaltmasıdır.
  Editörler işte bu şekilde parse ederek renklendiriyorlar. 
+  
  Şu cevap Stack kullanılarak çözülmüş. Burada Deque, daha önce de bahsettiğim gibi hem Stack hem de Queue olarak kullanılabilen bir yapı.
  Gayet anlaşılır bir çözüm:
 https://leetcode.com/problems/ternary-expression-parser/discuss/92166/Very-easy-1-pass-Stack-Solution-in-JAVA-(NO-STRING-CONCAT)
+
+ Bu çözümde püf nokta, Ternary Expression'u  "?" ile karşılaşıncaya kadar tersten Stack'e yazmak.  "?" ile karşılaşmak, Stack'in tepesinde  "?" olması anlamındadır.
+ Bu durumda, "?"'dan bir sonraki eleman 'T' veyâ 'F' olmalıdır. T ise ilkini, F ise ikincisini tekrârdan Stack'e atma sebebi, bu expression'un birden fazla ifâde içerme ihtimâlidir.
     	 
  [Walls and Gates](https://github.com/altayhunoglu/algorithms/issues/35)
  
