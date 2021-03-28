@@ -158,13 +158,13 @@ https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-lef
     		 
  [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
  
-    	 Şurada yeterince hızlı ve anlaşılır bir kod var:
+  Şurada yeterince hızlı ve anlaşılır bir kod ve videolu anlatım var. İkinci video İngilizce.:
 
-https://leetcode.com/problems/campus-bikes/discuss/309284/Java-counting-sort-solution-47ms-(100)
+https://leetcode.com/problems/campus-bikes/discuss/343953/Java-Solution-using-Bucket-Sort-with-Video-Explanation
 
  [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
  
-     Şuradaki çözüme odaklanalım:
+  Şuradaki çözüme odaklanalım:
 https://leetcode.com/problems/shortest-way-to-form-string/discuss/304193/Java-Two-Pointers-Solution-With-Explanation		 
 
  [Ternary Expression Parser](https://github.com/altayhunoglu/algorithms/issues/34)
