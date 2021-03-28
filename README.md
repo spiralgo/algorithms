@@ -159,7 +159,7 @@ https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-lef
  [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
  
   Şurada yeterince hızlı ve anlaşılır bir kod ve videolu anlatım var. İkinci video İngilizce.:
-
+  Burada mantık Bucket Sort üzerine kurulmuş. Sonuçta uzaklık (distance) array'in uzunluğunun en fazla 2000 olabileceği bilindiğinden; bisiklet seçimleri en küçük index ile belirlendiğinden, bu soru aslında tam bir Bucket Sort sorusu haline geliyor.
 https://leetcode.com/problems/campus-bikes/discuss/343953/Java-Solution-using-Bucket-Sort-with-Video-Explanation
 
  [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
@@ -207,15 +207,16 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
   Bu soruyu, PriorityQueue veri yapısına dair tecrübemizi genişletmek adına bir fırsat olarak görelim. Bu yüzden
       "Approach 2: Heap" çözümü gâyet yerindedir.
 
- [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/41)
+ [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/42)
  
    Çözüm kısmında, HashMap kullanılarak yapılan "Approach 1: Using Preprocessed Sorted Indices" bu bakış açısı güzel.
       
- [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/42)
+ [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/41)
  
    Şu çözümdeki, ikinci bakış açısı bize uygun görünüyor:
-      https://leetcode.com/problems/campus-bikes-ii/discuss/360037/Step-by-Step-solution-from-400ms-to-1ms-(beating-100)
- [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
+https://leetcode.com/problems/campus-bikes-ii/discuss/412367/Java-DFS-And-DP-Solution-with-Video-Explanation-(Chinese-and-English)
+
+[Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
      Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
         Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 	
