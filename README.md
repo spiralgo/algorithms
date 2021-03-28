@@ -163,7 +163,8 @@ https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-lef
 https://leetcode.com/problems/campus-bikes/discuss/343953/Java-Solution-using-Bucket-Sort-with-Video-Explanation
 
  [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
- 
+  Buradaki ipucu şu: target'ın her bir harfi, source'un harflerini sırası ile gezerek oluşturulabiliyor mu? Bazen target'ın her bir harfi için source'u gezmeye baştan başlamak gerekir. İşte, kaç kere baştan başladığı soruluyor.
+
   Şuradaki çözüme odaklanalım:
 https://leetcode.com/problems/shortest-way-to-form-string/discuss/304193/Java-Two-Pointers-Solution-With-Explanation		 
 
