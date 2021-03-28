@@ -158,22 +158,27 @@ https://leetcode.com/problems/remove-interval/discuss/937333/Java-O(N)-check-lef
     		 
  [Campus Bikes](https://github.com/altayhunoglu/algorithms/issues/32)
  
-    	 Şurada yeterince hızlı ve anlaşılır bir kod var:
-
-https://leetcode.com/problems/campus-bikes/discuss/309284/Java-counting-sort-solution-47ms-(100)
+  Şurada yeterince hızlı ve anlaşılır bir kod ve videolu anlatım var. İkinci video İngilizce.:
+  Burada mantık Bucket Sort üzerine kurulmuş. Sonuçta uzaklık (distance) array'in uzunluğunun en fazla 2000 olabileceği bilindiğinden; bisiklet seçimleri en küçük index ile belirlendiğinden, bu soru aslında tam bir Bucket Sort sorusu haline geliyor.
+https://leetcode.com/problems/campus-bikes/discuss/343953/Java-Solution-using-Bucket-Sort-with-Video-Explanation
 
  [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
- 
-     Şuradaki çözüme odaklanalım:
+  Buradaki ipucu şu: target'ın her bir harfi, source'un harflerini sırası ile gezerek oluşturulabiliyor mu? Bazen target'ın her bir harfi için source'u gezmeye baştan başlamak gerekir. İşte, kaç kere baştan başladığı soruluyor.
+
+  Şuradaki çözüme odaklanalım:
 https://leetcode.com/problems/shortest-way-to-form-string/discuss/304193/Java-Two-Pointers-Solution-With-Explanation		 
 
  [Ternary Expression Parser](https://github.com/altayhunoglu/algorithms/issues/34)
  
  Bu soru, kodlama editörlerinin nasıl çalıştığına dair fikir verecektir. Çünkü Ternary Expression zaten bizim de sürekli kullandığımız if-else kısaltmasıdır.
  Editörler işte bu şekilde parse ederek renklendiriyorlar. 
+  
  Şu cevap Stack kullanılarak çözülmüş. Burada Deque, daha önce de bahsettiğim gibi hem Stack hem de Queue olarak kullanılabilen bir yapı.
  Gayet anlaşılır bir çözüm:
 https://leetcode.com/problems/ternary-expression-parser/discuss/92166/Very-easy-1-pass-Stack-Solution-in-JAVA-(NO-STRING-CONCAT)
+
+ Bu çözümde püf nokta, Ternary Expression'u  "?" ile karşılaşıncaya kadar tersten Stack'e yazmak.  "?" ile karşılaşmak, Stack'in tepesinde  "?" olması anlamındadır.
+ Bu durumda, "?"'dan bir sonraki eleman 'T' veyâ 'F' olmalıdır. T ise ilkini, F ise ikincisini tekrârdan Stack'e atma sebebi, bu expression'un birden fazla ifâde içerme ihtimâlidir.
     	 
  [Walls and Gates](https://github.com/altayhunoglu/algorithms/issues/35)
  
@@ -207,15 +212,16 @@ https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solutio
   Bu soruyu, PriorityQueue veri yapısına dair tecrübemizi genişletmek adına bir fırsat olarak görelim. Bu yüzden
       "Approach 2: Heap" çözümü gâyet yerindedir.
 
- [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/41)
+ [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/42)
  
    Çözüm kısmında, HashMap kullanılarak yapılan "Approach 1: Using Preprocessed Sorted Indices" bu bakış açısı güzel.
       
- [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/42)
+ [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/41)
  
    Şu çözümdeki, ikinci bakış açısı bize uygun görünüyor:
-      https://leetcode.com/problems/campus-bikes-ii/discuss/360037/Step-by-Step-solution-from-400ms-to-1ms-(beating-100)
- [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
+https://leetcode.com/problems/campus-bikes-ii/discuss/412367/Java-DFS-And-DP-Solution-with-Video-Explanation-(Chinese-and-English)
+
+[Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
      Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
         Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 	
