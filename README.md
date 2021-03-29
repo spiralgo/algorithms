@@ -164,6 +164,7 @@ https://leetcode.com/problems/campus-bikes/discuss/343953/Java-Solution-using-Bu
 
  [Shortest Way to Form String](https://github.com/altayhunoglu/algorithms/issues/33)
   Buradaki ipucu şu: target'ın her bir harfi, source'un harflerini sırası ile gezerek oluşturulabiliyor mu? Bazen target'ın her bir harfi için source'u gezmeye baştan başlamak gerekir. İşte, kaç kere baştan başladığı soruluyor.
+   Bunun için s(ource), t(arget), pt (target'ın o turdaki ilk konumu) şeklinde 3 pointer kullanıyor. Bunlardan s ve t hareket ediyor. Pointer s hareket edip, t hareketsiz kaldığında subsequence oluşturmak için gereken silme işlemini yapmış oluyor.
 
   Şuradaki çözüme odaklanalım:
 https://leetcode.com/problems/shortest-way-to-form-string/discuss/304193/Java-Two-Pointers-Solution-With-Explanation		 
