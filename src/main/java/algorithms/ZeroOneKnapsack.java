@@ -86,7 +86,7 @@ public class ZeroOneKnapsack {
         var f = new item(4,3);
         int n = solution(10, new item[]{a,b,c,d,e,f});
         System.out.println(n); // Prints 13, which is the sum of the values of the items e and c.
-        int m = solutionNaive(10, new item[]{a,b,c,d,e,f}, new item[]{a,b,c,d,e,f}.length);
-        System.out.println(m);
+        int m = solutionNaive(10, new item[]{a,b,c,d,e,f}, 6);
+        System.out.println(m); //Also prints 13 but requires more computation
     }
 }

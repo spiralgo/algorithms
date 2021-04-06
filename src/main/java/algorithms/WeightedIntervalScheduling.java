@@ -105,7 +105,8 @@ public class WeightedIntervalScheduling {
         intervals.add(e);
         int n = solution(intervals);
         System.out.println(n); //prints 15
-        int m = solutionNaiveMain(intervals);
-         System.out.println(m);
+        intervals.remove(0);
+        int m = solutionNaiveMain(intervals); 
+         System.out.println(m); //Also prints 15, but requires exponential amount of computations 
     }
 }
