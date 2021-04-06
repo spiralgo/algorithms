@@ -25,7 +25,26 @@ public class WeightedIntervalScheduling {
             value = v;
         }
     }
- 
+    public static int solutionNaiveMain(List<Interval> intervals)
+    {
+        intervals.sort((i1, i2) -> {
+            return i1.finish - i2.finish ; //Sorts intervals according to their finish time
+        });
+        return solutionNaiveRecursive(intervals);
+    }
+    public static int solutionNaiveRecursive(List<Interval> intervals)
+    {
+        int n = intervals.size();
+        if(n == 0||n == 1)
+        {
+            return  0;
+        }
+        int inclVal = intervals.get(n-1).value;
+        inclVal += solutionNaiveRecursive(intervals.subList(0, binarySearch(intervals, n-1)+1));
+        int exclVal = solutionNaiveRecursive(intervals.subList(0, n-1));
+        int ret = Math.max(inclVal, exclVal);
+        return ret;
+    }
     public static int solution(List<Interval> intervals)
     {
         //This method returns the maximum value of intervals that are possible to have together
@@ -72,9 +91,10 @@ public class WeightedIntervalScheduling {
         return 0;
     }
      public static void main() {
+         
         Interval a = new Interval(0, 1, 2);
-        Interval b = new Interval(5, 9, 3);
         Interval c = new Interval(2, 5, 5);
+        Interval b = new Interval(5, 9, 3);
         Interval d = new Interval(5, 12, 4);
         Interval e = new Interval(10, 13, 5);
         List<Interval> intervals = new LinkedList<>();
@@ -85,5 +105,8 @@ public class WeightedIntervalScheduling {
         intervals.add(e);
         int n = solution(intervals);
         System.out.println(n); //prints 15
+        intervals.remove(0);
+        int m = solutionNaiveMain(intervals); 
+         System.out.println(m); //Also prints 15, but requires exponential amount of computations 
     }
 }
