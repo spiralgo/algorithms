@@ -30,6 +30,22 @@ public class ZeroOneKnapsack {
             System.out.println();
         }
     }
+    public static int solutionNaive(int capacity, item[] items, int n)
+    {
+        if(capacity == 0 || n == 0)
+        {
+            return 0;
+        }
+           if (items[n - 1].weight > capacity)
+            return solutionNaive(capacity, items, n - 1);
+
+        else
+           {
+               return Math.max(items[n-1].value
+                       + solutionNaive(capacity - items[n-1].weight, items, n - 1),
+                       solutionNaive(capacity, items, n - 1));
+           }
+    }
     public static int solution(int capacity, item[] items) 
     {
         /*This method returns the maximum possible value of items that together
@@ -70,5 +86,7 @@ public class ZeroOneKnapsack {
         var f = new item(4,3);
         int n = solution(10, new item[]{a,b,c,d,e,f});
         System.out.println(n); // Prints 13, which is the sum of the values of the items e and c.
+        int m = solutionNaive(10, new item[]{a,b,c,d,e,f}, new item[]{a,b,c,d,e,f}.length);
+        System.out.println(m);
     }
 }
