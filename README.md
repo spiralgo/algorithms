@@ -1,5 +1,21 @@
 Not: LeetCode'da en son submit edilmiş kodu geri yükleyebiliyorsun. Sağ üstte bunun için bir button var.
 
+[442. Find All Duplicates in an Array](https://github.com/altayhunoglu/algorithms/issues/98)
+Açıklaması issue içindedir.
+
+[200. Number of Islands](https://github.com/altayhunoglu/algorithms/issues/97)
+Açıklaması issue içindedir.
+
+[5. Longest Palindromic Substring](https://github.com/altayhunoglu/algorithms/issues/96)
+Açıklaması issue içindedir.
+
+[207. Closest Binary Search Tree Value](https://github.com/altayhunoglu/algorithms/issues/95)
+Açıklaması issue içindedir.
+
+[204. Count Primes](https://github.com/altayhunoglu/algorithms/issues/94)
+Açıklaması issue içindedir.
+
+**CURATED 170 SORULARI:**
 
 [582. Kill Process:](https://github.com/altayhunoglu/algorithms/issues/10)
 
