@@ -77,7 +77,8 @@ public class ZeroOneKnapsack {
         print2x2IntArray(values);
         return values[items.length][capacity];
     }
-    public static void main() {
+    public static void main(String[] args) {
+   
         var a = new item(5,3);
         var b = new item(3,5);
         var c = new item(2,2);
