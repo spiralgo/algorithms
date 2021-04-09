@@ -242,7 +242,12 @@ Sağdan sola çapraz (antidiagonal) durumunda, row+col; satır (veyâ zaten eşi
 
  [Shortest Word Distance II](https://github.com/altayhunoglu/algorithms/issues/42)
  
+ 
    Çözüm kısmında, HashMap kullanılarak yapılan "Approach 1: Using Preprocessed Sorted Indices" bu bakış açısı güzel.
+     Özetle yaptığı; Bir HashMap'te her bir kelîmeyi "key" olarak kullanıyor ve onunla karşılaştığı indexlerin Listesini de "value" olarak kullanıyor.
+     "Preprocessed Sorted Indices" demesinin sebebi, "value"deki listenin sıralı olmasıdır.
+     Daha sonra bu o ân "en kısa uzaklık" hesaplanması istenen kelîmelerin index listelerini alıyor. Liste elemanlarını tek tek karşılaştırıyor. 
+
       
  [Campus Bikes II](https://github.com/altayhunoglu/algorithms/issues/41)
  
