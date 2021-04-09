@@ -234,6 +234,7 @@ Sağdan sola çapraz (antidiagonal) durumunda, row+col; satır (veyâ zaten eşi
    https://leetcode.com/problems/find-the-index-of-the-large-integer/discuss/763124/JavaC%2B%2BCPython-Binary-Search 		 
  
  [Meeting Scheduler](https://github.com/altayhunoglu/algorithms/issues/40)
+ 
   İki pointer kullanılan "Approach 1: Two pointers" çözümünün anlaşılması daha kolaydır. Özetle, bu iki kişinin o ânki slotları arasındaki kesişen zamânı buluyor.
   Bu kesişen zamân eğer "duration"u tatmin ediyorsa, bunu döndürüyor. Yok eğer yetmiyorsa, pointerlardan birini hareket ettiriyor. Hangi slot erken bitiyorsa, o slotun pointerını hareket ettiriyor.
 
