@@ -217,6 +217,10 @@ https://leetcode.com/problems/shortest-word-distance-iii/discuss/67097/12-16-lin
 
  Başlıkta da belirtildiği gibi gâyet sâde ve anlaşılır bir çözüm:
 https://leetcode.com/problems/design-tic-tac-toe/discuss/81898/Java-O(1)-solution-easy-to-understand
+
+Burada püf nokta: diagonal (row == col olduğunda soldan sağa çapraz) ve antidiagonal (col == (cols.length - row - 1) olduğunda sağdan sola çapraz) kontrolleri yapmaktır.
+Sağdan sola çapraz (antidiagonal) durumunda, row+col; satır (veyâ zaten eşit oldukları için sütun) sayısının 1 eksiğini verir. 
+  
     		 
  [Missing Element in Sorted Array](https://github.com/altayhunoglu/algorithms/issues/38)
  
