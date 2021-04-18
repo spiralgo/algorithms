@@ -5,6 +5,8 @@
  */
 package algorithms;
 
+import java.util.*;
+
 /**
  *
  * @author Erdem
@@ -46,7 +48,7 @@ public class ZeroOneKnapsack {
                        solutionNaive(capacity, items, n - 1));
            }
     }
-    public static int solution(int capacity, item[] items) 
+    public static int solution1(int capacity, item[] items) 
     {
         /*This method returns the maximum possible value of items that together
         could fit (they have a limiting parameter of weight) into a "knapsack" of a certain capacity */
@@ -77,6 +79,42 @@ public class ZeroOneKnapsack {
         print2x2IntArray(values);
         return values[items.length][capacity];
     }
+
+    public static int solution0(int capacity, item[] items) 
+    {
+        //This is space optimized relative to solution1
+        //Spatial complexity: O(n)
+        /*This method returns the maximum possible value of items that together
+        could fit (they have a limiting parameter of weight) into a "knapsack" of a certain capacity */
+        
+        if(capacity <= 0|| items.length == 0)
+        {
+            return 0;
+        }
+        int[] values = new int[capacity+1];
+        for(int i = 1; i<=items.length; i++)
+        {
+            int[] newValues = new int[capacity+1];
+            for(int j = 0; j<=capacity; j++)
+            {
+                if(j == 0)
+                {
+                    newValues[j] = 0;
+                }
+                else if (items[i-1].weight <= j)
+                {
+                    newValues[j] = Math.max(items[i-1].value + values[j - items[i-1].weight], values[j]);
+                }
+                else
+                {
+                    newValues[j] = values[j];
+                }
+            }
+            values = newValues;
+        }
+        return values[capacity];
+    }
+
     public static void main(String[] args) {
    
         var a = new item(5,3);
@@ -85,8 +123,10 @@ public class ZeroOneKnapsack {
         var d = new item(7,6);
         var e = new item(11,8);
         var f = new item(4,3);
-        int n = solution(10, new item[]{a,b,c,d,e,f});
+        int n = solution0(10, new item[]{a,b,c,d,e,f});
         System.out.println(n); // Prints 13, which is the sum of the values of the items e and c.
+        n = solution1(10, new item[]{a,b,c,d,e,f});
+        System.out.println(n); 
         int m = solutionNaive(10, new item[]{a,b,c,d,e,f}, 6);
         System.out.println(m); //Also prints 13 but requires more computation
     }
