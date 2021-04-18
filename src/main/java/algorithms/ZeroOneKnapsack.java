@@ -123,7 +123,7 @@ public class ZeroOneKnapsack {
         var d = new item(7,6);
         var e = new item(11,8);
         var f = new item(4,3);
-        int n = solution(10, new item[]{a,b,c,d,e,f});
+        int n = solution0(10, new item[]{a,b,c,d,e,f});
         System.out.println(n); // Prints 13, which is the sum of the values of the items e and c.
         n = solution1(10, new item[]{a,b,c,d,e,f});
         System.out.println(n); 
