@@ -295,8 +295,9 @@ https://leetcode.com/problems/campus-bikes-ii/discuss/412367/Java-DFS-And-DP-Sol
   "Approach 1: Binary Search" bizim için tanıdık bir konu olduğundan, bu çözüm iyidir.
        
  [4 Keys Keyboard](https://github.com/spiralgo/algorithms/issues/47)
-    		 	Şurada dinamik programlama kullanılarak yapılan ikinci çözüm uygundur. Güzel bir şekilde açıklamış:
-https://leetcode.com/problems/4-keys-keyboard/discuss/105980/Java-4-lines-recursion-with-step-by-step-explanation-to-derive-DP
+ Şurada dinamik programlama kullanılarak yapılan ikinci çözüm uygundur. Güzel bir şekilde açıklamış:
+"Approach #1: Dynamic Programming [Accepted]"
+
 
  [The Maze](https://github.com/spiralgo/algorithms/issues/48)
  
