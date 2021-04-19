@@ -255,7 +255,9 @@ Sağdan sola çapraz (antidiagonal) durumunda, row+col; satır (veyâ zaten eşi
 https://leetcode.com/problems/campus-bikes-ii/discuss/412367/Java-DFS-And-DP-Solution-with-Video-Explanation-(Chinese-and-English)
 
 [Generalized Abbreviation](https://github.com/altayhunoglu/algorithms/issues/43)
-     Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
+
+
+   Bu bahâne ile Backtracking meselesini araştırmamız iyi olacaktır. Backtracking, bir satranç oyununda, bir sonraki hamleleri kafada hesaplayıp uygun olmayan hamleleri elemeye benzetilebilir. Kafada satranç tahtalarını ilerletip, olmayınca adımları geri sarmak gibi.
         Bu yüzden şu çözüm iyidir: "Approach #1 (Backtracking)"
 	
    Detaylı not:	
