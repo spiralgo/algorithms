@@ -4,33 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class DesignALeaderboard {
-
-    public static class LeaderboardSimple {
-        public HashMap<Integer, Integer> leaderboard = new HashMap<>();
-
-        public void addScore(int id, int score) {
-            if (leaderboard.get(id) != null) {
-                score += leaderboard.get(id);
-            }
-            leaderboard.put(id, score);
-        }
-
-        public int top(int K) {
-            ArrayList<Integer> list = new ArrayList<>(leaderboard.values());
-            Collections.sort(list, Collections.reverseOrder());
-            int total = 0;
-
-            for (int i = 0; i < K; i++) {
-
-                total = total + list.get(i);
-            }
-            return total;
-        }
-        public void reset(int playerId) {
-            leaderboard.put(playerId, 0);
-        }
-    }
+public class DesignALeaderboardFast {
     public static class Leaderboard {
         /*To understand how this solution works, it is important
         to know about the linked list data structure, especially
@@ -133,19 +107,6 @@ public class DesignALeaderboard {
     }
 
     public static void main(String[] args) {
-        //Testing LeaderboardSimple
-        System.out.println("LeaderboardSimple: ");
-        var leaderboard0 = new LeaderboardSimple();
-        leaderboard0.addScore(1, 94);
-        leaderboard0.addScore(1, 45);
-        leaderboard0.addScore(2, 95);
-        leaderboard0.addScore(3, 96);
-        System.out.println(leaderboard0.top(2));
-        leaderboard0.reset(1);
-        System.out.println(leaderboard0.top(3));
-        leaderboard0.addScore(4, 98);
-        System.out.println(leaderboard0.top(1));
-        
         //Testing Leaderboard
         System.out.println("Leaderboard: ");
         var leaderboard1 = new Leaderboard();
