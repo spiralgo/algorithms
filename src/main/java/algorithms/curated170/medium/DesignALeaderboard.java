@@ -39,8 +39,8 @@ public class DesignALeaderboard {
 
         class Node {
             int score; //total score of the player
-            Node next; // node with the higher score
-            Node prev; // node with the lower score
+            Node next; // node with the lower score
+            Node prev; // node with the higher score
             
             //Constructor methods
             Node(int score) { 
