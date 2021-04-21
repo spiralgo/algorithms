@@ -15,7 +15,7 @@ public class MinimumCostToConnectSticks
         while (sticks.size() > 1) {
             int newStick = sticks.poll() + sticks.poll(); //PriorityQueue polls the two smallest numbers
             cost += (newStick);
-            sticks.offer(newStick); //We add the new connected sticks
+            sticks.offer(newStick); //We add the new connected stick
         }
         return cost;
     }
