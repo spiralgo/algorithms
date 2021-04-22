@@ -20,10 +20,9 @@ public class PutBoxesIntoTheWarehouse1 {
         //If we place the box, we move on to looking at boxes with lower height.
         //If we do not place the box, we move on by comparing boxes of lower heigth.
         //For the both cases, we decrement the index b.
-        
-        for (int b = boxes.length-1; count < warehouse.length && b >= 0;) { 
+
+        for (int b = boxes.length-1; count < warehouse.length && b >= 0; b--) { 
             if (warehouse[count] >= boxes[b]) {count++;}  
-            b--;
         }
         return count;
     }
