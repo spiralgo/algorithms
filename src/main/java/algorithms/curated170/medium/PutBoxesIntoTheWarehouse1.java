@@ -9,9 +9,9 @@ public class PutBoxesIntoTheWarehouse1 {
         //Spatial complexity: O(1)
         
         Arrays.sort(boxes);
-        int b = boxes.length-1; //We will begin by comparing the h'ghest box.
         int count = 0; //We store our counting here.
-        
+
+        //We will begin by comparing the highest box.
         //We loop through each room in the warehouse.
         /*If the room's height is greater or equal to
          the height of the box at index b, we can place
@@ -20,12 +20,13 @@ public class PutBoxesIntoTheWarehouse1 {
         //If we place the box, we move on to looking at boxes with lower height.
         //If we do not place the box, we move on by comparing boxes of lower heigth.
         //For the both cases, we decrement the index b.
-        for (int i = 0; i < warehouse.length && b >= 0;) { 
-            if (warehouse[i] >= boxes[b]) {count++; i++;}  
+        for (int b = boxes.length-1; count < warehouse.length && b >= 0;) { 
+            if (warehouse[count] >= boxes[b]) {count++;}  
             b--;
         }
         return count;
     }
+    
     public static void main(String[] args) {
         
         int[] boxes0 = new int[]{3,2,1,4};
