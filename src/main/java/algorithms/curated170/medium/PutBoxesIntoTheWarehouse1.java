@@ -5,6 +5,9 @@ import java.util.Random;
 
 public class PutBoxesIntoTheWarehouse1 {
     public static int maxBoxesInWarehouse(int[] boxes, int[] warehouse) {
+        //Time complexity: O(n log n ) (because of sorting)
+        //Spatial complexity: O(1)
+        
         Arrays.sort(boxes);
         int b = boxes.length-1; //We will begin by comparing the h'ghest box.
         int count = 0; //We store our counting here.
