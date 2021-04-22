@@ -15,11 +15,12 @@ public class PutBoxesIntoTheWarehouse1 {
         //We loop through each room in the warehouse.
         /*If the room's height is greater or equal to
          the height of the box at index b, we can place
-         the box there. We increment our counter and the index i,
-         so we can look at other rooms in the warehouse. */
+         the box there. We increment our counter and consider the next room.*/
+
         //If we place the box, we move on to looking at boxes with lower height.
         //If we do not place the box, we move on by comparing boxes of lower heigth.
         //For the both cases, we decrement the index b.
+        
         for (int b = boxes.length-1; count < warehouse.length && b >= 0;) { 
             if (warehouse[count] >= boxes[b]) {count++;}  
             b--;
