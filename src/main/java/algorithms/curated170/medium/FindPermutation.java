@@ -13,40 +13,37 @@ public class FindPermutation {
             permutation[i] = i + 1;
         }
 
-        for (int i = 0; i < size; ++i) {
-            if (s.charAt(i) != 'D') {
-                continue;
+        for (int i = 0; i < size; i++) {
+            if (s.charAt(i) == 'D') {
+                int left = i;
+                while (i < size && s.charAt(i) == 'D') {
+                    i++;
+                }
+                reverse(permutation, left, i);
             }
-
-            int left = i;
-            while (i < size && s.charAt(i) == 'D') {
-                i++;
-            }
-            reverse(permutation, left, i);
         }
         return permutation;
     }
 
     private static void reverse(int[] nums, int start, int end) {
         while (start < end) {
-            int temp = nums[start];
+            nums[start] ^= nums[end];
+            nums[end] ^= nums[start];
+            nums[start++] ^= nums[end--];
+            /* int temp = nums[start];
             nums[start++] = nums[end];
-            nums[end--] = temp;
+            nums[end--] = temp; */ 
         }
     }
 
     public static void main(String[] args) {
         int testSize = 20;
         char[] code_ = new char[testSize];
-        for(int i = 0; i<testSize; i++)
-        {
+        for (int i = 0; i < testSize; i++) {
             int rand = new Random().nextInt(100);
-            if(rand < 50)
-            {
+            if (rand < 50) {
                 code_[i] = 'I';
-            }
-            else
-            {
+            } else {
                 code_[i] = 'D';
             }
         }
