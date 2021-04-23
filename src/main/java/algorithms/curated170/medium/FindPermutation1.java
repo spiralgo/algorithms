@@ -3,7 +3,7 @@ package algorithms.curated170.medium;
 import java.util.Arrays;
 import java.util.Random;
 
-public class FindPermutation1 {
+public class FindPermutationAlternative {
     public static int[] findPermutation(String s) {
         s = s + ".";
         int[] permutation = new int[s.length()];
