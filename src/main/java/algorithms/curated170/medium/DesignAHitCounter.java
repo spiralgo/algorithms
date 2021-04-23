@@ -14,7 +14,22 @@ public class DesignAHitCounter {
             hits.add(time);
         }
 
-        public int getHits(int time) {
+        public int getHits(int timestamp) {
+            int size = hits.size();   
+            int l = timestamp <= 300 ? 0 : timestamp - 300;
+    
+            int index = 0;
+            for (int i: hits) {
+                if (i <= l) {
+                    index++;
+                }else break;
+            }
+            
+            return size - index;
+        }
+
+        //Another way of solving:
+        public int getHitsWithBinarySearch(int time) {
             adjustValidHits(time);
             return hits.size();
         }
