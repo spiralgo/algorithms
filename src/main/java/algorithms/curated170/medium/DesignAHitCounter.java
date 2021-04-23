@@ -20,10 +20,10 @@ public class DesignAHitCounter {
         }
 
         private void adjustValidHits(int time) {
-            int size = hits.size();
             if (time - hits.get(0) < 300) {
                 return;
             }
+            int size = hits.size();
             if (time - hits.get(size - 1) >= 300) {
                 hits.clear();
             }
