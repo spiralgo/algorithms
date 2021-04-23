@@ -51,7 +51,7 @@ public class DesignAHitCounter {
         hitCounter.hit(13);
         hitCounter.hit(13);
         hitCounter.hit(302);
-        System.out.println(hitCounter.getHits(301));
-        System.out.println(hitCounter.getHits(305));
+        System.out.println(hitCounter.getHits(301)); //prints 8
+        System.out.println(hitCounter.getHits(305)); //prints 6
     }
 }
