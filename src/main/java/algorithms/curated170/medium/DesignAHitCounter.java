@@ -26,6 +26,7 @@ public class DesignAHitCounter {
             }
             if (time - hits.get(size - 1) >= 300) {
                 hits.clear();
+                return;
             }
             int l = 0, r = size;
             while (r >= l) {
