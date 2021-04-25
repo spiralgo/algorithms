@@ -12,6 +12,10 @@ public class KillProcessDFS {
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
             if (par == 0) {
+                if(pid.get(i) == kill)
+                {
+                    return pid;
+                }
                 continue;
             }
             int chi = pid.get(i);
