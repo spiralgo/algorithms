@@ -21,7 +21,7 @@ public class KillProcessBFS {
 
         List<Integer> pTK = new LinkedList<>();
         Queue<Integer> toKill = new LinkedList<>();
-        toKill.offer(3);
+        toKill.offer(kill);
         while (!toKill.isEmpty()) {
             int killed = toKill.poll();
             pTK.add(killed);
