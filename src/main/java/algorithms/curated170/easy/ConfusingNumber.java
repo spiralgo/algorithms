@@ -15,13 +15,11 @@ public class ConfusingNumber {
         int x = N;
         while (x != 0) {
             int remainder = x % 10;
-            if (!map.containsKey(remainder)) 
-                return false;
-            if(newNum > Integer.MAX_VALUE/10)
+            if (!map.containsKey(remainder) || newNum > Integer.MAX_VALUE/10) 
                 return false;
             newNum = newNum * 10 + map.get(remainder);
             x /= 10;
         }    
-        return N == newNum? false: true;
+        return N != newNum;
     }
 }
