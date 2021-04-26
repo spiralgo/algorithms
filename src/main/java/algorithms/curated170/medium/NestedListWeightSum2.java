@@ -8,7 +8,7 @@ public class NestedListWeightSum2 {
     public int solution(List<NestedInteger> nestedList) {
         for (NestedInteger n : nestedList) {
             if (!n.isInteger()) {
-                max = maxDepth(n.getList(), 2);
+                max = Math.max(max, maxDepth(n.getList(), 2));
             }
         }
         return dfs(nestedList, 0);
@@ -17,7 +17,7 @@ public class NestedListWeightSum2 {
     private int maxDepth(List<NestedInteger> nInt, int depth) {
         for (NestedInteger nested : nInt) {
             if (!nested.isInteger()) {
-                depth = maxDepth(nested.getList(), depth + 1);
+                depth = Math.max(depth, maxDepth(nested.getList(), depth + 1));
             }
         }
         return depth;
