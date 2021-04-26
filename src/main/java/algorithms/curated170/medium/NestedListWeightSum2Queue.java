@@ -4,43 +4,39 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
- 
 public class NestedListWeightSum2Queue {
-public int depthSumInverse(List<NestedInteger> nestedList) {
-        
-         Queue<NestedInteger> productionLine = new LinkedList<>();
-        
-         for (NestedInteger nestedInteger : nestedList) {
+
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+
+        Queue<NestedInteger> productionLine = new LinkedList<>();
+
+        for (NestedInteger nestedInteger : nestedList) {
             productionLine.add(nestedInteger);
         }
-         
-    
-         int totalSum = 0;
-         int layerSum = 0;
-         while (!productionLine.isEmpty()) {  
-              int size = productionLine.size();
-              int individualSum = 0;
-             for (int i = 0; i < size; i++) {
-              
-          
+
+        int totalSum = 0;
+        int layerSum = 0;
+        while (!productionLine.isEmpty()) {
+            int size = productionLine.size();
+            int individualSum = 0;
+            for (int i = 0; i < size; i++) {
+
                 NestedInteger nestedInteger = productionLine.poll();
 
-                if(nestedInteger.isInteger()){
-                    individualSum = individualSum + nestedInteger.getInteger();
+                if (nestedInteger.isInteger()) {
+                    individualSum += nestedInteger.getInteger();
 
-                }else{
+                } else {
                     List<NestedInteger> pack = nestedInteger.getList();
-                    for (NestedInteger nestedIntegerInner : pack) {
-                         productionLine.add(nestedIntegerInner);
-                    }
+                    productionLine.addAll(pack);
                 }
-               
-             }
-             layerSum = layerSum + individualSum;
-             totalSum = totalSum + layerSum;
-            
+
+            }
+            layerSum += individualSum;
+            totalSum += layerSum;
+
         }
-         return totalSum;
+        return totalSum;
     }
 
 }
