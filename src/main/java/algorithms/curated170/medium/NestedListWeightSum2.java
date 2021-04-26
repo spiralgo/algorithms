@@ -3,10 +3,9 @@ package algorithms.curated170.medium;
 import java.util.List;
 
 public class NestedListWeightSum2 {
-    int max = 0;
+    int max = 1;
 
     public int solution(List<NestedInteger> nestedList) {
-        max = 1;
         for (NestedInteger n : nestedList) {
             if (!n.isInteger()) {
                 max = Math.max(max, maxDepth(n.getList(), 2));
