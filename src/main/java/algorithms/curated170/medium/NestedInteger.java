@@ -1,32 +1,62 @@
 package algorithms.curated170.medium;
 
+import java.util.ArrayList;
 import java.util.List;
 
+class NestedInteger {
+    private List<NestedInteger> list;
+    private Integer integer;
+    
+    public NestedInteger(List<NestedInteger> list){
+        this.list = list;
+    }
+    
+    public void add(NestedInteger nestedInteger) {
+        if(this.list != null){
+            this.list.add(nestedInteger);
+        } else {
+            this.list = new ArrayList();
+            this.list.add(nestedInteger);
+        }
+    }
+
+    public void setInteger(int num) {
+        this.integer = num;
+    }
+
+    public NestedInteger(Integer integer){
+        this.integer = integer;
+    }
+
+    public NestedInteger() {
+        this.list = new ArrayList();
+    }
+
+    public boolean isInteger() {
+        return integer != null;
+    }
+
+    public Integer getInteger() {
+        return integer;
+    }
+
+    public List<NestedInteger> getList() {
+        return list;
+    }
+    
+    public void dfsPrint(List<NestedInteger> list) {
+        System.out.print("[");
+         for (NestedInteger nested : list) {
+             if (nested.isInteger()) {
+                 System.out.print(nested.getInteger());
+                 System.out.print(",");
  
-  // This is the interface that allows for creating nested lists.
-  // You should not implement it, or speculate about its implementation
-  public interface NestedInteger {
-      // Constructor initializes an empty nested list.
-      public void NestedInteger();
- 
-      // Constructor initializes a single integer.
-      public void NestedInteger(int value);
- 
-      // @return true if this NestedInteger holds a single integer, rather than a nested list.
-      public boolean isInteger();
- 
-      // @return the single integer that this NestedInteger holds, if it holds a single integer
-      // Return null if this NestedInteger holds a nested list
-      public Integer getInteger();
- 
-      // Set this NestedInteger to hold a single integer.
-      public void setInteger(int value);
- 
-      // Set this NestedInteger to hold a nested list and adds a nested integer to it.
-      public void add(NestedInteger ni);
- 
-      // @return the nested list that this NestedInteger holds, if it holds a nested list
-      // Return empty list if this NestedInteger holds a single integer
-      public List<NestedInteger> getList();
-  }
- 
+             } else {
+                 
+                  dfsPrint(nested.getList());
+                 
+             }
+         } 
+          System.out.print("]");
+     }
+}
