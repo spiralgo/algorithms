@@ -44,22 +44,19 @@ class NestedInteger {
         return list;
     }
     
-    public String printNi(NestedInteger thisNi, StringBuilder sb){
-        if(thisNi.isInteger()) {
-            sb.append(thisNi.integer);
-            sb.append(",");
-        }
-        sb.append("[");
-        for(NestedInteger ni : thisNi.list){
-            if(ni.isInteger()) {
-                sb.append(ni.integer);
-                sb.append(",");
-            }
-            else {
-                printNi(ni, sb);
-            }
-        }
-        sb.append("]");
-        return sb.toString();
-    }
+    public void dfsPrint(List<NestedInteger> list) {
+        System.out.print("[");
+         for (NestedInteger nested : list) {
+             if (nested.isInteger()) {
+                 System.out.print(nested.getInteger());
+                 System.out.print(",");
+ 
+             } else {
+                 
+                  dfsPrint(nested.getList());
+                 
+             }
+         } 
+          System.out.print("]");
+     }
 }

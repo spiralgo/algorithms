@@ -5,24 +5,19 @@ import java.util.List;
 public class NestedListWeightSum2 {
     int max = 1;
 
-    public int solution(List<NestedInteger> nestedList) {
-        for (NestedInteger n : nestedList) {
-            if (!n.isInteger()) {
-                max = Math.max(max, maxDepth(n.getList(), 2));
-            }
-        }
+
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        maxDepth(nestedList, 1);
         return dfs(nestedList, 0);
     }
 
-    private int maxDepth(List<NestedInteger> nInt, int depth) {
-        for (NestedInteger nested : nInt) {
-            if (!nested.isInteger()) {
-                depth = Math.max(depth, maxDepth(nested.getList(), depth + 1));
-            }
+   
+    private void maxDepth(List<NestedInteger> nInt, int depth) {
+        for (NestedInteger nestedInteger : nInt) {
+            if (nestedInteger.isInteger()) max = Math.max(depth, max);
+            else maxDepth(nestedInteger.getList(), depth + 1);
         }
-        return depth;
     }
-
     private int dfs(List<NestedInteger> list, int depth) {
         int total = 0;
         for (NestedInteger nested : list) {
