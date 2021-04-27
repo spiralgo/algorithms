@@ -19,11 +19,10 @@ public class MaximumAvarageSubtree {
         int[] left = searchDownTree(root.left), right = searchDownTree(root.right);
         int n = left[1] + right[1] + 1;
         int sum = left[0] + right[0] + root.val;
-        double avg = (double) sum / n;
-
         double avgL = left[1] == 0 ? 0 : (double) left[0] / left[1];
         double avgR = right[1] == 0 ? 0 : (double) right[0] / right[1];
-        avg = Math.max(avg, Math.max(avgL, avgR));
+        
+        double avg = Math.max((double) sum / n, Math.max(avgL, avgR));
 
         result = Math.max(result, avg);
         return new int[] { sum, n };
