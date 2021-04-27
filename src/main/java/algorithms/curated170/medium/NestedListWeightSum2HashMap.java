@@ -15,7 +15,7 @@ class NestedIntegerWeightSum2Hashmap {
     private void maxDepth(List<NestedInteger> nInt, int depth) {
         for (NestedInteger nestedInteger : nInt) {
             if (nestedInteger.isInteger()) {
-                deepSumMap.put(depth, deepSumMap.get(depth)+nestedInteger.getInteger());
+                deepSumMap.put(depth, deepSumMap.getOrDefault(depth, 0)+nestedInteger.getInteger());
                 max = Math.max(depth, max);
             } else
                 maxDepth(nestedInteger.getList(), depth + 1);
