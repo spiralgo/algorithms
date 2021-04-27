@@ -3,39 +3,46 @@ package algorithms.curated170.medium;
 import algorithms.datastructures.TreeNode;
 
 public class MaximumAvarageSubtree {
-    public static double solution(TreeNode root) {
-        var leftPair = root.left == null ? new double[2] : solutionHelper(root.left);
-        var rightPair = root.right == null ? new double[2] : solutionHelper(root.right);
-        double avarLeft = leftPair[0]/leftPair[1];
-        double avarRight = rightPair[0]/rightPair[1];
-        return Math.max(avarLeft, avarRight);
+    double result = 0;
+
+    public double solution(TreeNode root) {
+        searchDownTree(root);
+        return result;
     }
 
-    private static double[] solutionHelper(TreeNode root) {
-        double[] avaragePair = new double[2];
-        checkSides(root.left, avaragePair);
-        checkSides(root.right, avaragePair);
-        avaragePair[0] += root.val;
-        avaragePair[1]++;
-        return avaragePair;
-    }
-    private static void checkSides(TreeNode side, double[] avaragePair)
-    {
-        if(side==null) {return;}
-        double[] sideHand = solutionHelper(side);
-        avaragePair[0] += sideHand[0];
-        avaragePair[1] += sideHand[1];
+    private int[] searchDownTree(TreeNode root) {
+        // A depth-first search algorithm recursively comparing the avarages of subtrees
+
+        if (root == null) {
+            return new int[] { 0, 0 };
+        }
+        int[] left = searchDownTree(root.left), right = searchDownTree(root.right);
+        int n = left[1] + right[1] + 1;
+        int sum = left[0] + right[0] + root.val;
+        double avg = (double) sum / n;
+
+        double avgL = left[1] == 0 ? 0 : (double) left[0] / left[1];
+        double avgR = right[1] == 0 ? 0 : (double) right[0] / right[1];
+        avg = Math.max(avg, Math.max(avgL, avgR));
+
+        result = Math.max(result, avg);
+        return new int[] { sum, n };
     }
 
     public static void main(String[] args) {
-        var n0 = new TreeNode(6);
-        var n2 = new TreeNode(7);
-        var n1 = new TreeNode(1, null, n2);
-        var n = new TreeNode(5,n0, n1);
-        System.out.println(solution(n)); //prints 6.0
 
+        var n0 = new TreeNode(6);
+        var n1 = new TreeNode(1);
+        var n2 = new TreeNode(7, null, n1);
+        var n = new TreeNode(5, n0, n2);
+        var mas = new MaximumAvarageSubtree();
+        System.out.println(mas.solution(n)); // prints 6.0 (6/1 > (7+1)/2)
+
+        mas = new MaximumAvarageSubtree();
         var n3 = new TreeNode(15);
-        n1.left = n3;
-        System.out.println(solution(n)); //prints 7.666666666666667
+        n.right = n3;
+        n3.left = n2;
+        n2.right = new TreeNode(5);
+        System.out.println(mas.solution(n)); // prints 7.666666666666667 (15+7+5)/3
     }
 }
