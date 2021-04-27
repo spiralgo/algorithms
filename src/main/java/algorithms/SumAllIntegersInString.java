@@ -8,16 +8,15 @@ public class SumAllIntegersInString {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             if (ch == '-') {
-                if (currNum != 0) {
-                    sum += currNum * sign;
-                    currNum = 0;
-                }
+                sum += currNum * sign;
+                currNum = 0;
+
                 sign = -1;
                 continue;
             }
             if (Character.isDigit(ch)) {
                 currNum = currNum * 10 + ch - '0';
-                //currNum = currNum * 10 + Character.getNumericValue(ch);
+                // currNum = currNum * 10 + Character.getNumericValue(ch);
                 continue;
             }
             sum += currNum * sign;
