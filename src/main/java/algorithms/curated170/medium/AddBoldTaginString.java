@@ -2,7 +2,7 @@ package algorithms.curated170.medium;
 
 public class AddBoldTaginString {
 
-    public String addBoldTag(String s, String[] dict) {
+ public String addBoldTag(String s, String[] dict) {
         StringBuilder sb = new StringBuilder();
         boolean arr[] = new boolean[s.length()];
         for(String d : dict){
@@ -17,17 +17,14 @@ public class AddBoldTaginString {
         }
         boolean startB = false;
         for(int i = 0; i < arr.length; i++){
-            if(arr[i]){
-                if(!startB){
+            if(arr[i] && !startB){
                     startB = true;
                     sb.append("<b>");
-                }
-            }else{
-                if(startB){
+             }else if(!arr[i] && startB){
                     startB = false;
                     sb.append("</b>");
                 }
-            }
+            
             sb.append(s.charAt(i));
         }
         if(startB){
