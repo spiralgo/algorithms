@@ -402,29 +402,29 @@ https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/discuss/
  Daha önce çözdüğümüz "159. Longest Substring with At Most Two Distinct Characters" sorusu ile neredeyse aynıdır. Çözüm de aynı şekilde pencere ve HashMap ile yapılacaktır.
    Bu yüzden "Approach 1: Sliding Window + Hashmap." uygundur.
 
- [Add Bold Tag in String](https://github.com/spiralgo/algorithms/issues/73)	
+ [Add Bold Tag in String](https://github.com/spiralgo/algorithms/issues/72)	
  
  Şuradaki çözüm zekice görünüyor:
 https://leetcode.com/problems/add-bold-tag-in-string/discuss/104248/Java-Solution-boolean-array
 
- [Closest Leaf in a Binary Tree](https://github.com/spiralgo/algorithms/issues/74)	
+ [Closest Leaf in a Binary Tree](https://github.com/spiralgo/algorithms/issues/73)	
  
    Binary Tree'yi önce bir Graf'a çevirmeyi öğrettiği için şu çözüm uygun görünüyor: Approach #1: Convert to Graph [Accepted]
 
- [Word Pattern II](https://github.com/spiralgo/algorithms/issues/75)	
+ [Word Pattern II](https://github.com/spiralgo/algorithms/issues/74)	
  
    Daha önce öğrendiğimiz	"Backtracking" metodu kullandığı için, buradaki çözüm uygun görünüyor.
 https://leetcode.com/problems/word-pattern-ii/discuss/73664/Share-my-Java-backtracking-solution
 
- [Find the Celebrity](https://github.com/spiralgo/algorithms/issues/76)	
+ [Find the Celebrity](https://github.com/spiralgo/algorithms/issues/75)	
  
    Standart çözümdeki "mantıksal çıkarım" yani "Approach 2: Logical Deduction" yöntemi uygun görünüyor.
 	
- [Graph Valid Tree](https://github.com/spiralgo/algorithms/issues/77)
+ [Graph Valid Tree](https://github.com/spiralgo/algorithms/issues/76)
  
    Daha önceden bildiğimiz Union-find kullandığı için "Approach 3: Advanced Graph Theory + Union Find" çözümü uygundur.
 
- [Inorder Successor in BST](https://github.com/spiralgo/algorithms/issues/78)
+ [Inorder Successor in BST](https://github.com/spiralgo/algorithms/issues/77)
  
    Bu bir binary search tree olduğu için, doğal olarak "Approach 2: Using BST properties" uygun çözümdür.
 
