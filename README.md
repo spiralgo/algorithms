@@ -309,8 +309,16 @@ https://leetcode.com/problems/campus-bikes-ii/discuss/412367/Java-DFS-And-DP-Sol
 
  [Path With Maximum Minimum Value](https://github.com/spiralgo/algorithms/issues/50)
    
-   Bu çözüm, minimum-maksimum yol problemlerinin gözde algoritması olan Dijkstra'yı çalışmak için iyi bir bahâne olduğundan, şu çözümü seçiyoruz:
-https://leetcode.com/problems/path-with-maximum-minimum-value/discuss/324923/Clear-Code-Dijkstra-Algorithm-(C%2B%2BJavaPythonGoPHP)
+  
+(Mümkün yollardaki minimum değerlerden, maksimum olanını sorduğu için soru biraz kafa karıştırıcı olabilir. )
+
+Bu soru PriorityQueue, Union Find, Binary Search kullanılarak çözülebiliyor.
+
+ Binary Search kullanılan yöntem en hızlısı olsa gerekir. 
+ Binary search, aranan değerin 0 ile  (high = Math.min(A[0][0], A[row-1][col-1])) değeri arasında olması gerektiği gerçeğine dayanır.
+ Çünkü bu iki node'un (yani A[0][0] ve A[row-1][col-1]) "mümkün yollar" üzerinde olması gerektiği kesindir. 
+ High değeri, mümkün olan yollar içerisinde eğer minimumsa, skor zâten odur.
+ Eğer maksimumsa, aranan değerin 1 ile high arasında olacağı gerçeği değişmez. Bu yüzden low = 1 ile High+1 arasında Binary Search yaparak "low" değişkeninin alabileceği maksimum değeri ararız.
 
  [Longest Substring with At Most Two Distinct Characters](https://github.com/spiralgo/algorithms/issues/51)
   
