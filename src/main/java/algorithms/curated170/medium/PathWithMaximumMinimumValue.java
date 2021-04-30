@@ -12,17 +12,24 @@ public class PathWithMaximumMinimumValue {
         int result = pathWithMaximumMinimumValue.maximumMinimumPath(A);
         System.out.println(result);
     }
+
     final static int DIRECTIONS[] = {0, 1, 0, -1, 0};
 
+    private int rowCount, colCount;
+    private boolean[][] visited;
+    private int[][] grid;
+
     public int maximumMinimumPath(int[][] A) {
-        int rowCount = A.length, colCount = A[0].length;
+        grid = A;
+        rowCount = A.length;
+        colCount = A[0].length;
 
         int low = 1, high = Math.min(A[0][0], A[rowCount - 1][colCount - 1]) + 1;
-      
+
         while (low < high) {
             int mid = (low + high) / 2;
-            boolean[][] visited = new boolean[rowCount][colCount];
-            if (isThereAPossiblePath(A, 0, 0, A.length, A[0].length, mid, visited)) {
+            visited = new boolean[rowCount][colCount];
+            if (isThereAPossiblePath(0, 0, mid)) {
                 low = mid + 1;
             } else {
                 high = mid;
@@ -32,7 +39,7 @@ public class PathWithMaximumMinimumValue {
         return low - 1;
     }
 
-    boolean isThereAPossiblePath(int[][] A, int x, int y, int rowCount, int colCount, int limit, boolean[][] visited) {
+    boolean isThereAPossiblePath(int x, int y, int limit) {
         if (x == rowCount - 1 && y == colCount - 1) {
             return true;
         }
@@ -41,8 +48,8 @@ public class PathWithMaximumMinimumValue {
         for (int i = 0; i < 4; i++) {
             int dx = x + DIRECTIONS[i];
             int dy = y + DIRECTIONS[i + 1];
-            if (dx >= 0 && dy >= 0 && dx <= rowCount - 1 && dy <= colCount - 1 && A[dx][dy] >= limit && !visited[dx][dy]) {
-                if (isThereAPossiblePath(A, dx, dy, rowCount, colCount, limit, visited)) {
+            if (dx >= 0 && dy >= 0 && dx <= rowCount - 1 && dy <= colCount - 1 && grid[dx][dy] >= limit && !visited[dx][dy]) {
+                if (isThereAPossiblePath(dx, dy, limit)) {
                     return true;
                 }
             }
