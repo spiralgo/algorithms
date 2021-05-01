@@ -22,6 +22,12 @@ Açıklaması issue içindedir.
 
 **CURATED 170 SORULARI:**
 
+**EASY:**
+
+[1165. Single-Row Keyboard:](https://github.com/spiralgo/algorithms/issues/129)
+
+
+**MEDUIM:**
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
 
 Daha önce öğrendiklerimize dayanarak "Approach #3 HashMap + Depth First Search" çözümünün, bizim düşünce şeklimize daha uygun olduğu kanaatindeyim.
@@ -328,6 +334,7 @@ Bu soru PriorityQueue, Union Find, Binary Search kullanılarak çözülebiliyor.
 
  Şuradaki çözüm gayet yalın görünüyor:
    https://leetcode.com/problems/sort-transformed-array/discuss/83322/Java-O(n)-incredibly-short-yet-easy-to-understand-AC-solution
+   
  [First Unique Number](https://github.com/spiralgo/algorithms/issues/53)
  
 Standart çözümdeki  "Approach 2: Queue and HashMap of Unique-Status" bu soruya uygun görünüyor.
