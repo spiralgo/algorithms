@@ -5,11 +5,11 @@ import java.util.Map;
 
  
 
- class FirstUniqueNaive {
+ class FirstUniqueNumberNaive {
 
      LinkedHashMap<Integer, Integer> queue = new LinkedHashMap();
            
-    public FirstUniqueNaive(int[] nums) {
+    public FirstUniqueNumberNaive(int[] nums) {
      for(int item: nums){
          queue.merge(item, 1, Integer::sum);
      }
