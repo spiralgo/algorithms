@@ -26,6 +26,22 @@ Açıklaması issue içindedir.
 
 [1165. Single-Row Keyboard:](https://github.com/spiralgo/algorithms/issues/129)
 
+[760. Find Anagram Mappings:](https://github.com/spiralgo/algorithms/issues/133)
+
+[1213. Intersection of Three Sorted Arrays:](https://github.com/spiralgo/algorithms/issues/134)
+
+[1180. Count Substrings with Only One Distinct Letter:](https://github.com/spiralgo/algorithms/issues/135)
+
+[1134. Armstrong Number:](https://github.com/spiralgo/algorithms/issues/136)
+
+[1086. High Five:](https://github.com/spiralgo/algorithms/issues/137)
+
+[346. Moving Average from Data Stream:](https://github.com/spiralgo/algorithms/issues/138)
+
+[1474. Delete N Nodes After M Nodes of a Linked List:](https://github.com/spiralgo/algorithms/issues/139)
+
+[359. Logger Rate Limiter:](https://github.com/spiralgo/algorithms/issues/140)
+
 
 **MEDUIM:**
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
