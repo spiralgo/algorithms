@@ -18,18 +18,18 @@ public class SortTransformedArray {
             
             if (a > 0) {
                 for (int i = n - 1; i >= 0; i--) {
-                    quarticComparator(i, true);
+                    quadraticComparator(i, true);
                 }
             } else {
                 for (int i = 0; i < n; i++) {
-                    quarticComparator(i, false);
+                    quadraticComparator(i, false);
                 }
             }
 
             return res;
         }
 
-        void quarticComparator(int i, boolean pbType) {
+        void quadraticComparator(int i, boolean pbType) {
             int y1 = quadratic(nums[start]);
             int y2 = quadratic(nums[end]);
             if ((pbType && y1 > y2) || (!pbType && y1 < y2)) {
