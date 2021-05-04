@@ -26,6 +26,64 @@ Açıklaması issue içindedir.
 
 [1165. Single-Row Keyboard:](https://github.com/spiralgo/algorithms/issues/129)
 
+[760. Find Anagram Mappings:](https://github.com/spiralgo/algorithms/issues/133)
+
+[1213. Intersection of Three Sorted Arrays:](https://github.com/spiralgo/algorithms/issues/134)
+
+[1180. Count Substrings with Only One Distinct Letter:](https://github.com/spiralgo/algorithms/issues/135)
+
+[1134. Armstrong Number:](https://github.com/spiralgo/algorithms/issues/136)
+
+[1086. High Five:](https://github.com/spiralgo/algorithms/issues/137)
+
+[346. Moving Average from Data Stream:](https://github.com/spiralgo/algorithms/issues/138)
+
+[1474. Delete N Nodes After M Nodes of a Linked List:](https://github.com/spiralgo/algorithms/issues/139)
+
+[359. Logger Rate Limiter:](https://github.com/spiralgo/algorithms/issues/140)
+
+[1196. How Many Apples Can You Put into the Basket:](https://github.com/spiralgo/algorithms/issues/143)
+
+[1133. Largest Unique Number](https://github.com/spiralgo/algorithms/issues/144)
+
+[1064. Fixed Point:](https://github.com/spiralgo/algorithms/issues/145)
+
+[266. Palindrome Permutation:](https://github.com/spiralgo/algorithms/issues/146)
+
+[243. Shortest Word Distance:](https://github.com/spiralgo/algorithms/issues/147)
+
+[1065. Index Pairs of a String:](https://github.com/spiralgo/algorithms/issues/148)
+
+[1099. Two Sum Less Than K:](https://github.com/spiralgo/algorithms/issues/149)
+
+[1426. Counting Elements:](https://github.com/spiralgo/algorithms/issues/150)
+
+[1150. Check If a Number Is Majority Element in a Sorted Array:](https://github.com/spiralgo/algorithms/issues/151)
+
+[252. Meeting Rooms:](https://github.com/spiralgo/algorithms/issues/152)
+
+[1427. Perform String Shifts:](https://github.com/spiralgo/algorithms/issues/153)
+
+[1228. Missing Number In Arithmetic Progression:](https://github.com/spiralgo/algorithms/issues/154)
+
+[270. Closest Binary Search Tree Value:](https://github.com/spiralgo/algorithms/issues/155)
+
+[1056. Confusing Number:](https://github.com/spiralgo/algorithms/issues/156)
+
+[716. Max Stack:](https://github.com/spiralgo/algorithms/issues/157)
+
+[734. Sentence Similarity:](https://github.com/spiralgo/algorithms/issues/158)
+
+[604. Design Compressed String Iterator:](https://github.com/spiralgo/algorithms/issues/159)
+
+[422. Valid Word Square:](https://github.com/spiralgo/algorithms/issues/160)
+
+[157. Read N Characters Given Read4:](https://github.com/spiralgo/algorithms/issues/161)
+
+[170. Two Sum III - Data structure design:](https://github.com/spiralgo/algorithms/issues/162)
+
+[163. Missing Ranges:](https://github.com/spiralgo/algorithms/issues/163)
+   
 
 **MEDUIM:**
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
