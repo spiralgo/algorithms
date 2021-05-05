@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.designaleaderboard;
 
 import java.util.ArrayList;
 import java.util.Collections;
