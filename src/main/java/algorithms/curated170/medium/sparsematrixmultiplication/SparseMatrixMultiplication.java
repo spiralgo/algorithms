@@ -1,4 +1,5 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.sparsematrixmultiplication;
+
 import java.util.Arrays;
 
 import algorithms.LinearAlgebra;

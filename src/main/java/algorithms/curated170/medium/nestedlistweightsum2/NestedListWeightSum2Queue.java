@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.nestedlistweightsum2;
 
 import java.util.LinkedList;
 import java.util.List;

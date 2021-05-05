@@ -1,7 +1,4 @@
-package algorithms.curated170.medium;
-
-import java.util.LinkedList;
-import java.util.List;
+package algorithms.curated170.medium.designahitcounter;
 
 public class DesignAHitCounterCircle {
     public static class HitCounter {
