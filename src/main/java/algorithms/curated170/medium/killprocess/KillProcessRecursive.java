@@ -1,13 +1,13 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.killprocess;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
-public class KillProcessDFS {
-    public static List<Integer> killProcessDFS(List<Integer> pid, List<Integer> ppid, int kill) {
+public class KillProcessRecursive {
+    public static List<Integer> killProcessRecursive(List<Integer> pid, List<Integer> ppid, int kill)
+    {
         HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
@@ -24,22 +24,24 @@ public class KillProcessDFS {
         }
 
         List<Integer> pTK = new LinkedList<>();
-        Stack<Integer> toKill = new Stack<Integer>();
-        toKill.push(kill);
-        while (!toKill.empty()) {
-            int killed = toKill.pop();
-            pTK.add(killed);
-            if (parentChildMap.containsKey(killed)) {
-                toKill.addAll(parentChildMap.get(killed));
+        recursiveHelper(pTK, parentChildMap, kill);
+        return pTK;
+    }
+    private static void recursiveHelper(List<Integer> pTK, HashMap<Integer, HashSet<Integer>> parentChildMap, int kill)
+    {
+        pTK.add(kill);
+        if (parentChildMap.containsKey(kill)) {
+            for(int toKill : parentChildMap.get(kill))
+            {
+                recursiveHelper(pTK, parentChildMap, toKill);
             }
         }
-        return pTK;
     }
 
     public static void main(String[] args) {
         var pid = List.of(1, 3, 10, 5);
         var ppid = List.of(3, 0, 5, 3);
-        var k1 = killProcessDFS(pid, ppid, 3);
-        System.out.println(k1);
+        var k3 = killProcessRecursive(pid, ppid, 3);
+        System.out.println(k3);
     }
 }
