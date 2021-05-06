@@ -454,13 +454,13 @@ https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/discuss/77784/O
     	
   Approach 2: Two Pointers, yaklaşımı gayet kolay. Çözüm kısmında lâfı fazla uzatmışlar ama göründüğü kadar zor değil.
 
- [Verify Preorder Sequence in Binary Search Tree](https://github.com/spiralgo/algorithms/issues/68)
+ [Verify Preorder Sequence in Binary Search Tree](https://github.com/spiralgo/algorithms/issues/69)
  
   Şuradaki en fazla puan alan çözüm uygundur:
  
   https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/discuss/68142/Java-O(n)-and-O(1)-extra-space
 
- [Longest Line of Consecutive One in Matrix](https://github.com/spiralgo/algorithms/issues/69)
+ [Longest Line of Consecutive One in Matrix](https://github.com/spiralgo/algorithms/issues/68)
 
    Standart çözümler pek beğenilmemiş. Şurada en iyi puanı alan Java kodu uygun görünüyor:
 https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix/discuss/102266/Java-O(nm)-Time-DP-Solution
