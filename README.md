@@ -128,8 +128,9 @@ Bu çözüm vesilesi ile TreeSet veri yapısı öğrenilmeli.
 
 [426. Convert Binary Search Tree to Sorted Doubly Linked List](https://github.com/spiralgo/algorithms/issues/15)
 
-Bunu tam da düşündüğümüz gibi, Inoder rekürsif kullanarak çözmüş. Çünkü inorder zâten bir Binary Tree'ye, küçükten büyüğe sıralayarak veriyor.
+Bunu tam da düşündüğümüz gibi, Inorder rekürsif kullanarak çözmüş. Çünkü inorder zâten bir Binary Tree'ye, küçükten büyüğe sıralayarak veriyor.
 Çözüm gayet akla yatkın.
+Tanıma göre, eğer kökün sol alt ağacından sıralı bir linked list yaparsak, sonra sonuna kökü koyarsak, sonra ise sağ alt ağacından bunu oluşturursak elimizde bir tür LinkedList olmalı. Bu da özyineli algoritmayı verir. 
 
 [1245. Tree Diameter](https://github.com/spiralgo/algorithms/issues/16)
 
