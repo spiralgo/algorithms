@@ -13,18 +13,18 @@ public class GuessTheMajorityInAHiddenArray {
         int d = reader.query(0, 1, 2, 4);
         int e = reader.query(1, 2, 3, 4);
         val[0] = true;
-        val[1] = (b == e) ? true : false;
+        val[1] = (b == e);
         val[2] = (b == c) ? val[1] : !val[1];
         val[3] = (c == d) ? val[2] : !val[2];
         val[4] = (a == d) ? val[3] : !val[3];
-        int cnt1 = 0, cnt2 = 0, index1 = -1, index2 = -1;
+        int countA = 0, countB = 0, indexA = -1, indexB = -1;
         for (int i = 0; i < 5; i++) {
             if (val[i]) {
-                cnt1++;
-                index1 = i;
+                countA++;
+                indexA = i;
             } else {
-                cnt2++;
-                index2 = i;
+                countB++;
+                indexB = i;
             }
         }
         int prev = e;
@@ -33,17 +33,17 @@ public class GuessTheMajorityInAHiddenArray {
             val[i % 5] = (cur == prev) ? val[(i - 4) % 5] : !val[(i - 4) % 5];
             prev = cur;
             if (val[i % 5]) {
-                cnt1++;
-                index1 = i;
+                countA++;
+                indexA = i;
             } else {
-                cnt2++;
-                index2 = i;
+                countB++;
+                indexB = i;
             }
         }
-        if (cnt1 == cnt2) {
+        if (countA == countB) {
             return -1;
         }
-        return cnt1 > cnt2 ? index1 : index2;
+        return countA > countB ? indexA : indexB;
     }
 
     public static void main(String[] args) {
