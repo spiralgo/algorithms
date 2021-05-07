@@ -7,6 +7,10 @@ public class ConvertBinarySearchTreeToDoublyLinkedList {
     private TreeNode lastNode = headPointer;
 
     public TreeNode treeToDoublyList(TreeNode root) {
+        if(root==null)
+        {
+            return null;
+        }
         convertTree(root);
         lastNode.right = headPointer.right;
         headPointer.right.left = lastNode;
