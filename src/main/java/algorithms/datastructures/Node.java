@@ -13,7 +13,7 @@ public class Node {
     }
     public Node(int value, Node left, Node right) {
         this.value = value;
-        right = null;
-        left = null;
+        this.left = left;
+        this.right = right;
     }
 }
