@@ -87,7 +87,9 @@ Açıklaması issue içindedir.
 
 **MEDUIM:**
 
+
 [1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
+
 
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
 
