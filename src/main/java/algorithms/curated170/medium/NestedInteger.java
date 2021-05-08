@@ -3,7 +3,7 @@ package algorithms.curated170.medium;
 import java.util.ArrayList;
 import java.util.List;
 
-class NestedInteger {
+public class NestedInteger {
     private List<NestedInteger> list;
     private Integer integer;
     

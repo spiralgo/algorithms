@@ -1,5 +1,6 @@
 package algorithms.curated170.medium.nestedlistweightsum2;
 
+import algorithms.curated170.medium.NestedInteger;
 import java.util.List;
 
 public class NestedListWeightSum2 {
