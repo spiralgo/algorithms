@@ -2,24 +2,24 @@ package algorithms.curated170.medium;
 
 public class InorderSuccessorInBST2 {
 
-    public Node sucNode(Node start) {
+    public Node inorderSuccessor(Node start) {
         if (start == null) {
             return null;
         }
-        if (start.right == null) {
-            while (start.parent != null) {
-                if (start.parent.left == start) {
-                    return start.parent;
-                }
-                start = start.parent;
-            }
-            return null;
+        if (start.right != null)
+            return findIS(start.right);
+
+        while (start.parent != null && start.parent.left != start) {
+
+            start = start.parent;
         }
-        return findSuc(start);
+
+        return start.parent;
+
     }
 
-    private Node findSuc(Node n) {
-        return n.left == null ? n : findSuc(n.left);
+    private Node findIS(Node n) {
+        return n.left == null ? n : findIS(n.left);
     }
 
     private class Node {
