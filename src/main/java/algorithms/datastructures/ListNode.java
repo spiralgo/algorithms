@@ -1,5 +1,7 @@
 package algorithms.datastructures;
 
+import java.util.List;
+
 public class ListNode {
 
     public int val;
@@ -22,5 +24,14 @@ public class ListNode {
         this.next = next;
         
         return this.next;
+    }
+    public static void printList(ListNode k)
+    {
+        while(k!= null)
+        {
+            System.out.print(k.val + " ");
+            k = k.next;
+        }
+        System.out.println();
     }
 }
