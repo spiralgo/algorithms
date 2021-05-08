@@ -22,6 +22,13 @@ Açıklaması issue içindedir.
 
 [Inverse Square Root Algorithm](https://github.com/spiralgo/algorithms/issues/1)
  
+[Subset Sum Problem](https://github.com/spiralgo/algorithms/pull/102)
+
+[Using the Monte Carlo Method to estimate Pi](https://github.com/spiralgo/algorithms/pull/103)
+ 
+[Knapsack, Weighted Interval Scheduling Naive solutions ](https://github.com/spiralgo/algorithms/pull/100)
+
+[0/1 Knapsack](https://github.com/spiralgo/algorithms/pull/105)
 
 
 **CURATED 170 SORULARI:**
