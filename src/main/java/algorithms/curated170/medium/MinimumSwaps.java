@@ -14,7 +14,7 @@ public class MinimumSwaps {
                   return 0;
             }
             int minChanges = windowSize;
-            for(int i = 0; i<data.length-windowSize; i++)
+            for(int i = 0; i<=data.length-windowSize; i++)
             {
                   minChanges = Math.min(minChanges, countZeros(i));
             }
