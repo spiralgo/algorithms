@@ -20,6 +20,17 @@ Açıklaması issue içindedir.
 
 Açıklaması issue içindedir.
 
+[Inverse Square Root Algorithm](https://github.com/spiralgo/algorithms/issues/1)
+ 
+[Subset Sum Problem](https://github.com/spiralgo/algorithms/pull/102)
+
+[Using the Monte Carlo Method to estimate Pi](https://github.com/spiralgo/algorithms/pull/103)
+ 
+[Knapsack, Weighted Interval Scheduling Naive solutions ](https://github.com/spiralgo/algorithms/pull/100)
+
+[0/1 Knapsack](https://github.com/spiralgo/algorithms/pull/105)
+
+
 **CURATED 170 SORULARI:**
 
 **EASY:**
@@ -86,10 +97,26 @@ Açıklaması issue içindedir.
    
 
 **MEDUIM:**
+ 
+[ 1244. Design A Leaderboard:](https://github.com/spiralgo/algorithms/issues/2)
 
+[ 362. Design Hit Counter:](https://github.com/spiralgo/algorithms/issues/4)
+
+[1564. Put Boxes Into the Warehouse I:](https://github.com/spiralgo/algorithms/issues/3)
+
+[280. Wiggle Sort:](https://github.com/spiralgo/algorithms/issues/5)
+
+[1236. Web Crawler:](https://github.com/spiralgo/algorithms/issues/6)
+
+[1167. Minimum Cost to Connect Sticks:](https://github.com/spiralgo/algorithms/issues/7)
+
+[484. Find Permutation:](https://github.com/spiralgo/algorithms/issues/8)
+
+[311. Sparse Matrix Multiplication:](https://github.com/spiralgo/algorithms/issues/9)
+
+[364. Nested List Weight Sum II:](https://github.com/spiralgo/algorithms/issues/11)
 
 [1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
-
 
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
 
