@@ -4,7 +4,7 @@ import algorithms.datastructures.ListNode;
 
 public class PlusOneLinkedList {
 
-    public ListNode addOne(ListNode head)
+    public ListNode plusOne(ListNode head)
     {
         ListNode newHead = new ListNode(0);
         newHead.next = head;
