@@ -11,7 +11,7 @@ public class ParallelCourses {
     Map<Integer, HashSet<Integer>> courseParMap;
     HashSet<Integer> firstCourses = new HashSet<>();
 
-    public int solution(int[][] courses) {
+    public int minimumSemesters(int n, int[][] courses) {
         createMap(courses);
         return sortTopologically();
     }
@@ -69,10 +69,10 @@ public class ParallelCourses {
         int[][] courses = new int[][] { { 1, 5 }, { 3, 2 }, { 3, 4 }, { 2, 6 }, { 4, 6 }, { 2, 5 }, { 5, 8 }, { 7, 8 },
                 { 6, 9 }, { 7, 10 }, { 6, 8 }, { 8, 10 }, { 9, 10 } };
         var solution = new ParallelCourses();
-        System.out.println(solution.solution(courses));
+        System.out.println(solution.minimumSemesters(10,courses));
 
         int[][] loopCourses = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 1 } };
         var solution0 = new ParallelCourses();
-        System.out.println(solution0.solution(loopCourses));
+        System.out.println(solution0.minimumSemesters(4,loopCourses));
     }
 }
