@@ -25,9 +25,7 @@ public class ParallelCourses {
 
     private int sortTopologically() {
         Queue<Integer> q = new LinkedList<>();
-
-        setFirstCourses();
-        q.addAll(firstCourses);
+        setFirstCourses(q);
 
         int count = 0;
         int processes = 0;
@@ -61,22 +59,20 @@ public class ParallelCourses {
 
             inDegreeMap[B]++;
             if (courseChiMap.get(A) == null) {
-                courseChiMap.put(A, new LinkedList<>());
+                courseChiMap.put(A, new ArrayList<>());
             }
             courseChiMap.get(A).add(B);
         }
     }
 
-    private void setFirstCourses()
-    {
-        for(int i = 1; i<=numOfCourses;i++)
-        {
-            if(inDegreeMap[i] == 0)
-            {
-                firstCourses.add(i);
+    private void setFirstCourses(Queue<Integer> q) {
+        for (int i = 1; i <= numOfCourses; i++) {
+            if (inDegreeMap[i] == 0) {
+                q.add(i);
             }
         }
     }
+
     public static void main(String[] args) {
         int[][] courses = new int[][] { { 1, 5 }, { 3, 2 }, { 3, 4 }, { 2, 6 }, { 4, 6 }, { 2, 5 }, { 5, 8 }, { 7, 8 },
                 { 6, 9 }, { 7, 10 }, { 6, 8 }, { 8, 10 }, { 9, 10 } };
