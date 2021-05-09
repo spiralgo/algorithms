@@ -8,15 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class ParallelCourses {
-    Map<Integer, List<Integer>> courseChiMap;
+public class ParallelCoursesAlternative {
+    List<List<Integer>> courseChiMap;
     int[] inDegreeMap;
     int numOfCourses;
     HashSet<Integer> firstCourses = new HashSet<>();
 
     public int minimumSemesters(int n, int[][] courses) {
         inDegreeMap = new int[n + 1];
-        courseChiMap = new HashMap<>();
         numOfCourses = n;
 
         createMap(courses);
@@ -55,14 +54,18 @@ public class ParallelCourses {
 
     private void createMap(int[][] courses) {
 
+        courseChiMap = new LinkedList<>();
+        for(int i = 0; i<=numOfCourses; i++)
+        {
+            courseChiMap.add(new LinkedList<>());
+        }
+
         for (int[] pair : courses) {
             int A = pair[0];
             int B = pair[1];
 
             inDegreeMap[B]++;
-            if (courseChiMap.get(A) == null) {
-                courseChiMap.put(A, new LinkedList<>());
-            }
+            
             courseChiMap.get(A).add(B);
         }
     }
@@ -80,7 +83,7 @@ public class ParallelCourses {
     public static void main(String[] args) {
         int[][] courses = new int[][] { { 1, 5 }, { 3, 2 }, { 3, 4 }, { 2, 6 }, { 4, 6 }, { 2, 5 }, { 5, 8 }, { 7, 8 },
                 { 6, 9 }, { 7, 10 }, { 6, 8 }, { 8, 10 }, { 9, 10 } };
-        var solution = new ParallelCourses();
+        var solution = new ParallelCoursesAlternative();
         System.out.println(solution.minimumSemesters(10, courses));
     }
 }
