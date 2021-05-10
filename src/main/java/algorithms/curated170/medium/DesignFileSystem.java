@@ -1,46 +1,42 @@
 package algorithms.curated170.medium;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DesignFileSystem {
- 
 
-    Map<List<String>, Integer> files;
-    public DesignFileSystem()
-    {
+    Map<String, Integer> files;
+
+    public DesignFileSystem() {
         files = new HashMap<>();
-        files.put(List.of(""), 0);
+        files.put("", 0);
     }
-    public boolean createPath(String path, int value)
-    {
-        if(path.charAt(path.length()-1) == '/' || path.charAt(0) != '/')
-        {
+
+    public boolean createPath(String path, int value) {
+        if (path.length() < 2 || path.charAt(0) != '/') {
             return false;
         }
-        String[] paths = path.split("/");
-        List<String> pathList = Arrays.asList(paths);
-        if(pathList.size()>=2 &&  files.containsKey(pathList.subList(0, pathList.size()-1)))
-        {
-            files.put(pathList, value);
+
+        String parentFolder = path.substring(0, path.lastIndexOf('/'));
+
+        if (files.containsKey(parentFolder)) {
+            files.put(path, value);
             return true;
         }
         return false;
     }
-    public int get(String path)
-    {
-        return files.getOrDefault(Arrays.asList(path.split("/")), -1);
+
+    public int get(String path) {
+        return files.getOrDefault(path, -1);
     }
- 
+
     public static void main(String[] args) {
         var solution = new DesignFileSystem();
         System.out.println(solution.createPath("/a", 1));
         System.out.println(solution.createPath("/b", 2));
         System.out.println(solution.createPath("/b/c", 3));
         System.out.println(solution.createPath("/d/e", 4));
-        System.out.println(solution.createPath("/b/", 5));
+        // System.out.println(solution.createPath("/b/", 5)); LeetCode does not have such cases
         System.out.println(solution.get("/b/c"));
         System.out.println(solution.get("/a"));
         System.out.println(solution.get("/f"));
