@@ -25,10 +25,11 @@ public class MinimumSwaps {
             int prev = minChanges;
             for (int l = 1, r = windowSize; l <= data.length - windowSize; l++, r++) {
                   int a = data[l], b = data[r];
+                  
                   if (a == b) {
                         continue;
                   }
-                  System.out.println(a + " " + b +  " prev: " + prev + " index: " + l);
+                  
                   if (a > b) {
                         prev--;
                   } else if (a < b) {
