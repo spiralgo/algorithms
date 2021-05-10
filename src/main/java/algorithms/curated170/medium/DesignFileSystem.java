@@ -16,7 +16,7 @@ public class DesignFileSystem {
     }
     public boolean createPath(String path, int value)
     {
-        if(path.charAt(path.length()-1) == '/')
+        if(path.charAt(path.length()-1) == '/' || path.charAt(0) != '/')
         {
             return false;
         }
