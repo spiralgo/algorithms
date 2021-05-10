@@ -97,12 +97,17 @@ Açıklaması issue içindedir.
    
 
 **MEDUIM:**
- 
+ [1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
+
+[1101. The Earliest Moment When Everyone Become Friends:](https://github.com/spiralgo/algorithms/issues/185)
+
+[1061. Lexicographically Smallest Equivalent String:](https://github.com/spiralgo/algorithms/issues/186)
+
 [ 1244. Design A Leaderboard:](https://github.com/spiralgo/algorithms/issues/2)
 
-[ 362. Design Hit Counter:](https://github.com/spiralgo/algorithms/issues/4)
-
 [1564. Put Boxes Into the Warehouse I:](https://github.com/spiralgo/algorithms/issues/3)
+
+[ 362. Design Hit Counter:](https://github.com/spiralgo/algorithms/issues/4)
 
 [280. Wiggle Sort:](https://github.com/spiralgo/algorithms/issues/5)
 
@@ -116,7 +121,6 @@ Açıklaması issue içindedir.
 
 [364. Nested List Weight Sum II:](https://github.com/spiralgo/algorithms/issues/11)
 
-[1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
 
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
 
@@ -582,3 +586,9 @@ https://leetcode.com/problems/maximum-distance-in-arrays/discuss/104613/Java-Sol
    	Böyle Linked List sorularında, iki pointer kullanmak akla yatkın görünüyor:
    "Approach 1: Two-Pointers Iteration"
 
+**HARD:**
+ [431. Encode N-ary Tree to Binary Tree:](https://github.com/spiralgo/algorithms/issues/89)
+ [489. Robot Room Cleaner:](https://github.com/spiralgo/algorithms/issues/90)
+ [759. Employee Free Time:](https://github.com/spiralgo/algorithms/issues/91)
+ [1274. Number of Ships in a Rectangle:](https://github.com/spiralgo/algorithms/issues/92)
+ 
