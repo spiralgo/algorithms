@@ -12,7 +12,6 @@ public class ParallelCourses {
     Map<Integer, List<Integer>> courseChiMap;
     int[] inDegreeMap;
     int numOfCourses;
-    HashSet<Integer> firstCourses = new HashSet<>();
 
     public int minimumSemesters(int n, int[][] courses) {
         inDegreeMap = new int[n + 1];
