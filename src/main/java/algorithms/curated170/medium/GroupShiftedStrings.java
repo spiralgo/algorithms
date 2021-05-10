@@ -19,16 +19,13 @@ public class GroupShiftedStrings {
         return new ArrayList<>(map.values());
     }
 
-    private String getKey(String s) {
-        char[] chars = s.toCharArray();
-        String key = "";
-        char firstChar = chars[0];
-        for (int i = 1; i < chars.length; i++) {
-            int diff = chars[i] - firstChar;
-            key += diff < 0 ? diff + 26 : diff;
-            key += ",";
+    public String getKey(String str) {
+        int diff = str.charAt(0) - 'a';
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = (char)((chars[i] - diff + 26)%26);
         }
-        return key;
+        return String.valueOf(chars);
     }
 
     public static void main(String[] args) {
