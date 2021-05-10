@@ -24,6 +24,11 @@ public class ParallelCoursesDFS {
         visited = new boolean[n + 1];
         for (int i = 1; i <= n; i++) {
             dfs(i);
+            
+            if(hasCycle)
+            {
+                return -1;
+            }
         }
         return hasCycle ? -1 : maxPathLength;
     }
