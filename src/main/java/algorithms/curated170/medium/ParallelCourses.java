@@ -9,13 +9,12 @@ import java.util.Map;
 import java.util.Queue;
 
 public class ParallelCourses {
-    Map<Integer, List<Integer>> courseChiMap;
+    List<List<Integer>> courseChiMap;
     int[] inDegreeMap;
     int numOfCourses;
 
     public int minimumSemesters(int n, int[][] courses) {
         inDegreeMap = new int[n + 1];
-        courseChiMap = new HashMap<>();
         numOfCourses = n;
 
         createMap(courses);
@@ -32,14 +31,14 @@ public class ParallelCourses {
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 int node = q.poll();
-                if (courseChiMap.get(node) != null) {
-                    for (int k : courseChiMap.get(node)) {
-                        inDegreeMap[k]--;
-                        if (inDegreeMap[k] == 0) {
-                            q.offer(k);
-                        }
+
+                for (int k : courseChiMap.get(node)) {
+                    inDegreeMap[k]--;
+                    if (inDegreeMap[k] == 0) {
+                        q.offer(k);
                     }
                 }
+
                 count++;
             }
             processes++;
@@ -52,14 +51,17 @@ public class ParallelCourses {
 
     private void createMap(int[][] courses) {
 
+        courseChiMap = new LinkedList<>();
+        for (int i = 0; i <= numOfCourses; i++) {
+            courseChiMap.add(new ArrayList<>());
+        }
+
         for (int[] pair : courses) {
             int A = pair[0];
             int B = pair[1];
 
             inDegreeMap[B]++;
-            if (courseChiMap.get(A) == null) {
-                courseChiMap.put(A, new ArrayList<>());
-            }
+
             courseChiMap.get(A).add(B);
         }
     }
