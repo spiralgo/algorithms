@@ -24,6 +24,10 @@ public class MinimumSwaps {
 
             int prev = minChanges;
             for (int i = 1; i <= data.length - windowSize; i++) {
+                  if(data[i] == data[i - 1] && data[i + windowSize - 1] == data[i + windowSize - 2])
+                  {
+                        continue;
+                  }
                   if (data[i] == 1 && data[i - 1] == 0) {
                         prev--;
                   } else if (data[i] == 0 && data[i - 1] == 1) {
