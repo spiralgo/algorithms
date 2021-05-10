@@ -13,18 +13,35 @@ public class MinimumSwaps {
             if (windowSize == 0 || windowSize == 1) {
                   return 0;
             }
-            int minChanges = windowSize;
-            for(int i = 0; i<=data.length-windowSize; i++)
+            int minChanges = countFirstZeros();
+            int prev = minChanges;
+            for(int i = 1; i<=data.length-windowSize; i++)
             {
-                  minChanges = Math.min(minChanges, countZeros(i));
+                  if(data[i] == 1 && data[i-1] == 0)
+                  {
+                        prev--;
+                  }
+                  else if(data[i] == 0 && data[i-1] == 1)
+                  {
+                        prev++;
+                  }
+                  if(data[i+windowSize-1] == 1 && data[i+windowSize-2] == 0)
+                  {
+                        prev--;
+                  }
+                  else if(data[i+windowSize-1] == 0 && data[i+windowSize-2] == 1)
+                  {
+                        prev++;
+                  }
+                  minChanges = Math.min(minChanges, prev);
             }
             return minChanges;
       }
 
-      private int countZeros(int index)
+      private int countFirstZeros()
       {
             int count = 0;
-            for(int i = index; i<index+windowSize; i++)
+            for(int i = 0; i<windowSize; i++)
             {
                   if(data[i] == 0)
                   {
