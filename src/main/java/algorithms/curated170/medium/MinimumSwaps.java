@@ -23,19 +23,15 @@ public class MinimumSwaps {
             }
 
             int prev = minChanges;
-            for (int i = 1; i <= data.length - windowSize; i++) {
-                  int a = data[i], b = data[i - 1], c = data[i + windowSize - 1], d = data[i + windowSize - 2];
-                  if (a == b && c == d) {
+            for (int l = 1, r = windowSize; l <= data.length - windowSize; l++, r++) {
+                  int a = data[l], b = data[r];
+                  if (a == b) {
                         continue;
                   }
+                  System.out.println(a + " " + b +  " prev: " + prev + " index: " + l);
                   if (a > b) {
                         prev--;
                   } else if (a < b) {
-                        prev++;
-                  }
-                  if (c > d) {
-                        prev--;
-                  } else if (c < d) {
                         prev++;
                   }
                   minChanges = Math.min(minChanges, prev);
@@ -46,6 +42,6 @@ public class MinimumSwaps {
       public static void main(String[] args) {
 
             var solution = new MinimumSwaps();
-            System.out.println(solution.minimumSwaps(new int[] { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1 }));
+            System.out.println(solution.minimumSwaps(new int[] { 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1}));
       }
 }
