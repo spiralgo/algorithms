@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class RemoveInterval {
 
-    public int[][] solution(int[][] intervals, int[] toBeRemoved) {
+    public int[][] removeInterval(int[][] intervals, int[] toBeRemoved) {
         List<int[]> intervals_ = new ArrayList<>();
         int start = toBeRemoved[0], end = toBeRemoved[1];
         for (int[] interval : intervals) {
