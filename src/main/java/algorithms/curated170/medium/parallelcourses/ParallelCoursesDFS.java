@@ -1,36 +1,49 @@
 package algorithms.curated170.medium.parallelcourses;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ParallelCoursesDFS {
 
     private int maxPathLength = Integer.MIN_VALUE;
     private boolean hasCycle = false;
-    HashMap<Integer, List<Integer>> graph;
+    List<List<Integer>> courseChiMap;
 
     boolean[] visited;
     int[] depth;
 
     public int minimumSemesters(int n, int[][] relations) {
-        graph = new HashMap<>();
-        for (int[] relation : relations) {
-            graph.putIfAbsent(relation[0], new ArrayList<>());
-            graph.get(relation[0]).add(relation[1]);
+
+        createMap(n, relations);
+
+        searchNodes(n);
+
+        return hasCycle ? -1 : maxPathLength;
+    }
+
+    private void createMap(int n, int[][] relations) {
+        courseChiMap = new LinkedList<>();
+        for (int i = 0; i <= n; i++) {
+            courseChiMap.add(new ArrayList<>());
         }
 
+        for (int[] relation : relations) {
+            courseChiMap.get(relation[0]).add(relation[1]);
+        }
+    }
+
+    private void searchNodes(int n) {
         depth = new int[n + 1];
         visited = new boolean[n + 1];
         for (int i = 1; i <= n; i++) {
             dfs(i);
-            
-            if(hasCycle)
-            {
-                return -1;
+
+            if (hasCycle) {
+                return;
             }
         }
-        return hasCycle ? -1 : maxPathLength;
+
     }
 
     private int dfs(int root) {
@@ -45,11 +58,10 @@ public class ParallelCoursesDFS {
         visited[root] = true;
         int max = 0;
 
-        if (graph.containsKey(root)) {
-            for (int neighbor : graph.get(root)) {
-                max = Math.max(max, dfs(neighbor));
-            }
+        for (int neighbor : courseChiMap.get(root)) {
+            max = Math.max(max, dfs(neighbor));
         }
+
         visited[root] = false;
         depth[root] = max + 1;
         maxPathLength = Math.max(maxPathLength, depth[root]);
@@ -62,7 +74,7 @@ public class ParallelCoursesDFS {
         var solution = new ParallelCoursesDFS();
         System.out.println(solution.minimumSemesters(10, courses));
 
-        int[][] loopingCourses = new int[][] {{1,3}, {3,2}, {2,1}};
+        int[][] loopingCourses = new int[][] { { 1, 3 }, { 3, 2 }, { 2, 1 } };
         var solution1 = new ParallelCoursesDFS();
         System.out.println(solution1.minimumSemesters(3, loopingCourses));
     }

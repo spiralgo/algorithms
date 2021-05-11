@@ -1,20 +1,16 @@
 package algorithms.curated170.medium.parallelcourses;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
-public class ParallelCourses {
+public class ParallelCoursesBFS {
     List<List<Integer>> courseChiMap;
     int[] inDegreeMap;
     int numOfCourses;
 
     public int minimumSemesters(int n, int[][] courses) {
-        inDegreeMap = new int[n + 1];
         numOfCourses = n;
 
         createMap(courses);
@@ -50,7 +46,7 @@ public class ParallelCourses {
     }
 
     private void createMap(int[][] courses) {
-
+        inDegreeMap = new int[numOfCourses + 1];
         courseChiMap = new LinkedList<>();
         for (int i = 0; i <= numOfCourses; i++) {
             courseChiMap.add(new ArrayList<>());
@@ -77,7 +73,7 @@ public class ParallelCourses {
     public static void main(String[] args) {
         int[][] courses = new int[][] { { 1, 5 }, { 3, 2 }, { 3, 4 }, { 2, 6 }, { 4, 6 }, { 2, 5 }, { 5, 8 }, { 7, 8 },
                 { 6, 9 }, { 7, 10 }, { 6, 8 }, { 8, 10 }, { 9, 10 } };
-        var solution = new ParallelCourses();
+        var solution = new ParallelCoursesBFS();
         System.out.println(solution.minimumSemesters(10, courses));
     }
 }
