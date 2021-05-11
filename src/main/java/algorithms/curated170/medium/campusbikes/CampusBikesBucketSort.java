@@ -34,15 +34,16 @@ public class CampusBikesBucketSort {
       {
             int[] res = new int[w];
             boolean[] bikeAssigned = new boolean[w];
-            Arrays.fill(res, -1);
+            boolean[] workerAssigned = new boolean[w];
             short assigned = 0;
 
             for (int i = 0; i < buckets.length && assigned < w; i++) {
                   if (buckets[i] != null) {
                         for (int[] pair : buckets[i]) {
-                              if (res[pair[0]] < 0 && !bikeAssigned[pair[1]]) {
+                              if (!workerAssigned[pair[0]] && !bikeAssigned[pair[1]]) {
                                     res[pair[0]] = pair[1];
                                     bikeAssigned[pair[1]] = true;
+                                    workerAssigned[pair[0]] = true;
                                     assigned++;
                               }
                         }

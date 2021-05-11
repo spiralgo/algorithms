@@ -36,16 +36,18 @@ public class CampusBikesPriorityQueue {
       private int[] assignFromHeap() {
 
             int[] wo = new int[w];
-            int[] bi = new int[w];
-            Arrays.fill(wo, -1);
-            Arrays.fill(bi, -1);
+
+            boolean[] bikeAssigned = new boolean[w];
+            boolean[] workerAssigned = new boolean[w];
 
             int assigned = 0;
             while (!pq.isEmpty() && assigned < w) {
                   int[] entry = pq.poll();
-                  if (wo[entry[1]] == -1 && bi[entry[2]] == -1) {
+                  if (!workerAssigned[entry[1]] && !bikeAssigned[entry[2]]) {
                         wo[entry[1]] = entry[2];
-                        bi[entry[2]] = entry[1];
+
+                        workerAssigned[entry[1]] = true;
+                        bikeAssigned[entry[2]] = true;
                         assigned++;
                   }
             }
