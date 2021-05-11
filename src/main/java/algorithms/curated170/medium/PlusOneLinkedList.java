@@ -33,7 +33,7 @@ public class PlusOneLinkedList {
         num.next.append(9);
         ListNode.printList(num);
         var solution = new PlusOneLinkedList();
-        var plused = solution.addOne(num);
+        var plused = solution.plusOne(num);
         ListNode.printList(plused);
     }
 }
