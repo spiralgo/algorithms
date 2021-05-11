@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.parallelcourses;
 
 import java.util.ArrayList;
 import java.util.HashMap;
