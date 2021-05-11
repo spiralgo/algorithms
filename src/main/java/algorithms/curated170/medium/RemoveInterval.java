@@ -7,25 +7,25 @@ import java.util.Random;
 
 public class RemoveInterval {
 
-    public int[][] removeInterval(int[][] intervals, int[] toBeRemoved) {
-        List<int[]> intervals_ = new ArrayList<>();
+    public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
+        List<List<Integer>> updatedIntervals = new ArrayList<>();
         int start = toBeRemoved[0], end = toBeRemoved[1];
         for (int[] interval : intervals) {
             
             if (interval[1] <= start || interval[0] >= end) {
-                intervals_.add(interval);
+                updatedIntervals.add(List.of(interval[0], interval[1]));
                 continue;
             }
             
             if (interval[0] < start) {
-                intervals_.add(new int[]{interval[0], start})
+                updatedIntervals.add(List.of(interval[0], start));
             }
             if (interval[1] > end) {
-                intervals_.add(new int[]{end, interval[1]})
+                updatedIntervals.add(List.of(end, interval[1]));
             }
 
         }
-        return (int[][]) intervals_.toArray();
+        return updatedIntervals;
     }
 
     public static void main(String[] args) {
