@@ -13,17 +13,13 @@ public class DesignFileSystem {
     }
 
     public boolean createPath(String path, int value) {
-        if (path.length() < 2 || path.charAt(0) != '/') {
-            return false;
-        }
 
         String parentFolder = path.substring(0, path.lastIndexOf('/'));
 
-        if (files.containsKey(parentFolder)) {
-            files.put(path, value);
-            return true;
+        if (!files.containsKey(parentFolder)) {
+            return false;
         }
-        return false;
+        return files.putIfAbsent(path, value) == null ? false : true;
     }
 
     public int get(String path) {
@@ -36,7 +32,8 @@ public class DesignFileSystem {
         System.out.println(solution.createPath("/b", 2));
         System.out.println(solution.createPath("/b/c", 3));
         System.out.println(solution.createPath("/d/e", 4));
-        // System.out.println(solution.createPath("/b/", 5)); LeetCode does not have such cases
+        // System.out.println(solution.createPath("/b/", 5)); LeetCode does not have
+        // such cases
         System.out.println(solution.get("/b/c"));
         System.out.println(solution.get("/a"));
         System.out.println(solution.get("/f"));
