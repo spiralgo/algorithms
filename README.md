@@ -1,4 +1,15 @@
-Not: LeetCode'da en son submit edilmiş kodu geri yükleyebiliyorsun. Sağ üstte bunun için bir button var.
+Welcome to our spiral!
+
+We voluntarily solve algorithm problems on this repo that we call Spiralgo.
+
+We will translate the solutions into many languages including Turkish, Korean, German.
+
+You are more than welcome to join us.
+
+![Welcome to our spiral!](https://avatars.githubusercontent.com/u/82793840?v=4)
+
+
+ 
 
 [442. Find All Duplicates in an Array](https://github.com/spiralgo/algorithms/issues/98)
 
