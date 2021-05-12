@@ -28,11 +28,13 @@ public class NumberOfConnectedComponentsUnionFind {
     }
 
     private int findRoot(int key) {
-        if (key == roots[key])
-        {
+        if (key != roots[key]) {
+            roots[key] = roots[roots[key]];
+            key = roots[key];
+            return findRoot(key);
+        } else {
             return key;
         }
-        return findRoot(roots[key]);
     }
 
     public static void main(String[] args) {
