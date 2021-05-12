@@ -1,6 +1,6 @@
 package algorithms.curated170.medium.numberofconnectedcomponents;
 
-public class NumberOfConnectedComponentsSetLogic {
+public class NumberOfConnectedComponentsUnionFind {
 
     int roots[];
 
