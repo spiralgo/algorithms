@@ -23,16 +23,16 @@ public class CampusBikesPriorityQueue {
             return assignFromHeap();
       }
 
-      private void createHeap(int[][] workers, int[][] bikes)
-      {
+      private void createHeap(int[][] workers, int[][] bikes) {
             for (int i = 0; i < w; i++) {
-                  for (int j = 0; j < w; j++) {
-                        int[] worker = workers[i], bike = bikes[j];
-                        int dist = Math.abs(worker[0] - bike[0]) + Math.abs(worker[1] - bike[1]);
+                  for (int j = 0; j < bikes.length; j++) {
+
+                        int dist = dist(workers[i], bikes[j]);
                         pq.offer(new int[] { dist, i, j });
                   }
             }
       }
+
       private int[] assignFromHeap() {
 
             int[] wo = new int[w];
@@ -43,16 +43,24 @@ public class CampusBikesPriorityQueue {
             int assigned = 0;
             while (!pq.isEmpty() && assigned < w) {
                   int[] entry = pq.poll();
-                  if (!workerAssigned[entry[1]] && !bikeAssigned[entry[2]]) {
-                        wo[entry[1]] = entry[2];
 
-                        workerAssigned[entry[1]] = true;
-                        bikeAssigned[entry[2]] = true;
+                  int w = entry[1];
+                  int b = entry[2];
+
+                  if (!workerAssigned[w] && !bikeAssigned[b]) {
+                        wo[w] = b;
+
+                        workerAssigned[w] = true;
+                        bikeAssigned[b] = true;
                         assigned++;
                   }
             }
 
             return wo;
+      }
+
+      private int dist(int[] w, int[] b) {
+            return Math.abs(w[0] - b[0]) + Math.abs(w[1] - b[1]);
       }
 
       public static void main(String[] args) {
