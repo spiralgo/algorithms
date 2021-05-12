@@ -7,7 +7,7 @@ public class LexicographicallySmallestEquivalentString {
 
     private Map<Character, Character> parent;
 
-    String smallestEquivalentString(String A, String B, String S) {
+    public String smallestEquivalentString(String A, String B, String S) {
         parent = new HashMap<>();
 
         for (int i = 0; i < A.length(); i++) {
