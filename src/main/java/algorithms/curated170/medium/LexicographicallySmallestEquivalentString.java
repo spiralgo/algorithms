@@ -17,11 +17,10 @@ public class LexicographicallySmallestEquivalentString {
         for (int i = 0; i < A.length(); i++) {
             union(A.charAt(i), B.charAt(i));
         }
-        System.out.println(parent);
         
         StringBuilder sb = new StringBuilder("");
-        for (int i = 0; i < S.length(); i++) {
-            sb.append(find(S.charAt(i)));
+        for (char s : S.toCharArray()) {
+            sb.append(find(s));
         }
         return sb.toString();
     }
