@@ -28,7 +28,7 @@ public class NumberOfDistinctIslands {
                 }
             }
         }
-        System.out.println(islands);
+
         return islands.size();
     }
     
