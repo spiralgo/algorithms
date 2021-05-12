@@ -47,7 +47,7 @@ public class ParallelCoursesBFS {
 
     private void createMap(int[][] courses) {
         inDegreeMap = new int[numOfCourses + 1];
-        courseChiMap = new LinkedList<>();
+        courseChiMap = new ArrayList<>();
         for (int i = 0; i <= numOfCourses; i++) {
             courseChiMap.add(new ArrayList<>());
         }

@@ -1,7 +1,6 @@
 package algorithms.curated170.medium.parallelcourses;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ParallelCoursesDFS {
@@ -23,7 +22,7 @@ public class ParallelCoursesDFS {
     }
 
     private void createMap(int n, int[][] relations) {
-        courseChiMap = new LinkedList<>();
+        courseChiMap = new ArrayList<>();
         for (int i = 0; i <= n; i++) {
             courseChiMap.add(new ArrayList<>());
         }
