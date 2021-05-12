@@ -4,7 +4,7 @@ public class NumberOfConnectedComponentsUnionFind {
 
     int roots[];
 
-    public int countComponents(int[][] edges, int n) {
+    public int countComponents(int n, int[][] edges) {
         if (n <= 1) {
             return 1;
         }
@@ -39,13 +39,13 @@ public class NumberOfConnectedComponentsUnionFind {
         var solution = new NumberOfConnectedComponentsUnionFind();
 
         int[][] edges = new int[][] { { 0, 1 }, { 1, 2 }, { 3, 4 } };
-        System.out.println(solution.countComponents(edges, 5)); // prints 2
+        System.out.println(solution.countComponents(5, edges)); // prints 2
 
         edges = new int[][] { { 0, 1 }, { 1, 2 }, { 3, 4 }, { 4, 1 } };
-        System.out.println(solution.countComponents(edges, 5)); // prints 1
+        System.out.println(solution.countComponents(5, edges)); // prints 1
 
         edges = new int[][] { { 0, 1 } };
-        System.out.println(solution.countComponents(edges, 5)); // prints 4
+        System.out.println(solution.countComponents(5, edges)); // prints 4
 
     }
 }

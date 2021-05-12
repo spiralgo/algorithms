@@ -59,13 +59,13 @@ public class NumberOfConnectedComponentsBFS {
         var solution = new NumberOfConnectedComponentsBFS();
 
         int[][] edges = new int[][] { { 0, 1 }, { 1, 2 }, { 3, 4 } };
-        System.out.println(solution.countComponents(edges, 5)); //prints 2
+        System.out.println(solution.countComponents(5, edges)); // prints 2
 
         edges = new int[][] { { 0, 1 }, { 1, 2 }, { 3, 4 }, { 4, 1 } };
-        System.out.println(solution.countComponents(edges, 5)); //prints 1
+        System.out.println(solution.countComponents(5, edges)); // prints 1
 
         edges = new int[][] { { 0, 1 } };
-        System.out.println(solution.countComponents(edges, 5)); //prints 4
+        System.out.println(solution.countComponents(5, edges)); // prints 4
 
     }
 }
