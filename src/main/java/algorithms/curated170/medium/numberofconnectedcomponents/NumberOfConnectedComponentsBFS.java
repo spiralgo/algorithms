@@ -10,7 +10,7 @@ public class NumberOfConnectedComponentsBFS {
     boolean[] visited;
     List<List<Integer>> connections = new ArrayList<>();
 
-    public int countComponents(int[][] edges, int n) {
+    public int countComponents(int n, int[][] edges) {
         if(n<=1)
         {
             return 1;
