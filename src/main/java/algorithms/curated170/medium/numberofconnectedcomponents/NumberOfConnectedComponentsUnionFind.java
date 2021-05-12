@@ -36,7 +36,7 @@ public class NumberOfConnectedComponentsUnionFind {
     }
 
     public static void main(String[] args) {
-        var solution = new NumberOfConnectedComponentsSetLogic();
+        var solution = new NumberOfConnectedComponentsUnionFind();
 
         int[][] edges = new int[][] { { 0, 1 }, { 1, 2 }, { 3, 4 } };
         System.out.println(solution.countComponents(edges, 5)); // prints 2
