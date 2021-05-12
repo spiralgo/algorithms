@@ -17,6 +17,7 @@ public class LexicographicallySmallestEquivalentString {
         for (int i = 0; i < A.length(); i++) {
             union(A.charAt(i), B.charAt(i));
         }
+        System.out.println(parent);
         
         StringBuilder sb = new StringBuilder("");
         for (int i = 0; i < S.length(); i++) {
@@ -26,10 +27,10 @@ public class LexicographicallySmallestEquivalentString {
     }
 
     char find(char c) {
-        if (c != parent.get(c)) {
-            parent.put(c, find(parent.get(c)));
+        if (c == parent.getOrDefault(c, c)) {
+            return c;
         }
-        return parent.get(c);
+        return find(parent.get(c));
     }
 
     void union(char a, char b) {
@@ -46,9 +47,11 @@ public class LexicographicallySmallestEquivalentString {
     }
 
     public static void main(String[] args) {
-        String A = "parker", B = "morris", S = "parser";
+        
         var solution = new LexicographicallySmallestEquivalentString();
-        //System.out.println(solution.smallestEquivalentString("aefgbz", "cdgbcz", S));
+        String A = "parker", B = "morris", S = "parser";
         System.out.println(solution.smallestEquivalentString(A, B, S));
+        System.out.println(solution.smallestEquivalentString("hello", "world", "hold"));
+        System.out.println(solution.smallestEquivalentString("leetcode", "programs", "sourcecode"));
     }
 }
