@@ -3,42 +3,52 @@ package algorithms.curated170.medium;
 import java.util.HashMap;
 import java.util.Map;
 
- 
 public class LexicographicallySmallestEquivalentString {
-    private static Map<Character, Character> parent = new HashMap();
-    
-    public static void main(String[] args) {
-        String a = "parker", b = "morris";
-        String S = "parser";
-        for (int i = 0; i < a.length(); i++) {
-            parent.put(a.charAt(i), a.charAt(i));
-            parent.put(b.charAt(i), b.charAt(i));
+
+    private Map<Character, Character> parent;
+
+    String smallestEquivalentString(String A, String B, String S) {
+        parent = new HashMap<>();
+
+        for (int i = 0; i < A.length(); i++) {
+            parent.put(A.charAt(i), A.charAt(i));
+            parent.put(B.charAt(i), B.charAt(i));
         }
-        for (int i = 0; i < a.length(); i++) {
-            union(a.charAt(i), b.charAt(i));
+        for (int i = 0; i < A.length(); i++) {
+            union(A.charAt(i), B.charAt(i));
         }
-        StringBuilder sb= new StringBuilder("");
+        
+        StringBuilder sb = new StringBuilder("");
         for (int i = 0; i < S.length(); i++) {
             sb.append(find(S.charAt(i)));
         }
-        System.out.println(sb.toString());
+        return sb.toString();
     }
 
-   static char find(char c){
-        if(c == parent.get(c)){
-            return c;
+    char find(char c) {
+        if (c != parent.get(c)) {
+            parent.put(c, find(parent.get(c)));
         }
-        return find(parent.get(c));
+        return parent.get(c);
     }
-    static void union(char a, char b){
+
+    void union(char a, char b) {
         char parentA = find(a);
         char parentB = find(b);
-        if(parentA == parentB) return;
-        
-        if(parentA < parentB){
+        if (parentA == parentB)
+            return;
+
+        if (parentA < parentB) {
             parent.put(parentB, parentA);
-        }else{
+        } else {
             parent.put(parentA, parentB);
         }
+    }
+
+    public static void main(String[] args) {
+        String A = "parker", B = "morris", S = "parser";
+        var solution = new LexicographicallySmallestEquivalentString();
+        //System.out.println(solution.smallestEquivalentString("aefgbz", "cdgbcz", S));
+        System.out.println(solution.smallestEquivalentString(A, B, S));
     }
 }
