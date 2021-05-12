@@ -12,9 +12,8 @@ public class GroupShiftedStrings {
 
         for (String s : strings) {
             String key = getKey(s);
-            List<String> list = map.getOrDefault(key, new ArrayList<>());
-            list.add(s);
-            map.put(key, list);
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(s);
         }
         return new ArrayList<>(map.values());
     }
