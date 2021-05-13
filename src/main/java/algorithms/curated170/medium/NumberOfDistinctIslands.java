@@ -7,64 +7,87 @@ import java.util.Set;
 public class NumberOfDistinctIslands {
 
     Set<String> islands;
-    int[][] grid;
+    int[][] grid; 
     int xDim;
     int yDim;
 
-    public int numDistinctIslands(int[][] grid) {
-        this.grid = grid;
+    public int numDistinctIslands(int[][] grid)
+    {
+        this.grid = grid; 
         islands = new HashSet<>();
         xDim = grid.length;
         yDim = grid[0].length;
 
-        for (int i = 0; i < xDim; i++) {
-            for (int j = 0; j < yDim; j++) {
-                String k = DFS(i, j);
-                if (k != "#") {
-                    islands.add(k);
+        for(int i = 0; i<xDim; i++)
+        {
+            for(int j = 0; j<yDim; j++)
+            {
+               islandCode = new StringBuilder();
+                 DFS(i, j, "#");
+                  if (islandCode.length() == 0) {
+                    continue;
                 }
+                islands.add(islandCode.toString());
             }
         }
 
         return islands.size();
     }
 
-    private String DFS(int i, int j) {
-        StringBuilder islandCode = new StringBuilder("");
-        if (grid[i][j] == 0) {
-            return "#";
-        }
-        grid[i][j] = 0;
-        if (i < xDim - 1 && grid[i + 1][j] == 1) {
-            islandCode.append("d(");
-            islandCode.append(DFS(i + 1, j));
-            islandCode.append(")");
-        }
-        if (j < yDim - 1 && grid[i][j + 1] == 1) {
-            islandCode.append("r(");
-            islandCode.append(DFS(i, j + 1));
-            islandCode.append(")");
-        }
-        if (i > 0 && grid[i - 1][j] == 1) {
-            islandCode.append("u(");
-            islandCode.append(DFS(i - 1, j));
-            islandCode.append(")");
-        }
-        if (j > 0 && grid[i][j - 1] == 1) {
-            islandCode.append("l(");
-            islandCode.append(DFS(i, j - 1));
-            islandCode.append(")");
-        }
-        return islandCode.toString();
+    StringBuilder islandCode = new StringBuilder();
+    private void DFS(int i, int j, String dir)
+    {
+      if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0) return;    
+            
+          grid[i][j] = 0;
+       
+           islandCode.append(dir);
+            DFS(i+1, j, "d");
+            DFS(i-1, j, "u");
+            DFS(i, j+1, "r");
+            DFS(i, j-1, "l");
+            islandCode.append("#");
+    
     }
 
     public static void main(String[] args) {
-        int[][] grid = new int[][] { { 1, 1, 1 }, { 0, 1, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 0, 0, 1 }, { 1, 1, 0 },
-                { 1, 0, 1 }, { 0, 1, 1 }, { 1, 0, 0 } };
+        int[][] grid = new int[][] { 
+        { 1, 1, 1 },
+        { 0, 1, 0 }, 
+        { 0, 1, 0 },
+        { 0, 0, 1 }, 
+        { 0, 0, 1 },
+        { 1, 1, 0 },
+        { 1, 0, 1 },
+        { 0, 1, 1 }, 
+        { 1, 0, 0 } };
+
+        int[][] grid2 = new int[][]
+        {
+            {1,1,0,0,0},
+            {1,1,0,0,0},
+            {0,0,0,1,1},
+            {0,0,0,1,1}
+        }; 
+
+        int[][] grid3 = new int[][]
+        {
+            {1,1,1,1,1},
+            {0,0,0,0,1},
+            {1,1,0,0,1},
+            {0,1,1,1,1}
+        }; 
 
         System.out.println(Arrays.deepToString(grid));
         var solution = new NumberOfDistinctIslands();
+
         solution.numDistinctIslands(grid);
+        System.out.println(solution.islands);
+
+        solution.numDistinctIslands(grid2);
+        System.out.println(solution.islands);
+
+        solution.numDistinctIslands(grid3);
         System.out.println(solution.islands);
     }
 }
