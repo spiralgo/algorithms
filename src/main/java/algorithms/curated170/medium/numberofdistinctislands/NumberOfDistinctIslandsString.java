@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class NumberOfDistinctIslands {
+public class NumberOfDistinctIslandsString {
 
     Set<String> islands;
     int[][] grid; 
@@ -52,15 +52,17 @@ public class NumberOfDistinctIslands {
 
     public static void main(String[] args) {
         int[][] grid = new int[][] { 
-        { 1, 1, 1 },
-        { 0, 1, 0 }, 
-        { 0, 1, 0 },
-        { 0, 0, 1 }, 
-        { 0, 0, 1 },
-        { 1, 1, 0 },
-        { 1, 0, 1 },
-        { 0, 1, 1 }, 
-        { 1, 0, 0 } };
+            { 1, 1, 1 },
+            { 0, 1, 0 }, 
+            { 0, 1, 0 },
+            { 0, 0, 1 }, 
+            { 0, 0, 1 },
+            { 1, 1, 0 },
+            { 1, 0, 1 },
+            { 0, 1, 1 }, 
+            { 1, 0, 0 }, 
+            { 1, 0, 0 }, 
+            { 0, 1, 0 } };
 
         int[][] grid2 = new int[][]
         {
@@ -79,15 +81,18 @@ public class NumberOfDistinctIslands {
         }; 
 
         System.out.println(Arrays.deepToString(grid));
-        var solution = new NumberOfDistinctIslands();
+        var solution = new NumberOfDistinctIslandsString();
 
         solution.numDistinctIslands(grid);
         System.out.println(solution.islands);
+        // [#d##, ##, #rdd##r###, #dl###, #d#r##]
 
         solution.numDistinctIslands(grid2);
         System.out.println(solution.islands);
+        // [#dru####]
 
         solution.numDistinctIslands(grid3);
         System.out.println(solution.islands);
+        // [#rrrrdddlllul#############]
     }
 }
