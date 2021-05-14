@@ -24,7 +24,7 @@ public class ShortestWordDistance2 {
         public int shortest(String word1, String word2) {
             List<Integer> ind1 = wordIndices.get(word1);
             List<Integer> ind2 = wordIndices.get(word2);
-            int minDist = wordIndices.size();
+            int minDist = Integer.MAX_VALUE;
             int i = 0, j = 0;
             while (i < ind1.size() && j < ind2.size()) {
                 int i1 = ind1.get(i);
