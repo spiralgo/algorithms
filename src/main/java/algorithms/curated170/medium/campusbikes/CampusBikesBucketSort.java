@@ -5,12 +5,13 @@ import java.util.List;
 
 public class CampusBikesBucketSort {
 
-      int w;
+      int w, b;
       List<int[]>[] buckets = new List[2001];
 
       public int[] assignBikes(int[][] workers, int[][] bikes) {
 
             w = workers.length;
+            b = workers.length;
 
             assignToBuckets(workers, bikes);
 
@@ -19,7 +20,7 @@ public class CampusBikesBucketSort {
 
       private void assignToBuckets(int[][] workers, int[][] bikes) {
             for (int i = 0; i < w; i++) {
-                  for (int j = 0; j < bikes.length; j++) {
+                  for (int j = 0; j < b; j++) {
                         int dist = dist(workers[i], bikes[j]);
                         if (buckets[dist] == null) {
                               buckets[dist] = new ArrayList<>();
@@ -32,21 +33,21 @@ public class CampusBikesBucketSort {
       private int[] assignFromBuckets() {
             int[] wo = new int[w];
             boolean[] bikeAssigned = new boolean[w];
-            boolean[] workerAssigned = new boolean[w];
+            boolean[] workerAssigned = new boolean[b];
             short assigned = 0;
 
-            for (int i = 0; i < buckets.length && assigned < w; i++) {
+            for (int i = 0; i < buckets.length && assigned <= w; i++) {
                   if (buckets[i] != null) {
                         for (int[] pair : buckets[i]) {
 
-                              int w = pair[0];
-                              int b = pair[1];
+                              int w_ = pair[0];
+                              int b_ = pair[1];
 
-                              if (!workerAssigned[w] && !bikeAssigned[b]) {
-                                    wo[w] = pair[b];
+                              if (!workerAssigned[w_] && !bikeAssigned[b_]) {
+                                    wo[w_] = pair[b_];
 
-                                    bikeAssigned[b] = true;
-                                    workerAssigned[w] = true;
+                                    bikeAssigned[b_] = true;
+                                    workerAssigned[w_] = true;
                                     assigned++;
                               }
                         }
