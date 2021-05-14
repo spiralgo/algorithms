@@ -1,4 +1,4 @@
-package algorithms.medium;
+package algorithms.easy;
 
 public class SingleNumber {
 
