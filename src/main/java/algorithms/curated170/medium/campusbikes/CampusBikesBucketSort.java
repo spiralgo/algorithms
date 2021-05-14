@@ -36,7 +36,7 @@ public class CampusBikesBucketSort {
             boolean[] workerAssigned = new boolean[b];
             short assigned = 0;
 
-            for (int i = 0; i < buckets.length && assigned <= w; i++) {
+            for (int i = 0; i < buckets.length && assigned < w; i++) {
                   if (buckets[i] != null) {
                         for (int[] pair : buckets[i]) {
 
