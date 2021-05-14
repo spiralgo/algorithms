@@ -1,6 +1,7 @@
 package algorithms.curated170.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CampusBikesBucketSort {
@@ -44,7 +45,7 @@ public class CampusBikesBucketSort {
                               int b_ = pair[1];
 
                               if (!workerAssigned[w_] && !bikeAssigned[b_]) {
-                                    wo[w_] = pair[b_];
+                                    wo[w_] = b_;
 
                                     bikeAssigned[b_] = true;
                                     workerAssigned[w_] = true;
@@ -61,6 +62,35 @@ public class CampusBikesBucketSort {
       }
 
       public static void main(String[] args) {
+            int[][] workers0 = { 
+                  {0, 0},
+                  {2, 1}
+            };
+            int[][] bikes0 = { 
+                  {1, 2},
+                  {3, 3}
+            };
 
+            var solution = new CampusBikesBucketSort();
+            System.out.println(Arrays.toString(solution.assignBikes(workers0, bikes0)));
+            solution.printBuckets();
+      }
+
+      void printBuckets()
+      {
+            StringBuilder sb = new StringBuilder();
+            for(List<int[]> k : buckets)
+            {
+                  if(k==null)
+                  {
+                        continue;
+                  }
+                  for(int[] j : k)
+                  {
+                        sb.append(Arrays.toString(j));
+                  }
+                  sb.append("/");
+            }
+            System.out.println(sb.toString());
       }
 }
