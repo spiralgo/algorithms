@@ -38,8 +38,8 @@ public class CampusBikesPriorityQueue {
 
             int[] wo = new int[w];
 
-            boolean[] bikeAssigned = new boolean[w];
-            boolean[] workerAssigned = new boolean[b];
+            boolean[] bikeAssigned = new boolean[b];
+            boolean[] workerAssigned = new boolean[w];
 
             int assigned = 0;
             while (!pq.isEmpty() && assigned < w) {
@@ -65,6 +65,12 @@ public class CampusBikesPriorityQueue {
       }
 
       public static void main(String[] args) {
+            int[][] workers0 = {{664,994},{3,425},{599,913},{220,352},{145,348},{604,428},{519,183},{732,148}};
 
+            int[][] bikes0 = {{611,698},{113,338},{579,770},{276,588},{948,679},{731,525},{925,877},{182,281},{39,299}};
+
+
+            var solution = new CampusBikesPriorityQueue();
+            System.out.println(Arrays.toString(solution.assignBikes(workers0, bikes0)));
       }
 }

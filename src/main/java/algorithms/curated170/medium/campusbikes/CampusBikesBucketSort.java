@@ -33,9 +33,11 @@ public class CampusBikesBucketSort {
       }
 
       private int[] assignFromBuckets() {
+
+            printBuckets();
             int[] wo = new int[w];
-            boolean[] bikeAssigned = new boolean[w];
-            boolean[] workerAssigned = new boolean[b];
+            boolean[] bikeAssigned = new boolean[b];
+            boolean[] workerAssigned = new boolean[w];
             short assigned = 0;
 
             for (int i = 0; i < buckets.length && assigned < w; i++) {
