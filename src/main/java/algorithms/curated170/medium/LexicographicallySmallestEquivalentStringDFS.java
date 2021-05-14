@@ -26,7 +26,7 @@ public class LexicographicallySmallestEquivalentStringDFS {
             parent[a].add(B.charAt(i));
             parent[b].add(A.charAt(i));
         }
-        System.out.println(Arrays.toString(parent));
+        
 
         StringBuilder sb = new StringBuilder("");
         for (char c : S.toCharArray()) {
