@@ -3,10 +3,7 @@ package algorithms.curated170.medium;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 public class LexicographicallySmallestEquivalentStringDFS {
 
@@ -17,8 +14,8 @@ public class LexicographicallySmallestEquivalentStringDFS {
         parent = new ArrayList[26];
 
         for (int i = 0; i < A.length(); i++) {
-            int a = A.charAt(i) - 'a';
-            int b = B.charAt(i) - 'a';
+            int a = letterIndex(A.charAt(i));
+            int b = letterIndex(B.charAt(i));
             if (parent[a] == null) {
                 parent[a] = new ArrayList<>();
             }
@@ -47,13 +44,13 @@ public class LexicographicallySmallestEquivalentStringDFS {
             return mn;
         }
         seen[charIndex] = true;
-        char res = mn;
-        List<Character> charList = parent[charIndex] == null ? Collections.emptyList() : parent[charIndex]; // or List.of() or new ArrayList<>(). I prefer this, because it is more readable.
+        
+        List<Character> charList = parent[charIndex] == null ? Collections.emptyList() : parent[charIndex]; // or List.of() or new ArrayList<>()
         for (char n : charList) 
         {
             mn = seen[letterIndex(n)] ? mn : (char) DFS(n, mn);
         }
-        return (char) Math.min(res, (char) Math.min(mn, c));
+        return (char) Math.min(c, mn);
     }
 
     public final static int LETTER_a = 97; //ASCII value of 'a'
