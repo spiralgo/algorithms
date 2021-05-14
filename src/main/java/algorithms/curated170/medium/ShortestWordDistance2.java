@@ -33,9 +33,7 @@ public class ShortestWordDistance2 {
 
                 minDist = Math.min(minDist, Math.abs(currDist));
 
-                if (currDist == 0) {
-                    return 0;
-                } else if (currDist < 0) {
+                if (currDist < 0) {
                     i++;
                 } else {
                     j++;
@@ -47,6 +45,11 @@ public class ShortestWordDistance2 {
 
     public static void main(String[] args) {
 
+        String[] words = { "practice","makes","perfect","coding","makes" };
+        var solution = new ShortestWordDistance2(). new WordDistance(words);
+        System.out.println(solution.wordIndices);
+        System.out.println(solution.shortest("coding", "practice"));
+        System.out.println(solution.shortest("makes", "coding"));
     }
 
 }
