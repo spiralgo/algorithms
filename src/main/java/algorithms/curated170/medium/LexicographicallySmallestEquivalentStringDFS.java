@@ -1,6 +1,7 @@
 package algorithms.curated170.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,46 +10,60 @@ import java.util.Map;
 
 public class LexicographicallySmallestEquivalentStringDFS {
 
-    private Map<Character, List<Character>> parent;
+    private List<Character>[] parent;
+    boolean[] seen;
 
     public String smallestEquivalentString(String A, String B, String S) {
-        parent = new HashMap<>();
+        parent = new ArrayList[26];
 
         for (int i = 0; i < A.length(); i++) {
-            parent.putIfAbsent(A.charAt(i), new ArrayList<>());
-            parent.putIfAbsent(B.charAt(i), new ArrayList<>());
+            int a = A.charAt(i) - 'a';
+            int b = B.charAt(i) - 'a';
+            if (parent[a] == null) {
+                parent[a] = new ArrayList<>();
+            }
+            if (parent[b] == null) {
+                parent[b] = new ArrayList<>();
+            }
 
-            parent.get(A.charAt(i)).add(B.charAt(i));
-            parent.get(B.charAt(i)).add(A.charAt(i));
+            parent[a].add(B.charAt(i));
+            parent[b].add(A.charAt(i));
         }
-        
+        System.out.println(Arrays.toString(parent));
+
         StringBuilder sb = new StringBuilder("");
         for (char c : S.toCharArray()) {
-            sb.append(DFS(c,c, new HashSet<>()));
+            seen = new boolean[26];
+            sb.append(DFS(c, c));
         }
         return sb.toString();
     }
 
-    private char DFS(char c, char mn, HashSet<Character> seen)
-    {
-        if(seen.contains(c))
-        {
+    private char DFS(char c, char mn) {
+
+        int charIndex = letterIndex(c);
+
+        if (seen[charIndex]) {
             return mn;
         }
-        seen.add(c);
+        seen[charIndex] = true;
         char res = mn;
-        for(char n : parent.getOrDefault(c, Collections.emptyList())) //or List.of()  or new ArrayList<>()
+        List<Character> charList = parent[charIndex] == null ? Collections.emptyList() : parent[charIndex]; // or List.of() or new ArrayList<>(). I prefer this, because it is more readable.
+        for (char n : charList) 
         {
-            if(!seen.contains(n))
-            {
-                res = (char) Math.min(res, DFS(n, (char) Math.min(mn, n), seen));
-            }
+            mn = seen[letterIndex(n)] ? mn : (char) DFS(n, mn);
         }
-        return res;
+        return (char) Math.min(res, (char) Math.min(mn, c));
+    }
+
+    public final static int LETTER_a = 97; //ASCII value of 'a'
+    private int letterIndex(char ch)
+    {
+        return (ch - LETTER_a);
     }
 
     public static void main(String[] args) {
-        
+
         var solution = new LexicographicallySmallestEquivalentStringDFS();
         String A = "parker", B = "morris", S = "parser";
         System.out.println(solution.smallestEquivalentString(A, B, S));
