@@ -12,7 +12,7 @@ public class CampusBikesBucketSort {
       public int[] assignBikes(int[][] workers, int[][] bikes) {
 
             w = workers.length;
-            b = workers.length;
+            b = bikes.length;
 
             assignToBuckets(workers, bikes);
 
@@ -26,6 +26,7 @@ public class CampusBikesBucketSort {
                         if (buckets[dist] == null) {
                               buckets[dist] = new ArrayList<>();
                         }
+                        
                         buckets[dist].add(new int[] { i, j });
                   }
             }
@@ -62,14 +63,10 @@ public class CampusBikesBucketSort {
       }
 
       public static void main(String[] args) {
-            int[][] workers0 = { 
-                  {0, 0},
-                  {2, 1}
-            };
-            int[][] bikes0 = { 
-                  {1, 2},
-                  {3, 3}
-            };
+            int[][] workers0 = {{664,994},{3,425},{599,913},{220,352},{145,348},{604,428},{519,183},{732,148}};
+
+            int[][] bikes0 = {{611,698},{113,338},{579,770},{276,588},{948,679},{731,525},{925,877},{182,281},{39,299}};
+
 
             var solution = new CampusBikesBucketSort();
             System.out.println(Arrays.toString(solution.assignBikes(workers0, bikes0)));
