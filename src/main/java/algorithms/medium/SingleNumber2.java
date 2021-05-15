@@ -1,5 +1,14 @@
 package algorithms.medium;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 public class SingleNumber2 {
 
     public int singleNumber(int[] nums) {
@@ -57,14 +66,14 @@ public class SingleNumber2 {
     }
 
     public int singleNumberGeneral(int[] nums, int k) {
-        // Couldn't manage this, doesn't work
-        int[] sets = new int[k];
+        
+        int[] sets = new int[k-1];
 
         for (int num : nums) {
 
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < k-1; i++) {
                 int x = sets[i] ^ num;
-                for (int j = 0; j < k; j++) {
+                for (int j = 0; j < k-1; j++) {
                     if (j != i) {
                         x &= ~sets[j];
                     }
@@ -85,6 +94,8 @@ public class SingleNumber2 {
 
         System.out.println(solution.singleNumber(nums_0)); // prints 9
         System.out.println(solution.singleNumber(nums_1)); // prints 0
+        System.out.println(solution.singleNumberGeneral(nums_0, 3)); // prints 9
+        System.out.println(solution.singleNumberGeneral(nums_1, 3)); // prints 0
 
         int[] nums4 = { 4, 2, 4, 4, 18, 2, 2, 4, 2 };
         System.out.println(solution.singleNumber4(nums4)); // prints 8
@@ -94,5 +105,53 @@ public class SingleNumber2 {
 
         int[] nums6 = { 2, 4, 2, 4, 4, 4, 2, 2, 4, 2, 180, 2, 4 };
         System.out.println(solution.singleNumber6(nums6)); // prints 180
+        System.out.println(solution.singleNumberGeneral(nums6, 6)); // prints 180
+
+        int[] singleNumber8 = singleNumberN(8, 5);
+        System.out.println(Arrays.toString(singleNumber8));
+        System.out.println(solution.singleNumberGeneral(singleNumber8,8));
+
+        int[] singleNumber9 = singleNumberN(9, 9);
+        System.out.println(Arrays.toString(singleNumber9));
+        System.out.println(solution.singleNumberGeneral(singleNumber9,9));
+
+        int[] singleNumber27 = singleNumberN(27, 9);
+        System.out.println(Arrays.toString(singleNumber27));
+        System.out.println(solution.singleNumberGeneral(singleNumber27,27)); 
+
+        int[] singleNumber81 = singleNumberN(81, 81);
+        System.out.println(Arrays.toString(singleNumber81));
+        System.out.println(solution.singleNumberGeneral(singleNumber81,81));
+    }
+
+    static int[] singleNumberN(int N, int diffNums)
+    {
+        List<Integer> nums = new ArrayList<>();
+        Set<Integer> diffSet = new HashSet<>();
+        int lower = 0;
+        for(int i = 0; i<diffNums; i++)
+        {
+            diffSet.add(new Random().nextInt(3)+lower);
+            lower += 3;
+        }
+        Iterator<Integer> it = diffSet.iterator();
+        int uniqueIndex = new Random().nextInt(diffNums);
+        for(int i = 0; i<diffNums; i++)
+        {
+            if(i==uniqueIndex)
+            {
+                int unique = it.next();
+                nums.add(unique);
+                System.out.println("Unique number: " + unique);
+                continue;
+            }
+            int k = it.next();
+            for(int j = 0; j<N; j++)
+            {
+                nums.add(k);
+            }
+        }
+        Collections.shuffle(nums);
+        return nums.stream().mapToInt(Integer::intValue).toArray();
     }
 }
