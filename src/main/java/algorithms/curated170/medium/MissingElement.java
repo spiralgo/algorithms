@@ -2,20 +2,21 @@ package algorithms.curated170.medium;
 
 public class MissingElement {
 
-    public int missingElement(int[] nums, int k) {
-        int l = 0;
-        int r = nums.length;
+       public int missingElement(int[] nums, int k) {
+        int left = 0;
+        int right = nums.length;
 
-        while (l < r) {
-            int m = l + (r - l) / 2;
+        while (left < right) {
+            int m = (right + left)/ 2;
             if (countMissing(nums, m) >= k) {
-                r = m;
+                right = m;
+               
             } else {
-                l = m + 1;
+                left = m + 1;
             }
         }
 
-        return nums[l - 1] + (k - countMissing(nums, l - 1));
+        return nums[left - 1] + (k - countMissing(nums, left - 1));
     }
 
     private int countMissing(int[] nums, int i) {
