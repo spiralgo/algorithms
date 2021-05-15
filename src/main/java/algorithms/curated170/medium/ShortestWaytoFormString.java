@@ -32,5 +32,6 @@ public class ShortestWaytoFormString {
             System.out.println(solution.shortestWay("abc", "acdbc")); // prints -1
             System.out.println(solution.shortestWay("xyz", "xzyxz")); // prints 3
             System.out.println(solution.shortestWay("den", "denendede")); // prints 4
+            System.out.println(solution.shortestWay("abcdb", "abcbdbacb")); // prints 3
       }
 }
