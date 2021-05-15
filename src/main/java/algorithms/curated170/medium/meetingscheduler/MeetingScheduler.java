@@ -1,23 +1,14 @@
 package algorithms.curated170.medium.meetingscheduler;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 class MeetingScheduler {
     List<Integer> minAvailableDuration(int[][] p1, int[][] p2, int duration) {
 
-        Comparator<int[]> c = new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0] - o2[0];
-            }
-        };
-
-        Arrays.sort(p1, c);
-        Arrays.sort(p2, c);
+        Arrays.sort(p1, ((a, b) -> a[0] - b[0]));
+        Arrays.sort(p2, ((a, b) -> a[0] - b[0]));
 
         int i1 = 0, i2 = 0;
         while (i1 < p1.length && i2 < p2.length) {
