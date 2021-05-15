@@ -12,7 +12,7 @@ class MeetingScheduler {
 
         int i1 = 0, i2 = 0;
         while (i1 < p1.length && i2 < p2.length) {
-            int s1 = p2[i1][0], e1 = p2[i1][1], s2 = p2[i2][0], e2 = p2[i2][1]; 
+            int s1 = p1[i1][0], e1 = p1[i1][1], s2 = p2[i2][0], e2 = p2[i2][1]; 
 
             if (s2 >= e1) {
                 i1++;
