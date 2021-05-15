@@ -4,25 +4,27 @@ public class FindTheIndexOfTheLargeInteger {
 
     public int getIndex(ArrayReader arr) {
         int length = arr.length();
-      int l = 0, y = length-1;
-        while (l < y) {
-            int range = y - l + 1;
-            int mid = (range - 1) / 2 + l;
-            int r = l + (range / 2) - 1, x = y - (range / 2) + 1;
-            int c = arr.compareSub(l, r, x, y);
+        int left = 0, right = length - 1;
+
+        while (left < right) {
+
+            int half = (right - left + 1) / 2;
+
+            int c = arr.compareSub(left, left + half - 1, right - half + 1, right);
+
             if (c == 0) {
-                return mid;
+                return (right - left) / 2 + left;
             } else if (c < 0) {
-                l = x;
+                left = right - half + 1;
             } else {
-                y = r;
+                right = left + half - 1;
             }
         }
-        return l;
+        return left;
     }
 
     public static void main(String[] args) {
-        
+
     }
 
     public interface ArrayReader {
