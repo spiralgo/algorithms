@@ -4,7 +4,7 @@ public class FindTheIndexOfTheLargeInteger {
 
     public int getIndex(ArrayReader arr) {
         int length = arr.length();
-        int l = 0, y = length;
+      int l = 0, y = length-1;
         while (l < y) {
             int range = y - l + 1;
             int mid = (range - 1) / 2 + l;
