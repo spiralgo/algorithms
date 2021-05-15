@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.meetingscheduler;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -29,8 +29,8 @@ class MeetingScheduler {
                 i2++;
                 continue;
             }
-            int left = Math.max(s1, s2);
-            int right = Math.min(e1, e2);
+            int left = Math.max(s1, s2); // lower bound of common interval
+            int right = Math.min(e1, e2); // upper bound of common interval
             if (right - left >= duration) {
                 return List.of(left, left + duration);
             }
