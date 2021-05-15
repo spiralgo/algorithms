@@ -12,7 +12,7 @@ class MeetingSchedulerPriorityQueue {
 
         createHeap(p1, p2, duration);
 
-        while (!intervals.isEmpty()) {
+         while (intervals.size() > 1) {  //   When we poll from the queue, there should be any possibility that it is empty.
             int[] int1 = intervals.poll();
             int[] int2 = intervals.peek();
             if (int1[1] >= int2[0] + duration) { // If the first ends after the second begins after time of duration
