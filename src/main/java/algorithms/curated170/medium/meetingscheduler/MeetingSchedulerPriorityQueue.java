@@ -6,16 +6,11 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 class MeetingSchedulerPriorityQueue {
+    Queue<int[]> intervals;
+
     List<Integer> minAvailableDuration(int[][] p1, int[][] p2, int duration) {
 
-        Queue<int[]> intervals = new PriorityQueue<>((a, b) -> a[0] - b[0]); // sort for start time
-
-        for (int[] interval : p1) {
-            intervals.add(interval);
-        }
-        for (int[] interval : p2) {
-            intervals.add(interval);
-        }
+        createHeap(p1, p2, duration);
 
         while (!intervals.isEmpty()) {
             int[] int1 = intervals.poll();
@@ -25,6 +20,22 @@ class MeetingSchedulerPriorityQueue {
             }
         }
         return Collections.emptyList(); // If doesn't work, return empty array.
+    }
+
+    private Queue<int[]> createHeap(int[][] p1, int[][] p2, int duration) {
+        intervals = new PriorityQueue<>((a, b) -> a[0] - b[0]); // sort for start time
+
+        for (int[] interval : p1) {
+            if (interval[1] - interval[0] >= duration) {
+                intervals.add(interval);
+            }
+        }
+        for (int[] interval : p2) {
+            if (interval[1] - interval[0] >= duration) {
+                intervals.add(interval);
+            }
+        }
+        return intervals;
     }
 
     public static void main(String[] args) {
