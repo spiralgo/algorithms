@@ -1,14 +1,18 @@
-package algorithms.curated170.easy;
+package algorithms.curated170.easy.coutingelements;
 
-public class CountingElementsLinear {
+import java.util.HashSet;
+import java.util.Set;
+
+public class CountingElementsSet {
     public int countElements(int[] arr) {
-        boolean[] check = new boolean[1002];
+
+        Set<Integer> nums = new HashSet<>();
         int count = 0;
         for (int n : arr) {
-            check[n] = true;
+            nums.add(n);
         }
         for (int n : arr) {
-            if (check[n + 1]) {
+            if (nums.contains(n + 1)) {
                 count++;
             }
         }
@@ -17,7 +21,7 @@ public class CountingElementsLinear {
 
     public static void main(String[] args) {
 
-        var solution0 = new CountingElementsLinear();
+        var solution0 = new CountingElementsSet();
         var solution1 = new CountingElements();
 
         int[] arr = { 1, 2, 3 };
