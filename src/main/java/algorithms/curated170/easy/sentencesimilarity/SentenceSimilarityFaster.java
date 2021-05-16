@@ -1,5 +1,7 @@
 package algorithms.curated170.easy.sentencesimilarity;
 
+import java.util.List;
+
 public class SentenceSimilarityFaster {
 
     class Solution {
