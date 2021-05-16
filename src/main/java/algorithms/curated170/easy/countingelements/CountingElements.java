@@ -1,4 +1,4 @@
-package algorithms.curated170.easy.coutingelements;
+package algorithms.curated170.easy.countingelements;
 
 import java.util.Arrays;
 

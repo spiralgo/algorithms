@@ -1,4 +1,4 @@
-package algorithms.curated170.easy.coutingelements;
+package algorithms.curated170.easy.countingelements;
 
 public class CountingElementsLinear {
     public int countElements(int[] arr) {
