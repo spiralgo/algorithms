@@ -1,4 +1,4 @@
-package algorithms.curated170.easy;
+package algorithms.curated170.easy.sentencesimilarity;
  
 import java.util.HashSet;
 import java.util.List;
