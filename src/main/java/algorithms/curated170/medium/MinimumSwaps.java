@@ -30,7 +30,7 @@ public class MinimumSwaps {
       public static void main(String[] args) {
 
             var solution = new MinimumSwaps();
-            System.out.println(solution.minimumSwaps(new int[] { 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0,
+            System.out.println(solution.minSwaps(new int[] { 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0,
                         1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1 }));
       }
 }
