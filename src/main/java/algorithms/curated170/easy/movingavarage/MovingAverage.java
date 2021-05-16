@@ -1,4 +1,4 @@
-package algorithms.curated170.easy;
+package algorithms.curated170.easy.movingavarage;
 
 public class MovingAverage {
 
