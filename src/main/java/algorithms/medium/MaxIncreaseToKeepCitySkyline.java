@@ -2,7 +2,7 @@ package algorithms.medium;
 
 public class MaxIncreaseToKeepCitySkyline {
 
-    public int solution(int[][] grid) {
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
         int[] rowMax = new int[grid.length];
         int[] colMax = new int[grid[0].length];
         for (int i = 0; i < grid.length; i++) {
