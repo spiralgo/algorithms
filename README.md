@@ -598,8 +598,80 @@ https://leetcode.com/problems/maximum-distance-in-arrays/discuss/104613/Java-Sol
    "Approach 1: Two-Pointers Iteration"
 
 **HARD:**
+
  [431. Encode N-ary Tree to Binary Tree:](https://github.com/spiralgo/algorithms/issues/89)
+
  [489. Robot Room Cleaner:](https://github.com/spiralgo/algorithms/issues/90)
+
  [759. Employee Free Time:](https://github.com/spiralgo/algorithms/issues/91)
+
  [1274. Number of Ships in a Rectangle:](https://github.com/spiralgo/algorithms/issues/92)
+ 
+ [428. Serialize and Deserialize N-ary Tree:](https://github.com/spiralgo/algorithms/issues/210)
+
+[1168. Optimize Water Distribution in a Village:](https://github.com/spiralgo/algorithms/issues/211)
+
+[296. Best Meeting Point:](https://github.com/spiralgo/algorithms/issues/212)
+
+[1183. Maximum Number of Ones:](https://github.com/spiralgo/algorithms/issues/213)
+
+[527. Word Abbreviation:](https://github.com/spiralgo/algorithms/issues/214)
+
+[1548. The Most Similar Path in a Graph:](https://github.com/spiralgo/algorithms/issues/215)
+
+[1259. Handshakes That Don't Cross:](https://github.com/spiralgo/algorithms/issues/216)
+
+[1231. Divide Chocolate:](https://github.com/spiralgo/algorithms/issues/217)
+
+[272. Closest Binary Search Tree Value II:](https://github.com/spiralgo/algorithms/issues/218)
+
+[302. Smallest Rectangle Enclosing Black Pixels:](https://github.com/spiralgo/algorithms/issues/219)
+
+[425. Word Squares:](https://github.com/spiralgo/algorithms/issues/220)
+
+[1216. Valid Palindrome III:](https://github.com/spiralgo/algorithms/issues/221)
+
+[471. Encode String with Shortest Length:](https://github.com/spiralgo/algorithms/issues/222)
+ 
+[774. Minimize Max Distance to Gas Station:](https://github.com/spiralgo/algorithms/issues/223)
+
+[465. Optimal Account Balancing:](https://github.com/spiralgo/algorithms/issues/224)
+
+[642. Design Search Autocomplete System:](https://github.com/spiralgo/algorithms/issues/225)
+
+[588. Design In-Memory File System:](https://github.com/spiralgo/algorithms/issues/226) 
+
+[265. Paint House II:](https://github.com/spiralgo/algorithms/issues/227) 
+
+[1088. Confusing Number II:](https://github.com/spiralgo/algorithms/issues/228) 
+
+[772. Basic Calculator III:](https://github.com/spiralgo/algorithms/issues/229) 
+
+[317. Shortest Distance from All Buildings:](https://github.com/spiralgo/algorithms/issues/230) 
+  		 		
+[499. The Maze III:](https://github.com/spiralgo/algorithms/issues/231) 
+
+[727. Minimum Window Subsequence:](https://github.com/spiralgo/algorithms/issues/232) 
+
+[568. Maximum Vacation Days:](https://github.com/spiralgo/algorithms/issues/233) 
+
+[305. Number of Islands II:](https://github.com/spiralgo/algorithms/issues/234) 
+
+[1199. Minimum Time to Build Blocks:](https://github.com/spiralgo/algorithms/issues/235) 
+
+[308. Range Sum Query 2D - Mutable:](https://github.com/spiralgo/algorithms/issues/236) 
+
+[158. Read N Characters Given Read4 II - Call multiple times:](https://github.com/spiralgo/algorithms/issues/237) 
+
+[358. Rearrange String k Distance Apart:](https://github.com/spiralgo/algorithms/issues/238) 
+
+[1153. String Transforms Into Another String:](https://github.com/spiralgo/algorithms/issues/239) 
+
+[644. Maximum Average Subarray II:](https://github.com/spiralgo/algorithms/issues/240) 
+
+[269. Alien Dictionary:](https://github.com/spiralgo/algorithms/issues/241) 
+
+[631. Design Excel Sum Formula:](https://github.com/spiralgo/algorithms/issues/242) 
+
+[656. Coin Path:](https://github.com/spiralgo/algorithms/issues/243) 
  
