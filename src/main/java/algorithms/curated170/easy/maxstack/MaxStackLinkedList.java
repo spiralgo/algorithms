@@ -1,7 +1,7 @@
 package algorithms.curated170.easy.maxstack;
 
  
-public class MaxStackFaster {
+public class MaxStackLinkedList {
 class MaxStack { 
     Node head = null;
     
