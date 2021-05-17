@@ -3,7 +3,7 @@ package algorithms.curated170.medium.findklengthsubstringswithnorepeatedcharacte
 import java.util.HashSet;
 
  
-public class FindKLengthSubstringsWithNoRepeatedCharacters {
+public class FindKLengthSubstringsWithNoRepeatedCharactersHashSet {
 
 public int numKLenSubstrNoRepeats(String S, int K) {
         HashSet<Character> cur = new HashSet<>();
