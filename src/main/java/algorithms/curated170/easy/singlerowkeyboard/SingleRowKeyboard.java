@@ -1,5 +1,5 @@
  
-package algorithms.curated170.easy;
+package algorithms.curated170.easy.singlerowkeyboard;
  
 import java.util.HashMap;
 import java.util.Map;
