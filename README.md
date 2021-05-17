@@ -108,7 +108,22 @@ Açıklaması issue içindedir.
    
 
 **MEDUIM:**
- [1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
+
+[1265. Print Immutable Linked List in Reverse:](https://github.com/spiralgo/algorithms/issues/255)
+
+[1490. Clone N-ary Tree:](https://github.com/spiralgo/algorithms/issues/256)
+
+[1506. Find Root of N-Ary Tree:](https://github.com/spiralgo/algorithms/issues/257)
+
+[1198. Find Smallest Common Element in All Rows:](https://github.com/spiralgo/algorithms/issues/261)
+
+[723. Candy Crush:](https://github.com/spiralgo/algorithms/issues/262)
+
+[1100. Find K-Length Substrings With No Repeated Characters:](https://github.com/spiralgo/algorithms/issues/264)
+
+[366. Find Leaves of Binary Tree :](https://github.com/spiralgo/algorithms/issues/266)
+
+[1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
 
 [1101. The Earliest Moment When Everyone Become Friends:](https://github.com/spiralgo/algorithms/issues/185)
 
