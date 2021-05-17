@@ -1,8 +1,8 @@
-package algorithms.curated170.easy;
+package algorithms.curated170.easy.maxstack;
 
 import java.util.Stack;
 
-public class MaxStack {
+public class MaxStackTwoStacks {
  
     Stack<Integer> stack;
     Stack<Integer> maxStack;
