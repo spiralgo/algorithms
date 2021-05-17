@@ -17,14 +17,12 @@ public Node findRoot(List<Node> tree) {
                 valueSum -= child.val;
         }
 
-        Node root = null;
-        // the value of the root node is `valueSum`
         for (Node node : tree) {
             if (node.val == valueSum) {
-                root = node;
-                break;
+                return node;
             }
         }
-        return root;
+        return null;
+     
     }
 }
