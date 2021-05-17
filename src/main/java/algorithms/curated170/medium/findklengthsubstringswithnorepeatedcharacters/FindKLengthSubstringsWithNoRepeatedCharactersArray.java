@@ -1,7 +1,7 @@
 package algorithms.curated170.medium.findklengthsubstringswithnorepeatedcharacters;
 
  
-public class FindKLengthSubstringsWithNoRepeatedCharactersFaster {
+public class FindKLengthSubstringsWithNoRepeatedCharactersArray {
 class Solution {
 //      S = "havefunonleetcode", K = 5
          
