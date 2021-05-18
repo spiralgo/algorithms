@@ -125,13 +125,17 @@ Açıklaması issue içindedir.
 
 [1522. Diameter of N-Ary Tree #174:](https://github.com/spiralgo/algorithms/issues/174)
 
+[702. Search in a Sorted Array of Unknown Size :](https://github.com/spiralgo/algorithms/issues/268)
+ 
 [1101. The Earliest Moment When Everyone Become Friends:](https://github.com/spiralgo/algorithms/issues/185)
 
+[1214. Two Sum BSTs:](https://github.com/spiralgo/algorithms/issues/270)
+
+[750. Number Of Corner Rectangles:](https://github.com/spiralgo/algorithms/issues/271)
+ 
 [1061. Lexicographically Smallest Equivalent String:](https://github.com/spiralgo/algorithms/issues/186)
 
 [ 1244. Design A Leaderboard:](https://github.com/spiralgo/algorithms/issues/2)
-
-[1564. Put Boxes Into the Warehouse I:](https://github.com/spiralgo/algorithms/issues/3)
 
 [ 362. Design Hit Counter:](https://github.com/spiralgo/algorithms/issues/4)
 
@@ -141,12 +145,13 @@ Açıklaması issue içindedir.
 
 [1167. Minimum Cost to Connect Sticks:](https://github.com/spiralgo/algorithms/issues/7)
 
-[484. Find Permutation:](https://github.com/spiralgo/algorithms/issues/8)
-
 [311. Sparse Matrix Multiplication:](https://github.com/spiralgo/algorithms/issues/9)
+
+[1564. Put Boxes Into the Warehouse I:](https://github.com/spiralgo/algorithms/issues/3)
 
 [364. Nested List Weight Sum II:](https://github.com/spiralgo/algorithms/issues/11)
 
+[484. Find Permutation:](https://github.com/spiralgo/algorithms/issues/8)
 
 [582. Kill Process:](https://github.com/spiralgo/algorithms/issues/10)
 
@@ -161,8 +166,6 @@ Zirâ, post-order'da root en son hesaplanır.
  
  Bu yüzden alttaki yavruların ortalamasını hesaplarken yukarı doğru çıktığı için, onları hesaplarken elde ettiği verileri üst-node'lar için de aynı şekilde kullanabileceği için tekrâr hesap yapmasına gerek kalmaz.
  
-
-
 [370. Range Addition](https://github.com/spiralgo/algorithms/issues/13)
 
 En yüksek puanı almış olan çözüm, bana kalırsa da uygundur:
