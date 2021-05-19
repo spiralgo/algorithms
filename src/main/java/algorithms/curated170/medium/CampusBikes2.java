@@ -15,7 +15,7 @@ public class CampusBikes2 {
       int[][] dp;
 
       public int assignBikes(int[][] workers, int[][] bikes) {
-            dp = new int[bikes.length][1<<workers.length];
+            dp = new int[workers.length][1<<bikes.length];
             
             this.workers = workers;
             this.bikes = bikes;
@@ -45,8 +45,8 @@ public class CampusBikes2 {
       public static void main(String[] args) {
 
             var solution = new CampusBikes2();
-            int[][] workers = leetCodeIntegerGridConverter("[[0,0],[1,1],[2,0]]");
-            int[][] bikes = leetCodeIntegerGridConverter("[[1,0],[2,2],[2,1]]");
+            int[][] workers = leetCodeIntegerGridConverter("[[0,0],[1,1],[2,0],[3,4]]");
+            int[][] bikes = leetCodeIntegerGridConverter("[[1,0],[2,2],[2,3],[4,0]]");
 
             int sol = solution.assignBikes(workers, bikes);
             System.out.println(sol);
