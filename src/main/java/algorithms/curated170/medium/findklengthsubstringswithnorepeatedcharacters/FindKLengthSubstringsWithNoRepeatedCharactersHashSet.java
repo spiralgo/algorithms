@@ -18,8 +18,8 @@ public int numKLenSubstrNoRepeats(String S, int K) {
     }
 
     public static void main(String[] args) {
-        FindKLengthSubstringsWithNoRepeatedCharacters f =
-                 new FindKLengthSubstringsWithNoRepeatedCharacters();
+        FindKLengthSubstringsWithNoRepeatedCharactersHashSet f =
+                 new FindKLengthSubstringsWithNoRepeatedCharactersHashSet();
         
         int result =  f.numKLenSubstrNoRepeats("havefunonleetcode", 5);
         
