@@ -12,43 +12,44 @@ public class CampusBikes2 {
 
       private int targetBitmask;
       int[][] workers, bikes;
+      int[][] dp;
 
       public int assignBikes(int[][] workers, int[][] bikes) {
-
+            dp = new int[bikes.length][1<<workers.length];
+            
             this.workers = workers;
             this.bikes = bikes;
-            targetBitmask = (1 << workers.length) - 1;
-
-            int[][] visited = new int[bikes.length][1 << workers.length];
-            return dfs(visited, 0, 0);
+            return DFS(0, (1<<bikes.length) - 1);
       }
 
-      private int dfs(int[][] visited, int workerAssigned, int bikePos) {
-            if (workerAssigned == targetBitmask)
+      private int DFS(int worker, int mask)
+      {
+            if(worker == workers.length)
+            {
                   return 0;
-
-            if (bikePos == bikes.length)
-                  return Integer.MAX_VALUE;
-
-            if (visited[bikePos][workerAssigned] != 0)
-                  return visited[bikePos][workerAssigned];
-
-            long best = dfs(visited, workerAssigned, bikePos + 1);
-
-            for (int i = 0; i < workers.length; i++) {
-                  if ((workerAssigned & (1 << i)) == 0) {
-                        long cost = dist(i, bikePos);
-                        best = Math.min(best, cost + dfs(visited, workerAssigned | (1 << i), bikePos + 1));
+            }
+            if(dp[worker][mask] != 0)
+            {
+                  return dp[worker][mask];
+            }
+            int ans = Integer.MAX_VALUE;
+            for(int j = 0; j<bikes.length; j++)
+            {
+                  if(( mask & (1<<j) )!= 0)
+                  {
+                        ans = Math.min(ans, dist(worker, j) + DFS(worker+1, mask^(1<<j)));
                   }
             }
-
-            visited[bikePos][workerAssigned] = (best >= Integer.MAX_VALUE) ? Integer.MAX_VALUE : (int) best;
-            System.out.println(Arrays.toString(visited[0]));
-            return visited[bikePos][workerAssigned];
+            return dp[worker][mask] = ans;
       }
-
       public static void main(String[] args) {
-            System.out.println(Arrays.deepToString(leetCodeIntegerGridConverter("[[15,0],[2,2],[2,1]]")));
+
+            var solution = new CampusBikes2();
+            int[][] workers = leetCodeIntegerGridConverter("[[0,0],[1,1],[2,0]]");
+            int[][] bikes = leetCodeIntegerGridConverter("[[1,0],[2,2],[2,1]]");
+
+            int sol = solution.assignBikes(workers, bikes);
+            System.out.println(sol);
       }
 
       public static int[][] leetCodeIntegerGridConverter(String arr) {
