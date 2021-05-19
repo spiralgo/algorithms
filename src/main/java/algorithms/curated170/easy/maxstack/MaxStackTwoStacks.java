@@ -7,7 +7,7 @@ public class MaxStackTwoStacks {
     Stack<Integer> stack;
     Stack<Integer> maxStack;
 
-    public MaxStack() {
+    public MaxStackTwoStacks() {
         stack = new Stack();
         maxStack = new Stack();
     }

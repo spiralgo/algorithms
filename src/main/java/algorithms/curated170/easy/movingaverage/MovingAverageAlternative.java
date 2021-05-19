@@ -1,7 +1,7 @@
 package algorithms.curated170.easy.movingaverage;
 
  
-public class MovingAverageArray {
+public class MovingAverageAlternative {
 class MovingAverage {
     private double total = 0;
     private int size;
