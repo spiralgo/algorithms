@@ -11,15 +11,18 @@ public class CampusBikes2 {
       }
 
       private int targetBitmask;
-
+      int[][] workers, bikes;
       public int assignBikes(int[][] workers, int[][] bikes) {
+
+            this.workers = workers;
+            this.bikes = bikes;
             targetBitmask = (1 << workers.length) - 1;
 
             int[][] visited = new int[bikes.length][1 << workers.length];
-            return dfs(workers, bikes, visited, 0, 0);
+            return dfs(visited, 0, 0);
       }
 
-      private int dfs(int[][] workers, int[][] bikes, int[][] visited, int workerAssigned, int bikePos) {
+      private int dfs(int[][] visited, int workerAssigned, int bikePos) {
             if (workerAssigned == targetBitmask)
                   return 0;
 
@@ -29,7 +32,7 @@ public class CampusBikes2 {
             if (visited[bikePos][workerAssigned] != 0)
                   return visited[bikePos][workerAssigned];
 
-            long best = dfs(workers, bikes, visited, workerAssigned, bikePos + 1);
+            long best = dfs(visited, workerAssigned, bikePos + 1);
 
             for (int i = 0; i < workers.length; i++) {
                   if ((workerAssigned & (1 << i)) == 0) {
@@ -37,7 +40,7 @@ public class CampusBikes2 {
                                     + Math.abs(workers[i][1] - bikes[bikePos][1]);
 
                         best = Math.min(best,
-                                    cost + dfs(workers, bikes, visited, workerAssigned | (1 << i), bikePos + 1));
+                                    cost + dfs(visited, workerAssigned | (1 << i), bikePos + 1));
                   }
             }
 
