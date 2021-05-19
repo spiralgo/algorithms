@@ -6,12 +6,13 @@ import java.util.List;
 
 public class CampusBikes2 {
 
-      private int dist(int[] w, int[] b) {
-            return Math.abs(w[0] - b[0]) + Math.abs(w[1] - b[1]);
+      private int dist(int wPos, int bPos) {
+            return Math.abs(workers[wPos][0] - bikes[bPos][0]) + Math.abs(workers[wPos][1] - bikes[bPos][1]);
       }
 
       private int targetBitmask;
       int[][] workers, bikes;
+
       public int assignBikes(int[][] workers, int[][] bikes) {
 
             this.workers = workers;
@@ -36,11 +37,8 @@ public class CampusBikes2 {
 
             for (int i = 0; i < workers.length; i++) {
                   if ((workerAssigned & (1 << i)) == 0) {
-                        long cost = Math.abs(workers[i][0] - bikes[bikePos][0])
-                                    + Math.abs(workers[i][1] - bikes[bikePos][1]);
-
-                        best = Math.min(best,
-                                    cost + dfs(visited, workerAssigned | (1 << i), bikePos + 1));
+                        long cost = dist(i, bikePos);
+                        best = Math.min(best, cost + dfs(visited, workerAssigned | (1 << i), bikePos + 1));
                   }
             }
 
@@ -55,7 +53,7 @@ public class CampusBikes2 {
 
       public static int[][] leetCodeIntegerGridConverter(String arr) {
             List<List<Integer>> list = new ArrayList<>();
-            
+
             List<Integer> currAr = new ArrayList<>();
             char prev = '#';
             int num = 0;
@@ -71,20 +69,17 @@ public class CampusBikes2 {
                   } else if (Character.isDigit(c)) {
                         num = num * 10 + Character.getNumericValue(c);
                         inNum = true;
-                  }
-                  else if(c == ']' && prev!=c)
-                  {
+                  } else if (c == ']' && prev != c) {
                         list.add(currAr);
                   }
                   prev = c;
             }
             System.out.println(list);
-            Integer[][] arrayBase = list.stream().map(l -> l.stream().toArray(Integer[]::new)).toArray(Integer[][]::new);
+            Integer[][] arrayBase = list.stream().map(l -> l.stream().toArray(Integer[]::new))
+                        .toArray(Integer[][]::new);
             int[][] ret = new int[arrayBase.length][arrayBase[0].length];
-            for(int i = 0; i<arrayBase.length; i++)
-            {
-                  for(int j = 0; j<arrayBase[0].length; j++)
-                  {
+            for (int i = 0; i < arrayBase.length; i++) {
+                  for (int j = 0; j < arrayBase[0].length; j++) {
                         ret[i][j] = arrayBase[i][j];
                   }
             }
