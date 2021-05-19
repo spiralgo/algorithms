@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 public class RearrangeStringKDistanceApart {
+    private final int unassigned = Integer.MIN_VALUE/2;
     public String rearrangeString(String s, int k) {
 
         HashMap<Character, Integer> counter = new HashMap<>();
@@ -18,7 +19,7 @@ public class RearrangeStringKDistanceApart {
         
         StringBuilder rearrangedStr = new StringBuilder();
         int[] lastIndices = new int[26];
-        Arrays.fill(lastIndices, -1000);
+        Arrays.fill(lastIndices, unassigned);
         int index = 0; 
         
 
@@ -32,20 +33,26 @@ public class RearrangeStringKDistanceApart {
                 if (counter.get(key) == 0) {
                     counter.remove(key);
                 }
-                if((index - lastIndices[key - 'a']) < k)
+                if((index - lastIndices[letterIndex(key)]) < k)
                 {
                     return "";
                 }
-                lastIndices[key - 'a'] = index;
+                lastIndices[letterIndex(key)] = index;
                 index++;
             }
         }
-        System.out.println(rearrangedStr.toString());
         return rearrangedStr.toString();    
     }
 
+    private final int LETTER_a = 97;
+    private int letterIndex(char key) {
+        return key - LETTER_a;
+    }
+    
     public static void main(String[] args) {
+
         var solution = new RearrangeStringKDistanceApart();
-        solution.rearrangeString("aadbbcc", 4);
+        solution.rearrangeString("aadbbcc", 4); // prints abcdabc
+        solution.rearrangeString("aadbbcc", 5); // prints empty
     }
 }
