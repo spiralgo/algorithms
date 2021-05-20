@@ -41,22 +41,25 @@ class Solution {
             }
         }
 
-        if (crush) {
-            for (int col = 0; col < target[0].length; col++) {
-                int targetIndex = target.length - 1;
-                for (int row = target.length - 1; row >= 0; row--) {
-                    if (target[row][col] != 0) {
-                        if (row != targetIndex) {
-                            target[targetIndex][col] = target[row][col];
-                            target[row][col] = 0;
-                        }
-                        targetIndex--;
+if (crush) {
+            drop(target);
+        }
+        return crush;
+    }
+
+    private void drop(int[][] target) {
+        for (int col = 0; col < target[0].length; col++) {
+            int targetIndex = target.length - 1;
+            for (int row = target.length - 1; row >= 0; row--) {
+                if (target[row][col] != 0) {
+                    if (row != targetIndex) {
+                        target[targetIndex][col] = target[row][col];
+                        target[row][col] = 0;
                     }
+                    targetIndex--;
                 }
             }
         }
-
-        return crush;
     }
 
     private void copy(int[][] source, int[][] target) {
