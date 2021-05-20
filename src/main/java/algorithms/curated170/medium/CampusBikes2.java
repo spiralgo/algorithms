@@ -11,7 +11,6 @@ public class CampusBikes2 {
             return Math.abs(workers[wPos][0] - bikes[bPos][0]) + Math.abs(workers[wPos][1] - bikes[bPos][1]);
       }
 
-      private int targetBitmask;
       int[][] workers, bikes;
       int[] dp;
 
