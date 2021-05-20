@@ -15,9 +15,8 @@ public class NumberOfCornerRectangles {
     
    public int countCornerRectangles(int[][] grid) {
         int totalCount = 0;
-        int rows = grid.length;
         int cols = grid[0].length;
-        int[][] counts = new int[rows][cols];
+        int[][] counts = new int[cols][cols];
         for (int[] row : grid) {
             for (int col1 = 0; col1 < cols - 1; col1++) {
                 if (row[col1] == 1) {
