@@ -1,7 +1,7 @@
 package algorithms.curated170.easy.palindromepermutation;
 
  
-public class PalindromePermutationFaster {
+public class PalindromePermutationArray {
 class Solution {
     public boolean canPermutePalindrome(String s) {
         // 
