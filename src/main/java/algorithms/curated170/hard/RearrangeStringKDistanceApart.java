@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 public class RearrangeStringKDistanceApart {
-    private final int unassigned = Integer.MIN_VALUE/2;
+    private final int unassigned = -1073741824;
     public String rearrangeString(String s, int k) {
 
         HashMap<Character, Integer> counter = new HashMap<>();
