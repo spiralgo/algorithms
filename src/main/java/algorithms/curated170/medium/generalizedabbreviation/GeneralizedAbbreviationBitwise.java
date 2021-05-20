@@ -1,11 +1,9 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.generalizedabbreviation;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class GeneralizedAbbreviation {
+public class GeneralizedAbbreviationBitwise {
     public List<String> generateAbbreviations(String word) {
         List<String> ans = new ArrayList<>();
 
@@ -39,7 +37,7 @@ public class GeneralizedAbbreviation {
     }
 
     public static void main(String[] args) {
-        var solution = new GeneralizedAbbreviation();
+        var solution = new GeneralizedAbbreviationBitwise();
         String s = "string";
         var a = solution.generateAbbreviations(s);
         System.out.println(a);
