@@ -12,10 +12,10 @@ public class CampusBikes2 {
 
       private int targetBitmask;
       int[][] workers, bikes;
-      int[][] dp;
+      int[] dp;
 
       public int assignBikes(int[][] workers, int[][] bikes) {
-            dp = new int[workers.length][1<<bikes.length];
+            dp = new int[1<<bikes.length];
             
             this.workers = workers;
             this.bikes = bikes;
@@ -28,9 +28,9 @@ public class CampusBikes2 {
             {
                   return 0;
             }
-            if(dp[worker][mask] != 0)
+            if(dp[mask] != 0)
             {
-                  return dp[worker][mask];
+                  return dp[mask];
             }
             int ans = Integer.MAX_VALUE;
             for(int j = 0; j<bikes.length; j++)
@@ -40,13 +40,13 @@ public class CampusBikes2 {
                         ans = Math.min(ans, dist(worker, j) + DFS(worker+1, mask^(1<<j)));
                   }
             }
-            return dp[worker][mask] = ans;
+            return dp[mask] = ans;
       }
       public static void main(String[] args) {
 
             var solution = new CampusBikes2();
-            int[][] workers = leetCodeIntegerGridConverter("[[0,0],[1,1],[2,0],[3,4]]");
-            int[][] bikes = leetCodeIntegerGridConverter("[[1,0],[2,2],[2,3],[4,0]]");
+            int[][] workers = leetCodeIntegerGridConverter("[[1,1],[1,3],[1,5],[4,5]]");
+            int[][] bikes = leetCodeIntegerGridConverter("[[4,2],[2,2],[3,5],[5,1]]");
 
             int sol = solution.assignBikes(workers, bikes);
             System.out.println(sol);
