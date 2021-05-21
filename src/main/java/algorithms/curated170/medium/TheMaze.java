@@ -24,10 +24,10 @@ public class TheMaze {
         this.maze = maze;
         this.destination = destination;
 
-        return dps(start[0], start[1]);
+        return dfs(start[0], start[1]);
     }
 
-    public boolean dps(int x, int y) {
+    public boolean dfs(int x, int y) {
 
         if (x == destination[0] && y == destination[1]) {
             return true;
