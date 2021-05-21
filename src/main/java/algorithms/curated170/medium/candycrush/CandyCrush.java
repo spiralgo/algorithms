@@ -17,18 +17,11 @@ public class CandyCrush {
 
     }
 
-    public int[][] candyCrush(int[][] board) {
+     public int[][] candyCrush(int[][] board) {
         int[][] target = new int[board.length][board[0].length];
-
-        if (crush(board, target)) {
-            int[][] temp = board;
-            board = target;
-            target = temp;
-            return candyCrush(board);
-        } else {
-            return board;
-        }
-
+      
+        return crush(board, target) ? candyCrush(target): board;
+       
     }
 
     private boolean crush(int[][] source, int[][] target) {
