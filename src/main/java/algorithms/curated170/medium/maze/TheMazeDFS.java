@@ -1,9 +1,9 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.maze;
 
-public class TheMaze {
+public class TheMazeDFS {
 
     public static void main(String[] args) {
-        TheMaze theMaze = new TheMaze();
+        TheMazeDFS theMaze = new TheMazeDFS();
         int[][] maze = {{0, 0, 1, 0, 0},
         {0, 0, 0, 0, 0},
         {0, 0, 0, 1, 0},
@@ -36,9 +36,9 @@ public class TheMaze {
         visited[x][y] = true;
         boolean result = false;
 
-        for (int i = 0; i < directions.length; i++) {
-            int dirx = directions[i][0];
-            int diry = directions[i][1];
+           for (int[] d : directions){
+            int dirx = d[0];
+            int diry = d[1];
             int nextX = x + dirx;
             int nextY = y + diry;
 
