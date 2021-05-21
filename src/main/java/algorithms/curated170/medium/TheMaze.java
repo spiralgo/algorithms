@@ -48,7 +48,7 @@ public class TheMaze {
                 int pry = nextY;
                 nextX += dirx;
                 nextY += diry;
-                result = result || !canPass(nextX, nextY) && dps(prx, pry);
+                result = result || (!canPass(nextX, nextY) && dfs(prx, pry));
 
             }
        }
