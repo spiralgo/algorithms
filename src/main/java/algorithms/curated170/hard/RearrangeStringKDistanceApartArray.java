@@ -37,6 +37,10 @@ public class RearrangeStringKDistanceApartArray {
                 boolean hasInLayer = false;
                 if(currLayer[0] == false)
                 {
+                    if(!hasNext)
+                    {
+                        maxLayer = layer+1;
+                    }
                     continue;
                 }
                 for (int letter = 1; letter < ALPHABET_SIZE+1; letter++) {
