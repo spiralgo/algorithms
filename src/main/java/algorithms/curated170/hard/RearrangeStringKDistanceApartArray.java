@@ -5,8 +5,8 @@ public class RearrangeStringKDistanceApartArray {
     private static final int ALPHABET_SIZE = 26;
 
     int[] counter;
+    int[] validIndices;
     boolean[][] layers;
-    int maxLayer = 0;
 
     StringBuilder rearrangedStr;
 
@@ -17,73 +17,45 @@ public class RearrangeStringKDistanceApartArray {
         }
         countLetters(s);
 
-        setLetterLayers();
+        validIndices = new int[ALPHABET_SIZE];
         
         rearrangedStr = new StringBuilder();
+
         
-        return tryRearrangeString(k) ? rearrangedStr.toString() : "";
+        return  tryRearrangeStr(k, s.length()) ? rearrangedStr.toString() : "";
     }
 
-    private boolean tryRearrangeString(int k)
+    private boolean tryRearrangeStr(int k, int len)
     {
-        boolean hasNext = true;
-
-        while (hasNext) {
-            boolean[][] newLayers = new boolean[maxLayer][ALPHABET_SIZE+1];
-            hasNext = false;
-            int layerBreadth = k;
-            for (int layer = maxLayer - 1; layer > 0; layer--) {
-                boolean[] currLayer = layers[layer];
-                boolean hasInLayer = false;
-                if(currLayer[0] == false)
-                {
-                    if(!hasNext)
-                    {
-                        maxLayer = layer+1;
-                    }
-                    continue;
-                }
-                for (int letter = 1; letter < ALPHABET_SIZE+1; letter++) {
-                    if (currLayer[letter]) {
-                        hasInLayer = true;
-                        if (layerBreadth > 0) {
-                            rearrangedStr.append(getLetterOfIndex(letter-1));
-                            layerBreadth--;
-                            if (layer > 1) {
-                                hasNext = true;
-                            }
-                            newLayers[layer - 1][0] = true;
-                            newLayers[layer - 1][letter] = true;
-                        }
-                        else
-                        {
-                            newLayers[layer][0] = true;   
-                            newLayers[layer][letter] = true;   
-                            hasNext = true;
-                        }
-                    }
-                }
-                if(!hasNext && !hasInLayer)
-                {
-                    maxLayer = layer+1;
-                }
-            }
-            if(hasNext && layerBreadth > 0)
+        for(int i = 0; i<len; i++)
+        {
+            int letter = getCanditate(i);
+            
+            if(letter == -1)
             {
-                return false;
+                return  false;
             }
-            layers = newLayers;
+            counter[letter]--;
+            validIndices[letter] = i+k;
+            rearrangedStr.append(getLetterOfIndex(letter));
         }
-
         return true;
     }
-    
-    private void setLetterLayers() {
-        layers = new boolean[maxLayer][ALPHABET_SIZE+1];
-        for (int i = 0; i < ALPHABET_SIZE; i++) {
-            layers[counter[i]][0] = true;
-            layers[counter[i]][i+1] = true;
+
+    int getCanditate(int index)
+    {
+        int maxCount = 0;
+        int canditate = -1;
+
+        for(int i = 0; i<ALPHABET_SIZE; i++)
+        {
+            if(counter[i] > maxCount && validIndices[i] <= index)
+            {
+                maxCount = counter[i];
+                canditate = i;
+            }
         }
+        return canditate;
     }
 
     private void countLetters(String s) {
@@ -91,12 +63,9 @@ public class RearrangeStringKDistanceApartArray {
         for (char c : s.toCharArray()) {
             counter[getIndexOfLetter(c)]++;
         }
-
-        maxLayer = 0;
-        for (int count : counter) {
-            maxLayer = Math.max(maxLayer, count + 1);
-        }
     }
+
+
 
     private static final int LETTER_a = 97;
 
