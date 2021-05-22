@@ -24,10 +24,10 @@ public class TheMazeDFS {
         this.maze = maze;
         this.destination = destination;
 
-        return dps(start[0], start[1]);
+        return dfs(start[0], start[1], -1);
     }
 
-    public boolean dps(int x, int y) {
+public boolean dfs(int x, int y, int arrivedFrom) {
 
         if (x == destination[0] && y == destination[1]) {
             return true;
@@ -36,9 +36,18 @@ public class TheMazeDFS {
         visited[x][y] = true;
         boolean result = false;
 
-           for (int[] d : directions){
-            int dirx = d[0];
-            int diry = d[1];
+           for (int i = 0; i<4; i++){
+               
+              
+            if((i == 0 && arrivedFrom == 3)
+            ||(i == 1 && arrivedFrom == 2)
+            || (i == 2 && arrivedFrom == 1)
+            || (i == 3 && arrivedFrom == 0))
+            {
+                continue;
+            }
+            int dirx = directions[i][0];
+            int diry = directions[i][1];
             int nextX = x + dirx;
             int nextY = y + diry;
 
@@ -48,14 +57,13 @@ public class TheMazeDFS {
                 int pry = nextY;
                 nextX += dirx;
                 nextY += diry;
-                result = result || !canPass(nextX, nextY) && dps(prx, pry);
+                result = result || !canPass(nextX, nextY) && dfs(prx, pry, i);
 
             }
        }
 
         return result;
     }
-
     boolean canPass(int nextX, int nextY) {
         return (nextX >= 0 && nextY >= 0
                 && nextX < maze.length
