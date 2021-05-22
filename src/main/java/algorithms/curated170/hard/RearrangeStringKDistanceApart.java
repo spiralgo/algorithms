@@ -1,7 +1,9 @@
 package algorithms.curated170.hard;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 
 import algorithms.util.collections.Reversed;
 
@@ -10,7 +12,7 @@ public class RearrangeStringKDistanceApart {
     private static final int ALPHABET_SIZE = 26;
 
     int[] counter;
-    HashMap<Integer, PriorityQueue<Character>> layers;
+    TreeMap<Integer, PriorityQueue<Character>> layers;
     StringBuilder rearrangedStr;
 
     public String rearrangeString(String s, int k) {
@@ -26,10 +28,9 @@ public class RearrangeStringKDistanceApart {
 
     private boolean tryRearrangeString(int k) {
         while (!layers.isEmpty()) {
-            HashMap<Integer, PriorityQueue<Character>> newLayers = new HashMap<>();
+            TreeMap<Integer, PriorityQueue<Character>> newLayers = new TreeMap<>(Collections.reverseOrder());
             Integer[] layerBreadth = new Integer[]{k - 1};
-            for (int layer : Reversed.reversed(layers.keySet())) {
-
+            for (int layer : layers.navigableKeySet()) {
                 PriorityQueue<Character> currLayer = layers.get(layer);
 
                 if (layerBreadth[0] < 0) {
@@ -42,7 +43,6 @@ public class RearrangeStringKDistanceApart {
                 }
 
                 checkLayer(currLayer, layerBreadth, newLayers, layer);
-
             }
 
             if (!newLayers.isEmpty() && layerBreadth[0] > -1) {
@@ -54,7 +54,7 @@ public class RearrangeStringKDistanceApart {
     }
 
     private void checkLayer(PriorityQueue<Character> currLayer, Integer[] layerBreadth,
-            HashMap<Integer, PriorityQueue<Character>> newLayers, Integer layer) {
+            TreeMap<Integer, PriorityQueue<Character>> newLayers, final int layer) {
 
         PriorityQueue<Character> nextLayer = new PriorityQueue<>();
         while (!currLayer.isEmpty()) {
@@ -74,7 +74,7 @@ public class RearrangeStringKDistanceApart {
     }
 
     private void setLetterLayers() {
-        layers = new HashMap<>();
+        layers = new TreeMap<>(Collections.reverseOrder());
         for (int i = 0; i < ALPHABET_SIZE; i++) {
             int count = counter[i];
             if (count == 0) {
@@ -114,6 +114,7 @@ public class RearrangeStringKDistanceApart {
         System.out.println(s1); // prints empty
         s1 = solution.rearrangeString("aadbbbcce", 5);
         System.out.println(s1); // prints empty
+        
         String s2 = solution.rearrangeString("aaadbbcc", 2);
         System.out.println(s2); // prints abacabcd
         s2 = solution.rearrangeString("aaabc", 3);
