@@ -29,26 +29,31 @@ public class RearrangeStringKDistanceApartArray {
         boolean hasNext = true;
 
         while (hasNext) {
-            boolean[][] newLayers = new boolean[maxLayer][ALPHABET_SIZE];
+            boolean[][] newLayers = new boolean[maxLayer][ALPHABET_SIZE+1];
             hasNext = false;
             int layerBreadth = k;
             for (int layer = maxLayer - 1; layer > 0; layer--) {
                 boolean[] currLayer = layers[layer];
                 boolean hasInLayer = false;
-                for (int letter = 0; letter < ALPHABET_SIZE; letter++) {
+                if(currLayer[0] == false)
+                {
+                    continue;
+                }
+                for (int letter = 1; letter < ALPHABET_SIZE+1; letter++) {
                     if (currLayer[letter]) {
                         hasInLayer = true;
-                        currLayer[letter] = false;
                         if (layerBreadth > 0) {
-                            rearrangedStr.append(getLetterOfIndex(letter));
+                            rearrangedStr.append(getLetterOfIndex(letter-1));
                             layerBreadth--;
                             if (layer > 1) {
                                 hasNext = true;
                             }
+                            newLayers[layer - 1][0] = true;
                             newLayers[layer - 1][letter] = true;
                         }
                         else
                         {
+                            newLayers[layer][0] = true;   
                             newLayers[layer][letter] = true;   
                             hasNext = true;
                         }
@@ -70,9 +75,10 @@ public class RearrangeStringKDistanceApartArray {
     }
     
     private void setLetterLayers() {
-        layers = new boolean[maxLayer][ALPHABET_SIZE];
+        layers = new boolean[maxLayer][ALPHABET_SIZE+1];
         for (int i = 0; i < ALPHABET_SIZE; i++) {
-            layers[counter[i]][i] = true;
+            layers[counter[i]][0] = true;
+            layers[counter[i]][i+1] = true;
         }
     }
 
