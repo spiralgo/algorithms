@@ -1,20 +1,17 @@
 package algorithms.curated170.hard;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.PriorityQueue;
 
+import algorithms.util.collections.Reversed;
+
 public class RearrangeStringKDistanceApart {
-    /**
-     *
-     */
+
     private static final int ALPHABET_SIZE = 26;
-    private static final int UNASSIGNED = -1073741824;
 
     int[] counter;
     HashMap<Integer, PriorityQueue<Character>> layers;
+    StringBuilder rearrangedStr;
 
     public String rearrangeString(String s, int k) {
 
@@ -22,53 +19,58 @@ public class RearrangeStringKDistanceApart {
 
         setLetterLayers();
 
-        StringBuilder rearrangedStr = new StringBuilder();
+        rearrangedStr = new StringBuilder();
 
+        return tryRearrangeString(k) ? rearrangedStr.toString() : "";
+    }
+
+    private boolean tryRearrangeString(int k) {
         while (!layers.isEmpty()) {
-
-            List<Integer> keyList = Arrays.asList(layers.keySet().toArray(new Integer[0]));
-            Collections.reverse(keyList);
-
             HashMap<Integer, PriorityQueue<Character>> newLayers = new HashMap<>();
-            int layerBreadth = k-1;
-            for (int layer : keyList) {
-                var pq = layers.get(layer);
+            Integer[] layerBreadth = new Integer[]{k - 1};
+            for (int layer : Reversed.reversed(layers.keySet())) {
 
-                if (layerBreadth < 0) {
+                PriorityQueue<Character> currLayer = layers.get(layer);
+
+                if (layerBreadth[0] < 0) {
                     if (!newLayers.containsKey(layer)) {
-                        newLayers.put(layer, pq);
+                        newLayers.put(layer, currLayer);
                     } else {
-                        newLayers.get(layer).addAll(pq);
+                        newLayers.get(layer).addAll(currLayer);
                     }
                     continue;
                 }
 
-                PriorityQueue<Character> nextLayer = new PriorityQueue<>();
-                while (!pq.isEmpty()) {
-                    char c = pq.poll();
-                    if (layerBreadth > -1) {
-                        rearrangedStr.append(c);
-                        nextLayer.add(c);
-                        layerBreadth--;
-                    } else {
-                        newLayers.putIfAbsent(layer, new PriorityQueue<>());
-                        newLayers.get(layer).add(c);
-                    }
-                }
-                if(layer > 1)
-                {
-                    newLayers.put(layer - 1, nextLayer);
-                }
+                checkLayer(currLayer, layerBreadth, newLayers, layer);
+
             }
 
-            if(!newLayers.isEmpty() && layerBreadth > -1)
-            {
-                return "";
+            if (!newLayers.isEmpty() && layerBreadth[0] > -1) {
+                return false;
             }
             layers = newLayers;
         }
+        return true;
+    }
 
-        return rearrangedStr.toString();
+    private void checkLayer(PriorityQueue<Character> currLayer, Integer[] layerBreadth,
+            HashMap<Integer, PriorityQueue<Character>> newLayers, Integer layer) {
+
+        PriorityQueue<Character> nextLayer = new PriorityQueue<>();
+        while (!currLayer.isEmpty()) {
+            char c = currLayer.poll();
+            if (layerBreadth[0] > -1) {
+                rearrangedStr.append(c);
+                nextLayer.add(c);
+                layerBreadth[0]--;
+            } else {
+                newLayers.putIfAbsent(layer, new PriorityQueue<>());
+                newLayers.get(layer).add(c);
+            }
+        }
+        if (layer > 1) {
+            newLayers.put(layer - 1, nextLayer);
+        }
     }
 
     private void setLetterLayers() {
@@ -104,19 +106,19 @@ public class RearrangeStringKDistanceApart {
 
         var solution = new RearrangeStringKDistanceApart();
 
-        String s1 =  solution.rearrangeString("aadbbbcce", 4); 
+        String s1 = solution.rearrangeString("aadbbbcce", 4);
         System.out.println(s1); // prints bacdbaceb
-        s1 = solution.rearrangeString("abb", 2); 
+        s1 = solution.rearrangeString("abb", 2);
         System.out.println(s1); // prints bab
-        s1 = solution.rearrangeString("abb", 3); 
-        System.out.println(s1); // prints nothing
-        s1 =  solution.rearrangeString("aadbbbcce", 5); 
-        System.out.println(s1); // prints empty 
-        String s2 =  solution.rearrangeString("aaadbbcc", 2); 
+        s1 = solution.rearrangeString("abb", 3);
+        System.out.println(s1); // prints empty
+        s1 = solution.rearrangeString("aadbbbcce", 5);
+        System.out.println(s1); // prints empty
+        String s2 = solution.rearrangeString("aaadbbcc", 2);
         System.out.println(s2); // prints abacabcd
-        s2 =  solution.rearrangeString("aaabc", 3); 
-        System.out.println(s2); // prints empty 
-        s2 =  solution.rearrangeString("aabbcc", 3); 
-        System.out.println(s2); // prints abcabc 
+        s2 = solution.rearrangeString("aaabc", 3);
+        System.out.println(s2); // prints empty
+        s2 = solution.rearrangeString("aabbcc", 3);
+        System.out.println(s2); // prints abcabc
     }
 }
