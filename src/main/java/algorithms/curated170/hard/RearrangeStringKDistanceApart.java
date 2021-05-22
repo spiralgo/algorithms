@@ -1,11 +1,8 @@
 package algorithms.curated170.hard;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
-
-import algorithms.util.collections.Reversed;
 
 public class RearrangeStringKDistanceApart {
 
@@ -17,6 +14,10 @@ public class RearrangeStringKDistanceApart {
 
     public String rearrangeString(String s, int k) {
 
+        if(k<2)
+        {
+            return s;
+        }
         countLetters(s);
 
         setLetterLayers();
@@ -121,5 +122,7 @@ public class RearrangeStringKDistanceApart {
         System.out.println(s2); // prints empty
         s2 = solution.rearrangeString("aabbcc", 3);
         System.out.println(s2); // prints abcabc
+        String s3 = solution.rearrangeString("a", 0);
+        System.out.println(s3); // prints a
     }
 }
