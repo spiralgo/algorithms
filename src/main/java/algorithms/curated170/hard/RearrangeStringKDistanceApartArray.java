@@ -34,8 +34,10 @@ public class RearrangeStringKDistanceApartArray {
             int layerBreadth = k;
             for (int layer = maxLayer - 1; layer > 0; layer--) {
                 boolean[] currLayer = layers[layer];
+                boolean hasInLayer = false;
                 for (int letter = 0; letter < ALPHABET_SIZE; letter++) {
                     if (currLayer[letter]) {
+                        hasInLayer = true;
                         currLayer[letter] = false;
                         if (layerBreadth > 0) {
                             rearrangedStr.append(getLetterOfIndex(letter));
@@ -51,6 +53,10 @@ public class RearrangeStringKDistanceApartArray {
                             hasNext = true;
                         }
                     }
+                }
+                if(!hasNext && !hasInLayer)
+                {
+                    maxLayer = layer+1;
                 }
             }
             if(hasNext && layerBreadth > 0)
