@@ -32,19 +32,6 @@ public class TheMazeIIDijkstra {
         return distance[dest[0]][dest[1]] == Integer.MAX_VALUE ? -1 : distance[dest[0]][dest[1]];
     }
    
-    public int[] minDistance() {
-        int[] min={-1,-1};
-        int min_val = Integer.MAX_VALUE;
-        for (int i = 0; i < distance.length; i++) {
-            for (int j = 0; j < distance[0].length; j++) {
-                if (!visited[i][j] && distance[i][j] < min_val) {
-                    min = new int[] {i, j};
-                    min_val = distance[i][j];
-                }
-            }
-        }
-        return min;
-    }
   
     PriorityQueue<int[]> pq = new PriorityQueue<>((p1, p2) -> p1[2] - p2[2]); 
 
