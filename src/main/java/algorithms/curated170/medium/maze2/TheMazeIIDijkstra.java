@@ -7,83 +7,71 @@ import java.util.PriorityQueue;
 public class TheMazeIIDijkstra {
  
     int[][] maze;
-    int[] destination;
-    int[][] distance;
-  
-    boolean visited[][];
-    
-    int[][] directions = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}};
-    
   public int shortestDistance(int[][] maze, int[] start, int[] dest) {
-        this.distance = new int[maze.length][maze[0].length];
-        this.destination = dest;
-        this.visited = new boolean[maze.length][maze[0].length];
+ 
         this.maze = maze;
-
-        for (int[] row: distance)
-            Arrays.fill(row, Integer.MAX_VALUE);
-
-        distance[start[0]][start[1]] = 0;
-    
-        pq.add(new int[]{start[0], start[1], 0});
         
-        dijkstra();
-
-        return distance[dest[0]][dest[1]] == Integer.MAX_VALUE ? -1 : distance[dest[0]][dest[1]];
+        return dijkstra(start, dest); 
     }
    
-  
-    PriorityQueue<int[]> pq = new PriorityQueue<>((p1, p2) -> p1[2] - p2[2]); 
-
-    
-    public void dijkstra() {
+ public int dijkstra( int[] start, int[] destination) {
+         
+        PriorityQueue<int[]> pq = new PriorityQueue<>((p1, p2) -> p1[2] - p2[2]); 
+        int[][] directions = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}};
      
+        pq.add(new int[]{start[0], start[1], 0});
         while (!pq.isEmpty()) {
         
-            int[] s = pq.poll();
+            int[] startPoint = pq.poll();
            
-            if (s[0] < 0)
+            if (startPoint[0] < 0)
                 break;
             
-            int x = s[0];
-            int y = s[1];
-                  
-            if (x == destination[0] && y == destination[1]) {
-                return;
-            }
-            visited[x][y] = true;
+            int x = startPoint[0];
+            int y = startPoint[1];
             
-            for (int i = 0; i<4; i++){
-                int dirx = directions[i][0];
-                int diry = directions[i][1];
+            if(maze[x][y]==-1) continue;
+            
+            maze[x][y] = -1;   
+            if (x == destination[0] && y == destination[1]) {
+                return startPoint[2];
+            }
            
-                int nextX = s[0] + dirx;
-                int nextY = s[1] + diry;
-                int count = 0;
+       
+           for (int[] dir: directions) {
+                int dirx = dir[0];
+                int diry = dir[1];
+           
+                int nextX = x;
+                int nextY = y;
+               
+                int currentDistance =  startPoint[2];
+                
                 while (canPass(nextX, nextY)) {
                     nextX += dirx;
                     nextY += diry;
-                    count++;
+                    currentDistance++;
                 }
-                int prx = nextX - dirx;
-                int pry = nextY - diry;
+
+                nextX -= dirx;
+                nextY -= diry;
+                currentDistance--;
+           
                 
-                int total = distance[x][y] + count; 
-                
-                if (total < distance[prx][pry]) {
-                     
-                      distance[prx][pry] = total;
-                      pq.add(new int[]{prx, pry, total});
+                 if(maze[nextX][nextY]!=-1) {
+                      
+                      pq.add(new int[]{nextX, nextY, currentDistance});
                 }
             }
         }
+        return -1;
     }
  
      boolean canPass(int nextX, int nextY) {
             return (nextX >= 0 && nextY >= 0
                     && nextX < maze.length
                     && nextY < maze[0].length
-                    && maze[nextX][nextY] == 0);
+                    && maze[nextX][nextY] != 1);
 
         }
 }
