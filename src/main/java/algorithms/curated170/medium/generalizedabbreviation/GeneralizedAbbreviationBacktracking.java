@@ -5,39 +5,41 @@ import java.util.List;
 
 public class GeneralizedAbbreviationBacktracking {
 
-    List<String> ans = new ArrayList<>();
+    List<String> abbreviations = new ArrayList<>();
     String word;
     StringBuilder sb;
+    
     public List<String> generateAbbreviations(String word) {
-        ans = new ArrayList<String>();
+        abbreviations = new ArrayList<String>();
         this.word = word;
         sb = new StringBuilder();
 
         backtrack(0, 0);
-        return ans;
+        return abbreviations;
     }
 
-    // i is the current index at the string
-    // k is the count of consecutive abbreviations
     private void backtrack(int i, int count) {
-        int len = sb.length(); // keep the length to reset
         if (i == word.length()) {
             if (count != 0) {
-                sb.append(count); // append nums
+                sb.append(count); 
             }
-            ans.add(sb.toString());
+            abbreviations.add(sb.toString());
         } else {
-            // the branch that abbreviates word.charAt(i) 
+            
             backtrack(i + 1, count + 1);
 
-            // the branch that keeps word.charAt(i) 
             if (count != 0) {
                 sb.append(count);
             }
             sb.append(word.charAt(i));
             backtrack(i + 1, 0);
         }
-        sb.setLength(len); // reset sb by trimming newly added chars
+        resetStringBranch(len);
+    }
+
+    private void resetStringBranch(int len)
+    {
+        sb.setLength(len); 
     }
 
     public static void main(String[] args) {

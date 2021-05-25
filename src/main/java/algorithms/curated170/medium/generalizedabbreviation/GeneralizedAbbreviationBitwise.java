@@ -4,35 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralizedAbbreviationBitwise {
-    public List<String> generateAbbreviations(String word) {
-        List<String> ans = new ArrayList<>();
 
-        // the key is the binary representation of how many and which chars are converted to digits
-        //1100 would show that first two chars are the number 2 now
-        for (int key = 0; key < (1 << word.length()); key++)
-        {
-            ans.add(abbreviate(word, key));
+    int wordLength;
+    String word;
+
+    public List<String> generateAbbreviations(String word) {
+        this.word = word;
+        wordLength = word.length();
+        List<String> abbreviations = new ArrayList<>();
+        final int bitSetLimit = 1 << wordLength;
+
+        for (int key = 0; key < bitSetLimit; key++) {
+            abbreviations.add(abbreviate(key));
         }
-        return ans;
+        return abbreviations;
     }
 
-    private String abbreviate(String word, int key) {
+    private String abbreviate(int key) {
         StringBuilder sb = new StringBuilder();
-        int count = 0, n = word.length(); // count how may chars are numerized
-        for (int i = 0; i < n; i++, key >>= 1) {
-            if ((key & 1) == 0) { // if the bit is zero, the char should be kept 
-                if (count != 0) { // we have this many abbreviated characters
-                    sb.append(count); // we add it as a string to the String Builder
-                    count = 0; // reset the count
+        int count = 0;
+        for (int i = 0; i < wordLength; i++, key >>= 1) {
+            if ((key & 1) == 0) {
+                if (count != 0) {
+                    sb.append(count);
+                    count = 0;
                 }
                 sb.append(word.charAt(i));
-            }
-            else 
-            {
-                count++; // if it is one, that means we have a digit and should increase the count
+            } else {
+                count++;
             }
         }
-        if (count != 0) sb.append(count); // take care as it can trail off at the end: 000111
+        if (count != 0) {
+            sb.append(count);
+        }
         return sb.toString();
     }
 
