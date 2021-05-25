@@ -19,6 +19,7 @@ public class GeneralizedAbbreviationBacktracking {
     }
 
     private void backtrack(int i, int count) {
+        int len = sb.length();
         if (i == word.length()) {
             if (count != 0) {
                 sb.append(count); 
