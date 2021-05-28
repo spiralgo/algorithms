@@ -35,11 +35,7 @@ public class TheMazeIIIDijkstra {
         while (!pq.isEmpty()) {
 
             Point startPoint = pq.poll();
-
-            if (startPoint.x < 0) {
-                break;
-            }
-
+            
             int x = startPoint.x;
             int y = startPoint.y;
 
@@ -49,7 +45,7 @@ public class TheMazeIIIDijkstra {
 
             maze[x][y] = -1;
 
-            if (isInTheHall(x, y)) {
+            if (isInTHole(x, y)) {
                 return startPoint.path;
             }
 
@@ -62,7 +58,7 @@ public class TheMazeIIIDijkstra {
 
                 int currentDistance = startPoint.distance;
 
-                while (canPass(nextX, nextY) && !isInTheHall(nextX, nextY)) {
+                while (canPass(nextX, nextY) && !isInTHole(nextX, nextY)) {
                     nextX += dirx;
                     nextY += diry;
                     currentDistance++;
@@ -83,7 +79,7 @@ public class TheMazeIIIDijkstra {
         return "impossible";
     }
 
-    boolean isInTheHall(int x, int y) {
+    boolean isInTHole(int x, int y) {
         return (x == hole[0] && y == hole[1]);
     }
 
