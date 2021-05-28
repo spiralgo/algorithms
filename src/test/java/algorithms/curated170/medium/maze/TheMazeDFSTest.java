@@ -54,15 +54,15 @@ public class TheMazeDFSTest {
      
         TheMazeDFS instance = getFreshInstance(new int[]{4, 4});
           
-        boolean result = instance.dfs(0, 4);
+        boolean result = instance.dfs(0, 4, 0);
         assertEquals(true, result);
      
         instance = getFreshInstance(new int[]{1, 2});
-        result = instance.dfs(0, 4);
+        result = instance.dfs(0, 4, 0);
         assertEquals(true, result);
      
         instance = getFreshInstance(new int[]{3, 2});
-        result = instance.dfs(0, 4);
+        result = instance.dfs(0, 4, 0);
         assertEquals(false, result);
     }
    TheMazeDFS getFreshInstance(int[] destination){
