@@ -46,23 +46,23 @@ public class TheMazeDFSTest {
     }
 
     /**
-     * Test of dps method, of class TheMazeDFS.
+     * Test of dfs method, of class TheMazeDFS.
      */
     @Test
-    public void testDps() {
-        System.out.println("dps");
+    public void testDfs() {
+        System.out.println("dfs");
      
         TheMazeDFS instance = getFreshInstance(new int[]{4, 4});
           
-        boolean result = instance.dps(0, 4);
+        boolean result = instance.dfs(0, 4);
         assertEquals(true, result);
      
         instance = getFreshInstance(new int[]{1, 2});
-        result = instance.dps(0, 4);
+        result = instance.dfs(0, 4);
         assertEquals(true, result);
      
         instance = getFreshInstance(new int[]{3, 2});
-        result = instance.dps(0, 4);
+        result = instance.dfs(0, 4);
         assertEquals(false, result);
     }
    TheMazeDFS getFreshInstance(int[] destination){
