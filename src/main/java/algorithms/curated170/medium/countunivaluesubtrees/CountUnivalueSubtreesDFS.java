@@ -18,10 +18,10 @@ public class CountUnivalueSubtreesDFS {
 
         boolean isUnival = true;
         if (root.left != null) {
-            isUnival = root.left.val == root.val && isUnivalSubtree(root.left);
+            isUnival = isUnivalSubtree(root.left) && root.left.val == root.val;
         }
-        if (root.left != null && isUnival) {
-            isUnival = root.right.val == root.val && isUnivalSubtree(root.right);
+        if (root.left != null) {
+            isUnival = isUnival & isUnivalSubtree(root.right) && root.right.val == root.val;
         }
         if (isUnival) {
             count++;
