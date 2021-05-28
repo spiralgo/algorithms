@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class TheMazeIIIDijkstra {
-
     int[][] maze;
     int[] hole;
 
