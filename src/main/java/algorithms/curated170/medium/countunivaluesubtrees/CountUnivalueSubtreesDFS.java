@@ -1,15 +1,17 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.countunivaluesubtrees.medium;
 
 import algorithms.datastructures.TreeNode;
 
-public class CountUnivalueSubtrees {
+public class CountUnivalueSubtreesDFS {
 
     private int count = 0;
 
     public int countUnivalSubtrees(TreeNode root) {
-        if (root == null || isUnivalSubtree(root)) {
-            return count;
+        if (root == null) {
+            return 0;
         }
+        isUnivalSubtree(root);
+        return count;
     }
 
     private boolean isUnivalSubtree(TreeNode root) {
