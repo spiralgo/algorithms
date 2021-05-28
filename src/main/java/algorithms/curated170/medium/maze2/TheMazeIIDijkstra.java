@@ -23,10 +23,7 @@ public class TheMazeIIDijkstra {
         while (!pq.isEmpty()) {
         
             int[] startPoint = pq.poll();
-           
-            if (startPoint[0] < 0)
-                break;
-            
+             
             int x = startPoint[0];
             int y = startPoint[1];
             
