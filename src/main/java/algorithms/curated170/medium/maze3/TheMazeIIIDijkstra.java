@@ -64,7 +64,7 @@ public class TheMazeIIIDijkstra {
                     currentDistance++;
                 }
 
-                if (!isInTheHall(nextX, nextY)) {
+                if (!isInTHole(nextX, nextY)) {
                     nextX -= dirx;
                     nextY -= diry;
                     currentDistance--;
