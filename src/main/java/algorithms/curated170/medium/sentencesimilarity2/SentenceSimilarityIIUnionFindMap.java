@@ -23,6 +23,7 @@ public class SentenceSimilarityIIUnionFindMap {
 
             union(pair.get(0), pair.get(1));
         }
+        
         for (int i = 0; i < words1.length; ++i) {
 
             String w1 = words1[i], w2 = words2[i];
@@ -35,22 +36,24 @@ public class SentenceSimilarityIIUnionFindMap {
         return true;
     }
 
-    String find(String w1) {
+  String find(String w1) {
         if(!parent.containsKey(w1)) return w1;
         String parentWord = parent.get(w1);
-        if (parentWord.equals(w1)) {
-            return w1;
+        if (!parentWord.equals(w1)) {
+            parent.put(w1, find(parentWord));
         }
-        return find(parentWord);
+        return parent.get(w1);
     }
 
     void union(String w1, String w2) {
+   
         String parentWord1 = find(w1);
         String parentWord2 = find(w2);
  
         if (!parentWord1.equals(parentWord2)) {
-            parent.put(find(w1), find(w2));
+            parent.put(parentWord1, parentWord2);
         }
     }
+
 
 }
