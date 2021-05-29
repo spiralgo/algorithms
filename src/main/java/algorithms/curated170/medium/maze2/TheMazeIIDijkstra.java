@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
  
 public class TheMazeIIDijkstra {
- 
+    final static int VISITED = -1;
     int[][] maze;
   public int shortestDistance(int[][] maze, int[] start, int[] dest) {
  
@@ -29,7 +29,7 @@ public class TheMazeIIDijkstra {
             
             if(maze[x][y]==-1) continue;
             
-            maze[x][y] = -1;   
+            maze[x][y] = VISITED;   
             if (x == destination[0] && y == destination[1]) {
                 return startPoint[2];
             }
@@ -61,7 +61,7 @@ public class TheMazeIIDijkstra {
                 }
             }
         }
-        return -1;
+        return VISITED;
     }
  
      boolean canPass(int nextX, int nextY) {
