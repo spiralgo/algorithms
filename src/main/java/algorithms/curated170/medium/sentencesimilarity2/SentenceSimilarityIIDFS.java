@@ -19,9 +19,7 @@ public class SentenceSimilarityIIDFS {
 
         for (List<String> pair : pairs) {
             for (String p : pair) {
-                if (!graph.containsKey(p)) {
-                    graph.put(p, new ArrayList());
-                }
+               graph.putIfAbsent(p, new ArrayList());
             }
             graph.get(pair.get(0)).add(pair.get(1));
             graph.get(pair.get(1)).add(pair.get(0));
