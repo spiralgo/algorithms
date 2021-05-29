@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SentenceSimilarityIIUnionFindArray {
-
- public boolean areSentencesSimilarTwo(String[] words1, String[] words2, List<List<String>> pairs) {
+  public boolean areSentencesSimilarTwo(String[] words1, String[] words2, List<List<String>> pairs) {
         if (words1.length != words2.length) {
             return false;
         }
@@ -17,10 +16,8 @@ public class SentenceSimilarityIIUnionFindArray {
         
         for (List<String> pair : pairs) {
             for (String p: pair){
-              if (!index.containsKey(p)) {
-                index.put(p, count++);
-            }  
-            } 
+              index.putIfAbsent(p, count++);
+           } 
             dsu.union(index.get(pair.get(0)), index.get(pair.get(1)));
         }
 
@@ -33,20 +30,21 @@ public class SentenceSimilarityIIUnionFindArray {
         }
         return true;
     }
+    class DSU {
+        int[] parent;
+        public DSU(int N) {
+            parent = new int[N];
+            for (int i = 0; i < N; ++i)
+                parent[i] = i;
+        }
+        public int find(int x) {
+            if (parent[x] != x) parent[x] = find(parent[x]);
+            return parent[x];
+        }
+        public void union(int x, int y) {
+            parent[find(x)] = find(y);
+        }
+    }
 }
 
-class DSU {
-    int[] parent;
-    public DSU(int N) {
-        parent = new int[N];
-        for (int i = 0; i < N; ++i)
-            parent[i] = i;
-    }
-    public int find(int x) {
-        if (parent[x] != x) parent[x] = find(parent[x]);
-        return parent[x];
-    }
-    public void union(int x, int y) {
-        parent[find(x)] = find(y);
-    }
-}
+
