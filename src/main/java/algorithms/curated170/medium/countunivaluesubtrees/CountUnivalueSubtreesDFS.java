@@ -20,7 +20,7 @@ public class CountUnivalueSubtreesDFS {
         if (root.left != null) {
             isUnival = isUnivalSubtree(root.left) && root.left.val == root.val;
         }
-        if (root.left != null) {
+        if (root.right!= null) {
             isUnival = isUnival & isUnivalSubtree(root.right) && root.right.val == root.val;
         }
         if (isUnival) {
