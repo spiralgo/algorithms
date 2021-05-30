@@ -18,7 +18,7 @@ public class CountUnivalueSubtreesDFSPassValue {
             return true;
         }
 
-        if(!isUnivaluePart(root.left, root.val) & !isUnivaluePart(root.right, root.val))
+        if(!isUnivaluePart(root.left, root.val) | !isUnivaluePart(root.right, root.val))
         {
             return false;
         }
