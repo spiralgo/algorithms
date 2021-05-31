@@ -1,11 +1,14 @@
 package algorithms.curated170.medium;
 
-import java.lang.annotation.Retention;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import javax.swing.plaf.TreeUI;
+import javax.swing.plaf.basic.BasicTreeUI.TreeCancelEditingAction;
 
 public class FactorCombinations
 {
@@ -15,32 +18,66 @@ public class FactorCombinations
     int limitPrime;
 
     List<Integer> primes = new ArrayList<>(List.of(2,3,5,7));
-    boolean[] sleeve;
-    public List<List<Integer>> solve(int num)
-    {
-        limitPrime = (int) Math.sqrt(num) + 1 ;
-        sleeve = new boolean[limitPrime+1];
-        sleeve[0] = true;
 
+    boolean sleeveFulled = false;
+    boolean[] sleeve;
+    List<Integer> primeFactors = new ArrayList<>();
+
+
+    int orig;
+
+    public List<Integer> generatePrimeFactors(int num)
+    {
+        orig = num;
+        limitPrime = (int) Math.sqrt(num);
+
+        sleeve = new boolean[limitPrime+1];
+
+        if(limitPrime < 11) sleeveFulled = true;
         help(num, 0, 1);
-        return ans;
+
+        //System.out.println(Arrays.toString(sleeve));
+        return primeFactors;
+    }
+    
+    private boolean isPrime(int n)
+    {
+        for(int p : primes)
+        {
+            if(n%p == 0)
+            {
+                return false;
+            }
+        }
+        return sleeveFulled;
     }
     private void help(int n, int ip, int prev)
     {
+        //System.out.println("n: " + n+ " ip: " + ip +" prev: " + prev);
+        if(prev == orig)
+        {
+            return;
+        }
+        if(isPrime(n))
+        {
+            primeFactors.add(n);
+            return;
+        }
         int prime = getPrime(ip);
-        if(prime*prime > n || hasFactor.contains(n/prime)  || hasFactor.contains(prev*prime))
+        if(n<2 || prime <= 0)
         {
             return;
         }
         if(n % prime == 0)
         {
-            ans.add(List.of(n/prime,prime*prev));
-            hasFactor.add(n/prime);
-            hasFactor.add(prev*prime);
+            primeFactors.add(prime);
             help(n/prime, ip, prev*prime);
-
         }
-        help(n, ip+1, prev);
+        else
+        {
+            primes.set(ip, -1*prime);
+            help(n, ip+1, prev);
+        }
     }
 
     private int getPrime(int ip)
@@ -52,40 +89,41 @@ public class FactorCombinations
 
         for(int p : primes)
         {
-            if(p==2)
+            p = Math.abs(p);
+            if(p==2)  
             {
                 continue;
             }
-            if(!sleeve[p])
+
+            if(sleeve[p])
             {
-                for(int i = 1; i<(limitPrime+1)/p; i++)
-                {
-                    sleeve[i*p] = true;
-                }
+                continue;
+            }
+
+            for(int i = p; i<sleeve.length; i+=p){
+                sleeve[i] = true;
             }
         }
-        for(int i = primes.get(primes.size()-1); i<limitPrime+1; i+=2)
+
+        int firstP = -1;
+        for(int i = 3; i<sleeve.length; i+=2)
         {
             if(!sleeve[i])
             {
                 primes.add(i);
-                return i;
+                firstP = firstP < 0 ? i : firstP;
             }
         }
-        return -1;
+        sleeveFulled = true;
+        return firstP;
     }
-
-    private int getPrimeBoundApprox(int n)
-    {
-        float num = (float) n/2;
-        for(int i = 0; i<9; i++)
-        {
-            num = num - (num*num - n)*0.5f/num;
-        }
-        return (int) num;
-    }
+    
     public static void main(String[] args) {
         var solution = new FactorCombinations();
-        System.out.println(solution.getPrimeBoundApprox(8));
+
+        for(int i = 0; i< (1<<7); i++)
+        {
+            System.out.println("Factors of " + i + ": " + new FactorCombinations().generatePrimeFactors(i));
+        }
     }
 }
