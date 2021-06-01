@@ -1,36 +1,33 @@
 package algorithms.curated170.easy;
-class Reader4{
-      int read4(char[] buf){
-          
-          //TODO
-          return -1;
-      }
-} 
+
 public class ReadNCharactersGivenRead4 extends Reader4 {
-    /**
-     * @param buf Destination buffer
-     * @param n   Number of characters to read
-     * @return    The number of actual characters read
-     */
-public int read(char[] buf, int n) {
-  boolean eof = false;      // end of file flag
-  int total = 0;            // total bytes have read
-  char[] tmp = new char[4]; // temp buffer
-  
-  while (!eof && total < n) {
-    int count = read4(tmp);
-    
-    // check if it's the end of the file
-    eof = count < 4;
-    
-    // get the actual count
-    count = Math.min(count, n - total);
-    
-    // copy from temp buffer to buf
-    for (int i = 0; i < count; i++) 
-      buf[total++] = tmp[i];
-  }
-  
-  return total;
-}
+    public int read(char[] buf, int n) { 
+        int index = 0;
+        int length = 0;
+        char[] buf4 = new char[4];
+        int copiedChars = 0;  
+
+       
+        while (copiedChars < n) {
+       
+            if (index == length) {
+                length = read4(buf4);
+                index = 0;
+                if (length == 0) {
+                    break;
+                }
+            }
+            
+            buf[copiedChars++] = buf4[index++];
+        }
+     
+        return copiedChars;
+    }
+    public static void main(String[] args) {
+        ReadNCharactersGivenRead4 readNCharactersGivenRead4 = new ReadNCharactersGivenRead4();
+        char[] buf = new char[19];
+        int total = readNCharactersGivenRead4.read(buf, 18);
+        System.out.println(total);
+     
+    }
 }
