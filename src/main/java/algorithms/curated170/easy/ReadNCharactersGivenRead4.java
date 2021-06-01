@@ -6,7 +6,6 @@ public class ReadNCharactersGivenRead4 extends Reader4 {
         int length = 0;
         char[] buf4 = new char[4];
         int copiedChars = 0;  
-
        
         while (copiedChars < n) {
        

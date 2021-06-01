@@ -10,9 +10,7 @@ public class ReadNCharactersGivenRead4II extends Reader4 {
     public int read(char[] buf, int n) { 
        
        int copiedChars = 0;  
-
-       
-        while (copiedChars < n) {
+       while (copiedChars < n) {
        
             if (index == length) {
                 length = read4(buf4);
