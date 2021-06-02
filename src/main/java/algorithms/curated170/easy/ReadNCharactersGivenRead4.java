@@ -1,10 +1,11 @@
 package algorithms.curated170.easy;
 
 public class ReadNCharactersGivenRead4 extends Reader4 {
-    public int read(char[] buf, int n) { 
         int index = 0;
         int length = 0;
         char[] buf4 = new char[4];
+    public int read(char[] buf, int n) { 
+    
         int copiedChars = 0;  
        
         while (copiedChars < n) {
