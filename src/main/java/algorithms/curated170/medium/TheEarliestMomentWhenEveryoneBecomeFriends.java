@@ -49,7 +49,9 @@ public class TheEarliestMomentWhenEveryoneBecomeFriends {
 
         int findParent(int id) {
             while (parent[id] != id) {
-                id = parent[id];
+                int prevParent = parent[id];
+                parent[id] = parent[prevParent];
+                id = prevParent;
             }
             return id;
         }
