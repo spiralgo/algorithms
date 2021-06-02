@@ -1,9 +1,4 @@
-package algorithms.curated170.medium.maze3;
-
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
-public class TheMazeIIIDijkstra {
+public class Solution {
     int[][] maze;
     int[] hole;
 
@@ -26,15 +21,15 @@ public class TheMazeIIIDijkstra {
                 }
             }
         });
-        int[][] directions = {{0, -1}, {1, 0}, {-1, 0}, {0, 1}};
-        char[] directionSymbols = {'l', 'd', 'u', 'r'};
+        int[][] directions = { { 0, -1 }, { 1, 0 }, { -1, 0 }, { 0, 1 } };
+        char[] directionSymbols = { 'l', 'd', 'u', 'r' };
 
-        pq.add(new Point(ball[0], ball[1], 0, ""));
+        pq.add(new Point(ball[0], ball[1], 0, new StringBuilder("")));
 
         while (!pq.isEmpty()) {
 
             Point startPoint = pq.poll();
-            
+
             int x = startPoint.x;
             int y = startPoint.y;
 
@@ -45,7 +40,7 @@ public class TheMazeIIIDijkstra {
             maze[x][y] = -1;
 
             if (isInTHole(x, y)) {
-                return startPoint.path;
+                return startPoint.path.toString();
             }
 
             for (int i = 0; i < 4; i++) {
@@ -70,7 +65,10 @@ public class TheMazeIIIDijkstra {
                 }
 
                 if (maze[nextX][nextY] != -1) {
-                    String path = startPoint.path + directionSymbols[i];
+
+                    StringBuilder path = new StringBuilder(startPoint.path);
+                    path.append(directionSymbols[i]);
+
                     pq.add(new Point(nextX, nextY, currentDistance, path));
                 }
             }
@@ -83,37 +81,21 @@ public class TheMazeIIIDijkstra {
     }
 
     boolean canPass(int nextX, int nextY) {
-        return (nextX >= 0 && nextY >= 0
-                && nextX < maze.length
-                && nextY < maze[0].length
+        return (nextX >= 0 && nextY >= 0 
+                && nextX < maze.length && nextY < maze[0].length  
                 && maze[nextX][nextY] != 1);
-
     }
 
     private class Point {
 
         private int x, y, distance;
-        private String path;
+        private StringBuilder path;
 
-        Point(int x, int y, int distance, String path) {
+        Point(int x, int y, int distance, StringBuilder path) {
             this.x = x;
             this.y = y;
             this.distance = distance;
             this.path = path;
-
         }
-    }
-
-    public static void main(String[] args) {
-        TheMazeIIIDijkstra theMaze = new TheMazeIIIDijkstra();
-        int[][] maze = {{0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0},
-        {0, 0, 0, 1, 0},
-        {1, 1, 0, 1, 1},
-        {0, 0, 0, 0, 0}};
-
-        int[] start = {0, 4}, destination = {4, 4};
-        String result = theMaze.findShortestWay(maze, start, destination);
-        System.out.println(result);
     }
 }
