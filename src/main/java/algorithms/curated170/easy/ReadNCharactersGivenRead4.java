@@ -22,6 +22,21 @@ public class ReadNCharactersGivenRead4 extends Reader4 {
      
         return copiedChars;
     }
+    
+    public int read2(char[] buf, int n) {
+        int copiedChars = 0;
+     
+        while(copiedChars < n){
+            int length = read4(buf4);
+            for(int i=0; i<length && copiedChars < n; i++){
+                buf[copiedChars++] = buf4[i];
+            }
+          
+            if(length < 4) break;
+        }
+
+        return copiedChars;
+    }
     public static void main(String[] args) {
         ReadNCharactersGivenRead4 readNCharactersGivenRead4 = new ReadNCharactersGivenRead4();
         char[] buf = new char[19];
