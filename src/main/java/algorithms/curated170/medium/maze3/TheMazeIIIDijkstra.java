@@ -1,4 +1,9 @@
-public class Solution {
+package algorithms.curated170.medium.maze3;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class TheMazeIIIDijkstra {
     int[][] maze;
     int[] hole;
 
@@ -11,14 +16,11 @@ public class Solution {
 
     public String dijkstra(int[] ball) {
 
-        PriorityQueue<Point> pq = new PriorityQueue<>(new Comparator<Point>() {
-            @Override
-            public int compare(Point p1, Point p2) {
-                if (p1.distance == p2.distance) {
-                    return p1.path.compareTo(p2.path);
-                } else {
-                    return p1.distance - p2.distance;
-                }
+        PriorityQueue<Point> pq = new PriorityQueue<>((Point p1, Point p2) -> {
+            if (p1.distance == p2.distance) {
+                return p1.path.compareTo(p2.path);
+            } else {
+                return p1.distance - p2.distance;
             }
         });
         int[][] directions = { { 0, -1 }, { 1, 0 }, { -1, 0 }, { 0, 1 } };
