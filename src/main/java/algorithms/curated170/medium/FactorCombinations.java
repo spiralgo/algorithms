@@ -11,14 +11,14 @@ public class FactorCombinations {
 
     void backtracking(int n, int index) {
         if (n > 1) {
-            if (temp.size() >= 1) {
+            if (!temp.isEmpty()) {
                 temp.add(n);
                 res.add(new ArrayList<>(temp));
                 temp.pop();
             }
         }
 
-        for (int i = index; i <= n / i; ++i) {
+        for (int i = index; i <= n / i; i++) {
             if (n % i == 0) {
                 temp.add(i);
                 backtracking(n / i, i);
