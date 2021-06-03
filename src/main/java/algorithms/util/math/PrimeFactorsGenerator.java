@@ -13,8 +13,8 @@ public class PrimeFactorsGenerator {
 
     List<Integer> primes = new ArrayList<>(List.of(2, 3, 5, 7));
 
-    boolean sleeveFilled = false;
-    boolean[] sleeve;
+    boolean sieveFilled = false;
+    boolean[] sieve;
     List<Integer> primeFactors = new ArrayList<>();
 
     int orig;
@@ -23,9 +23,9 @@ public class PrimeFactorsGenerator {
 
         orig = num;
         limitPrime = (int) Math.sqrt(num);
-        sleeve = new boolean[limitPrime + 1];
+        sieve = new boolean[limitPrime + 1];
         if (limitPrime < 11) {
-            sleeveFilled = true;
+            sieveFilled = true;
         }
 
         divideAndFindPrimeFactors(num, 0, 1);
@@ -39,7 +39,7 @@ public class PrimeFactorsGenerator {
                 return false;
             }
         }
-        return sleeveFilled;
+        return sieveFilled;
     }
 
     private void divideAndFindPrimeFactors(int n, int ip, int prev) {
@@ -82,13 +82,13 @@ public class PrimeFactorsGenerator {
 
     private int findFirstValidPrime() {
         int firstP = -1;
-        for (int i = 3; i < sleeve.length; i += 2) {
-            if (!sleeve[i]) {
+        for (int i = 3; i < sieve.length; i += 2) {
+            if (!sieve[i]) {
                 primes.add(i);
                 firstP = firstP < 0 ? i : firstP;
             }
         }
-        sleeveFilled = true;
+        sieveFilled = true;
         return firstP;
     }
 
@@ -99,12 +99,12 @@ public class PrimeFactorsGenerator {
                 continue;
             }
 
-            if (sleeve[p]) {
+            if (sieve[p]) {
                 continue;
             }
 
-            for (int i = p; i < sleeve.length; i += p) {
-                sleeve[i] = true;
+            for (int i = p; i < sieve.length; i += p) {
+                sieve[i] = true;
             }
         }
     }
