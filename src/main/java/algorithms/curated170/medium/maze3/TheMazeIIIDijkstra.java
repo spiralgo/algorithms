@@ -41,7 +41,7 @@ public class TheMazeIIIDijkstra {
 
             maze[x][y] = -1;
 
-            if (isInTHole(x, y)) {
+            if (isInTheHole(x, y)) {
                 return startPoint.path.toString();
             }
 
@@ -54,13 +54,13 @@ public class TheMazeIIIDijkstra {
 
                 int currentDistance = startPoint.distance;
 
-                while (canPass(nextX, nextY) && !isInTHole(nextX, nextY)) {
+                while (canPass(nextX, nextY) && !isInTheHole(nextX, nextY)) {
                     nextX += dirx;
                     nextY += diry;
                     currentDistance++;
                 }
 
-                if (!isInTHole(nextX, nextY)) {
+                if (!isInTheHole(nextX, nextY)) {
                     nextX -= dirx;
                     nextY -= diry;
                     currentDistance--;
@@ -78,7 +78,7 @@ public class TheMazeIIIDijkstra {
         return "impossible";
     }
 
-    boolean isInTHole(int x, int y) {
+    boolean isInTheHole(int x, int y) {
         return (x == hole[0] && y == hole[1]);
     }
 
