@@ -7,22 +7,44 @@ import java.util.List;
 public class ShortestDistanceToTargetColorPreprocessing {
 
     private static final int NOT_FOUND = Integer.MAX_VALUE;
-    int[][] closestDistTable;
+    private int[][] closestDistTable;
 
     public List<Integer> shortestDistanceColor(int[] colors, int[][] queries) {
 
+        assignClosestLeftColors(colors);
+
+        compareClosestRightColors(colors);
+
+        return handleQueriesLookup(queries);
+    }
+
+    private void assignClosestLeftColors(int[] colors) {
         closestDistTable = new int[colors.length][];
         int[] nearest = new int[4];
         Arrays.fill(nearest, NOT_FOUND);
 
-        assignClosestLeftColors(colors, nearest);
+        for (int i = 0; i < colors.length; i++) {
+            nearest[colors[i]] = 0;
 
-        compareClosestRightColors(colors);
+            for (int j = 1; j <= 3; j++) {
+                if (nearest[j] != NOT_FOUND && j != colors[i]) {
+                    nearest[j]++;
+                }
+            }
 
-        return assignClosestDistances(queries);
+            closestDistTable[i] = nearest.clone();
+        }
     }
 
-    private List<Integer> assignClosestDistances(int[][] queries) {
+    private void compareClosestRightColors(int[] colors) {
+        for (int i = colors.length - 2; i >= 0; i--) {
+            for (int c = 1; c <= 3; c++) {
+                closestDistTable[i][c] = Math.min(closestDistTable[i][c], closestDistTable[i + 1][c] + 1);
+            }
+        }
+    }
+
+    private List<Integer> handleQueriesLookup(int[][] queries) {
 
         List<Integer> distList = new ArrayList<>();
 
@@ -39,33 +61,12 @@ public class ShortestDistanceToTargetColorPreprocessing {
         return distList;
     }
 
-    private void compareClosestRightColors(int[] colors) {
-        for (int i = colors.length - 2; i >= 0; i--) {
-            for (int c = 1; c <= 3; c++) {
-                closestDistTable[i][c] = Math.min(closestDistTable[i][c], closestDistTable[i + 1][c] + 1);
-            }
-        }
-    }
-
-    private void assignClosestLeftColors(int[] colors, int[] nearest) {
-        for (int i = 0; i < colors.length; i++) {
-            nearest[colors[i]] = 0;
-
-            for (int j = 1; j <= 3; j++) {
-                if (nearest[j] != NOT_FOUND && j != colors[i]) {
-                    nearest[j]++;
-                }
-            }
-
-            closestDistTable[i] = nearest.clone();
-        }
-    }
     public static void main(String[] args) {
         var solution = new ShortestDistanceToTargetColorPreprocessing();
 
         int[] colors = new int[] { 1, 1, 2, 1, 3, 2, 2, 3, 3 };
         int[][] queries = new int[][] { { 1, 3 }, { 2, 2 }, { 6, 1 } };
-        solution.shortestDistanceColor(colors, queries);
+        System.out.println(solution.shortestDistanceColor(colors, queries)); // prints [3, 0, 3]
 
     }
 }
