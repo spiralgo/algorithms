@@ -26,9 +26,9 @@ public class ShortestDistanceToTargetColorPreprocessing {
         for (int i = 0; i < colors.length; i++) {
             nearest[colors[i]] = 0;
 
-            for (int j = 1; j <= 3; j++) {
-                if (nearest[j] != NOT_FOUND && j != colors[i]) {
-                    nearest[j]++;
+            for (int c = 1; c <= 3; c++) {
+                if (nearest[c] != NOT_FOUND && c != colors[i]) {
+                    nearest[c]++;
                 }
             }
 
