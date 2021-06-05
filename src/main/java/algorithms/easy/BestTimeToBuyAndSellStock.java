@@ -3,12 +3,12 @@ package algorithms.easy;
 public class BestTimeToBuyAndSellStock {
 
 	public int maxProfit(int[] prices) {
-		int buy = Integer.MAX_VALUE, sell = 0;
+		int currBuy = Integer.MAX_VALUE, maxProfit = 0;
 		for (int p : prices) {
-			buy = Math.min(p, buy);
-			sell = Math.max(sell, p - buy);
+			currBuy = Math.min(p, currBuy);
+			maxProfit = Math.max(maxProfit, p - currBuy);
 		}
-		return sell;
+		return maxProfit;
 	}
 
 	public static void main(String[] args) {
