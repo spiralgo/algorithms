@@ -39,7 +39,10 @@ public class ShortestDistanceToTargetColorPreprocessing {
     private void compareClosestRightColors(int[] colors) {
         for (int i = colors.length - 2; i >= 0; i--) {
             for (int c = 1; c <= 3; c++) {
-                closestDistTable[i][c] = Math.min(closestDistTable[i][c], closestDistTable[i + 1][c] + 1);
+                int closestRight = closestDistTable[i + 1][c];
+                if (closestRight != NOT_FOUND) {
+                    closestDistTable[i][c] = Math.min(closestDistTable[i][c], closestRight + 1);
+                }
             }
         }
     }
@@ -67,6 +70,9 @@ public class ShortestDistanceToTargetColorPreprocessing {
         int[] colors = new int[] { 1, 1, 2, 1, 3, 2, 2, 3, 3 };
         int[][] queries = new int[][] { { 1, 3 }, { 2, 2 }, { 6, 1 } };
         System.out.println(solution.shortestDistanceColor(colors, queries)); // prints [3, 0, 3]
+        colors = new int[] { 1, 2 };
+        queries = new int[][] { { 0, 3 } };
+        System.out.println(solution.shortestDistanceColor(colors, queries)); // prints [-1]
 
     }
 }
