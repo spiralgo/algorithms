@@ -50,7 +50,7 @@ public class PrimeFactorsGenerator {
 
         boolean divisible = false;
         int prime = getPrime(ip);
-        if (n < 2 || prime <= 0) {
+        if (n < 2) {
             return;
         }
 
@@ -65,7 +65,6 @@ public class PrimeFactorsGenerator {
             primeFactors.add(prime);
             divideAndFindPrimeFactors(n / prime, ip, prev * prime);
         } else {
-            primes.set(ip, -1 * prime);
             divideAndFindPrimeFactors(n, ip + 1, prev);
         }
     }
@@ -94,12 +93,7 @@ public class PrimeFactorsGenerator {
 
     private void fillPrimeSleeve() {
         for (int p : primes) {
-            p = Math.abs(p);
-            if (p == 2) {
-                continue;
-            }
-
-            if (sieve[p]) {
+            if (p == 2 || sieve[p]) {
                 continue;
             }
 
