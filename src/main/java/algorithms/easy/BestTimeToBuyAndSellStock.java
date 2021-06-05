@@ -5,7 +5,7 @@ public class BestTimeToBuyAndSellStock {
 	public int maxProfit(int[] prices) {
 		int currBuy = Integer.MAX_VALUE, maxProfit = 0;
 		for (int p : prices) {
-			if (p > currBuy) {
+			if (p < currBuy) {
 				currBuy = p;
 			} else {
 				maxProfit = Math.max(maxProfit, p - currBuy);
