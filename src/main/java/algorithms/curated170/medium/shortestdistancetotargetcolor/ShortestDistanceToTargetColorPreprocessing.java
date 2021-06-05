@@ -7,7 +7,8 @@ import java.util.List;
 public class ShortestDistanceToTargetColorPreprocessing {
 
     private static final int NOT_FOUND = Integer.MAX_VALUE;
-    private int[][] closestDistTable;
+    private int[][] leftClosestIndices;
+    private int[][] rightClosestIndices;
 
     public List<Integer> shortestDistanceColor(int[] colors, int[][] queries) {
 
@@ -19,30 +20,28 @@ public class ShortestDistanceToTargetColorPreprocessing {
     }
 
     private void assignClosestLeftColors(int[] colors) {
-        closestDistTable = new int[colors.length][];
+        leftClosestIndices = new int[colors.length][4];
         int[] nearest = new int[4];
         Arrays.fill(nearest, NOT_FOUND);
 
         for (int i = 0; i < colors.length; i++) {
-            nearest[colors[i]] = 0;
+            nearest[colors[i]] = i;
 
-            for (int c = 1; c <= 3; c++) {
-                if (nearest[c] != NOT_FOUND && c != colors[i]) {
-                    nearest[c]++;
-                }
+            for (int c = 0; c <= 3; c++) {
+                leftClosestIndices[i][c] = nearest[c];
             }
-
-            closestDistTable[i] = nearest.clone();
         }
     }
 
     private void compareClosestRightColors(int[] colors) {
-        for (int i = colors.length - 2; i >= 0; i--) {
+        rightClosestIndices = new int[colors.length][4];
+        int[] nearest = new int[4];
+        Arrays.fill(nearest, NOT_FOUND);
+
+        for (int i = colors.length - 1; i >= 0; i--) {
+            nearest[colors[i]] = i;
             for (int c = 1; c <= 3; c++) {
-                int closestRight = closestDistTable[i + 1][c];
-                if (closestRight != NOT_FOUND) {
-                    closestDistTable[i][c] = Math.min(closestDistTable[i][c], closestRight + 1);
-                }
+                rightClosestIndices[i][c] = nearest[c];
             }
         }
     }
@@ -52,13 +51,23 @@ public class ShortestDistanceToTargetColorPreprocessing {
         List<Integer> distList = new ArrayList<>();
 
         for (int[] query : queries) {
-            int dist = closestDistTable[query[0]][query[1]];
+            int idx = query[0];
+            int color = query[1];
 
-            if (dist == NOT_FOUND) {
-                dist = -1;
+            int leftBest = leftClosestIndices[idx][color];
+            int rightBest = rightClosestIndices[idx][color];
+
+            int dist = NOT_FOUND;
+            if(leftBest!=NOT_FOUND)
+            {
+                dist = idx - leftBest;
+            }
+            if(rightBest != NOT_FOUND)
+            {
+                dist = Math.min(dist, rightBest - idx);
             }
 
-            distList.add(dist);
+            distList.add(dist == NOT_FOUND ? -1 : dist);
         }
 
         return distList;
