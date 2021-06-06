@@ -15,7 +15,9 @@ public class FourKeysKeyboardMath {
 
     public static void main(String[] args) {
         var solution = new FourKeysKeyboardMath();
-        System.out.println(3 << 2 * 4);
-        System.out.println(solution.maxA(10));
+
+        for (int i = 0; i < 50; i++) {
+            System.out.println(solution.maxA(i));
+        }
     }
 }
