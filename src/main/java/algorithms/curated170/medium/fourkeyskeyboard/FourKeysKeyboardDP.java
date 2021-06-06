@@ -7,7 +7,7 @@ public class FourKeysKeyboardDP {
 
         for (int press = 1; press <= N; press++) {
             best[press] = best[press - 1] + 1;
-            if (press >= 6) {
+            if (press > 6) {
                 best[press] = Math.max(best[press], best[press - 6] * 5);
                 best[press] = Math.max(best[press], best[press - 5] * 4);
                 best[press] = Math.max(best[press], best[press - 4] * 3);
