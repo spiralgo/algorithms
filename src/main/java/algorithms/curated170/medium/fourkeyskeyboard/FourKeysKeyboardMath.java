@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.fourkeyskeyboard;
 
 public class FourKeysKeyboardMath {
 
