@@ -15,7 +15,11 @@ public class ThreeSumSmaller {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 2; i++) {
-            count += findTwoSumsSmaller(i + 1, target - nums[i]);
+            int countAtIdx = findTwoSumsSmaller(i + 1, target - nums[i]);
+            if (countAtIdx == 0) {
+                break;
+            }
+            count += countAtIdx;
         }
         return count;
     }
