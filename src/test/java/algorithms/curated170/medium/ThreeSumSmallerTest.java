@@ -3,6 +3,8 @@ package algorithms.curated170.medium;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import algorithms.curated170.medium.threesumsmaller.*;
+
 public class ThreeSumSmallerTest {
 
     @Test
