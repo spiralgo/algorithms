@@ -1,7 +1,5 @@
 package algorithms.curated170.medium;
 
-import java.rmi.ConnectIOException;
-
 public class MaxConsecutiveOnes2 {
 
     public int findMaxConsecutiveOnes(int[] nums) {
@@ -20,7 +18,7 @@ public class MaxConsecutiveOnes2 {
                 curr = 0;
             }
 
-            best = Math.max(best, Math.max(curr, afterZeroCurr));
+            best = Math.max(best, afterZeroCurr);
         }
 
         return best;
