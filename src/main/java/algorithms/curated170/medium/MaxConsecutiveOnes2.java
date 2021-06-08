@@ -5,20 +5,20 @@ public class MaxConsecutiveOnes2 {
     public int findMaxConsecutiveOnes(int[] nums) {
         
         int best = 0;
-        int curr = 0, afterZeroCurr = 0;
+        int leftCurr = 0, unitedCurr = 0;
         for (int n : nums) {
             if(n == 1)
             {
-                curr++;
-                afterZeroCurr++;
+                leftCurr++;
+                unitedCurr++;
             }
             else
             {
-                afterZeroCurr = curr+1;
-                curr = 0;
+                unitedCurr = leftCurr+1;
+                leftCurr = 0;
             }
 
-            best = Math.max(best, afterZeroCurr);
+            best = Math.max(best, unitedCurr);
         }
 
         return best;
