@@ -5,48 +5,24 @@ import java.rmi.ConnectIOException;
 public class MaxConsecutiveOnes2 {
 
     public int findMaxConsecutiveOnes(int[] nums) {
-        int left = 0, right = 0;
+        
         int best = 0;
-        byte state = 0;
-
+        int curr = 0, afterZeroCurr = 0;
         for (int n : nums) {
-            switch (state) {
-                case 0:
-                    if (n == 1) {
-                        left++;
-                        state = 1;
-                        break;
-                    }
-                    break;
-                case 1:
-                    if (n == 1) {
-                        left++;
-                        break;
-                    }
-                    state = 2;
-                    break;
-                case 2:
-                    if (n == 1) {
-                        right++;
-                        break;
-                    }
-                    best = Math.max(best, left + right + 1);
-                    left = right;
-                    right = 0;
-
-                    state = 3;
-                    break;
-                case 3:
-                    if (n == 1) {
-                        right++;
-                        state = 2;
-                        break;
-                    }
-                    state = 0;
-                    break;
+            if(n == 1)
+            {
+                curr++;
+                afterZeroCurr++;
             }
+            else
+            {
+                afterZeroCurr = curr+1;
+                curr = 0;
+            }
+
+            best = Math.max(best, Math.max(curr, afterZeroCurr);
         }
-        best = Math.max(best, left + right + 1);
+        
         return best;
     }
 
