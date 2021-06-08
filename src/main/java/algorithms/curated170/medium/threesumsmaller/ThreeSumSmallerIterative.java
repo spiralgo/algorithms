@@ -28,11 +28,15 @@ public class ThreeSumSmallerIterative {
 
         int p1 = start, p2 = rightBoundary;
         int count = 0;
+        boolean foundBounds = false;
         while (p1 < p2) {
             if (nums[p1] + nums[p2] >= target) {
-                rightBoundary--;
+                if (!foundBounds) {
+                    rightBoundary--;
+                }
                 p2--;
             } else {
+                foundBounds = true;
                 count += p2 - p1;
                 p1++;
             }
