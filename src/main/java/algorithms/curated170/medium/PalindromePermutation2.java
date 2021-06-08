@@ -27,7 +27,26 @@ public class PalindromePermutation2 {
         return output;
     }
 
-    public boolean canPermutePalindrome(String halfString, int[] map) {
+    
+    void permute(char[] halfString, int choiceIndex, char ch, List<String> output) {
+        if (choiceIndex == halfString.length) {
+            output.add(addReverseToItself(new String(halfString), ch));
+        } else {
+            boolean[] visited = new boolean[128];
+
+            for (int i = choiceIndex; i < halfString.length; i++) {
+                if (visited[halfString[i]]) {
+                    continue;
+                }
+                visited[halfString[i]] = true;
+                swap(halfString, choiceIndex, i);
+                permute(halfString, choiceIndex + 1, ch, output);
+                swap(halfString, choiceIndex, i);
+
+            }
+        }
+    }
+       public boolean canPermutePalindrome(String halfString, int[] map) {
 
         for (int i = 0; i < halfString.length(); i++) {
             map[halfString.charAt(i)]++;
@@ -46,25 +65,6 @@ public class PalindromePermutation2 {
 
     }
 
-    void permute(char[] halfString, int leftPointer, char ch, List<String> output) {
-        if (leftPointer == halfString.length) {
-            output.add(addReverseToItself(new String(halfString), ch));
-        } else {
-            boolean[] visited = new boolean[128];
-
-            for (int i = leftPointer; i < halfString.length; i++) {
-                if (visited[halfString[i]]) {
-                    continue;
-                }
-                visited[halfString[i]] = true;
-                swap(halfString, leftPointer, i);
-                permute(halfString, leftPointer + 1, ch, output);
-                swap(halfString, leftPointer, i);
-
-            }
-        }
-    }
-
     String addReverseToItself(String permutedHalfString, char ch) {
         StringBuilder sb = new StringBuilder(permutedHalfString).reverse()
                 .append(ch == 0 ? "" : ch)
@@ -73,9 +73,9 @@ public class PalindromePermutation2 {
         return sb.toString();
     }
 
-    public void swap(char[] s, int leftPointer, int i) {
-        char temp = s[leftPointer];
-        s[leftPointer] = s[i];
+    public void swap(char[] s, int choiceIndex, int i) {
+        char temp = s[choiceIndex];
+        s[choiceIndex] = s[i];
         s[i] = temp;
     }
 }
