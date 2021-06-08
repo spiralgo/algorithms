@@ -20,9 +20,9 @@ public class MaxConsecutiveOnes2 {
                 curr = 0;
             }
 
-            best = Math.max(best, Math.max(curr, afterZeroCurr);
+            best = Math.max(best, Math.max(curr, afterZeroCurr));
         }
-        
+
         return best;
     }
 
