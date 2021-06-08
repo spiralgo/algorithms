@@ -22,16 +22,20 @@ public class ThreeSumSmallerRecursion {
         int currTarget = target - nums[start];
         int p1 = start + 1, p2 = rightBoundary;
         int count = 0;
+        boolean foundBounds = false;
         while (p1 < p2) {
             if (nums[p1] + nums[p2] >= currTarget) {
-                rightBoundary--;
+                if (!foundBounds) {
+                    rightBoundary--;
+                }
                 p2--;
             } else {
+                foundBounds = true;
                 count += p2 - p1;
                 p1++;
             }
         }
-        return count == 0 ? 0 : count + reduceTwoSumsSmaller(start+1);
+        return count == 0 ? 0 : count + reduceTwoSumsSmaller(start + 1);
     }
 
     public static void main(String[] args) {
