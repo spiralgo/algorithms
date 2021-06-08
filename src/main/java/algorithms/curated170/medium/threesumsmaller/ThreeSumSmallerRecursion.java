@@ -9,7 +9,10 @@ public class ThreeSumSmallerRecursion {
     int rightBoundary;
 
     public int threeSumSmaller(int[] nums, int target) {
-
+        if (nums.length < 3) {
+            return 0;
+        }
+        
         this.nums = nums;
         this.target = target;
         rightBoundary = nums.length - 1;

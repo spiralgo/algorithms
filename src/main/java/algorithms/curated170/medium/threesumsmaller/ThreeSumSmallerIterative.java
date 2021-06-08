@@ -8,7 +8,10 @@ public class ThreeSumSmallerIterative {
     int rightBoundary;
 
     public int threeSumSmaller(int[] nums, int target) {
-
+        if (nums.length < 3) {
+            return 0;
+        }
+        
         this.nums = nums;
         int count = 0;
         rightBoundary = nums.length - 1;
