@@ -1,12 +1,13 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.palindromepermutation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PalindromePermutation2 {
 
+    final int NUM_OF_CHARS = 128;
     public List<String> generatePalindromes(String s) {
-        int[] map = new int[128];
+        int[] map = new int[NUM_OF_CHARS];
         char[] halfString = new char[s.length() / 2];
         char ch = 0;
         if (!canPermutePalindrome(s, map)) {
@@ -32,7 +33,7 @@ public class PalindromePermutation2 {
         if (choiceIndex == halfString.length) {
             output.add(addReverseToItself(new String(halfString), ch));
         } else {
-            boolean[] visited = new boolean[128];
+            boolean[] visited = new boolean[NUM_OF_CHARS];
 
             for (int i = choiceIndex; i < halfString.length; i++) {
                 if (visited[halfString[i]]) {
