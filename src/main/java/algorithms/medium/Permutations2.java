@@ -23,11 +23,12 @@ public class Permutations2 {
             output.add(permutation);
         }
 
-        Set<Integer> visited = new HashSet<>();
+        boolean[] visited = new boolean[21];
         for (int i = choiceIndex; i < nums.length; i++) {
-            if (!visited.add(nums[i])) {
+            if (visited[nums[i] + 10]) {
                 continue;
             }
+            visited[nums[i] + 10] = true;
             swap(choiceIndex, i, nums);
             backtrack(choiceIndex + 1, nums, output);
             swap(i, choiceIndex, nums);
