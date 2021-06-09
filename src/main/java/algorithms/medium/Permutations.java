@@ -1,4 +1,4 @@
-package algorithms.curated170.easy;
+package algorithms.medium;
 
 import java.util.ArrayList;
 import java.util.List;
