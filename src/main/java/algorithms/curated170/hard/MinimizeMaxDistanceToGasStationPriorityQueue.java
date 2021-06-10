@@ -5,18 +5,20 @@ import java.util.PriorityQueue;
 public class MinimizeMaxDistanceToGasStationPriorityQueue {
 
     public double solve(int[] stats, int k) {
-        PriorityQueue<double[]> pq = new PriorityQueue<>((a,b)->Double.compare(b[0], a[0]));
+        PriorityQueue<double[]> pq = new PriorityQueue<>((a, b) -> Double.compare(b[0], a[0]));
 
         for (int i = 0; i < stats.length - 1; i++) {
             pq.offer(new double[] { stats[i + 1] - stats[i], 1 });
         }
-        for(int i = 0; i<k; i++)
-        {
+        
+        for (int i = 0; i < k; i++) {
             double[] pair = pq.poll();
-            pair[0] = pair[0] * pair[1] / (pair[1] + 1 );
-            pair[1]++;
+
+            pair[0] = pair[0] * pair[1] / (++pair[1]);
+
             pq.offer(pair);
         }
+
         return pq.poll()[0];
     }
 
