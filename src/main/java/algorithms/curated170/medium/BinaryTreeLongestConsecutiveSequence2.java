@@ -8,11 +8,7 @@ public class BinaryTreeLongestConsecutiveSequence2 {
     private final byte INCREASING = 0, DECREASING = 1;
 
     public int longestConsecutive(TreeNode root) {
-
-        if (root == null) {
-            return 0;
-        }
-
+        
         DFS(root);
 
         return maxLength;
