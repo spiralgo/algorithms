@@ -25,6 +25,6 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
     public static void main(String[] args) {
         var solution = new MinimizeMaxDistanceToGasStationPriorityQueue();
 
-        System.out.println(solution.solve(new int[] { 1, 2, 3, 4, 5 }, 4));
+        System.out.println(solution.minmaxGasDist(new int[] { 1, 2, 3, 4, 5 }, 4));
     }
 }

@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class MinimizeMaxDistanceToGasStation {
 
     public double minmaxGasDist(int[] stats, int k) {
-        double left = 0, right = stats[stats.length - 1];
+        double left = 0, right = stats[stats.length - 1] - stats[0];
         
         while (left + 1e-6 < right) {
             double mid = (left + right) / 2;
@@ -29,6 +29,6 @@ public class MinimizeMaxDistanceToGasStation {
     public static void main(String[] args) {
         var solution = new MinimizeMaxDistanceToGasStation();
 
-        System.out.println(solution.solve(new int[] { 1, 2, 3, 4, 5 }, 4));
+        System.out.println(solution.minmaxGasDist(new int[] { 1, 2, 3, 4, 5 }, 4));
     }
 }
