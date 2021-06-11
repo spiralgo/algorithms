@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class MinimizeMaxDistanceToGasStationPriorityQueue {
 
-    public double solve(int[] stats, int k) {
+    public double minmaxGasDist(int[] stats, int k) {
         PriorityQueue<double[]> pq = new PriorityQueue<>((a, b) -> Double.compare(b[0], a[0]));
 
         for (int i = 0; i < stats.length - 1; i++) {
