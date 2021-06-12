@@ -1,9 +1,5 @@
 package algorithms.curated170.hard;
 
-import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
-
 public class MinimizeMaxDistanceToGasStation {
 
     public double minmaxGasDist(int[] stats, int k) {
