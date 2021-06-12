@@ -40,7 +40,7 @@ public class BombEnemy {
     private boolean isStartOrAfterWall(int row, int col, boolean checkCol) {
         if (checkCol) {
             return col == 0 || grid[row][col - 1] == 'W';
-        } else {
+        } else checkRow: {
             return row == 0 || grid[row - 1][col] == 'W';
         }
     }
