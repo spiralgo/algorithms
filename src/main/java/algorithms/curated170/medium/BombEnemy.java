@@ -2,6 +2,10 @@ package algorithms.curated170.medium;
 
 public class BombEnemy {
 
+    final char ENEMY = 'E';
+    final char WALL = 'W';
+    final char EMPTY = '0';
+
     char[][] grid;
     int rows, cols;
 
@@ -28,7 +32,7 @@ public class BombEnemy {
                     countColHits(colHits, row, col);
                 }
 
-                if (grid[row][col] == '0') {
+                if (grid[row][col] == EMPTY) {
                     maxCount = Math.max(maxCount, rowHits + colHits[col]);
                 }
             }
@@ -39,18 +43,19 @@ public class BombEnemy {
 
     private boolean isStartOrAfterWall(int row, int col, boolean checkCol) {
         if (checkCol) {
-            return col == 0 || grid[row][col - 1] == 'W';
-        } else checkRow: {
-            return row == 0 || grid[row - 1][col] == 'W';
-        }
+            return col == 0 || grid[row][col - 1] == WALL;
+        } else
+            checkRow: {
+                return row == 0 || grid[row - 1][col] == WALL;
+            }
     }
 
     private void countColHits(int[] colHits, int row, int col) {
         colHits[col] = 0;
         for (int i = row; i < rows; ++i) {
-            if (grid[i][col] == 'W') {
+            if (grid[i][col] == WALL) {
                 break;
-            } else if (grid[i][col] == 'E') {
+            } else if (grid[i][col] == ENEMY) {
                 colHits[col]++;
             }
         }
@@ -60,9 +65,9 @@ public class BombEnemy {
         int rowHits;
         rowHits = 0;
         for (int j = col; j < cols; ++j) {
-            if (grid[row][j] == 'W') {
+            if (grid[row][j] == WALL) {
                 break;
-            } else if (grid[row][j] == 'E') {
+            } else if (grid[row][j] == ENEMY) {
                 rowHits++;
             }
         }
