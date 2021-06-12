@@ -36,13 +36,9 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
     private void shareTheRest(int remaining) {
         while (remaining > 0) {
             Interval interval = pq.poll();
-            Interval nextLargest = pq.peek();
-            while(remaining > 0 && interval.distance() > nextLargest.distance())
-            {
-                interval.numInsertions++;
-                remaining--;
-            }
+            interval.numInsertions++;
             pq.add(interval);
+            remaining--;
         }
     }
 
