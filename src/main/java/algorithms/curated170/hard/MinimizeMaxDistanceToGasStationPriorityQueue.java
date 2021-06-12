@@ -7,7 +7,7 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
     
     PriorityQueue<Interval> pq;
 
-    public double minmaxGasDist(int[] stations, int K) {
+    public double minmaxGasDist(final int[] stats, final int K) {
 
             pq = new PriorityQueue<Interval>(new Comparator<Interval>() {
             public int compare(Interval a, Interval b) {
@@ -23,9 +23,10 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
             }
         });
 
-        double leftToRight = stations[stations.length - 1] - stations[0];
         
-        int remaining = distributeStations(stations, K, leftToRight);
+
+        int remaining = distributeStations(stats, K);
+
         shareTheRest(remaining);
 
         Interval last = pq.poll();
@@ -42,35 +43,30 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
         }
     }
 
-    private int distributeStations(int[] stations, int K, double leftToRight) {
+    private int distributeStations(final int[] stats, final int K) {
         int remaining = K;
-        for (int i = 0; i < stations.length - 1; i++) {
-            int numInsertions = (int) (K * calculateProportion(stations, i, leftToRight));
+        final double intervalPlacementSubrange = K / (stats[stats.length - 1] - stats[0]);
 
-            pq.add(new Interval(stations[i], stations[i + 1], numInsertions));
+        for (int i = 0; i < stats.length - 1; i++) {
+            int numInsertions = (int) ((stats[i + 1] - stats[i])*intervalPlacementSubrange);
+
+            pq.add(new Interval(stats[i], stats[i + 1], numInsertions));
             
             remaining -= numInsertions;
         }
         return remaining;
     }
 
-    private double calculateProportion(int[] stations, int i, double leftToRight)
-    {
-        return (double) (stations[i + 1] - stations[i]) / leftToRight;
-    }
-
     class Interval {
-        double left;
-        double right;
+        final double length;
         int numInsertions;
 
         double distance() {
-            return (right - left) / ((double) (numInsertions + 1));
+            return length / (numInsertions + 1);
         }
 
         Interval(double left, double right, int numInsertions) {
-            this.left = left;
-            this.right = right;
+            length = right - left;
             this.numInsertions = numInsertions;
         }
     }
@@ -79,5 +75,6 @@ public class MinimizeMaxDistanceToGasStationPriorityQueue {
         var solution = new MinimizeMaxDistanceToGasStationPriorityQueue();
 
         System.out.println(solution.minmaxGasDist(new int[] { 1, 2, 3, 4, 5 }, 4));
+        System.out.println(solution.minmaxGasDist(new int[] { 0, 100, 150}, 4));
     }
 }
