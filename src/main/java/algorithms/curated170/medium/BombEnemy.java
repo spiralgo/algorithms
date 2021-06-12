@@ -62,8 +62,7 @@ public class BombEnemy {
     }
 
     private int countRowHits(int row, int col) {
-        int rowHits;
-        rowHits = 0;
+        int rowHits = 0;
         for (int j = col; j < cols; ++j) {
             if (grid[row][j] == WALL) {
                 break;
