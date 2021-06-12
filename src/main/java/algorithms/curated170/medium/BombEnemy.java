@@ -44,10 +44,9 @@ public class BombEnemy {
     private boolean isStartOrAfterWall(int row, int col, boolean checkCol) {
         if (checkCol) {
             return col == 0 || grid[row][col - 1] == WALL;
-        } else
-            checkRow: {
+        } else checkRow: {
                 return row == 0 || grid[row - 1][col] == WALL;
-            }
+        }
     }
 
     private void countColHits(int[] colHits, int row, int col) {
