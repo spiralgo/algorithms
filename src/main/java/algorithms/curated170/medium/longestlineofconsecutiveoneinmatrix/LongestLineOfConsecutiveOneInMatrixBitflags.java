@@ -6,11 +6,11 @@ public class LongestLineOfConsecutiveOneInMatrixBitflags {
     final int Y_DIR = 1;
     final int BIT_FLAG = 2;
     
-    final int[] vertical = new int[] { 0, 1, 0b10 };
-    final int[] horizontal = new int[] { 1, 0, 0b100 };
-    final int[] diagonal = new int[] { 1, 1, 0b1000 };
-    final int[] antidiagonal = new int[] { 1, -1, 0b10000 };
-    final int[][] DIRECTIONS = new int[][] { null, vertical, horizontal, diagonal, antidiagonal };
+    final int[] VERTICAL = new int[] { 0, 1, 0b10 };
+    final int[] HORIZONTAL = new int[] { 1, 0, 0b100 };
+    final int[] DIAGONAL = new int[] { 1, 1, 0b1000 };
+    final int[] ANTIDIAGONAL = new int[] { 1, -1, 0b10000 };
+    final int[][] DIRECTIONS = new int[][] { null, VERTICAL, HORIZONTAL, DIAGONAL, ANTIDIAGONAL };
 
     int[][] mat;
     int n, m;
