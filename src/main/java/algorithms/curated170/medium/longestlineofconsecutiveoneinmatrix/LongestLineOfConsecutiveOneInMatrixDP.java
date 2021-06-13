@@ -11,8 +11,8 @@ public class LongestLineOfConsecutiveOneInMatrixDP {
         
         int horizontal = 0;
         int[] vertical = new int[m];
-        int[] diagonal = new int[n + m];
         int[] antiDiagonal = new int[n + m];
+        int[] diagonal = new int[n + m];
 
         for (int i = 0; i < n; i++) {
             horizontal = 0;    
@@ -20,19 +20,19 @@ public class LongestLineOfConsecutiveOneInMatrixDP {
                 if (mat[i][j] != 1) {
                     horizontal = 0;
                     vertical[j] = 0;
-                    diagonal[j + i] = 0;
-                    antiDiagonal[j - i + n] = 0;
+                    antiDiagonal[j + i] = 0;
+                    diagonal[j - i + n] = 0;
                     continue;
                 }
 
                 horizontal++;
                 vertical[j]++;
-                diagonal[j + i]++;
-                antiDiagonal[j - i + n]++;
+                antiDiagonal[j + i]++;
+                diagonal[j - i + n]++;
                 max = Math.max(max, horizontal);
                 max = Math.max(max, vertical[j]);
-                max = Math.max(max, diagonal[j + i]);
-                max = Math.max(max, antiDiagonal[j - i + n]);
+                max = Math.max(max, antiDiagonal[j + i]);
+                max = Math.max(max, diagonal[j - i + n]);
             }
         }
         return max;
