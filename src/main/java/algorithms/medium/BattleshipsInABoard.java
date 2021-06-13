@@ -9,8 +9,8 @@ public class BattleshipsInABoard {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
 
-                if (board[i][j] == BATTLESHIP && !hasBattleshipBefore(i, j, false, board)
-                        && !hasBattleshipBefore(i, j, true, board)) {
+                if (board[i][j] == BATTLESHIP && !hasBattleshipBefore(i, j, board)
+                        && !hasBattleshipBefore(i, j, board)) {
                     count++;
                 }
 
