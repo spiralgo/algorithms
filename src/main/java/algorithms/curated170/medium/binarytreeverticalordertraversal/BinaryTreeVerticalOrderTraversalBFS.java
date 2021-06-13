@@ -11,7 +11,6 @@ import algorithms.datastructures.TreeNode;
 
 public class BinaryTreeVerticalOrderTraversalBFS {
 
-  int nodeCount;
   public List<List<Integer>> verticalOrder(TreeNode root) {
     if (root == null) {
       return Collections.emptyList();
