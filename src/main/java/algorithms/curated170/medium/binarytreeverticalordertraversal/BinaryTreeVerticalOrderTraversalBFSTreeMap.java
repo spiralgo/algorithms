@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 import algorithms.datastructures.TreeNode;
 
-public class BinaryTreeVerticalOrderTraversalBFSTreeNode {
+public class BinaryTreeVerticalOrderTraversalBFSTreeMap {
   public List<List<Integer>> verticalOrder(TreeNode root) {
 
     if (root == null) {
