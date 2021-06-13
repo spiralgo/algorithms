@@ -1,5 +1,7 @@
 package algorithms.curated170.medium;
 
+import java.util.NoSuchElementException;
+
 public class Flatten2DVector {
     class Vector2D {
 
@@ -13,33 +15,32 @@ public class Flatten2DVector {
         }
 
         public int next() {
-            if (j < vec[i].length) {
-                return vec[i][j++];
-            }
-            checkArrays();
 
-            return vec[i][j++];
+            if (hasNext()) {
+                return vec[i][j++];
+            } else {
+                throw new NoSuchElementException();
+            }
+
         }
 
-        private void checkArrays() {
+        private boolean checkArrays() {
             j = 0;
             do {
                 i++;
+                if (i >= vec.length) {
+                    return false;
+                }
             } while (vec[i].length == 0);
+            return true;
         }
 
         public boolean hasNext() {
-            if (j < vec[i].length) {
+            if (vec.length > 0 &&  j < vec[i].length) {
                 return true;
             }
 
-            checkArrays();
-            if (i > vec.length) {
-                return false;
-            } else {
-                return true;
-            }
-
+            return checkArrays();
         }
     }
 
