@@ -1,4 +1,4 @@
-package algorithms.curated170.medium.braceexpansion;
+package algorithms.curated170.medium.binarytreeverticalordertraversal;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
