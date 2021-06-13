@@ -16,29 +16,31 @@ public class Flatten2DVector {
             if (j < vec[i].length) {
                 return vec[i][j++];
             }
-            j = 0;
-            i++;
-            while (vec[i].length == 0) {
-                i++;
-            }
+            checkArrays();
+
             return vec[i][j++];
         }
 
-        public boolean hasNext() {
-            if (i >= vec.length) {
-                return false;
-            } else if (j >= vec[i].length) {
-                j = 0;
+        private void checkArrays() {
+            j = 0;
+            do {
                 i++;
-                while (vec[i].length == 0) {
-                    i++;
-                    if (i >= vec.length) {
-                        return false;
-                    }
-                }
+            } while (vec[i].length == 0);
+        }
+
+        public boolean hasNext() {
+            if (j < vec[i].length) {
+                return true;
             }
-            return true;
+
+            checkArrays();
+            if (i > vec.length) {
+                return false;
+            } else {
+                return true;
+            }
+
         }
     }
-    
+
 }
