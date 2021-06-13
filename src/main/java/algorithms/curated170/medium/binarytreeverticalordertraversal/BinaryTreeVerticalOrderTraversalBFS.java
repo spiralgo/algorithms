@@ -2,6 +2,7 @@ package algorithms.curated170.medium.braceexpansion;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
 import java.util.TreeMap;
@@ -12,44 +13,47 @@ public class BinaryTreeVerticalOrderTraversalBFS {
   public List<List<Integer>> verticalOrder(TreeNode root) {
 
     if (root == null) {
-      return new ArrayList<>();
+      return Collections.emptyList();
     }
 
-    TreeMap<Integer, ArrayList<Integer>> tree = new TreeMap<>();
+    TreeMap<Integer, ArrayList<Integer>> xPosMap = new TreeMap<>();
 
-    Deque<Pair> q = new ArrayDeque<>();
-    q.offer(new Pair(root, 0));
+    Deque<NodePosPair> q = new ArrayDeque<>();
+    q.offer(new NodePosPair(root, 0));
 
     while (!q.isEmpty()) {
-      Pair p = q.poll();
-
-      tree.putIfAbsent(p.x, new ArrayList<>());
-      tree.get(p.x).add(p.tn.val);
-
-      if (p.tn.left != null) {
-        q.offer(new Pair(p.tn.left, p.x - 1));
-      }
-
-      if (p.tn.right != null) {
-        q.offer(new Pair(p.tn.right, p.x + 1));
-      }
+      NodePosPair npp = q.poll();
+      npp.placeIntoMap(xPosMap);
+      npp.queueChildren(q);
     }
 
-    List<List<Integer>> ret = new ArrayList<>();
+    List<List<Integer>> verticalOrderAtXPos = new ArrayList<>(xPosMap.values());
 
-    for (var k : tree.values()) {
-      ret.add(k);
-    }
-    
-    return ret;
+    verticalOrderAtXPos.addAll(xPosMap.values());
+
+    return verticalOrderAtXPos;
   }
 
-  private class Pair {
-    TreeNode tn;
-    int x = 0;
+  private class NodePosPair {
+    final TreeNode node;
+    final int x;
 
-    Pair(TreeNode tn, int x) {
-      this.tn = tn;
+    void placeIntoMap(TreeMap<Integer, ArrayList<Integer>> xPosMap) {
+      xPosMap.putIfAbsent(x, new ArrayList<>());
+      xPosMap.get(x).add(node.val);
+    }
+
+    void queueChildren(Deque<NodePosPair> q) {
+      if (node.left != null) {
+        q.offer(new NodePosPair(node.left, x - 1));
+      }
+      if (node.right != null) {
+        q.offer(new NodePosPair(node.right, x + 1));
+      }
+    }
+
+    NodePosPair(TreeNode tn, int x) {
+      this.node = tn;
       this.x = x;
     }
   }
