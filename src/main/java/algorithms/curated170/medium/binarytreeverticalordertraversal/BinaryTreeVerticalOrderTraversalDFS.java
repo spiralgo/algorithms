@@ -1,42 +1,34 @@
 package algorithms.curated170.medium.braceexpansion;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import algorithms.datastructures.Pair;
 import algorithms.datastructures.TreeNode;
 
 public class BinaryTreeVerticalOrderTraversalDFS {
 
-  Map<Integer, ArrayList<Pair<Integer, Integer>>> columnTable = new HashMap<>();
+  HashMap<Integer, ArrayList<int[]>> columnTable = new HashMap<>();
   int minColumn = 0, maxColumn = 0;
 
   public List<List<Integer>> verticalOrder(TreeNode root) {
-    List<List<Integer>> output = new ArrayList<>();
     if (root == null) {
-      return output;
+      return Collections.emptyList();
     }
-
-    this.DFS(root, 0, 0);
+    
+    DFS(root, 0, 0);
+    
+    List<List<Integer>> output = new ArrayList<>();
 
     // Retrieve the resuts, by ordering by column and sorting by row
     for (int i = minColumn; i < maxColumn + 1; ++i) {
 
-      Collections.sort(columnTable.get(i), new Comparator<Pair<Integer, Integer>>() {
-        @Override
-        public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) {
-          return p1.first - p2.first;
-        }
-      });
+      Collections.sort(columnTable.get(i), (p1,p2) -> p1[0] - p2[0]);
 
       List<Integer> sortedColumn = new ArrayList<>();
-      for (Pair<Integer, Integer> p : columnTable.get(i)) {
-        sortedColumn.add(p.second);
+      for (int[] p : columnTable.get(i)) {
+        sortedColumn.add(p[1]);
       }
       output.add(sortedColumn);
     }
@@ -44,20 +36,34 @@ public class BinaryTreeVerticalOrderTraversalDFS {
     return output;
   }
 
-  private void DFS(TreeNode node, Integer row, Integer column) {
-    if (node == null)
+  private void DFS(TreeNode root, Integer row, Integer col) {
+    
+    if (root == null){
       return;
-
-    if (!columnTable.containsKey(column)) {
-      this.columnTable.put(column, new ArrayList<Pair<Integer, Integer>>());
     }
 
-    this.columnTable.get(column).add(new Pair<Integer, Integer>(row, node.val));
-    this.minColumn = Math.min(minColumn, column);
-    this.maxColumn = Math.max(maxColumn, column);
+    columnTable.putIfAbsent(col, new ArrayList<>());
+
+    columnTable.get(col).add(new int[]{row, root.val});
+    minColumn = Math.min(minColumn, col);
+    maxColumn = Math.max(maxColumn, col);
     // preorder DFS traversal
-    this.DFS(node.left, row + 1, column - 1);
-    this.DFS(node.right, row + 1, column + 1);
+    DFS(root.left, row + 1, col - 1);
+    DFS(root.right, row + 1, col + 1);
+  }
+
+  
+  public static void main(String[] args) {
+    var solution = new BinaryTreeVerticalOrderTraversalDFS();
+
+    TreeNode tn1 = new TreeNode(1);
+    TreeNode t0 = new TreeNode(2, null, tn1);
+    TreeNode t1 = new TreeNode(5);
+    TreeNode t2 = new TreeNode(4, null, t1);
+    TreeNode t3 = new TreeNode(3, t0, t2);
+    TreeNode root = new TreeNode(9, null, t3);
+
+    System.out.println(solution.verticalOrder(root));
   }
 
 }
