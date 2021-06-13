@@ -13,46 +13,47 @@ public class BinaryTreeVerticalOrderTraversalDFS {
   int minColumn = 0, maxColumn = 0;
 
   public List<List<Integer>> verticalOrder(TreeNode root) {
+
     if (root == null) {
       return Collections.emptyList();
     }
-    
+
     DFS(root, 0, 0);
-    
-    List<List<Integer>> output = new ArrayList<>();
 
-    // Retrieve the resuts, by ordering by column and sorting by row
-    for (int i = minColumn; i < maxColumn + 1; ++i) {
+    List<List<Integer>> columnsAtXPos = new ArrayList<>();
 
-      Collections.sort(columnTable.get(i), (p1,p2) -> p1[0] - p2[0]);
+    for (int i = minColumn; i <= maxColumn; i++) {
+
+      Collections.sort(columnTable.get(i), (p1, p2) -> p1[0] - p2[0]);
 
       List<Integer> sortedColumn = new ArrayList<>();
-      for (int[] p : columnTable.get(i)) {
-        sortedColumn.add(p[1]);
+
+      for (int[] rowValPair : columnTable.get(i)) {
+        sortedColumn.add(rowValPair[1]);
       }
-      output.add(sortedColumn);
+
+      columnsAtXPos.add(sortedColumn);
     }
 
-    return output;
+    return columnsAtXPos;
   }
 
-  private void DFS(TreeNode root, Integer row, Integer col) {
-    
-    if (root == null){
+  private void DFS(TreeNode root, int row, int col) {
+
+    if (root == null) {
       return;
     }
 
     columnTable.putIfAbsent(col, new ArrayList<>());
 
-    columnTable.get(col).add(new int[]{row, root.val});
+    columnTable.get(col).add(new int[] { row, root.val });
     minColumn = Math.min(minColumn, col);
     maxColumn = Math.max(maxColumn, col);
-    // preorder DFS traversal
+
     DFS(root.left, row + 1, col - 1);
     DFS(root.right, row + 1, col + 1);
   }
 
-  
   public static void main(String[] args) {
     var solution = new BinaryTreeVerticalOrderTraversalDFS();
 

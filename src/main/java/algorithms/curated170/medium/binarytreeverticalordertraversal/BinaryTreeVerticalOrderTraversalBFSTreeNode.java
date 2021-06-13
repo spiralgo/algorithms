@@ -16,20 +16,18 @@ public class BinaryTreeVerticalOrderTraversalBFSTreeNode {
       return Collections.emptyList();
     }
 
-    TreeMap<Integer, ArrayList<Integer>> xPosMap = new TreeMap<>();
+    TreeMap<Integer, ArrayList<Integer>> columnTable = new TreeMap<>();
 
     Deque<NodePosPair> q = new ArrayDeque<>();
     q.offer(new NodePosPair(root, 0));
 
     while (!q.isEmpty()) {
       NodePosPair npp = q.poll();
-      npp.placeIntoMap(xPosMap);
+      npp.placeIntoMap(columnTable);
       npp.queueChildren(q);
     }
 
-    List<List<Integer>> columnsAtXPos = new ArrayList<>(xPosMap.values());
-
-    columnsAtXPos.addAll(xPosMap.values());
+    List<List<Integer>> columnsAtXPos = new ArrayList<>(columnTable.values());
 
     return columnsAtXPos;
   }
@@ -38,9 +36,9 @@ public class BinaryTreeVerticalOrderTraversalBFSTreeNode {
     final TreeNode node;
     final int x;
 
-    void placeIntoMap(TreeMap<Integer, ArrayList<Integer>> xPosMap) {
-      xPosMap.putIfAbsent(x, new ArrayList<>());
-      xPosMap.get(x).add(node.val);
+    void placeIntoMap(TreeMap<Integer, ArrayList<Integer>> columnTable) {
+      columnTable.putIfAbsent(x, new ArrayList<>());
+      columnTable.get(x).add(node.val);
     }
 
     void queueChildren(Deque<NodePosPair> q) {

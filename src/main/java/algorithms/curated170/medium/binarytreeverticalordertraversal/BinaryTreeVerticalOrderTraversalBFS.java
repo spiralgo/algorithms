@@ -11,15 +11,18 @@ import algorithms.datastructures.TreeNode;
 
 public class BinaryTreeVerticalOrderTraversalBFS {
 
+  int nodeCount;
   public List<List<Integer>> verticalOrder(TreeNode root) {
     if (root == null) {
       return Collections.emptyList();
     }
     
+    nodeCount = 0;
     int[] range = new int[] {0, 0};
     getRange(root, range, 0);
 
-    List<List<Integer>> columnsAtXPos = new ArrayList<>();
+    List<List<Integer>> columnsAtXPos = new ArrayList<>(range[1]-range[0] + 2);
+
     for (int i = range[0]; i <= range[1]; i++) {
         columnsAtXPos.add(new ArrayList<Integer>());
     }
@@ -41,6 +44,8 @@ public void getRange(TreeNode root, int[] range, int col) {
     if (root == null) {
         return;
     }
+
+    nodeCount++;
     range[0] = Math.min(range[0], col);
     range[1] = Math.max(range[1], col);
     
@@ -52,8 +57,8 @@ public void getRange(TreeNode root, int[] range, int col) {
     final TreeNode node;
     final int x;
 
-    void placeIntoMap(List<List<Integer>> xPosMap) {
-      xPosMap.get(x).add(node.val);
+    void placeIntoMap(List<List<Integer>> columnTable) {
+      columnTable.get(x).add(node.val);
     }
 
     void queueChildren(Deque<NodePosPair> q) {
