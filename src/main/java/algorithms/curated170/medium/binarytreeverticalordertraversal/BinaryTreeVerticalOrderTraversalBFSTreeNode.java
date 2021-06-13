@@ -9,50 +9,37 @@ import java.util.TreeMap;
 
 import algorithms.datastructures.TreeNode;
 
-public class BinaryTreeVerticalOrderTraversalBFS {
-
+public class BinaryTreeVerticalOrderTraversalBFSTreeNode {
   public List<List<Integer>> verticalOrder(TreeNode root) {
+
     if (root == null) {
       return Collections.emptyList();
     }
-    
-    int[] range = new int[] {0, 0};
-    getRange(root, range, 0);
 
-    List<List<Integer>> columnsAtXPos = new ArrayList<>();
-    for (int i = range[0]; i <= range[1]; i++) {
-        columnsAtXPos.add(new ArrayList<Integer>());
-    }
-    
+    TreeMap<Integer, ArrayList<Integer>> xPosMap = new TreeMap<>();
+
     Deque<NodePosPair> q = new ArrayDeque<>();
-    q.offer(new NodePosPair(root, -1*range[0]));
+    q.offer(new NodePosPair(root, 0));
 
     while (!q.isEmpty()) {
       NodePosPair npp = q.poll();
-      npp.placeIntoMap(columnsAtXPos);
+      npp.placeIntoMap(xPosMap);
       npp.queueChildren(q);
     }
-    
-    
-    return columnsAtXPos;
-}
 
-public void getRange(TreeNode root, int[] range, int col) {
-    if (root == null) {
-        return;
-    }
-    range[0] = Math.min(range[0], col);
-    range[1] = Math.max(range[1], col);
-    
-    getRange(root.left, range, col - 1);
-    getRange(root.right, range, col + 1);
-}
+    List<List<Integer>> columnsAtXPos = new ArrayList<>(xPosMap.values());
+
+    columnsAtXPos.addAll(xPosMap.values());
+
+    return columnsAtXPos;
+  }
 
   private class NodePosPair {
     final TreeNode node;
     final int x;
 
-    void placeIntoMap(List<List<Integer>> xPosMap) {
+    void placeIntoMap(TreeMap<Integer, ArrayList<Integer>> xPosMap) {
+      xPosMap.putIfAbsent(x, new ArrayList<>());
       xPosMap.get(x).add(node.val);
     }
 
@@ -72,7 +59,7 @@ public void getRange(TreeNode root, int[] range, int col) {
   }
 
   public static void main(String[] args) {
-    var solution = new BinaryTreeVerticalOrderTraversalBFS();
+    var solution = new BinaryTreeVerticalOrderTraversalBFSTreeNode();
 
     TreeNode tn1 = new TreeNode(1);
     TreeNode t0 = new TreeNode(2, null, tn1);
