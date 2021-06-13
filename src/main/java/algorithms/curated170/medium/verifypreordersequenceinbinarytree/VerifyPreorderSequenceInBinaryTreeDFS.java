@@ -13,7 +13,7 @@ public class VerifyPreorderSequenceInBinaryTreeDFS {
     }
 
     private void DFS(int[] preorder, int lower, int upper) {
-        if (i >= preorder.length || preorder[i] < lower || preorder[i] > upper) {
+        if (i == preorder.length || preorder[i] < lower || preorder[i] > upper) {
             return;
         }
 
