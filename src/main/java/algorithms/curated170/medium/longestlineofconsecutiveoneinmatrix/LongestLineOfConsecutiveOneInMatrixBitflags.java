@@ -1,13 +1,11 @@
 package algorithms.curated170.medium;
 
-import java.util.Arrays;
-import java.util.BitSet;
-
-public class LongestLineOfConsecutiveOneInMatrix {
+public class LongestLineOfConsecutiveOneInMatrixBitflags {
 
     final int X_DIR = 0;
     final int Y_DIR = 1;
     final int BIT_FLAG = 2;
+    
     final int[] vertical = new int[] { 0, 1, 0b10 };
     final int[] horizontal = new int[] { 1, 0, 0b100 };
     final int[] diagonal = new int[] { 1, 1, 0b1000 };
@@ -70,7 +68,7 @@ public class LongestLineOfConsecutiveOneInMatrix {
                                     { 0, 0, 1, 0, 1 }, 
                                     { 0, 0, 0, 1, 0 }, };
                                     
-        var solution = new LongestLineOfConsecutiveOneInMatrix();
+        var solution = new LongestLineOfConsecutiveOneInMatrixBitflags();
         
         System.out.println(solution.longestLine(mat));
 
@@ -78,13 +76,13 @@ public class LongestLineOfConsecutiveOneInMatrix {
                 { 1, 1, 0, 0, 1, 0, 0, 1, 1, 0 },
                 { 1, 0, 0, 1, 0, 1, 1, 1, 1, 1 },
                 { 1, 1, 1, 0, 0, 1, 1, 1, 1, 0 }, 
-                { 0, 1, 1, 1, 0, 1, 1, 1, 1, 1 }, 
+                { 0, 1, 1, 1, 0, 1, 1, 1, 1, 0 }, 
                 { 0, 0, 1, 1, 1, 1, 1, 1, 1, 0 },
                 { 1, 1, 1, 1, 1, 1, 0, 1, 1, 1 }, 
                 { 0, 1, 1, 1, 1, 1, 1, 0, 0, 1 }, 
                 { 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },
                 { 0, 1, 0, 1, 1, 0, 1, 1, 1, 1 }, 
-                { 1, 1, 1, 0, 1, 0, 1, 1, 1, 1 } };
+                { 0, 1, 1, 0, 1, 0, 1, 1, 1, 1 } };
 
         System.out.println(solution.longestLine(mat));
         
