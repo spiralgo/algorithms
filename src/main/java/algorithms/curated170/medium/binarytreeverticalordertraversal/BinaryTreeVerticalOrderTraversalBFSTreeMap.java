@@ -33,8 +33,8 @@ public class BinaryTreeVerticalOrderTraversalBFSTreeMap {
   }
 
   private class NodePosPair {
-    final TreeNode node;
-    final int x;
+    private final TreeNode node;
+    private final int x;
 
     void placeIntoMap(TreeMap<Integer, ArrayList<Integer>> columnTable) {
       columnTable.putIfAbsent(x, new ArrayList<>());
@@ -57,7 +57,7 @@ public class BinaryTreeVerticalOrderTraversalBFSTreeMap {
   }
 
   public static void main(String[] args) {
-    var solution = new BinaryTreeVerticalOrderTraversalBFSTreeNode();
+    var solution = new BinaryTreeVerticalOrderTraversalBFSTreeMap();
 
     TreeNode tn1 = new TreeNode(1);
     TreeNode t0 = new TreeNode(2, null, tn1);

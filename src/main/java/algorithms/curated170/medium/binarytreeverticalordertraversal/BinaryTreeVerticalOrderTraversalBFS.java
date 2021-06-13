@@ -54,8 +54,8 @@ public void getRange(TreeNode root, int[] range, int col) {
 }
 
   private class NodePosPair {
-    final TreeNode node;
-    final int x;
+    private final TreeNode node;
+    private final int x;
 
     void placeIntoMap(List<List<Integer>> columnTable) {
       columnTable.get(x).add(node.val);
