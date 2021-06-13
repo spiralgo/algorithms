@@ -44,7 +44,7 @@ public void getRange(TreeNode root, int[] range, int col) {
         return;
     }
 
-    nodeCount++;
+ 
     range[0] = Math.min(range[0], col);
     range[1] = Math.max(range[1], col);
     
