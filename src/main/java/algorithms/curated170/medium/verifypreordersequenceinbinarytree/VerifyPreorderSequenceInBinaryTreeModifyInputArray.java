@@ -1,7 +1,5 @@
 package algorithms.curated170.medium.verifypreordersequenceinbinarytree;
 
-import java.util.Stack;
-
 public class VerifyPreorderSequenceInBinaryTreeModifyInputArray {
 
     public boolean verifyPreorder(int[] preorder) {
