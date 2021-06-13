@@ -20,7 +20,7 @@ public class BinaryTreeVerticalOrderTraversalDFS {
 
     DFS(root, 0, 0);
 
-    List<List<Integer>> columnsAtXPos = new ArrayList<>();
+    List<List<Integer>> columnsAtXPos = new ArrayList<>(maxColumn - minColumn + 2);
 
     for (int i = minColumn; i <= maxColumn; i++) {
 
