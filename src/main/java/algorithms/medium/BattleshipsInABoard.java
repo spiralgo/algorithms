@@ -21,9 +21,9 @@ public class BattleshipsInABoard {
 
     private boolean hasBattleshipBefore(int i, int j, boolean checkLeft, char[][] board) {
         if (checkLeft) {
-            return (j != 0 && board[i][j - 1] == 'X');
+            return (j != 0 && board[i][j - 1] == BATTLESHIP);
         } else checkAbove: {
-            return (i != 0 && board[i - 1][j] == 'X');
+            return (i != 0 && board[i - 1][j] == BATTLESHIP);
         }
     }
 
