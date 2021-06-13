@@ -19,12 +19,9 @@ public class BattleshipsInABoard {
         return count;
     }
 
-    private boolean hasBattleshipBefore(int i, int j, boolean checkLeft, char[][] board) {
-        if (checkLeft) {
-            return (j != 0 && board[i][j - 1] == BATTLESHIP);
-        } else checkAbove: {
-            return (i != 0 && board[i - 1][j] == BATTLESHIP);
-        }
-    }
+     private boolean hasBattleshipBefore(int i, int j, char[][] board) {
+            return (j != 0 && board[i][j - 1] == BATTLESHIP) ||   (i != 0 && board[i - 1][j] == BATTLESHIP);
+     }
+}
 
 }
