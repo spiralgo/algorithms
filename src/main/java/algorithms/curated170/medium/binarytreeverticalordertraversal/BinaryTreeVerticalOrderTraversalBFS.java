@@ -17,7 +17,7 @@ public class BinaryTreeVerticalOrderTraversalBFS {
       return Collections.emptyList();
     }
     
-    nodeCount = 0;
+     
     int[] range = new int[] {0, 0};
     getRange(root, range, 0);
 
