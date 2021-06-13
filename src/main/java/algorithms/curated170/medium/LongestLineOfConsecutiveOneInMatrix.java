@@ -1,13 +1,18 @@
 package algorithms.curated170.medium;
 
 import java.util.Arrays;
+import java.util.BitSet;
 
 public class LongestLineOfConsecutiveOneInMatrix {
 
-    final int VERTICAL = 0b10;
-    final int HORIZONTAL = 0b100;
-    final int DIAGONAL = 0b1000;
-    final int ANTID = 0b10000;
+    final int X_DIR = 0;
+    final int Y_DIR = 1;
+    final int BIT_FLAG = 2;
+    final int[] vertical = new int[] { 0, 1, 0b10 };
+    final int[] horizontal = new int[] { 1, 0, 0b100 };
+    final int[] diagonal = new int[] { 1, 1, 0b1000 };
+    final int[] antidiagonal = new int[] { 1, -1, 0b10000 };
+    final int[][] DIRECTIONS = new int[][] { null, vertical, horizontal, diagonal, antidiagonal };
 
     int[][] mat;
     int n, m;
@@ -20,106 +25,53 @@ public class LongestLineOfConsecutiveOneInMatrix {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                control(i, j);
+                exploreTile(i, j);
             }
         }
         return longest;
     }
 
-    void control(int i, int j) {
-        int curr = mat[i][j];
-        if (!hasFlag(curr, VERTICAL)) {
-            goVertical(i, j, 1);
+    void exploreTile(int i, int j) {
+        final int TILE_VAL = mat[i][j];
+        if (TILE_VAL < 1) {
+            return;
         }
-        if (!hasFlag(curr, HORIZONTAL)) {
-            goHorizontal(i, j, 1);
-        }
-        if (!hasFlag(curr, DIAGONAL)) {
-            goDiagonal(i, j, 1);
-        }
-        if (!hasFlag(curr, ANTID)) {
-            goAntidiagonal(i, j, 1);
+        for (int flagIndex = 1; flagIndex <= 4; flagIndex++) {
+            if (!hasFlag(TILE_VAL, flagIndex)) {
+                goInDir(i, j, 1, DIRECTIONS[flagIndex]);
+            }
         }
     }
 
-    boolean hasFlag(int curr, int flag) {
-        if (curr < 1) {
+    boolean hasFlag(final int TILE_VAL, final int FLAG_INDEX) {
+
+        final int FLAG = DIRECTIONS[FLAG_INDEX][BIT_FLAG];
+        final int VAL_ON_FLAG = FLAG & TILE_VAL;
+        if ((VAL_ON_FLAG >> FLAG_INDEX) != 0) {
             return true;
-        }
-        if (flag == VERTICAL) {
-            int shift = flag & curr;
-            if ((shift >> 1) > 0) {
-                return true;
-            }
-            return false;
-        } else if (flag == HORIZONTAL) {
-            int shift = flag & curr;
-            if ((shift >> 2) > 0) {
-                return true;
-            }
-            return false;
-        } else if (flag == DIAGONAL) {
-            int shift = flag & curr;
-            if ((shift >> 3) > 0) {
-                return true;
-            }
-            return false;
-        }
-        else if (flag == ANTID) {
-            int shift = flag & curr;
-            if ((shift >> 4) > 0) {
-                return true;
-            }
-            return false;
         }
         return false;
     }
 
-    void goDiagonal(int i, int j, int length) {
-        if (j >= m || i >= n || mat[i][j] < 1) {
-            return;
-        }
-        longest = Math.max(longest, length);
-        mat[i][j] |= DIAGONAL;
-        goDiagonal(i + 1, j + 1, length + 1);
-    }
+    void goInDir(int i, int j, int length, final int[] DIR) {
 
-    void goAntidiagonal(int i, int j, int length) {
-        if (j < 0 || i >= n || mat[i][j] < 1) {
-            return;
-        }
-        longest = Math.max(longest, length);
-        mat[i][j] |= ANTID;
-        goAntidiagonal(i + 1, j - 1, length + 1);
-    }
-
-    void goVertical(int i, int j, int length) {
-        if (j >= m || mat[i][j] < 1) {
+        if (j < 0 || j >= m || i >= n || mat[i][j] < 1) {
             return;
         }
 
         longest = Math.max(longest, length);
-        mat[i][j] |= VERTICAL;
-        goVertical(i, j + 1, length + 1);
-    }
-
-    void goHorizontal(int i, int j, int length) {
-        if (i >= n || mat[i][j] < 1) {
-            return;
-        }
-        longest = Math.max(longest, length);
-        mat[i][j] |= HORIZONTAL;
-        goHorizontal(i + 1, j, length + 1);
+        mat[i][j] |= DIR[BIT_FLAG];
+        goInDir(i + DIR[X_DIR], j + DIR[Y_DIR], length + 1, DIR);
     }
 
     public static void main(String[] args) {
-        int[][] mat = new int[][] { { 1, 1, 1, 0, 0 }, { 0, 1, 1, 0, 0 }, { 0, 0, 1, 0, 1 }, { 0, 0, 0, 1, 0 }, };
+        int[][] mat = new int[][] { { 1, 1, 1, 0, 0 },
+                                    { 0, 1, 1, 0, 0 }, 
+                                    { 0, 0, 1, 0, 1 }, 
+                                    { 0, 0, 0, 1, 0 }, };
+                                    
         var solution = new LongestLineOfConsecutiveOneInMatrix();
-        /*
-         * int k = 0b11; System.out.println(solution.hasFlag(k, solution.vertical)); k =
-         * 0b101; System.out.println(solution.hasFlag(k, solution.vertical)); k = 1;
-         * System.out.println(solution.hasFlag(k, solution.vertical));
-         */
+        
         System.out.println(solution.longestLine(mat));
 
         mat = new int[][] { 
