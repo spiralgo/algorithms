@@ -9,8 +9,8 @@ public class Flatten2DVector {
         int[][] vec;
         int i = 0, j = 0;
 
-        public Vector2D(int[][] v) {
-            this.vec = v;
+        public Vector2D(int[][] vec) {
+            this.vec = vec;
         }
 
         public int next() {
