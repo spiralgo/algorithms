@@ -1,4 +1,4 @@
-package algorithms.easy;
+package algorithms.easy.binarytreepreordertraversal;
 
 import java.util.ArrayList;
 import java.util.Collections;
