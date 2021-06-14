@@ -18,4 +18,14 @@ public class VerifyPreorderSequenceInBinaryTreeStack {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        var solution = new VerifyPreorderSequenceInBinaryTreeStack();
+        int[] preorder = {5,2,1,3,4,7,6,9};
+        
+        System.out.println(solution.verifyPreorder(preorder)); // true
+
+        preorder = new int[]{5,2,1,3,-1,7,6,9}; 
+        System.out.println(solution.verifyPreorder(preorder)); // false
+    }
 }
