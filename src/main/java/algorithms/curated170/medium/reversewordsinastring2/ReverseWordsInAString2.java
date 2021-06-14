@@ -1,6 +1,6 @@
-package algorithms.curated170.medium.reversewordsinastring;
+package algorithms.curated170.medium.reversewordsinastring2;
 
-public class ReverseWordsInAString {
+public class ReverseWordsInAString2 {
     
     public void reverseWords(char[] s) {
         reverse(s, 0, s.length - 1);

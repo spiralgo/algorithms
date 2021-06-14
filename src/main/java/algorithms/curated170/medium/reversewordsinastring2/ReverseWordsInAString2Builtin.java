@@ -1,9 +1,9 @@
-package algorithms.curated170.medium.reversewordsinastring;
+package algorithms.curated170.medium.reversewordsinastring2;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-public class ReverseWordsInAStringBuiltin {
+public class ReverseWordsInAString2Builtin {
     
     public void reverseWords(char[] s) {
         String[] words = new String(s).split(" ");
