@@ -43,11 +43,9 @@ public class StrobogrammaticNumber3 {
             char ch = pair[0];
             numBuilder[left] = ch;
             numBuilder[right] = pair[1];
-            if (numBuilder.length != 1 && numBuilder[0] == '0') {
-                continue;
-            } else if (left == right && (ch == '6' || ch == '9')) {
-                continue;
-            }
+   if ((numBuilder.length != 1 && numBuilder[0] == '0')  || (left == right && (ch == '6' || ch == '9'))) {
+            continue;
+           }
             count += createNum(low, high, numBuilder, left + 1, right - 1);
         }
 
