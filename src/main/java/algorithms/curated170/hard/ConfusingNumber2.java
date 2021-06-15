@@ -11,10 +11,6 @@ public class ConfusingNumber2 {
         {'9', '6'},
         {'8', '8'}
     };
-
-    int highLen;
-    int lowLen;
-    int currLen;
     
     public int confusingNumberII(int n) {
         String num = Integer.toString(n);
