@@ -12,10 +12,6 @@ public class BinaryTreePreorderTraversal {
 
 	public List<Integer> preorderTraversal(TreeNode root) {
 
-		if (root == null) {
-			return Collections.emptyList();
-		}
-
 		DFSpreorder(root);
 		return preorder;
 	}
