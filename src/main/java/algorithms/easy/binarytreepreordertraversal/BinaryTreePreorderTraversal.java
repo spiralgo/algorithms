@@ -21,16 +21,10 @@ public class BinaryTreePreorderTraversal {
 	}
 
 	private void DFSpreorder(TreeNode root) {
-
-		preorder.add(root.val);
-
-		if (root.left != null) {
-			DFSpreorder(root.left);
-		}
-
-		if (root.right != null) {
-			DFSpreorder(root.right);
-		}
+          if (root == null) return;
+          preorder.add(root.val);
+          DFSpreorder(root.left);
+          DFSpreorder(root.right);
 	}
 
 }
