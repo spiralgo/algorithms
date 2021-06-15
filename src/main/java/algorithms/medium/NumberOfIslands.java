@@ -1,30 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package algorithms.medium;
 
-/**
- *
- * @author Erdem
- */
 public class NumberOfIslands {
 
-    public static void main(String[] args) {
-        char[][] grid = {{'1', '1', '1', '1', '0'},
-        {'1', '1', '0', '1', '0'},
-        {'1', '1', '0', '0', '0'},
-        {'0', '0', '0', '0', '0'}};
-        numIslands(grid);
-    }
-
     public static int numIslands(char[][] grid) {
-         int row = grid.length;
-         int column = grid[0].length;
-        
-         int count = 0;
-         for (int i = 0; i < row; i++) {
+        int row = grid.length;
+        int column = grid[0].length;
+
+        int count = 0;
+        for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 if (grid[i][j] == '1') {
                     count++;
@@ -39,8 +22,7 @@ public class NumberOfIslands {
         int row = grid.length;
         int column = grid[0].length;
 
-    
-       if (i < 0 || j < 0 || i >= row || j >= column || grid[i][j] == '0') {
+        if (i < 0 || j < 0 || i >= row || j >= column || grid[i][j] == '0') {
             return;
         }
 
@@ -56,4 +38,12 @@ public class NumberOfIslands {
 
     }
 
+    public static void main(String[] args) {
+        char[][] grid = {{'1', '1', '1', '1', '0'},
+        {'1', '1', '0', '1', '0'},
+        {'1', '1', '0', '0', '0'},
+        {'0', '0', '0', '0', '0'}};
+        numIslands(grid);
+    }
+    
 }
