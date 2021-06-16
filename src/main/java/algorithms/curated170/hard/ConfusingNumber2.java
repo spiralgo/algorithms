@@ -21,11 +21,11 @@ public class ConfusingNumber2 {
     private int findTotal(String s) {
         if (s.length() == 0) return 1;
         char first = s.charAt(0);
-        int res = count(first) * (int) (Math.pow(5, s.length() - 1));
+        int reflectivePermutations = count(first) * (int) (Math.pow(5, s.length() - 1));
         if (first == '0' || first == '1' || first == '6' || first == '8' || first == '9') {
-            res += findTotal(s.substring(1));
+            reflectivePermutations += findTotal(s.substring(1));
         }
-        return res;
+        return reflectivePermutations;
     }
     private int count(Character c) {
         int res = 0;
