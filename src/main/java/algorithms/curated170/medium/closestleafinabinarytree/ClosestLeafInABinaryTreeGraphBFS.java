@@ -1,4 +1,4 @@
-package algorithms.curated170.medium.binarytreeverticalordertraversal;
+package algorithms.curated170.medium.closestleafinabinarytree;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 import algorithms.datastructures.TreeNode;
 
-public class ClosestLeafInABinaryTree {
+public class ClosestLeafInABinaryTreeGraphBFS {
 
   Map<TreeNode, List<TreeNode>> graph;
   int k;
@@ -70,7 +70,7 @@ public class ClosestLeafInABinaryTree {
   }
 
   public static void main(String[] args) {
-    var solution = new ClosestLeafInABinaryTree();
+    var solution = new ClosestLeafInABinaryTreeGraphBFS();
 
     TreeNode tn1 = new TreeNode(1);
     TreeNode t0 = new TreeNode(2, null, tn1);

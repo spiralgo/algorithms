@@ -1,8 +1,8 @@
-package algorithms.curated170.medium.binarytreeverticalordertraversal;
+package algorithms.curated170.medium.closestleafinabinarytree;
 
 import algorithms.datastructures.TreeNode;
 
-public class ClosestLeafInABinaryTreeMark {
+public class ClosestLeafInABinaryTreeSearchOtherBranch {
   int distance, val;
 
   public int findClosestLeaf(TreeNode root, int k) {
@@ -48,7 +48,7 @@ public class ClosestLeafInABinaryTreeMark {
   }
 
   public static void main(String[] args) {
-    var solution = new ClosestLeafInABinaryTreeMark();
+    var solution = new ClosestLeafInABinaryTreeSearchOtherBranch();
 
     TreeNode tn1 = new TreeNode(1);
     TreeNode t0 = new TreeNode(2, null, tn1);
