@@ -30,7 +30,7 @@ public class ConfusingNumber2 {
     private int count(Character c) {
         int res = 0;
         for (char[] p : reflectives) {
-            if (p[0] < c) res += 1;
+            if (p[0] < c) res ++;
         }
         return res;
     }
