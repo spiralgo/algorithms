@@ -57,9 +57,8 @@ public class ClosestLeafInABinaryTreeGraphBFS {
       if (node.val == k) {
         nodeK = node;
       }
-      graph.putIfAbsent(node, new ArrayList<>());
+      graph.put(node, new ArrayList<>());
       if (parent != null) {
-        graph.putIfAbsent(parent, new ArrayList<>());
         graph.get(node).add(parent);
         graph.get(parent).add(node);
       }
