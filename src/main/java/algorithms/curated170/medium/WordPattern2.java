@@ -32,15 +32,16 @@ public class WordPattern2 {
             return isValidMatch(start, end, pStart, pEnd, matched);
         }
 
-        int unmatchedEndPos = end;
+        return isPossibleToMatch(start, end, pStart, pEnd, chIdx);
+    }
 
-        for (int i = pEnd; i > pStart; i--) {
-            unmatchedEndPos -= patternsToMatch(i);
-        }
-
+    private boolean isPossibleToMatch(int start, int end, int pStart, int pEnd, int chIdx) {
+        
+        int unmatchedEndPos = findLastUnmatchedPos(end, pStart, pEnd);
+        
         for (int i = start; i <= unmatchedEndPos; i++) {
 
-            matched = str.substring(start, i + 1);
+            String matched = str.substring(start, i + 1);
 
             if (setMatches.contains(matched)) {
                 continue;
@@ -57,6 +58,15 @@ public class WordPattern2 {
         }
 
         return false;
+    }
+
+    private int findLastUnmatchedPos(int end, int pStart, int pEnd) {
+        int unmatchedEndPos = end;
+
+        for (int i = pEnd; i > pStart; i--) {
+            unmatchedEndPos -= patternsToMatch(i);
+        }
+        return unmatchedEndPos;
     }
 
     private int patternsToMatch(int i) {
