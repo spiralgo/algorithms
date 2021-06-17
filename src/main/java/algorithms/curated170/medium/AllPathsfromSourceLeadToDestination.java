@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AllPathsfromSourceLeadToDestination {
 
-    int[][] graph;
+    int[][] digraph;
     boolean[] visiting;
     int dest;
 
@@ -40,26 +40,26 @@ public class AllPathsfromSourceLeadToDestination {
             return SOURCE_HAS_NO_ARC;
         }
 
-        graph = new int[n][];
+        digraph = new int[n][];
         for (int i = 0; i < n; i++) {
-            graph[i] = new int[outDegree[i]];
+            digraph[i] = new int[outDegree[i]];
         }
 
         int[] nextDirectSuccessorIndex = new int[n];
         for (int[] arc : arcs) {
-            graph[arc[0]][nextDirectSuccessorIndex[arc[0]]++] = arc[1];
+            digraph[arc[0]][nextDirectSuccessorIndex[arc[0]]++] = arc[1];
         }
         return GRAPH_CREATED;
     }
 
     boolean hasAllPathsToDestination(int currVertex) {
 
-        if (graph[currVertex].length == 0 && currVertex != dest) {
+        if (digraph[currVertex].length == 0 && currVertex != dest) {
             return false;
         }
         visiting[currVertex] = true;
 
-        for (int directSuccessor : graph[currVertex]) {
+        for (int directSuccessor : digraph[currVertex]) {
             if (visiting[directSuccessor] || !hasAllPathsToDestination(directSuccessor)) {
                 return false;
             }
