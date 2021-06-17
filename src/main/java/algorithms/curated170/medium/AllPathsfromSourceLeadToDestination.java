@@ -9,14 +9,14 @@ public class AllPathsfromSourceLeadToDestination {
     boolean[] visiting;
     int dest;
 
-    public boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
+    public boolean leadsToDestination(int n, int[][] arcs, int source, int destination) {
         this.dest = destination;
         visiting = new boolean[n];
 
-        byte graphCreation = makeGraph(edges, n, source);
-        if (graphCreation == DEST_HAS_PATH) {
+        byte graphCreation = makeGraph(arcs, n, source);
+        if (graphCreation == DEST_HAS_ARC) {
             return false;
-        } else if (graphCreation == SOURCE_HAS_NO_PATH) {
+        } else if (graphCreation == SOURCE_HAS_NO_ARC) {
             return source == destination;
         }
 
@@ -24,20 +24,20 @@ public class AllPathsfromSourceLeadToDestination {
     }
 
     final byte GRAPH_CREATED = 1;
-    final byte DEST_HAS_PATH = 0;
-    final byte SOURCE_HAS_NO_PATH = 2;
+    final byte DEST_HAS_ARC = 0;
+    final byte SOURCE_HAS_NO_ARC = 2;
     
-    byte makeGraph(int[][] edges, int n, int source) {
+    byte makeGraph(int[][] arcs, int n, int source) {
         int[] outDegree = new int[n];
-        for (int[] edge : edges) {
-            outDegree[edge[0]]++;
+        for (int[] arc : arcs) {
+            outDegree[arc[0]]++;
         }
 
         if (outDegree[dest] > 0) {
-            return DEST_HAS_PATH;
+            return DEST_HAS_ARC;
         }
         if (outDegree[source] == 0) {
-            return SOURCE_HAS_NO_PATH;
+            return SOURCE_HAS_NO_ARC;
         }
 
         graph = new int[n][];
@@ -46,8 +46,8 @@ public class AllPathsfromSourceLeadToDestination {
         }
 
         int[] nextDirectSuccessorIndex = new int[n];
-        for (int[] edge : edges) {
-            graph[edge[0]][nextDirectSuccessorIndex[edge[0]]++] = edge[1];
+        for (int[] arc : arcs) {
+            graph[arc[0]][nextDirectSuccessorIndex[arc[0]]++] = arc[1];
         }
         return GRAPH_CREATED;
     }
@@ -59,8 +59,8 @@ public class AllPathsfromSourceLeadToDestination {
         }
         visiting[currVertex] = true;
 
-        for (int directedSuccessor : graph[currVertex]) {
-            if (visiting[directedSuccessor] || !hasAllPathsToDestination(directedSuccessor)) {
+        for (int directSuccessor : graph[currVertex]) {
+            if (visiting[directSuccessor] || !hasAllPathsToDestination(directSuccessor)) {
                 return false;
             }
         }
