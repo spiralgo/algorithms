@@ -9,8 +9,8 @@ public class WordPattern2 {
     String pattern, str;
 
     public boolean wordPatternMatch(String pattern, String str) {
-        mapMatches = new String[26]; // mapping of characters 'a' - 'z'
-        setMatches = new HashSet<>(); // mapped result of 'a' - 'z'
+        mapMatches = new String[26]; 
+        setMatches = new HashSet<>(); 
         this.pattern = pattern;
         this.str = str;
         return backtrackPatternMatch(0, str.length() - 1, 0, pattern.length() - 1);
@@ -41,7 +41,7 @@ public class WordPattern2 {
         for (int i = start; i <= unmatchedEndPos; i++) {
 
             matched = str.substring(start, i + 1);
-            
+
             if (setMatches.contains(matched)) {
                 continue;
             }
@@ -93,6 +93,7 @@ public class WordPattern2 {
         System.out.println(solution.wordPatternMatch("ababe", "flygoflygorun"));
 
         System.out.println(solution.wordPatternMatch("abba", "wwwwwwwwww")); // ww_www_www_ww
+        System.out.println(solution.wordPatternMatch("abab", "wwww")); 
 
         System.out.println(solution.wordPatternMatch("rllr", "leftrightleftright"));
 
