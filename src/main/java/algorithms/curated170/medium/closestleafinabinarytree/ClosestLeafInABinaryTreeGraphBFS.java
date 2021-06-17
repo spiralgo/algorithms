@@ -40,10 +40,10 @@ public class ClosestLeafInABinaryTreeGraphBFS {
         if (graph.get(node).size() <= 1 && node != root) {
           return node.val;
         }
-        for (TreeNode nei : graph.get(node)) {
-          if (!seen[nei.val]) {
-            seen[nei.val] = true;
-            queue.add(nei);
+        for (TreeNode adjacentNode : graph.get(node)) {
+          if (!seen[adjacentNode.val]) {
+            seen[adjacentNode.val] = true;
+            queue.add(adjacentNode);
           }
         }
       }
