@@ -37,10 +37,9 @@ public class GraphValidTreeUnionFind {
 
         public int find(int key) {
             if (parent[key] != key) {
-                parent[key] = parent[parent[key]];
-                return find(parent[key]);
+                parent[key] = find(parent[key]);
             }
-            return key;
+            return parent[key];
         }
 
         public boolean union(int A, int B) {
