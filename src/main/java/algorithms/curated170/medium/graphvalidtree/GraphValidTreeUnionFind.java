@@ -23,23 +23,23 @@ public class GraphValidTreeUnionFind {
 
     class UnionFind {
 
-        private int[] parent;
+        private int[] root;
         private int[] rank;
 
         public UnionFind(int n) {
-            parent = new int[n];
+            root = new int[n];
             rank = new int[n];
             for (int node = 0; node < n; node++) {
-                parent[node] = node;
+                root[node] = node;
                 rank[node] = 1;
             }
         }
 
         public int find(int key) {
-            if (parent[key] != key) {
-                parent[key] = find(parent[key]);
+            if (root[key] != key) {
+                root[key] = find(root[key]);
             }
-            return parent[key];
+            return root[key];
         }
 
         public boolean union(int A, int B) {
@@ -52,10 +52,10 @@ public class GraphValidTreeUnionFind {
             }
 
             if (rank[rootA] < rank[rootB]) {
-                parent[rootA] = rootB;
+                root[rootA] = rootB;
                 rank[rootB] += rank[rootA];
             } else {
-                parent[rootB] = rootA;
+                root[rootB] = rootA;
                 rank[rootA] += rank[rootB];
             }
             return true;
