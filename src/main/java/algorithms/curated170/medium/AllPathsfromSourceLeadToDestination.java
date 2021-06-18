@@ -8,7 +8,10 @@ public class AllPathsfromSourceLeadToDestination {
     int[][] digraph;
     boolean[] visiting;
     int dest;
-
+    final static byte GRAPH_CREATED = 1;
+    final static byte DEST_HAS_ARC = 0;
+    final static byte SOURCE_HAS_NO_ARC = 2;
+    
     public boolean leadsToDestination(int n, int[][] arcs, int source, int destination) {
         this.dest = destination;
         visiting = new boolean[n];
