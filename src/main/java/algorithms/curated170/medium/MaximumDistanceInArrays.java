@@ -1,9 +1,8 @@
 package algorithms.curated170.medium;
 
-import java.util.Collection;
 import java.util.List;
 
-public class FindTheCelebrity {
+public class MaximumDistanceInArrays {
 
     public int maxDistance(List<List<Integer>> arrays) {
         
