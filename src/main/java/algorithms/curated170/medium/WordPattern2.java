@@ -75,9 +75,7 @@ public class WordPattern2 {
     }
 
     private boolean isValidMatch(int start, int end, int pStart, int pEnd, String matched) {
-        int lengthMatchedStr = matched.length();
-        return start + lengthMatchedStr <= end + 1 && matched.equals(str.substring(start, start + lengthMatchedStr))
-                && backtrackPatternMatch(start + lengthMatchedStr, end, pStart + 1, pEnd);
+        return str.startsWith(matched, start) && backtrackPatternMatch(start + matched.length(), end, pStart + 1, pEnd);
     }
 
     private void cleanPossibleMatch(int chIdx, String matched) {
