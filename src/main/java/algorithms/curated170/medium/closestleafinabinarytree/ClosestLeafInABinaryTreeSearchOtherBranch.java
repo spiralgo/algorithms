@@ -17,24 +17,24 @@ public class ClosestLeafInABinaryTreeSearchOtherBranch {
       return -1;
     }
     if (root.val == target) {
-      seacrhClosestLeaf(root, 0);
+      searchClosestLeaf(root, 0);
       return 1;
     }
     int left = findTarget(root.left, target);
     int right = -1;
     if (left > 0) {
-      seacrhClosestLeaf(root.right, ++left);
+      searchClosestLeaf(root.right, ++left);
     } else {
       right = findTarget(root.right, target);
       if (right > 0) {
-        seacrhClosestLeaf(root.left, ++right);
+        searchClosestLeaf(root.left, ++right);
       }
     }
 
     return Math.max(left, right);
   }
 
-  private void seacrhClosestLeaf(TreeNode root, int dist) {
+  private void searchClosestLeaf(TreeNode root, int dist) {
     if (root == null)
       return;
     if (root.left == null && root.right == null) {
@@ -43,8 +43,8 @@ public class ClosestLeafInABinaryTreeSearchOtherBranch {
         val = root.val;
       }
     }
-    seacrhClosestLeaf(root.left, dist + 1);
-    seacrhClosestLeaf(root.right, dist + 1);
+    searchClosestLeaf(root.left, dist + 1);
+    searchClosestLeaf(root.right, dist + 1);
   }
 
   public static void main(String[] args) {
