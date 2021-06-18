@@ -23,9 +23,7 @@ public class AllPathsfromSourceLeadToDestination {
         return hasAllPathsToDestination(source);
     }
 
-    final byte GRAPH_CREATED = 1;
-    final byte DEST_HAS_ARC = 0;
-    final byte SOURCE_HAS_NO_ARC = 2;
+ 
     
     byte makeGraph(int[][] arcs, int n, int source) {
         int[] outDegree = new int[n];
