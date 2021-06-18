@@ -50,8 +50,8 @@ public class GraphValidTreeUnionFind {
             if (rootA == rootB) {
                 return false;
             }
-            if (rank[rootA] < rank[rootB]) {
 
+            if (rank[rootA] < rank[rootB]) {
                 parent[rootA] = rootB;
                 rank[rootB] += rank[rootA];
             } else {
