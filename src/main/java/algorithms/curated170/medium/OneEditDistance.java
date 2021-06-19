@@ -12,10 +12,10 @@ public class OneEditDistance {
         if (tLen - sLen > 1) {
             return false;
         }
-
+        boolean equalLengths = sLen == tLen;
         for (int i = 0; i < sLen; i++) {
             if (s.charAt(i) != t.charAt(i)) {
-                if (sLen == tLen) {
+                if (equalLengths) {
                     return s.substring(i + 1).equals(t.substring(i + 1));
                 }
                 else {
@@ -24,6 +24,6 @@ public class OneEditDistance {
             }
         }
 
-        return (sLen + 1 == tLen);
+        return (!equalLengths);
     }
 }
