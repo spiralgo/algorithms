@@ -12,18 +12,18 @@ public class OneEditDistance {
         if (tLen - sLen > 1) {
             return false;
         }
-        boolean equalLengths = sLen == tLen;
+        boolean targetIsLonger = tLen > sLen;
         for (int i = 0; i < sLen; i++) {
             if (s.charAt(i) != t.charAt(i)) {
-                if (equalLengths) {
-                    return s.substring(i + 1).equals(t.substring(i + 1));
+                if (targetIsLonger) {
+                    return s.substring(i).equals(t.substring(i + 1));
                 }
                 else {
-                    return s.substring(i).equals(t.substring(i + 1));
+                    return s.substring(i + 1).equals(t.substring(i + 1));
                 }
             }
         }
 
-        return (!equalLengths);
+        return (targetIsLonger);
     }
 }
