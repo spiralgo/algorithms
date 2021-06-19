@@ -24,6 +24,6 @@ public class OneEditDistance {
             }
         }
 
-        return (targetIsLonger);
+        return targetIsLonger;
     }
 }
