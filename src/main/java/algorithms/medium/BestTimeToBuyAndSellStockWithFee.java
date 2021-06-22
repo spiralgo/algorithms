@@ -17,6 +17,6 @@ public class BestTimeToBuyAndSellStockWithFee {
         int[] prices = new int[] { 7, 1, 9, 3, 9, 4, 5 };
         System.out.println(solution.maxProfit(prices, 2)); // prints 10, (9-1)+(9-3)+2*(transactions), 4_5 transaction isn't profitable
         prices = new int[] { 7, 2, 4, 1, 2 };
-        System.out.println(solution.maxProfit(prices, 2)); // prints 0
+        System.out.println(solution.maxProfit(prices, 2)); // prints 0, no transaction is profitable
     }
 }
