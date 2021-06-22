@@ -14,7 +14,7 @@ public class MinimumKnightMovesBFS {
         x = Math.abs(x);
         y = Math.abs(y);
 
-        boolean[][] visited = new boolean[304][304];
+        visited = new boolean[304][304];
         visited[1][1] = true;
 
         Deque<int[]> locations = new ArrayDeque<>();
