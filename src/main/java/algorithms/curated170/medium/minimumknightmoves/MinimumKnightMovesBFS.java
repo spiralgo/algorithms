@@ -5,7 +5,7 @@ import java.util.Deque;
 
 public class MinimumKnightMovesBFS {
 
-    private final int[][] DIRECTIONS = new int[][] { { 2, 1 }, { 1, 2 }, { -1, 2 }, { -2, 1 }, { -2, -1 }, { -1, -2 },
+    private final int[][] MOVES = new int[][] { { 2, 1 }, { 1, 2 }, { -1, 2 }, { -2, 1 }, { -2, -1 }, { -1, -2 },
             { 1, -2 }, { 2, -1 } };
 
     boolean[][] visited;
@@ -24,9 +24,9 @@ public class MinimumKnightMovesBFS {
         while (!locations.isEmpty()) {
             int size = locations.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = locations.remove();
-                int curX = cur[0];
-                int curY = cur[1];
+                int[] pos = locations.remove();
+                int curX = pos[0];
+                int curY = pos[1];
                 if (curX == x && curY == y) {
                     return result;
                 }
@@ -39,7 +39,7 @@ public class MinimumKnightMovesBFS {
     }
 
     private void moveKnightInDirections(Deque<int[]> q, int curX, int curY) {
-        for (int[] dir : DIRECTIONS) {
+        for (int[] dir : MOVES) {
             int newX = curX + dir[0];
             int newY = curY + dir[1];
             if (isInRangeAndNotVisited(newX, newY)) {
