@@ -7,8 +7,12 @@ public class BestTimeToBuyAndSellStockWithCooldown {
         int totalProfit = 0, restProfit = 0, currBuyCosts = Integer.MIN_VALUE;
         for (int p : prices) {
             int prevBest = totalProfit;
-            totalProfit = Math.max(totalProfit, currBuyCosts + p);
-            currBuyCosts = Math.max(currBuyCosts, restProfit - p);
+            
+            if (currBuyCosts + p > totalProfit) {
+                totalProfit = p + currBuyCosts;
+            } else if (restProfit - p > currBuyCosts) {
+                currBuyCosts = restProfit - p;
+            }
             restProfit = Math.max(restProfit, prevBest);
         }
         return totalProfit;
