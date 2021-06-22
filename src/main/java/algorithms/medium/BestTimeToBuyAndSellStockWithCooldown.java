@@ -4,15 +4,15 @@ public class BestTimeToBuyAndSellStockWithCooldown {
 
     public int maxProfit(int[] prices) {
         
-        int maxProfit = 0, rest = 0, currBuyCost = Integer.MIN_VALUE;
+        int totalProfit = 0, rest = 0, currBuyCost = Integer.MIN_VALUE;
         for(int p : prices)
         {
-            int prevBest = maxProfit;
-            maxProfit = Math.max(maxProfit, currBuyCost+p);
+            int prevBest = totalProfit;
+            totalProfit = Math.max(totalProfit, currBuyCost+p);
             currBuyCost = Math.max(currBuyCost, rest-p);
             rest = Math.max(rest, prevBest);
         }
-        return maxProfit;
+        return totalProfit;
     }
 
 	public static void main(String[] args) {
