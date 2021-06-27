@@ -4,13 +4,13 @@ public class BestTimeToBuyAndSellStockWithFee {
 
     public int maxProfit(int[] prices, int fee) {
 
-        int totalProfit = 0, currBuyCosts = -1000000;
+        int totalProfit = 0, holdStateIncome = -1000000;
         for (int p : prices) {
-            int incomeWhenSoldHere = currBuyCosts + p - fee;
+            int incomeWhenSoldHere = holdStateIncome + p - fee;
             if (incomeWhenSoldHere > totalProfit) {
                 totalProfit = incomeWhenSoldHere;
-            } else if (totalProfit - p > currBuyCosts) {
-                currBuyCosts = totalProfit - p;
+            } else if (totalProfit - p > holdStateIncome) {
+                holdStateIncome = totalProfit - p;
             }
         }
         return totalProfit;
