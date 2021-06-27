@@ -4,14 +4,14 @@ public class BestTimeToBuyAndSellStockWithCooldown {
 
     public int maxProfit(int[] prices) {
 
-        int totalProfit = 0, restProfit = 0, currBuyCosts = Integer.MIN_VALUE;
+        int totalProfit = 0, restProfit = 0, holdStateIncome = Integer.MIN_VALUE;
         for (int p : prices) {
             int prevBest = totalProfit;
             
-            if (currBuyCosts + p > totalProfit) {
-                totalProfit = p + currBuyCosts;
-            } else if (restProfit - p > currBuyCosts) {
-                currBuyCosts = restProfit - p;
+            if (holdStateIncome + p > totalProfit) {
+                totalProfit = p + holdStateIncome;
+            } else if (restProfit - p > holdStateIncome) {
+                holdStateIncome = restProfit - p;
             }
             restProfit = Math.max(restProfit, prevBest);
         }
