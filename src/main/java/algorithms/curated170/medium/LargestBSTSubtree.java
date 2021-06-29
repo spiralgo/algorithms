@@ -18,11 +18,15 @@ public class LargestBSTSubtree {
         }
         int[] left = largestBST(node.left);
         int[] right = largestBST(node.right);
-        if (node.val > left[MAX_VAL] && node.val < right[MIN_VAL]) {
+        if (isValidBST(node, left, right)) {
             return new int[] { Math.min(node.val, left[MIN_VAL]), Math.max(node.val, right[MAX_VAL]), left[BST_SUBTREE_SIZE] + right[BST_SUBTREE_SIZE] + 1 };
         } else {
             return new int[] { Integer.MIN_VALUE, Integer.MAX_VALUE, Math.max(left[BST_SUBTREE_SIZE], right[BST_SUBTREE_SIZE]) };
         }
+    }
+
+    private boolean isValidBST(TreeNode node, int[] left, int[] right) {
+        return node.val > left[MAX_VAL] && node.val < right[MIN_VAL];
     }
 
 }
