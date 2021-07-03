@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.encodeanddecodestrings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class EncodeAndDecodeStringsSlashDelimiter {
                 strEndPoint = stringHeadPoint + strSize + 1;
                 decodedStrs.add(s.substring(stringHeadPoint + 1, strEndPoint));
             }
-            
+
             return decodedStrs;
         }
     }

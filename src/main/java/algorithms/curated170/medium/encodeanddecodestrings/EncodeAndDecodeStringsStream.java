@@ -1,4 +1,4 @@
-package algorithms.curated170.medium.numberofdistinctislands;
+package algorithms.curated170.medium.encodeanddecodestrings;
 
 import java.util.List;
 import java.util.stream.Collectors;

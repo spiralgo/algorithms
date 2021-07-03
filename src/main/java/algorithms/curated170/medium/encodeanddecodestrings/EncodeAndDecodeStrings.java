@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.encodeanddecodestrings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class EncodeAndDecodeStrings {
                 decodedStrs.add(s.substring(i + 1, len));
                 i = len;
             }
-            
+
             return decodedStrs;
         }
     }
