@@ -3,11 +3,11 @@ package algorithms.curated170.medium;
 public class InsertIntoASortedCircularLinkedList {
 
     public Node insert(Node head, int insertVal) {
-        Node tmp = new Node(insertVal);
+        Node inserted = new Node(insertVal);
 
         if (head == null) {
-            tmp.next = tmp;
-            return tmp;
+            inserted.next = inserted;
+            return inserted;
         }
 
         Node pre = head;
@@ -23,8 +23,8 @@ public class InsertIntoASortedCircularLinkedList {
             pre = cur;
             cur = cur.next;
         }
-        pre.next = tmp;
-        tmp.next = cur;
+        pre.next = inserted;
+        inserted.next = cur;
 
         return head;
     }
