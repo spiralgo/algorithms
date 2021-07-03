@@ -46,13 +46,11 @@ public class DesignSnakeGame {
         }
 
         private boolean snakeEatsFood(Point newHead) {
-            return (score < FOOD.length && FOOD[score][0] == newHead.X 
-                    && FOOD[score][1] == newHead.Y);
+            return (score < FOOD.length && FOOD[score][0] == newHead.X && FOOD[score][1] == newHead.Y);
         }
 
         private boolean snakeInBounds(Point newHead) {
-            return (0 <= newHead.X && 0 <= newHead.Y 
-                    && newHead.Y < WIDTH && newHead.X < HEIGHT);
+            return (0 <= newHead.X && 0 <= newHead.Y && newHead.Y < WIDTH && newHead.X < HEIGHT);
         }
 
         private Point moveHeadToDirection(final String DIRECTION, final int X, final int Y) {
@@ -66,7 +64,7 @@ public class DesignSnakeGame {
                 case "U":
                     return new Point(X - 1, Y);
             }
-            throw null;
+            throw new IllegalArgumentException("The given direction is not valid");
         }
 
         public class Point {
