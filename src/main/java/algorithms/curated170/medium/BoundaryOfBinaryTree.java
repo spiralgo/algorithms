@@ -7,53 +7,53 @@ import algorithms.datastructures.TreeNode;
 
 public class BoundaryOfBinaryTree {
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> boundary = new ArrayList<>();
         if (root == null) {
-            return res;
+            return boundary;
         }
-        res.add(root.val);
+        boundary.add(root.val);
 
-        printLeftBorder(root.left, res);
+        getLeftBorder(root.left, boundary);
         if (root.left != null || root.right != null) {
-            printLeaves(root, res);
+            getLeaves(root, boundary);
         }
-        printRightBorder(root.right, res);
+        getRightBorder(root.right, boundary);
 
-        return res;
+        return boundary;
     }
 
-    private void printLeftBorder(TreeNode root, List<Integer> res) {
+    private void getLeftBorder(TreeNode root, List<Integer> boundary) {
         if (root == null || (root.left == null && root.right == null)) {
             return;
         }
-        res.add(root.val);
+        boundary.add(root.val);
         if (root.left != null) {
-            printLeftBorder(root.left, res);
+            getLeftBorder(root.left, boundary);
         } else {
-            printLeftBorder(root.right, res);
+            getLeftBorder(root.right, boundary);
         }
     }
 
-    private void printRightBorder(TreeNode root, List<Integer> res) {
+    private void getRightBorder(TreeNode root, List<Integer> boundary) {
         if (root == null || (root.left == null && root.right == null)) {
             return;
         }
         if (root.right != null) {
-            printRightBorder(root.right, res);
+            getRightBorder(root.right, boundary);
         } else {
-            printRightBorder(root.left, res);
+            getRightBorder(root.left, boundary);
         }
-        res.add(root.val);
+        boundary.add(root.val);
     }
 
-    private void printLeaves(TreeNode root, List<Integer> res) {
+    private void getLeaves(TreeNode root, List<Integer> boundary) {
         if (root == null)
             return;
         if (root.left == null && root.right == null) {
-            res.add(root.val);
+            boundary.add(root.val);
             return;
         }
-        printLeaves(root.left, res);
-        printLeaves(root.right, res);
+        getLeaves(root.left, boundary);
+        getLeaves(root.right, boundary);
     }
 }
