@@ -16,7 +16,7 @@ public class EmployeeFreeTimePriorityQueue {
         while (!earliestIntervals.isEmpty()) {
             Interval interval = earliestIntervals.poll();
 
-            if (interval.start > end && end >= 0) {
+            if (interval.start > end) {
                 commonIntervals.add(new Interval(end, interval.start));
             }
             if (interval.end > end) {
