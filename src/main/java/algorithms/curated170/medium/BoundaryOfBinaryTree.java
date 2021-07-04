@@ -13,11 +13,11 @@ public class BoundaryOfBinaryTree {
         }
         boundary.add(root.val);
 
-        getLeftBorder(root.left, boundary);
-        if (root.left != null || root.right != null) {
-            getLeaves(root, boundary);
+         if (root.left != null || root.right != null) {
+             getLeftBorder(root.left, boundary);
+             getLeaves(root, boundary);
+             getRightBorder(root.right, boundary);
         }
-        getRightBorder(root.right, boundary);
 
         return boundary;
     }
