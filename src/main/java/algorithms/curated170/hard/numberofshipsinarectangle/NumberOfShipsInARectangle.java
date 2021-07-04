@@ -14,11 +14,11 @@ public class NumberOfShipsInARectangle {
         }
 
         final int MID_X = (X_A + X_B) / 2;
-        final int MIN_Y = (Y_A + Y_B) / 2;
-        return countShips(sea, new int[] { MID_X, MIN_Y }, bottomLeft)
-                + countShips(sea, topRight, new int[] { MID_X + 1, MIN_Y + 1 })
-                + countShips(sea, new int[] { MID_X, Y_B }, new int[] { X_A, MIN_Y + 1 })
-                + countShips(sea, new int[] { X_B, MIN_Y }, new int[] { MID_X + 1, Y_A });
+        final int MID_Y = (Y_A + Y_B) / 2;
+        return countShips(sea, new int[] { MID_X, MID_Y }, bottomLeft)
+                + countShips(sea, topRight, new int[] { MID_X + 1, MID_Y + 1 })
+                + countShips(sea, new int[] { MID_X, Y_B }, new int[] { X_A, MID_Y + 1 })
+                + countShips(sea, new int[] { X_B, MID_Y }, new int[] { MID_X + 1, Y_A });
     }
 
     interface Sea {
