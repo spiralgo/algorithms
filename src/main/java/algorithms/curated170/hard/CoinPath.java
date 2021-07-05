@@ -1,0 +1,53 @@
+package algorithms.curated170.hard;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class CoinPath {
+    public List<Integer> cheapestJump(int[] A, int B) {
+        int c = A.length;
+        if (A == null || c < 1 || A[c - 1] < 0) {
+            return Collections.emptyList();
+        }
+        int[] forwardPathData = new int[c];
+        forwardPathData[c - 1] = -1;
+
+        for (int i = c - 2; i >= 0; i--) {
+            if (A[i] == -1) {
+                continue;
+            }
+
+            int minCost = Integer.MAX_VALUE;
+            int jumpingLimit = Math.min(i + B, c - 1);
+
+            for (int j = i + 1; j <= jumpingLimit; j++) {
+                if (A[j] == -1) {
+                    continue;
+                }
+                if (A[j] < minCost) {
+                    minCost = A[j];
+                    forwardPathData[i] = j;
+                }
+            }
+
+            if (minCost != Integer.MAX_VALUE) {
+                A[i] += minCost;
+            } else {
+                A[i] = -1;
+            }
+        }
+
+        if (A[0] == -1) {
+            return Collections.emptyList();
+        }
+
+        List<Integer> path = new ArrayList<>();
+        int k = 0;
+        while (k != -1) {
+            path.add(k + 1);
+            k = forwardPathData[k];
+        }
+        return path;
+    }
+}
