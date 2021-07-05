@@ -3,23 +3,23 @@ package algorithms.medium;
 public class HouseRobberII {
 
     public int rob(int[] nums) {
-        
-        int stealNowA = 0, prevSteal = 0, stolen = 0;
+
+        int nowStolenA = 0, prevStolen = 0, stolen = 0;
         for (int i = 0; i < nums.length - 1; i++) {
-            prevSteal = stealNowA;
-            stealNowA = Math.max(prevSteal, stolen + nums[i]);
-            stolen = prevSteal;
+            prevStolen = nowStolenA;
+            nowStolenA = Math.max(prevStolen, stolen + nums[i]);
+            stolen = prevStolen;
         }
 
-        prevSteal = 0;
+        prevStolen = 0;
         stolen = 0;
-        int stealNowB = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            prevSteal = stealNowB;
-            stealNowB = Math.max(prevSteal, stolen + nums[i]);
-            stolen = prevSteal;
+        int nowStolenB = 0;
+        for (int i = 0; i < nums.length; i++) {
+            prevStolen = nowStolenB;
+            nowStolenB = Math.max(prevStolen, stolen + nums[i]);
+            stolen = prevStolen;
         }
 
-        return Math.max(stealNowA, stealNowB);
+        return Math.max(nowStolenA, nowStolenB);
     }
 }
