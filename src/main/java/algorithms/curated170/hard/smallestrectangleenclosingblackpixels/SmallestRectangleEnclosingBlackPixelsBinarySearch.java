@@ -1,6 +1,6 @@
 package algorithms.curated170.hard.smallestrectangleenclosingblackpixels;
 
-public class SmallestRectangleEnclosingBlackPixelsDFS {
+public class SmallestRectangleEnclosingBlackPixelsBinarySearch {
 
     private char[][] image;
 
