@@ -7,7 +7,7 @@ public class MaximumLineLengthWithSumLessThanOrEqualToThreshold {
     int[] sums = new int[array.length + 1];
     for (int i = 1; i <= array.length; i++) {
       sums[i] += sums[i-1] + array[i - 1];
-      if (i >= len && sums[i] - sums[i - len] <= threshold) {
+      if (i >= len && (sums[i] - sums[i - len]) <= threshold) {
         len++;
       }
     }

@@ -21,7 +21,7 @@ public class MaximumSideLengthOfASquareWithSumLessThanOrEqualToThreshold {
     }
 
     private int getCurrentSquareSum(int[][] sum, int i, int j, int len) {
-        return sum[i][j] - sum[i - len][j] - sum[i][j - len] + sum[i - len][j - len];
+        return (sum[i][j] - sum[i - len][j] - sum[i][j - len] + sum[i - len][j - len]);
     }
 
 }
