@@ -1,6 +1,6 @@
 package algorithms.easy;
 
-public class SingleNumber {
+public class MinimumMovesToEqualArrayElements {
 
     public int minMoves(int[] nums) {
         int min = Integer.MAX_VALUE, sum = 0;
