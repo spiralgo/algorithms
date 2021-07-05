@@ -1,4 +1,4 @@
-package algorithms.curated170.hard.employeefreetime;
+package algorithms.curated170.hard.smallestrectangleenclosingblackpixels;
 
 public class SmallestRectangleEnclosingBlackPixelsDFS {
     
