@@ -15,7 +15,7 @@ public class SmallestRectangleEnclosingBlackPixelsDFS {
     }
 
     private void findRectangleBoundaries(char[][] image, int x, int y) {
-        if (isOutOfBoundariesOrZero(image, x, y)) {
+        if (isOutOfBoundariesOrBlack(image, x, y)) {
             return;
         }
 
@@ -40,7 +40,7 @@ public class SmallestRectangleEnclosingBlackPixelsDFS {
         }
     }
 
-    private boolean isOutOfBoundariesOrZero(char[][] image, int x, int y) {
+    private boolean isOutOfBoundariesOrBlack(char[][] image, int x, int y) {
         return (x < 0 || y < 0 || x >= image.length || y >= image[0].length || image[x][y] == '0');
     }
 }
