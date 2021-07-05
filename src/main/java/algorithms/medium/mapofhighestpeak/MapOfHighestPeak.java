@@ -3,20 +3,20 @@ package algorithms.medium.mapofhighestpeak;
 public class MapOfHighestPeak {
 
     public int[][] highestPeak(int[][] arr) {
-        int n = arr.length;
-        int m = arr[0].length;
-        int[][] heightMap = new int[n][m];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        int rows = arr.length;
+        int cols = arr[0].length;
+        int[][] heightMap = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 if (arr[i][j] != 1) {
                     heightMap[i][j] = Integer.MAX_VALUE;
                 }
             }
         }
-        compareToLeft(n, m, heightMap);
-        compareToRight(n, m, heightMap);
-        compareToDown(n, m, heightMap);
-        compareToUp(n, m, heightMap);
+        compareToLeft(rows, cols, heightMap);
+        compareToRight(rows, cols, heightMap);
+        compareToDown(rows, cols, heightMap);
+        compareToUp(rows, cols, heightMap);
 
         return heightMap;
     }
