@@ -6,20 +6,20 @@ import java.util.List;
 
 public class CoinPath {
     public List<Integer> cheapestJump(int[] A, int B) {
-        int c = A.length;
-        if (A == null || c < 1 || A[c - 1] < 0) {
+        int coins = A.length;
+        if (A == null || coins < 1 || A[coins - 1] < 0) {
             return Collections.emptyList();
         }
-        int[] forwardPathData = new int[c];
-        forwardPathData[c - 1] = -1;
+        int[] forwardPathData = new int[coins];
+        forwardPathData[coins - 1] = -1;
 
-        for (int i = c - 2; i >= 0; i--) {
+        for (int i = coins - 2; i >= 0; i--) {
             if (A[i] == -1) {
                 continue;
             }
 
             int minCost = Integer.MAX_VALUE;
-            int jumpingLimit = Math.min(i + B, c - 1);
+            int jumpingLimit = Math.min(i + B, coins - 1);
 
             for (int j = i + 1; j <= jumpingLimit; j++) {
                 if (A[j] == -1) {
