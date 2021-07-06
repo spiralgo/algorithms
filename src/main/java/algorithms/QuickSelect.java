@@ -4,32 +4,6 @@ import java.util.Arrays;
 
 class Quickselect {
 
-  int partition(int[] arr, int left, int right, int pivot) {
-    int pivotVal = arr[pivot];
-
-    {
-      int temp = arr[right];
-      arr[right] = arr[pivot];
-      arr[pivot] = temp;
-    }
-
-    int storeIndex = left;
-    for (int i = left; i < right; i++) {
-      if (arr[i] < pivotVal) {
-        int temp = arr[storeIndex];
-        arr[storeIndex] = arr[i];
-        arr[i] = temp;
-        storeIndex++;
-      }
-    }
-
-    int temp = arr[right];
-    arr[right] = arr[storeIndex];
-    arr[storeIndex] = temp;
-    
-    return storeIndex;
-  }
-
   int select(int[] arr, int left, int right, int k) {
     if (left == right) {
       return arr[left];
@@ -43,6 +17,29 @@ class Quickselect {
     } else {
       return arr[k];
     }
+  }
+
+  int partition(int[] arr, int left, int right, int pivot) {
+    int pivotVal = arr[pivot];
+    swap(arr, pivot, right);
+
+    int storeIndex = left;
+    for (int i = left; i < right; i++) {
+      if (arr[i] < pivotVal) {
+        swap(arr, storeIndex, i);
+        storeIndex++;
+      }
+    }
+
+    swap(arr, storeIndex, right);
+
+    return storeIndex;
+  }
+
+  void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 
   public static void main(String[] args) {
