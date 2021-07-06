@@ -1,9 +1,9 @@
-package algorithms.curated170.hard;
+package algorithms.curated170.hard.optimizewaterdistributioninavillage;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class OptimizeWaterDistributionInAVillage {
+public class OptimizeWaterDistributionInAVillageUnionFind {
     public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[2] - b[2]);
         parent = new int[n + 1];
@@ -41,7 +41,7 @@ public class OptimizeWaterDistributionInAVillage {
         return parent[k];
     }
     public static void main(String[] args) {
-        var solution = new OptimizeWaterDistributionInAVillage();
+        var solution = new OptimizeWaterDistributionInAVillageUnionFind();
 
         int[] wells = new int[]{1,2,2};
         int[][] pipes = new int[][]{
