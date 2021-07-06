@@ -2,7 +2,7 @@ package algorithms;
 
 import java.util.Arrays;
 
-class QuickSelect {
+class Quickselect {
 
   int partition(int[] arr, int left, int right, int pivot) {
     int pivotVal = arr[pivot];
@@ -47,7 +47,7 @@ class QuickSelect {
 
   public static void main(String[] args) {
     int[] arr = { 5, 3, 1, 2, 4 };
-    var qs = new QuickSelect();
+    var qs = new Quickselect();
     System.out.println(qs.select(arr, 0, arr.length - 1, 2)); // 3
     System.out.println(Arrays.toString(arr)); // the array is also partially or totally sorted
   }
