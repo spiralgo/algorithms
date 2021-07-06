@@ -1,13 +1,13 @@
 package algorithms.medium.minimummovestoequalarrayelements2;
 
-import algorithms.Quickselect;
+import java.util.Arrays;
 
-public class MinimumMovesToEqualArrayElements2Quickselect {
-    Quickselect qs = new Quickselect();
+public class MinimumMovesToEqualArrayElements2SortForMedian {
 
     public int minMoves2(int[] nums) {
+        Arrays.sort(nums);
+        int median = nums[nums.length / 2];
         int moves = 0;
-        int median = qs.selectIterative(nums, 0, nums.length - 1, nums.length / 2 + 1);
         for (int i = 0; i < nums.length; i++) {
             moves += Math.abs(median - nums[i]);
         }
