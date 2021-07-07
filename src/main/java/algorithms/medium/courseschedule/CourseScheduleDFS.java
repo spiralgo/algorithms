@@ -1,6 +1,6 @@
-package algorithms.medium;
+package algorithms.medium.courseschedule;
 
-public class CourseSchedule {
+public class CourseScheduleDFS {
 
     boolean[] visiting;
     boolean[] checked;

@@ -1,4 +1,4 @@
-package algorithms.medium;
+package algorithms.medium.courseschedule;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
