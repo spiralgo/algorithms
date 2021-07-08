@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class AlienDictionary {
+public class AlienDictionaryDFS {
 
     private static final int ALPHABET_SIZE = 26;
     int[] outDegree;
     int[] inDegree;
-    Deque<Integer> currentLetters;
     boolean[] hasLetter;
     int charCount;
+    boolean[] visiting;
+    boolean[] checked;
+    int orderIdx;
 
     public String alienOrder(String[] words) {
         countLetters(words);
@@ -23,9 +25,20 @@ public class AlienDictionary {
         }
 
         int[][] digraph = makeGraph(arcs);
+        checked = new boolean[ALPHABET_SIZE];
+        visiting = new boolean[ALPHABET_SIZE];
+        char[] order = new char[charCount];
+        orderIdx = charCount;
 
-        initializeFirstLetters();
-        return new String(sortTopologically(digraph));
+        for (int c = 0; c < ALPHABET_SIZE; c++) {
+            if (hasLetter[c] && !checked[c]) {
+                if (!hasNoCycle(digraph, c, order)) {
+                    return "";
+                }
+            }
+        }
+
+        return new String(order);
     }
 
     private void countLetters(String[] words) {
@@ -76,7 +89,6 @@ public class AlienDictionary {
 
     private int[][] makeGraph(List<int[]> arcs) {
         int[][] digraph = new int[ALPHABET_SIZE][];
-
         for (int i = 0; i < ALPHABET_SIZE; i++) {
             digraph[i] = new int[outDegree[i]];
         }
@@ -88,34 +100,22 @@ public class AlienDictionary {
         return digraph;
     }
 
-    private void initializeFirstLetters() {
-        currentLetters = new ArrayDeque<>();
+    private boolean hasNoCycle(int[][] digraph, int currLetter, char[] order) {
+        if (checked[currLetter]) {
+            return true;
+        }
+        checked[currLetter] = true;
 
-        for (int i = 0; i < 26; i++) {
-            if (hasLetter[i] && inDegree[i] == 0) {
-                currentLetters.offer(i);
+        visiting[currLetter] = true;
+        for (int directSuccessor : digraph[currLetter]) {
+            if (visiting[directSuccessor] || !hasNoCycle(digraph, directSuccessor, order)) {
+                return false;
             }
         }
-    }
+        order[--orderIdx] = getLetterOfIndex(currLetter);
+        visiting[currLetter] = false;
 
-    private char[] sortTopologically(int[][] digraph) {
-        int count = 0;
-        char[] order = new char[charCount];
-        int idx = 0;
-
-        while (!currentLetters.isEmpty()) {
-            int letterIdx = currentLetters.poll();
-            order[idx++] = getLetterOfIndex(letterIdx);
-            for (int nextChar : digraph[letterIdx]) {
-                inDegree[nextChar]--;
-                if (inDegree[nextChar] == 0) {
-                    currentLetters.offer(nextChar);
-                }
-            }
-            count++;
-        }
-
-        return count < charCount ? new char[0] : order;
+        return true;
     }
 
     private static final int LETTER_a = 97;
@@ -129,7 +129,7 @@ public class AlienDictionary {
     }
 
     public static void main(String[] args) {
-        var solution = new AlienDictionary();
+        var solution = new AlienDictionaryDFS();
         String[] words = { "wrt", "wrf", "er", "ett", "rftt" };
         System.out.println(solution.alienOrder(words));
     }
