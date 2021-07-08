@@ -11,28 +11,25 @@ import java.util.Set;
 
 public class AlienDictionary {
 
+    private static final int ALPHABET_SIZE = 26;
+    int[] outDegree;
     int[] inDegree;
     Deque<Integer> currentLetters;
     boolean[] hasLetter;
-    int nums;
+    int charCount;
 
     public String alienOrder(String[] words) {
         countLetters(words);
+
         List<int[]> arcs = createArcs(words);
         if (arcs == null) {
             return "";
         }
-        int[][] digraph = makeGraph(arcs, 26);
-        initializeFirstLetters();
-        return new String(sortTopologically(digraph, 26));
-    }
 
-    private void initializeFirstLetters() {
-        for (int i = 0; i < 26; i++) {
-            if (hasLetter[i] && inDegree[i] == 0) {
-                currentLetters.offer(i);
-            }
-        }
+        int[][] digraph = makeGraph(arcs);
+
+        initializeFirstLetters();
+        return new String(sortTopologically(digraph));
     }
 
     private void countLetters(String[] words) {
@@ -44,7 +41,7 @@ public class AlienDictionary {
         }
         for (int i = 0; i < 26; i++) {
             if (hasLetter[i]) {
-                nums++;
+                charCount++;
             }
         }
 
@@ -52,15 +49,27 @@ public class AlienDictionary {
 
     private List<int[]> createArcs(String[] words) {
         List<int[]> arcs = new ArrayList<>();
+        outDegree = new int[26];
+        inDegree = new int[26];
+
         for (int i = 0; i < words.length - 1; i++) {
-            if (!words[i].equals(words[i + 1]) && words[i].startsWith(words[i + 1])) {
+            String a = words[i];
+            String b = words[i + 1];
+            if (!a.equals(b) && a.startsWith(b)) {
                 return null;
             }
+            
             int j = 0;
-            int len = Math.min(words[i].length(), words[i + 1].length());
+            int len = Math.min(a.length(), b.length());
+
             do {
-                if (words[i].charAt(j) != words[i + 1].charAt(j)) {
-                    arcs.add(new int[] { words[i].charAt(j) - 'a', words[i + 1].charAt(j) - 'a' });
+                int aChar = getIndexOfLetter(a.charAt(j));
+                int bChar = getIndexOfLetter(b.charAt(j));
+
+                if (aChar != bChar) {
+                    arcs.add(new int[] { aChar, bChar});
+                    outDegree[aChar]++;
+                    inDegree[bChar]++;
                     break;
                 }
                 j++;
@@ -69,49 +78,59 @@ public class AlienDictionary {
         return arcs;
     }
 
-    private char[] sortTopologically(int[][] digraph, int n) {
-
-        int count = 0;
-        char[] order = new char[this.nums];
-        int idx = 0;
-        while (!currentLetters.isEmpty()) {
-            int node = currentLetters.poll();
-            order[idx++] = (char) (node + 'a');
-            for (int k : digraph[node]) {
-                inDegree[k]--;
-                if (inDegree[k] == 0) {
-                    currentLetters.offer(k);
-                }
-            }
-            count++;
-        }
-        if (count < this.nums) {
-            return new char[0];
-        }
-        return order;
-    }
-
-    private int[][] makeGraph(List<int[]> arcs, int n) {
-        int[] outDegree = new int[n];
-        inDegree = new int[n];
-        for (int[] arc : arcs) {
-            outDegree[arc[0]]++;
-            inDegree[arc[1]]++;
-        }
-
-        int[][] digraph = new int[n][];
+    private int[][] makeGraph(List<int[]> arcs) {
+        int[][] digraph = new int[ALPHABET_SIZE][];
         currentLetters = new ArrayDeque<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ALPHABET_SIZE; i++) {
             digraph[i] = new int[outDegree[i]];
         }
 
-        int[] nextDirectSuccessorIndex = new int[n];
+        int[] nextDirectSuccessorIndex = new int[ALPHABET_SIZE];
         for (int[] arc : arcs) {
             digraph[arc[0]][nextDirectSuccessorIndex[arc[0]]++] = arc[1];
         }
         return digraph;
     }
 
+    private void initializeFirstLetters() {
+        for (int i = 0; i < 26; i++) {
+            if (hasLetter[i] && inDegree[i] == 0) {
+                currentLetters.offer(i);
+            }
+        }
+    }
+
+
+
+    private char[] sortTopologically(int[][] digraph) {
+        int count = 0;
+        char[] order = new char[charCount];
+        int idx = 0;
+
+        while (!currentLetters.isEmpty()) {
+            int letterIdx = currentLetters.poll();
+            order[idx++] = getLetterOfIndex(letterIdx);
+            for (int nextChar : digraph[letterIdx]) {
+                inDegree[nextChar]--;
+                if (inDegree[nextChar] == 0) {
+                    currentLetters.offer(nextChar);
+                }
+            }
+            count++;
+        }
+        
+        return count < charCount ? new char[0] : order;
+    }
+
+    private static final int LETTER_a = 97;
+
+    private static int getIndexOfLetter(char key) {
+        return key - LETTER_a;
+    }
+
+    private static char getLetterOfIndex(int index) {
+        return (char) (LETTER_a + index);
+    }
     public static void main(String[] args) {
         var solution = new AlienDictionary();
         String[] words = { "wrt", "wrf", "er", "ett", "rftt" };
