@@ -7,27 +7,26 @@ public class CourseSchedule2BFS {
 
     int[] inDegree;
     Deque<Integer> currentCourses;
+
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-                int[][] digraph = makeGraph(prerequisites, numCourses);
+        int[][] digraph = makeGraph(prerequisites, numCourses);
         return sortTopologically(digraph, numCourses);
     }
-        private int[] sortTopologically(int[][] digraph, int n) {
+
+    private int[] sortTopologically(int[][] digraph, int n) {
         int count = 0;
         int[] order = new int[n];
         int idx = 0;
         while (!currentCourses.isEmpty()) {
-            int size = currentCourses.size();
-            for (int i = 0; i < size; i++) {
-                int node = currentCourses.poll();
-                order[idx++] = node;
-                for (int k : digraph[node]) {
-                    inDegree[k]--;
-                    if (inDegree[k] == 0) {
-                        currentCourses.offer(k);
-                    }
+            int node = currentCourses.poll();
+            order[idx++] = node;
+            for (int k : digraph[node]) {
+                inDegree[k]--;
+                if (inDegree[k] == 0) {
+                    currentCourses.offer(k);
                 }
-                count++;
             }
+            count++;
         }
         if (count < n) {
             return new int[0];

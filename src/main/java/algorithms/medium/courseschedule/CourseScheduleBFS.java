@@ -15,20 +15,19 @@ public class CourseScheduleBFS {
 
     private boolean sortTopologically(int[][] digraph, int n) {
         int count = 0;
+        
         while (!currentCourses.isEmpty()) {
-            int size = currentCourses.size();
-            for (int i = 0; i < size; i++) {
-                int node = currentCourses.poll();
+            int node = currentCourses.poll();
 
-                for (int k : digraph[node]) {
-                    inDegree[k]--;
-                    if (inDegree[k] == 0) {
-                        currentCourses.offer(k);
-                    }
+            for (int k : digraph[node]) {
+                inDegree[k]--;
+                if (inDegree[k] == 0) {
+                    currentCourses.offer(k);
                 }
-                count++;
             }
+            count++;
         }
+
         if (count < n) {
             return false;
         }
