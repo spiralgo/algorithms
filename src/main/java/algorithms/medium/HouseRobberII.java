@@ -18,7 +18,7 @@ public class HouseRobberII {
         prevStolen = 0;
         stolen = 0;
         int nowStolenB = 0;
-        for (int i = 0; i < len; i++) {
+        for (int i = 1; i < len; i++) {
             prevStolen = nowStolenB;
             nowStolenB = Math.max(prevStolen, stolen + nums[i]);
             stolen = prevStolen;
