@@ -71,23 +71,19 @@ public class AlienDictionary {
 
     private char[] sortTopologically(int[][] digraph, int n) {
 
-
         int count = 0;
         char[] order = new char[this.nums];
         int idx = 0;
         while (!currentLetters.isEmpty()) {
-            int size = currentLetters.size();
-            for (int i = 0; i < size; i++) {
-                int node = currentLetters.poll();
-                order[idx++] = (char) (node + 'a');
-                for (int k : digraph[node]) {
-                    inDegree[k]--;
-                    if (inDegree[k] == 0) {
-                        currentLetters.offer(k);
-                    }
+            int node = currentLetters.poll();
+            order[idx++] = (char) (node + 'a');
+            for (int k : digraph[node]) {
+                inDegree[k]--;
+                if (inDegree[k] == 0) {
+                    currentLetters.offer(k);
                 }
-                count++;
             }
+            count++;
         }
         if (count < this.nums) {
             return new char[0];
