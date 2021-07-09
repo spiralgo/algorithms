@@ -1,8 +1,6 @@
 package algorithms.hard;
 
-import java.util.Arrays;
-
-public class SplitArrayLargestSum {
+public class SplitArrayLargestSumBinarySearch {
 
     public int splitArray(int[] nums, int m) {
         int sum = 0, max = nums[0];
@@ -31,11 +29,10 @@ public class SplitArrayLargestSum {
                 sum += nums[i];
                 continue;
             }
-            splitCount++;
-            sum = nums[i];
-            if (splitCount > TOTAL_SPLIT) {
+            if (++splitCount > TOTAL_SPLIT) {
                 return false;
             }
+            sum = nums[i];
 
         }
 
@@ -44,7 +41,7 @@ public class SplitArrayLargestSum {
 
     public static void main(String[] args) {
         int[] nums = { 7, 2, 5, 10, 8, 12, 3, 4, 9, 5, 7, 4 };
-        var solution = new SplitArrayLargestSum();
+        var solution = new SplitArrayLargestSumBinarySearch();
         solution.splitArray(nums, 3);
     }
 }
