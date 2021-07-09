@@ -39,7 +39,7 @@ public class CoinPath {
         }
 
         if (A[0] == -1) {
-            return Collections.emptyList();
+            return List.of();
         }
 
         List<Integer> path = new ArrayList<>();
