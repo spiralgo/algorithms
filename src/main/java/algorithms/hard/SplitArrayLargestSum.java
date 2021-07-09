@@ -1,6 +1,5 @@
 package algorithms.hard;
 
-import java.util.Arrays;
 public class SplitArrayLargestSum {
     public int splitArray(int[] nums, int m) {
         int[] dp = new int[nums.length];
@@ -11,7 +10,6 @@ public class SplitArrayLargestSum {
         }
 
         for (int splits = 2; splits <= m; splits++) {
-            System.out.println(Arrays.toString(dp));
             int maxElements = nums.length + 1 - splits;
 
             for (int i = 0; i < maxElements; i++) {
@@ -34,7 +32,7 @@ public class SplitArrayLargestSum {
                 }
             }
         }
-        System.out.println(Arrays.toString(dp));
+        
         return dp[0];
     }
     public static void main(String[] args) {
