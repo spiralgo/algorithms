@@ -8,7 +8,7 @@ public class CoinPath {
     public List<Integer> cheapestJump(int[] A, int B) {
         int coins = A.length;
         if (A == null || coins < 1 || A[coins - 1] < 0) {
-            return Collections.emptyList();
+            return List.of();
         }
         int[] forwardPathData = new int[coins];
         forwardPathData[coins - 1] = -1;
