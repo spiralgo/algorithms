@@ -11,26 +11,26 @@ public class BestTimeToBuyAndSellStockBinarySearch {
 		int lo = 0, hi = 1000;
 		int totalProfit = 0;
 		while (lo < hi) {
-			int mid = (lo + hi) / 2;
-			int profit = countProfitWithSellBoundary(mid, prices, k);
+			int minSellPrice = (lo + hi) / 2;
+			int profit = countProfitWithSellBoundary(minSellPrice, prices, k);
 			if (profit != TOO_MANY_TRANSACTIONS) {
-				totalProfit = profit + mid * k;
-				hi = mid;
+				totalProfit = profit + minSellPrice * k;
+				hi = minSellPrice;
 			} else {
-				lo = mid + 1;
+				lo = minSellPrice + 1;
 			}
 		}
 		return totalProfit;
 	}
 
-	private int countProfitWithSellBoundary(int sellLimit, int[] prices, int k) {
+	private int countProfitWithSellBoundary(int minSellPrice, int[] prices, int k) {
 		int holdIncome = -prices[0], holdCount = 0;
 		int sellsProfit = 0, sellsCount = 0;
 
 		for (int i = 1; i < prices.length; i++) {
 			int price = prices[i];
-			if (holdIncome + price - sellLimit > sellsProfit) {
-				sellsProfit = holdIncome + price - sellLimit;
+			if (holdIncome + price - minSellPrice > sellsProfit) {
+				sellsProfit = holdIncome + price - minSellPrice;
 				sellsCount = holdCount + 1;
 			}
 			if (sellsProfit - price > holdIncome) {
