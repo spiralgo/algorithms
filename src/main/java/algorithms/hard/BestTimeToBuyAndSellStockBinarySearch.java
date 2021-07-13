@@ -4,10 +4,10 @@ public class BestTimeToBuyAndSellStockBinarySearch {
 
 	final int TOO_MANY_TRANSACTIONS = -1;
 	public int maxProfit(int k, int[] prices) {
-		int len = prices.length;
-		if (k >= (len / 2)) {
+		if (k >= (prices.length / 2)) {
 			return maxProfitNoTransactionLimit(prices);
 		}
+
 		int lo = 0, hi = 1000;
 		int totalProfit = 0;
 		while (lo < hi) {
