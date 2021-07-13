@@ -3,25 +3,25 @@ package algorithms.hard;
 public class BestTimeToBuyAndSellStockIV {
 
 	public int maxProfit(int k, int[] prices) {
-		int len = prices.length;
-		if (k >= (len / 2)) {
+		final int LEN = prices.length;
+		if (k >= (LEN / 2)) {
 			return maxProfitNoTransactionLimit(prices);
 		}
 
-		int[] currBest = new int[len];
-		int[] prevBest = new int[len];
+		int[] currBest = new int[LEN];
+		int[] prevBest = new int[LEN];
 
 		for (int i = 1; i <= k; i++) {
 			int holdStateIncome = -prices[0];
-			for (int j = 1; j < len; j++) {
+			for (int j = 1; j < LEN; j++) {
 				currBest[j] = Math.max(currBest[j - 1], prices[j] + holdStateIncome);
 				holdStateIncome = Math.max(holdStateIncome, prevBest[j - 1] - prices[j]);
 			}
 			prevBest = currBest;
-			currBest = new int[len];
+			currBest = new int[LEN];
 		}
 
-		return prevBest[len - 1];
+		return prevBest[LEN - 1];
 	}
 
 	private int maxProfitNoTransactionLimit(int[] prices) {

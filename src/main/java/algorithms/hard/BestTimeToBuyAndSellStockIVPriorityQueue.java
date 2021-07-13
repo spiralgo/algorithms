@@ -1,7 +1,5 @@
 package algorithms.hard;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Stack;
 
@@ -9,8 +7,9 @@ public class BestTimeToBuyAndSellStockIVPriorityQueue {
 
 	public int maxProfit(int k, int[] prices) {
 		final int LEN = prices.length;
-		if (k < 1 || prices == null || LEN == 0)
-			return 0;
+		if (k >= (LEN / 2)) {
+			return maxProfitNoTransactionLimit(prices);
+		}
 
 		PriorityQueue<Integer> profits = new PriorityQueue<>((a, b) -> b - a);
 		Stack<Integer> starts = new Stack<>();
@@ -57,6 +56,17 @@ public class BestTimeToBuyAndSellStockIVPriorityQueue {
 		}
 		starts.push(s);
 		ends.push(e);
+	}
+
+	private int maxProfitNoTransactionLimit(int[] prices) {
+		int totalProfit = 0;
+		for (int i = 1; i < prices.length; i++) {
+			int profitIncrement = prices[i] - prices[i - 1];
+			if (profitIncrement > 0) {
+				totalProfit += profitIncrement;
+			}
+		}
+		return totalProfit;
 	}
 
 	public static void main(String[] args) {
