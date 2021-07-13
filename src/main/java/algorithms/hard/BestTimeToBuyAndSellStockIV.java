@@ -4,8 +4,9 @@ public class BestTimeToBuyAndSellStockIV {
 
 	public int maxProfit(int k, int[] prices) {
 		int len = prices.length;
-		if (k >= (len / 2))
+		if (k >= (len / 2)) {
 			return maxProfitNoTransactionLimit(prices);
+		}
 
 		int[] currBest = new int[len];
 		int[] prevBest = new int[len];
@@ -19,11 +20,11 @@ public class BestTimeToBuyAndSellStockIV {
 			prevBest = currBest;
 			currBest = new int[len];
 		}
-		
+
 		return prevBest[len - 1];
 	}
 
-	public int maxProfitNoTransactionLimit(int[] prices) {
+	private int maxProfitNoTransactionLimit(int[] prices) {
 		int totalProfit = 0;
 		for (int i = 1; i < prices.length; i++) {
 			int profitIncrement = prices[i] - prices[i - 1];
