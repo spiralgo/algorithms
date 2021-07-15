@@ -3,7 +3,9 @@ package algorithms.hard;
 public class MaximumSumof3NonOverlappingSubarrays {
 
     public int[] maxSumOfThreeSubarrays(int[] nums, int k) {
-        int n = nums.length;
+        final int n = nums.length;
+        int maxSum = 0;
+
         int[] sum = new int[n + 1], leftBestIdx = new int[n], rightBestIdx = new int[n];
 
         for (int i = 0; i < n; i++) {
