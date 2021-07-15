@@ -13,9 +13,10 @@ public class MaximumSumof3NonOverlappingSubarrays {
 
         int maxLeftPresum = sum[k] - sum[0];
         for (int i = k; i < N; i++) {
-            if (sum[i + 1] - sum[i + 1 - k] > maxLeftPresum) {
+            int currLeftSum = sum[i + 1] - sum[i + 1 - k];
+            if (currLeftSum > maxLeftPresum) {
                 leftBestIdx[i] = i + 1 - k;
-                maxLeftPresum = sum[i + 1] - sum[i + 1 - k];
+                maxLeftPresum = currLeftSum;
             } else {
                 leftBestIdx[i] = leftBestIdx[i - 1];
             }
@@ -24,9 +25,10 @@ public class MaximumSumof3NonOverlappingSubarrays {
         rightBestIdx[N - k] = N - k;
         int maxRightPresum = sum[N] - sum[N - k];
         for (int i = N - k - 1; i >= 0; i--) {
-            if (sum[i + k] - sum[i] >= maxRightPresum) {
+            int currRightSum = sum[i + k] - sum[i];
+            if (currRightSum >= maxRightPresum) {
                 rightBestIdx[i] = i;
-                maxRightPresum = sum[i + k] - sum[i];
+                maxRightPresum = currRightSum;
             } else {
                 rightBestIdx[i] = rightBestIdx[i + 1];
             }
