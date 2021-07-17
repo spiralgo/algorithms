@@ -1,0 +1,182 @@
+package algorithms.datastructures;
+
+import java.util.EmptyStackException;
+import java.util.LinkedList;
+
+public class DequeS<T> {
+
+    private Object[] data;
+    private static final int EXPANSION_SIZE = 2;
+    private int sIdx = -1;
+    private int qIdx = 8;
+
+    public DequeS() {
+        data = new Object[8];
+    }
+
+    public DequeS(int initialCapacity) {
+        data = new Object[initialCapacity];
+        qIdx = initialCapacity;
+    }
+
+    public DequeS<T> push(T val) {
+        if (sIdx == qIdx - 1) {
+            expandSize();
+        }
+        data[++sIdx % data.length] = val;
+        if (sIdx == 0 && qIdx == data.length) {
+            qIdx = 0;
+        }
+        return this;
+    }
+
+    public DequeS<T> offer(T val) {
+        if (qIdx == sIdx + 1) {
+            expandSize();
+        }
+        qIdx = (((qIdx - 1) % data.length) + data.length) % data.length;
+        data[((qIdx) + data.length) % data.length] = val;
+        if (qIdx == data.length - 1 && sIdx == -1) {
+            sIdx = data.length - 1;
+        }
+        return this;
+    }
+
+    private void expandSize() {
+        Object[] newData = new Object[data.length * EXPANSION_SIZE];
+
+        for (int i = 0; i <= sIdx; i++) {
+            newData[i] = data[i];
+        }
+        for (int i = 1; i <= data.length - qIdx; i++) {
+            newData[newData.length - i] = data[data.length - i];
+        }
+        qIdx = newData.length - qIdx;
+
+        data = newData;
+    }
+
+    public T pop() {
+        if (sIdx < 0) {
+            if (qIdx == 0) {
+                qIdx = data.length;
+            } else if (qIdx < data.length) {
+                sIdx = data.length - 1;
+            } else {
+                return null;
+            }
+        }
+
+        T val = (T) data[sIdx];
+        data[sIdx--] = null;
+        if (qIdx == sIdx + 1) {
+            sIdx = -1;
+            qIdx = data.length;
+        }
+        return val;
+    }
+    public T[] popN(int n)
+    {
+        Object[] popped = new Object[n];
+        for(int i = 0; i<n; i++)
+        {
+            popped[i] = pop();
+        }
+        return (T[])popped;
+    }
+    public T[] pollN(int n)
+    {
+        Object[] polled = new Object[n];
+        for(int i = 0; i<n; i++)
+        {
+            polled[i] = poll();
+        }
+        return (T[])polled;
+    }
+    public T poll() {
+        if (qIdx == data.length) {
+            if (sIdx >= 0) {
+                qIdx = 0;
+            } else {
+                return null;
+            }
+        }
+        T val = (T) data[qIdx];
+        data[qIdx++] = null;
+        if (qIdx == sIdx + 1) {
+            sIdx = -1;
+            qIdx = data.length;
+        }
+        return val;
+    }
+
+    public T removeFirst() {
+        checkIfEmpty();
+        T val = (T) data[qIdx];
+        data[qIdx--] = null;
+        return val;
+    }
+
+    public T removeLast() {
+        checkIfEmpty();
+        T val = (T) data[sIdx];
+        data[sIdx--] = null;
+        return val;
+    }
+
+    public T peek() {
+        checkIfEmpty();
+        T val = (T) data[sIdx];
+        return val;
+    }
+
+    private void checkIfEmpty() {
+        if (sIdx < 0) {
+            throw new EmptyStackException();
+        }
+    }
+
+    private int getSize() {
+        return sIdx + 1 + data.length - qIdx;
+    }
+
+    private boolean isEmpty() {
+        return sIdx >= 0 || qIdx < data.length;
+    }
+
+    private void clear() {
+        data = new Object[8];
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for (int i = 0; i < data.length; i++) {
+            sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
+        }
+        sb.setCharAt(sb.length() - 2, ']');
+        sb.setLength(sb.length() - 1);
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        var deq = new DequeS<Integer>();
+        deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
+        System.out.println(deq);
+        deq.pop();
+        deq.pop();
+        deq.pop();
+        deq.pop();
+        deq.pop();
+        deq.pop();
+        deq.pop();
+        System.out.println(deq);
+        System.out.println(deq.pop());
+        deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
+        System.out.println(deq);
+        deq.pollN(7);
+        System.out.println(deq.poll());
+        deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
+        System.out.println(deq);
+    }
+}
