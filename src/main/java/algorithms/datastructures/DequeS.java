@@ -1,7 +1,6 @@
 package algorithms.datastructures;
 
 import java.util.EmptyStackException;
-import java.util.LinkedList;
 
 public class DequeS<T> {
 
@@ -51,7 +50,7 @@ public class DequeS<T> {
         for (int i = 1; i <= data.length - qIdx; i++) {
             newData[newData.length - i] = data[data.length - i];
         }
-        qIdx = newData.length - qIdx;
+        qIdx = newData.length - (data.length - qIdx);
 
         data = newData;
     }
@@ -69,30 +68,14 @@ public class DequeS<T> {
 
         T val = (T) data[sIdx];
         data[sIdx--] = null;
+
         if (qIdx == sIdx + 1) {
             sIdx = -1;
             qIdx = data.length;
         }
         return val;
     }
-    public T[] popN(int n)
-    {
-        Object[] popped = new Object[n];
-        for(int i = 0; i<n; i++)
-        {
-            popped[i] = pop();
-        }
-        return (T[])popped;
-    }
-    public T[] pollN(int n)
-    {
-        Object[] polled = new Object[n];
-        for(int i = 0; i<n; i++)
-        {
-            polled[i] = poll();
-        }
-        return (T[])polled;
-    }
+
     public T poll() {
         if (qIdx == data.length) {
             if (sIdx >= 0) {
@@ -110,34 +93,44 @@ public class DequeS<T> {
         return val;
     }
 
-    public T removeFirst() {
-        checkIfEmpty();
-        T val = (T) data[qIdx];
-        data[qIdx--] = null;
-        return val;
+    public T[] popN(int n) {
+        Object[] popped = new Object[n];
+        for (int i = 0; i < n; i++) {
+            popped[i] = pop();
+        }
+        return (T[]) popped;
     }
 
-    public T removeLast() {
-        checkIfEmpty();
-        T val = (T) data[sIdx];
-        data[sIdx--] = null;
-        return val;
+    public T[] pollN(int n) {
+        Object[] polled = new Object[n];
+        for (int i = 0; i < n; i++) {
+            polled[i] = poll();
+        }
+        return (T[]) polled;
     }
 
-    public T peek() {
-        checkIfEmpty();
-        T val = (T) data[sIdx];
-        return val;
-    }
-
-    private void checkIfEmpty() {
-        if (sIdx < 0) {
+    public T peekLast() {
+        if (isEmpty()) {
             throw new EmptyStackException();
         }
+        T val = (T) data[sIdx];
+        return val;
+    }
+
+    public T peekFirst() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        T val = (T) data[qIdx];
+        return val;
     }
 
     private int getSize() {
-        return sIdx + 1 + data.length - qIdx;
+        if (sIdx >= qIdx) {
+            return sIdx - qIdx + 1;
+        } else {
+            return sIdx + 1 + data.length - qIdx;
+        }
     }
 
     private boolean isEmpty() {
@@ -161,6 +154,7 @@ public class DequeS<T> {
 
     public static void main(String[] args) {
         var deq = new DequeS<Integer>();
+        System.out.println(deq + " with size: " + deq.getSize());
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
         System.out.println(deq);
         deq.pop();
@@ -170,13 +164,13 @@ public class DequeS<T> {
         deq.pop();
         deq.pop();
         deq.pop();
-        System.out.println(deq);
+        System.out.println(deq + " with size: " + deq.getSize());
         System.out.println(deq.pop());
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
-        System.out.println(deq);
+        System.out.println(deq + " with size: " + deq.getSize());
         deq.pollN(7);
         System.out.println(deq.poll());
-        deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
-        System.out.println(deq);
+        deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40).push(27).offer(36);
+        System.out.println(deq + " with size: " + deq.getSize());
     }
 }
