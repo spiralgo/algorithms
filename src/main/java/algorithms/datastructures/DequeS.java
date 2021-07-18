@@ -155,7 +155,7 @@ public class DequeS<T> {
         }
         StringBuilder sb = new StringBuilder();
         sb.append('[');
-        
+
         if (sIdx >= qIdx) {
             for (int i = qIdx; i <= sIdx; i++) {
                 sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
@@ -176,17 +176,26 @@ public class DequeS<T> {
 
     public static void main(String[] args) {
         var deq = new DequeS<Integer>();
-        System.out.println(deq + " with size: " + deq.getSize());
+
+        System.out.println(deq + " with size: " + deq.getSize()); // [] with size: 0
+
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
-        System.out.println(deq);
-        deq.popN(7);
-        System.out.println(deq + " with size: " + deq.getSize());
-        System.out.println(deq.pop());
+        System.out.println(deq); // [40, 35, 30, 25, 20, 5, 10, 15]
+
+        deq.popN(7); // pops [15, 10, 5, 20, 25, 30, 35]
+        System.out.println(deq + " with size: " + deq.getSize()); // [40] with size: 1
+        System.out.println(deq.pop()); // 40
+
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
-        System.out.println(deq + " with size: " + deq.getSize());
-        deq.pollN(7);
-        System.out.println(deq.poll());
+        System.out.println(deq + " with size: " + deq.getSize()); // [40, 35, 30, 25, 20, 5, 10, 15] with size: 8 (same elements again)
+
+        deq.pollN(7); // [40, 35, 30, 25, 20, 5, 10]
+        System.out.println(deq.poll()); // 15
+
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40).push(27).offer(36);
-        System.out.println(deq + " with size: " + deq.getSize());
+        System.out.println(deq + " with size: " + deq.getSize()); // [36, 40, 35, 30, 25, 20, 5, 10, 15, 27] with size: 10
+        while (!deq.isEmpty()) {
+            System.out.print(deq.poll() + " ");
+        } // 36 40 35 30 25 20 5 10 15 27
     }
 }

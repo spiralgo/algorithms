@@ -90,8 +90,9 @@ public class StackS<T> {
         var s = new StackS<Integer>();
         s.push(5);
         s.push(10);
-        System.out.println(s.pop() + " : " + s.pop());
+        System.out.println(s.pop() + " : " + s.pop()); // 10 : 5
         s.push(9).push(27).push(81);
-        System.out.println(s.toString() + " : " + s.pop());
+        System.out.println(s + " : " + s.pop()); // [9, 27, 81] : 81
+        System.out.println(s.getSize()); // 2
     }
 }
