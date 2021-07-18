@@ -4,10 +4,10 @@ import java.util.EmptyStackException;
 
 public class DequeS<T> {
 
-    private Object[] data;
+    protected Object[] data;
     private static final int EXPANSION_SIZE = 2;
-    private int sIdx = -1;
-    private int qIdx = 8;
+    protected int sIdx = -1;
+    protected int qIdx = 8;
 
     public DequeS() {
         data = new Object[8];
@@ -93,17 +93,25 @@ public class DequeS<T> {
         return val;
     }
 
-    public T[] popN(int n) {
-        Object[] popped = new Object[n];
-        for (int i = 0; i < n; i++) {
+    public T[] popN(final int N) {
+        if (getSize() < N) {
+            throw new EmptyStackException();
+        }
+
+        Object[] popped = new Object[N];
+        for (int i = 0; i < N; i++) {
             popped[i] = pop();
         }
         return (T[]) popped;
     }
 
-    public T[] pollN(int n) {
-        Object[] polled = new Object[n];
-        for (int i = 0; i < n; i++) {
+    public T[] pollN(final int N) {
+        if (getSize() < N) {
+            throw new EmptyStackException();
+        }
+
+        Object[] polled = new Object[N];
+        for (int i = 0; i < N; i++) {
             polled[i] = poll();
         }
         return (T[]) polled;
@@ -125,7 +133,7 @@ public class DequeS<T> {
         return val;
     }
 
-    private int getSize() {
+    public int getSize() {
         if (sIdx >= qIdx) {
             return sIdx - qIdx + 1;
         } else {
@@ -134,7 +142,7 @@ public class DequeS<T> {
     }
 
     private boolean isEmpty() {
-        return sIdx >= 0 || qIdx < data.length;
+        return sIdx == -1;
     }
 
     private void clear() {
@@ -142,11 +150,25 @@ public class DequeS<T> {
     }
 
     public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
         StringBuilder sb = new StringBuilder();
         sb.append('[');
-        for (int i = 0; i < data.length; i++) {
-            sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
+        
+        if (sIdx >= qIdx) {
+            for (int i = qIdx; i <= sIdx; i++) {
+                sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
+            }
+        } else {
+            for (int i = qIdx; i < data.length; i++) {
+                sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
+            }
+            for (int i = 0; i <= sIdx; i++) {
+                sb.append(data[i] != null ? data[i].toString() : "null").append(", ");
+            }
         }
+
         sb.setCharAt(sb.length() - 2, ']');
         sb.setLength(sb.length() - 1);
         return sb.toString();
@@ -157,13 +179,7 @@ public class DequeS<T> {
         System.out.println(deq + " with size: " + deq.getSize());
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
         System.out.println(deq);
-        deq.pop();
-        deq.pop();
-        deq.pop();
-        deq.pop();
-        deq.pop();
-        deq.pop();
-        deq.pop();
+        deq.popN(7);
         System.out.println(deq + " with size: " + deq.getSize());
         System.out.println(deq.pop());
         deq.push(5).push(10).push(15).offer(20).offer(25).offer(30).offer(35).offer(40);
