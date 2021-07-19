@@ -10,11 +10,13 @@ public class CheapestFlightsWithinKStopsDFS {
 
     private HashMap<List<Integer>, Integer> memo;
     final static int INF = Integer.MAX_VALUE >> 4;
-    int globalMin = INF;
+    int globalMin;
 
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
         memo = new HashMap<>();
+        globalMin = INF;
         int[][][] graph = createGraph(flights, n);
+
         
         int shortestDist = dfs(graph, src, dst, K + 1, 0);
         return shortestDist >= INF ? -1 : shortestDist;
