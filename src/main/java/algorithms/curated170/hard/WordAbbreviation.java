@@ -20,14 +20,14 @@ public class WordAbbreviation {
         return Arrays.asList(res);
     }
 
-    private void handleDuplicates(List<String> words, int len, String[] res, int[] prefix,
+    private void handleDuplicates(List<String> words, int len, String[] abbr, int[] prefix,
             HashMap<String, List<Integer>> abbreviationIndices) {
 
         for (int i = 0; i < len; i++) {
-            if (abbreviationIndices.get(res[i]).size() == 1) {
+            if (abbreviationIndices.get(abbr[i]).size() == 1) {
                 continue;
             }
-            distributeNewAbbreviations(words, res, prefix, abbreviationIndices, i);
+            distributeNewAbbreviations(words, abbr, prefix, abbreviationIndices, i);
             i--;
         }
     }
