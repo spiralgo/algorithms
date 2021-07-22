@@ -1,22 +1,37 @@
 package algorithms.curated170.hard;
 
-public class HandshakesThatDontCross {
+import java.util.Arrays;
+
+public class ValidPalindromeIII {
+    
     public boolean isValidPalindrome(String s, int k) {
+        int len = s.length();
         char[] data = s.toCharArray();
-        int[] dp = new int[data.length];
-        Arrays.fill(dp, 1);
-        int res = 1;
-        for (int i = 0; i < dp.length; i++ ) {
-            int maxSoFar = 0;
+        int[] maxPalindromicSubsequences = new int[len];
+        Arrays.fill(maxPalindromicSubsequences, 1);
+        int maxPalindrome = 1;
+
+        for (int i = 0; i < len; i++) {
+            int maxSubseqBetween = 0;
             for (int j = i - 1; j >= 0; j--) {
-                int temp = dp[j];
+                int subseqLength = maxPalindromicSubsequences[j];
+
                 if (data[i] == data[j]) {
-                    dp[j] = maxSoFar + 2;
-                    res = Math.max(res, dp[j]);
+                    maxPalindromicSubsequences[j] = maxSubseqBetween + 2;
+                    maxPalindrome = Math.max(maxPalindrome, maxPalindromicSubsequences[j]);
                 }
-                maxSoFar = Math.max(temp, maxSoFar);
+
+                maxSubseqBetween = Math.max(subseqLength, maxSubseqBetween);
             }
         }
-        return s.length() - k <= res;
+
+        return maxPalindrome >= len - k;
+    }
+
+    public static void main(String[] args) {
+        var solution = new ValidPalindromeIII();
+
+        System.out.println(solution.isValidPalindrome("sqreparqs", 2)); // true
+        System.out.println(solution.isValidPalindrome("sqreparqsf", 2)); // false
     }
 }
