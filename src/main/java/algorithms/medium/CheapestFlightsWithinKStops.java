@@ -80,5 +80,12 @@ public class CheapestFlightsWithinKStops {
 
         flights = new int[][] { { 0, 1, 1 }, { 0, 2, 5 }, { 1, 2, 1 }, { 2, 3, 1 } };
         System.out.println(solution.findCheapestPrice(4, flights, 0, 3, 1));
+
+        flights = new int[][] { { 0, 1, 1 }, { 0, 2, 1 }, { 0, 3, 2 }, { 0, 4, 3 }, { 1, 5, 2 }, { 5, 6, 1 },
+                { 6, 7, 2 }, { 7, 8, 1 }, { 8, 11, 12 }, { 2, 9, 4 }, { 9, 10, 4 }, { 10, 11, 14 }, { 3, 12, 1 },
+                { 12, 13, 3 }, { 13, 14, 4 }, { 14, 11, 11 }, { 4, 15, 6 }, { 15, 16, 7 }, { 16, 11, 11 },
+                { 11, 17, 100 } };
+        System.out.println(solution.findCheapestPrice(18, flights, 0, 17, 5)); // fails, should equal 121
+
     }
 }
