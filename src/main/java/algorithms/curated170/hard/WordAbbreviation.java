@@ -9,59 +9,59 @@ public class WordAbbreviation {
 
     public List<String> wordsAbbreviation(List<String> words) {
         int len = words.size();
-        String[] res = new String[len];
-        int[] prefix = new int[len];
+        String[] abbr = new String[len];
+        int[] prefixLength = new int[len];
         HashMap<String, List<Integer>> abbreviationIndices = new HashMap<>();
 
-        initializeAbbreviations(words, len, res, abbreviationIndices);
+        initializeAbbreviations(words, len, abbr, abbreviationIndices);
 
-        handleDuplicates(words, len, res, prefix, abbreviationIndices);
+        handleDuplicates(words, len, abbr, prefixLength, abbreviationIndices);
 
-        return Arrays.asList(res);
+        return Arrays.asList(abbr);
     }
 
-    private void handleDuplicates(List<String> words, int len, String[] abbr, int[] prefix,
+    private void handleDuplicates(List<String> words, int len, String[] abbr, int[] prefixLength,
             HashMap<String, List<Integer>> abbreviationIndices) {
 
         for (int i = 0; i < len; i++) {
             if (abbreviationIndices.get(abbr[i]).size() == 1) {
                 continue;
             }
-            distributeNewAbbreviations(words, abbr, prefix, abbreviationIndices, i);
+            distributeNewAbbreviations(words, abbr, prefixLength, abbreviationIndices, i);
             i--;
         }
     }
 
-    private void distributeNewAbbreviations(List<String> words, String[] res, int[] prefixLength,
+    private void distributeNewAbbreviations(List<String> words, String[] abbr, int[] prefixLength,
             HashMap<String, List<Integer>> abbreviationIndices, int i) {
 
-        List<Integer> indices = abbreviationIndices.get(res[i]);
-        abbreviationIndices.remove(res[i]);
+        List<Integer> indices = abbreviationIndices.get(abbr[i]);
+        abbreviationIndices.remove(abbr[i]);
 
         for (int j : indices) {
             prefixLength[j]++;
-            res[j] = makeAbbr(words.get(j), prefixLength[j]);
-            abbreviationIndices.putIfAbsent(res[j], new ArrayList<>());
-            abbreviationIndices.get(res[j]).add(j);
+            abbr[j] = makeAbbr(words.get(j), prefixLength[j]);
+            abbreviationIndices.putIfAbsent(abbr[j], new ArrayList<>());
+            abbreviationIndices.get(abbr[j]).add(j);
         }
     }
 
-    private void initializeAbbreviations(List<String> words, int len, String[] res,
+    private void initializeAbbreviations(List<String> words, int len, String[] abbr,
             HashMap<String, List<Integer>> abbreviationIndices) {
         for (int i = 0; i < len; i++) {
-            res[i] = makeAbbr(words.get(i), 1);
-            abbreviationIndices.putIfAbsent(res[i], new ArrayList<>());
-            abbreviationIndices.get(res[i]).add(i);
+            abbr[i] = makeAbbr(words.get(i), 1);
+            abbreviationIndices.putIfAbsent(abbr[i], new ArrayList<>());
+            abbreviationIndices.get(abbr[i]).add(i);
         }
     }
 
     private String makeAbbr(String s, int k) {
         if (k >= s.length() - 2)
             return s;
-        StringBuilder builder = new StringBuilder();
-        builder.append(s.substring(0, k));
-        builder.append(s.length() - 1 - k);
-        builder.append(s.charAt(s.length() - 1));
-        return builder.toString();
+        StringBuilder abbreviation = new StringBuilder();
+        abbreviation.append(s.substring(0, k));
+        abbreviation.append(s.length() - 1 - k);
+        abbreviation.append(s.charAt(s.length() - 1));
+        return abbreviation.toString();
     }
 }
