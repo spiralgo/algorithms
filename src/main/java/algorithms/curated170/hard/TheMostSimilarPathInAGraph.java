@@ -12,24 +12,6 @@ public class TheMostSimilarPathInAGraph {
     int targetLength;
     int[][] distancesAtCities;
 
-    private void calculateDistancesBackwards() {
-        String targetCity;
-        for (int t = targetLength - 2; t >= 0; t--) {
-            targetCity = targetPath[t];
-            for (int c = 0; c < n; c++) {
-                String curCity = names[c];
-                if (!curCity.equals(targetCity))
-                    distancesAtCities[t][c] = 1;
-                int minNextValue = Integer.MAX_VALUE;
-                for (int nextCity = 0; nextCity < n; nextCity++) {
-                    if (isAdjacent[nextCity][c] == true)
-                        minNextValue = Math.min(distancesAtCities[t + 1][nextCity], minNextValue);
-                }
-                distancesAtCities[t][c] += minNextValue;
-            }
-        }
-    }
-
     public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
 
         this.n = n;
@@ -51,6 +33,41 @@ public class TheMostSimilarPathInAGraph {
         calculateDistancesBackwards();
 
         return evaluateMostSimilarPath();
+    }
+
+    private void setLastDistances() {
+        String targetCity = targetPath[targetLength - 1];
+        for (int i = 0; i < n; i++) {
+            String curCity = names[i];
+            if (!targetCity.equals(curCity)) {
+                distancesAtCities[targetLength - 1][i] = 1;
+            }
+        }
+    }
+
+    private void calculateDistancesBackwards() {
+        String targetCity;
+
+        for (int t = targetLength - 2; t >= 0; t--) {
+            targetCity = targetPath[t];
+
+            for (int c = 0; c < n; c++) {
+                String curCity = names[c];
+
+                if (!curCity.equals(targetCity)) {
+                    distancesAtCities[t][c] = 1;
+                }
+
+                int minNextValue = Integer.MAX_VALUE;
+                for (int nextCity = 0; nextCity < n; nextCity++) {
+                    if (isAdjacent[nextCity][c] == true) {
+                        minNextValue = Math.min(distancesAtCities[t + 1][nextCity], minNextValue);
+                    }
+                }
+
+                distancesAtCities[t][c] += minNextValue;
+            }
+        }
     }
 
     private List<Integer> evaluateMostSimilarPath() {
@@ -92,15 +109,4 @@ public class TheMostSimilarPathInAGraph {
         mostSimilarPath.add(curMinCity);
         addNextVertices(mostSimilarPath, curMinCity, idx + 1);
     }
-
-    private void setLastDistances() {
-        String targetCity = targetPath[targetLength - 1];
-        for (int i = 0; i < n; i++) {
-            String curCity = names[i];
-            if (!targetCity.equals(curCity)) {
-                distancesAtCities[targetLength - 1][i] = 1;
-            }
-        }
-    }
-
 }
