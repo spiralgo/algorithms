@@ -28,7 +28,7 @@ public class MaximumAverageSubarrayII {
         for (int i = k-1; i < sums.length; i++) {
             sum = sums[i] - (i+1) * v;
             if (i-k >= 0) minPreSum = Math.min(minPreSum, sums[i-k] - (i-k+1) * v);
-            if (sum > minPreSum) return true;
+            if (sum - minPreSum > 0) return true;
         }
         return false;
     }
