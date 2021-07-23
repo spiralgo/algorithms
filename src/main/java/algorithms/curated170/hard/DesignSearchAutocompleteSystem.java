@@ -14,7 +14,6 @@ public class DesignSearchAutocompleteSystem {
         private Map<String, Integer> sentenceFreq;
 
         public AutocompleteSystem(String[] sentences, int[] times) {
-            // assume that all parametes input are valid
             this.root = new Trie();
             this.curNode = root;
             this.curChars = new StringBuilder();
@@ -25,15 +24,15 @@ public class DesignSearchAutocompleteSystem {
             }
 
             for (String sentence : sentences) {
-                buildTrie(sentence);
+                addToTrie(sentence);
             }
         }
 
         public List<String> input(char c) {
             if (c == '#') {
                 String sentence = curChars.toString();
-                sentenceFreq.put(sentence, sentenceFreq.getOrDefault(sentence, 0) + 1);
-                buildTrie(sentence);
+                sentenceFreq.merge(sentence, 1, Integer::sum);
+                addToTrie(sentence);
 
                 this.curNode = root;
                 this.curChars = new StringBuilder();
@@ -47,50 +46,57 @@ public class DesignSearchAutocompleteSystem {
             }
         }
 
-        private void buildTrie(String sentence) {
+        private void addToTrie(String sentence) {
             Trie node = root;
             int freq = sentenceFreq.get(sentence);
+            char[] data = sentence.toCharArray();
 
-            for (char c : sentence.toCharArray()) {
+            for (char c : data) {
                 int index = charToIndex(c);
                 if (node.children[index] == null) {
                     node.children[index] = new Trie();
                 }
                 node = node.children[index];
 
-                List<String> topThree = node.topThree;
-                topThree.remove(sentence);
-
-                for (int i = 0; i < 3; i++) {
-                    if (i == topThree.size()) {
-                        topThree.add(sentence);
-                        break;
-                    }
-                    String preSentence = topThree.get(i);
-                    int preFreq = sentenceFreq.get(preSentence);
-
-                    if (preFreq < freq || preFreq == freq && sentence.compareTo(preSentence) < 0) {
-                        topThree.add(i, sentence);
-                        break;
-                    }
-                }
-                if (topThree.size() > 3)
-                    topThree.remove(3);
+                insertIntoNewPosition(sentence, node, freq);
             }
         }
+
+        private void insertIntoNewPosition(String sentence, Trie node, int freq) {
+            List<String> topThree = node.topThree;
+            topThree.remove(sentence);
+
+            for (int i = 0; i < 3; i++) {
+                if (i == topThree.size()) {
+                    topThree.add(sentence);
+                    break;
+                }
+                String preSentence = topThree.get(i);
+                int preFreq = sentenceFreq.get(preSentence);
+
+                if (preFreq < freq || preFreq == freq && sentence.compareTo(preSentence) < 0) {
+                    topThree.add(i, sentence);
+                    break;
+                }
+            }
+            if (topThree.size() > 3) {
+                topThree.remove(3);
+            }
+        }
+
+        int charToIndex(char c) {
+            return c == ' ' ? 26 : c - 'a';
+        }
+
     }
 
-    int charToIndex(char c)
-    {
-        return c == ' ' ? 26 : c - 'a';
-    }
     class Trie {
         List<String> topThree;
         Trie[] children;
 
         public Trie() {
             this.topThree = new ArrayList<>();
-            children = new Trie[27];// Trie[26] is for empty char ' '
+            children = new Trie[27];
         }
     }
 
