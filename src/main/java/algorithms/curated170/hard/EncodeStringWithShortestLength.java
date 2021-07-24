@@ -9,7 +9,6 @@ public class EncodeStringWithShortestLength {
         if (map.containsKey(s)) {
             return map.get(s);
         }
-
         char[] c = s.toCharArray();
         String[][] ss = new String[c.length][c.length];
         for (int i = 0; i < c.length; i++) {
