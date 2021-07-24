@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.List;
 
 public class TheMostSimilarPathInAGraphQueue {
-    
+
     public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
         int t = targetPath.length;
         if (t == 0) {
