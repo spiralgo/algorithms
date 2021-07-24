@@ -3,9 +3,14 @@ package algorithms.curated170.hard;
 import java.util.HashMap;
 
 public class EncodeStringWithShortestLength {
-    HashMap<String, String> map = new HashMap<String, String>();
+    HashMap<String, String> map;
 
     public String encode(String s) {
+        map = new HashMap<>();
+        return buildEncodedStr(s);
+    }
+
+    private String buildEncodedStr(String s) {
         if (map.containsKey(s)) {
             return map.get(s);
         }
@@ -14,17 +19,17 @@ public class EncodeStringWithShortestLength {
         for (int i = 0; i < c.length; i++) {
             int[] next = new int[c.length - i + 1];
             next[0] = -1;
-            int k = -1;
+            int repLen = -1;
             for (int j = 0; j + i < c.length; j++) {
-                while (k != -1 && c[j + i] != c[k + i]) {
-                    k = next[k];
+                while (repLen != -1 && c[j + i] != c[repLen + i]) {
+                    repLen = next[repLen];
                 }
-                next[j + 1] = k++;
-                int dup = k > 0 && (j + 1) % (j + 1 - k) == 0 ? j + 1 - k : j + 1;
+                next[j + 1] = repLen++;
+                int dup = repLen > 0 && (j + 1) % (j + 1 - repLen) == 0 ? j + 1 - repLen : j + 1;
                 if (dup == j + 1) {
                     ss[i][i + j] = s.substring(i, i + j + 1);
                 } else {
-                    String s1 = String.valueOf((j + 1) / dup) + "[" + encode(s.substring(i, i + dup)) + "]";
+                    String s1 = String.valueOf((j + 1) / dup) + "[" + buildEncodedStr(s.substring(i, i + dup)) + "]";
                     ss[i][i + j] = s1.length() < j + 1 ? s1 : s.substring(i, i + j + 1);
                 }
             }
@@ -54,7 +59,17 @@ public class EncodeStringWithShortestLength {
     public static void main(String[] args) {
         var solution = new EncodeStringWithShortestLength();
 
+        System.out.println(solution.encode("abbbbb"));
+        System.out.println(solution.map);
+        /*
+        System.out.println(solution.encode("abcbcbce"));
+        System.out.println(solution.map);
+        
+        System.out.println(solution.encode("spiralgospiralgospiralgospiralgo"));
+        System.out.println(solution.map);
+
         System.out.println(solution.encode("abbbbbabbbbbabbbbbcd"));
         System.out.println(solution.map);
+        */
     }
 }
