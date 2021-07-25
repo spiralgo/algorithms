@@ -39,10 +39,8 @@ public class DesignInMemoryFileSystem {
                     continue;
                 cur.subDirs.putIfAbsent(file, new Directory(file));
                 cur = cur.subDirs.get(file);
-                if (cur.isFile())
-                    break;
             }
-            
+
             return cur;
         }
 
@@ -66,9 +64,14 @@ public class DesignInMemoryFileSystem {
 
             public void addContent(String content) {
                 if (fileContent == null) {
-                    fileContent = new StringBuilder();
+                    setFile();
                 }
                 fileContent.append(content);
+            }
+
+            private void setFile() {
+                fileContent = new StringBuilder();
+                subDirs = null;
             }
 
             public boolean isFile() {
