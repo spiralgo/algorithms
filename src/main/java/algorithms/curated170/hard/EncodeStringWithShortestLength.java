@@ -19,6 +19,10 @@ public class EncodeStringWithShortestLength {
         }
         char[] data = s.toCharArray();
         int len = data.length;
+        if (len < 5) {
+            return s;
+        }
+
         String[][] codings = produce(s, data, len);
 
         int[] codeIdxRanges = calculateCodeRanges(len, codings);
@@ -101,7 +105,7 @@ public class EncodeStringWithShortestLength {
     private String deliverEncodedSubstr(String s, int i, int totalCodeLen, int encodedStrLen) {
         return String.valueOf(totalCodeLen / encodedStrLen) + "[" + buildEncodedStr(s.substring(i, i + encodedStrLen))
                 + "]";
-    }
+    }    
 
     private boolean hasMultipleOfSubstr(int repHeadLen, int totalCodeLen) {
         return repHeadLen > 0 && totalCodeLen % (totalCodeLen - repHeadLen) == 0;
@@ -110,7 +114,7 @@ public class EncodeStringWithShortestLength {
     public static void main(String[] args) {
         var solution = new EncodeStringWithShortestLength();
 
-        System.out.println(solution.encode("abababfabababf"));
+        System.out.println(solution.encode("abababfababababababfababab"));
         System.out.println(solution.encodeMap);
 
         /*
