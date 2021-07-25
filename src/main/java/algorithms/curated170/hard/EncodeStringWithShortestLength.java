@@ -23,7 +23,7 @@ public class EncodeStringWithShortestLength {
             return s;
         }
 
-        String[][] codings = produce(s, data, len);
+        String[][] codings = assembleEncodings(s, data, len);
 
         int[] codeIdxRanges = calculateCodeRanges(len, codings);
 
@@ -66,7 +66,7 @@ public class EncodeStringWithShortestLength {
         return prevEncodeEnd;
     }
 
-    private String[][] produce(String s, char[] data, int len) {
+    private String[][] assembleEncodings(String s, char[] data, int len) {
         String[][] codings = new String[len][len];
 
         for (int i = 0; i < len; i++) {
