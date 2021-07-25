@@ -1,6 +1,9 @@
 package algorithms.curated170.hard;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class EncodeStringWithShortestLength {
     HashMap<String, String> encodeMap;
@@ -16,32 +19,51 @@ public class EncodeStringWithShortestLength {
         }
         char[] data = s.toCharArray();
         int len = data.length;
-        String[][] ss = produce(s, data, len);
+        String[][] codings = produce(s, data, len);
 
-        int[] dp = new int[len + 1];
-        int[] prev = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            dp[i + 1] = Integer.MAX_VALUE;
-            for (int j = 0; j <= i; j++) {
-                if (dp[j] + ss[j][i].length() < dp[i + 1]) {
-                    dp[i + 1] = dp[j] + ss[j][i].length();
-                    prev[i + 1] = j;
-                }
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        int cur = len;
-        while (cur > 0) {
-            int p = prev[cur];
-            sb.insert(0, ss[p][cur - 1]);
-            cur = p;
-        }
+        int[] codeIdxRanges = calculateCodeRanges(len, codings);
+
+        StringBuilder sb = traceBackCodings(len, codings, codeIdxRanges);
+
         encodeMap.put(s, sb.toString());
         return sb.toString();
     }
 
+    private StringBuilder traceBackCodings(int len, String[][] codings, int[] codeIdxRanges) {
+        List<String> validCodingsReverse = new ArrayList<>();
+        int curEnd = len;
+
+        while (curEnd > 0) {
+            int start = codeIdxRanges[curEnd];
+            validCodingsReverse.add(codings[start][curEnd - 1]);
+            curEnd = start;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int a = validCodingsReverse.size() - 1; a >= 0; a--) {
+            sb.append(validCodingsReverse.get(a));
+        }
+
+        return sb;
+    }
+
+    private int[] calculateCodeRanges(int len, String[][] codings) {
+        int[] prevEncodeEnd = new int[len + 1];
+        int[] minCodeLen = new int[len + 1];
+        for (int i = 0; i < len; i++) {
+            minCodeLen[i + 1] = Integer.MAX_VALUE;
+            for (int j = 0; j <= i; j++) {
+                if (minCodeLen[j] + codings[j][i].length() < minCodeLen[i + 1]) {
+                    minCodeLen[i + 1] = minCodeLen[j] + codings[j][i].length();
+                    prevEncodeEnd[i + 1] = j;
+                }
+            }
+        }
+        return prevEncodeEnd;
+    }
+
     private String[][] produce(String s, char[] data, int len) {
-        String[][] ss = new String[len][len];
+        String[][] codings = new String[len][len];
 
         for (int i = 0; i < len; i++) {
             int[] preStartIdx = new int[len - i + 1];
@@ -57,16 +79,16 @@ public class EncodeStringWithShortestLength {
                         : totalCodeLen;
 
                 if (encodedStrLen == totalCodeLen || totalCodeLen < 5) {
-                    ss[i][i + j] = s.substring(i, i + totalCodeLen);
+                    codings[i][i + j] = s.substring(i, i + totalCodeLen);
                 } else {
                     String encodedSubstr = deliverEncodedSubstr(s, i, totalCodeLen, encodedStrLen);
-                    ss[i][i + j] = encodedSubstr.length() < totalCodeLen ? encodedSubstr
+                    codings[i][i + j] = encodedSubstr.length() < totalCodeLen ? encodedSubstr
                             : s.substring(i, i + totalCodeLen);
                 }
             }
         }
 
-        return ss;
+        return codings;
     }
 
     private int findRepetitionStart(char[] c, int i, int[] preStartIdx, int repHeadLen, int j) {
