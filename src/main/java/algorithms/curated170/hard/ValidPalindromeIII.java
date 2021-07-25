@@ -11,7 +11,7 @@ public class ValidPalindromeIII {
         Arrays.fill(maxPalindromicSubsequences, 1);
         int maxPalindrome = 1;
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 1; i < len; i++) {
             int maxSubseqBetween = 0;
             for (int j = i - 1; j >= 0; j--) {
                 int subseqLength = maxPalindromicSubsequences[j];
