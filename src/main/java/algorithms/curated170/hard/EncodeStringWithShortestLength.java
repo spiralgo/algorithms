@@ -52,18 +52,18 @@ public class EncodeStringWithShortestLength {
     }
 
     private int[] calculateCodeRanges(int len, String[][] codings) {
-        int[] prevEncodeEnd = new int[len + 1];
+        int[] codeIdxRanges = new int[len + 1];
         int[] minCodeLen = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            minCodeLen[i + 1] = Integer.MAX_VALUE;
-            for (int j = 0; j <= i; j++) {
-                if (minCodeLen[j] + codings[j][i].length() < minCodeLen[i + 1]) {
-                    minCodeLen[i + 1] = minCodeLen[j] + codings[j][i].length();
-                    prevEncodeEnd[i + 1] = j;
+        for (int end = 0; end < len; end++) {
+            minCodeLen[end + 1] = Integer.MAX_VALUE;
+            for (int start = 0; start <= end; start++) {
+                if (minCodeLen[start] + codings[start][end].length() < minCodeLen[end + 1]) {
+                    minCodeLen[end + 1] = minCodeLen[start] + codings[start][end].length();
+                    codeIdxRanges[end + 1] = start;
                 }
             }
         }
-        return prevEncodeEnd;
+        return codeIdxRanges;
     }
 
     private String[][] assembleEncodings(String s, char[] data, int len) {
