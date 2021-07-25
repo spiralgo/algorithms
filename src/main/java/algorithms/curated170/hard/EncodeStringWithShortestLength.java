@@ -14,29 +14,36 @@ public class EncodeStringWithShortestLength {
         if (map.containsKey(s)) {
             return map.get(s);
         }
-        char[] c = s.toCharArray();
-        String[][] ss = new String[c.length][c.length];
-        for (int i = 0; i < c.length; i++) {
-            int[] next = new int[c.length - i + 1];
-            next[0] = -1;
-            int repLen = -1;
-            for (int j = 0; j + i < c.length; j++) {
-                while (repLen != -1 && c[j + i] != c[repLen + i]) {
-                    repLen = next[repLen];
-                }
-                next[j + 1] = repLen++;
-                int dup = repLen > 0 && (j + 1) % (j + 1 - repLen) == 0 ? j + 1 - repLen : j + 1;
-                if (dup == j + 1) {
-                    ss[i][i + j] = s.substring(i, i + j + 1);
+        char[] data = s.toCharArray();
+        int len = data.length;
+        String[][] ss = new String[len][len];
+
+        for (int i = 0; i < len; i++) {
+            int[] preStartIdx = new int[len - i + 1];
+            preStartIdx[0] = -1;
+            int repHeadLen = -1;
+
+            for (int j = 0; i + j < len; j++) {
+                repHeadLen = findRepetitionStart(data, i, preStartIdx, repHeadLen, j);
+                
+                int totalCodeLen = j + 1;
+                preStartIdx[totalCodeLen] = repHeadLen++;
+
+                int encodedStrLen = hasMultipleOfSubstr(repHeadLen, totalCodeLen) ? totalCodeLen - repHeadLen
+                        : totalCodeLen;
+                        
+                if (encodedStrLen == totalCodeLen) {
+                    ss[i][i + totalCodeLen - 1] = s.substring(i, i + totalCodeLen);
                 } else {
-                    String s1 = String.valueOf((j + 1) / dup) + "[" + buildEncodedStr(s.substring(i, i + dup)) + "]";
-                    ss[i][i + j] = s1.length() < j + 1 ? s1 : s.substring(i, i + j + 1);
+                    String s1 = deliverEncodedStr(s, i, totalCodeLen, encodedStrLen);
+                    ss[i][i + j] = s1.length() < totalCodeLen ? s1 : s.substring(i, i + totalCodeLen);
                 }
             }
         }
-        int[] dp = new int[c.length + 1];
-        int[] prev = new int[c.length + 1];
-        for (int i = 0; i < c.length; i++) {
+
+        int[] dp = new int[len + 1];
+        int[] prev = new int[len + 1];
+        for (int i = 0; i < len; i++) {
             dp[i + 1] = Integer.MAX_VALUE;
             for (int j = 0; j <= i; j++) {
                 if (dp[j] + ss[j][i].length() < dp[i + 1]) {
@@ -46,7 +53,7 @@ public class EncodeStringWithShortestLength {
             }
         }
         StringBuffer sb = new StringBuffer();
-        int cur = c.length;
+        int cur = len;
         while (cur > 0) {
             int p = prev[cur];
             sb.insert(0, ss[p][cur - 1]);
@@ -56,20 +63,40 @@ public class EncodeStringWithShortestLength {
         return sb.toString();
     }
 
+    private int findRepetitionStart(char[] c, int i, int[] preStartIdx, int repHeadLen, int j) {
+        while (repHeadLen != -1 && c[j + i] != c[repHeadLen + i]) {
+            repHeadLen = preStartIdx[repHeadLen];
+        }
+        return repHeadLen;
+    }
+
+    private String deliverEncodedStr(String s, int i, int totalCodeLen, int encodedStrLen) {
+        return String.valueOf(totalCodeLen / encodedStrLen) + "["
+                + buildEncodedStr(s.substring(i, i + encodedStrLen)) + "]";
+    }
+
+    private boolean hasMultipleOfSubstr(int repHeadLen, int totalCodeLen) {
+        return repHeadLen > 0 && totalCodeLen % (totalCodeLen - repHeadLen) == 0;
+    }
+
     public static void main(String[] args) {
         var solution = new EncodeStringWithShortestLength();
 
-        System.out.println(solution.encode("abbbbb"));
-        System.out.println(solution.map);
-        /*
-        System.out.println(solution.encode("abcbcbce"));
-        System.out.println(solution.map);
-        
-        System.out.println(solution.encode("spiralgospiralgospiralgospiralgo"));
+        System.out.println(solution.encode("abababfabababf"));
         System.out.println(solution.map);
 
-        System.out.println(solution.encode("abbbbbabbbbbabbbbbcd"));
-        System.out.println(solution.map);
-        */
+        /*
+         * System.out.println(solution.encode("abcdabcd"));
+         * System.out.println(solution.map);
+         * 
+         * System.out.println(solution.encode("abcbcbce"));
+         * System.out.println(solution.map);
+         * 
+         * System.out.println(solution.encode("spiralgospiralgospiralgospiralgo"));
+         * System.out.println(solution.map);
+         * 
+         * System.out.println(solution.encode("abbbbbabbbbbabbbbbcd"));
+         * System.out.println(solution.map);
+         */
     }
 }
