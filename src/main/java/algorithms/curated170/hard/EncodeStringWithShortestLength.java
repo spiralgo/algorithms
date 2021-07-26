@@ -114,7 +114,7 @@ public class EncodeStringWithShortestLength {
     public static void main(String[] args) {
         var solution = new EncodeStringWithShortestLength();
 
-        System.out.println(solution.encode("abababfababababababfababab"));
+        System.out.println(solution.encode("abababaabababab"));
         System.out.println(solution.encodeMap);
 
         /*
