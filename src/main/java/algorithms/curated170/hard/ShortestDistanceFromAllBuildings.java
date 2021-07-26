@@ -22,7 +22,7 @@ public class ShortestDistanceFromAllBuildings {
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
-                    minDist = helper(grid, i, j, visitCount, dist);
+                    minDist = BFS(grid, i, j, visitCount, dist);
                     if (minDist == Integer.MAX_VALUE)
                         return -1;
                     visitCount++;
@@ -32,7 +32,7 @@ public class ShortestDistanceFromAllBuildings {
         return minDist;
     }
 
-    private int helper(int[][] grid, int i, int j, int visitCount, int[][] dist) {
+    private int BFS(int[][] grid, int i, int j, int visitCount, int[][] dist) {
 
         int minDist = Integer.MAX_VALUE;
 
