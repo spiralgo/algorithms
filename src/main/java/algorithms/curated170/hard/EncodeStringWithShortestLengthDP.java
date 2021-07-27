@@ -14,14 +14,14 @@ public class EncodeStringWithShortestLengthDP {
                 String pattern = s.substring(b + 1, e + 1);
                 int patternLen = e - b;
 
-                int maxRepStartIdx = b - patternLen + 1;
+                int maxRepStartIdx = b + 1 - patternLen;
     for (int repStart = maxRepStartIdx; repStart >= 0; repStart -= patternLen) {
                    if(!pattern.equals(s.substring(repStart, repStart + patternLen)))
                     break;
 
-                    String str = String.valueOf((e - repStart + 1) / patternLen) + "[" + codings[b + 1][e] + "]";
+                    String encodedStr = String.valueOf((e - repStart + 1) / patternLen) + "[" + codings[b + 1][e] + "]";
 
-                    updatePreviousCodings(codings, e, repStart, str);
+                    updatePreviousCodings(codings, e, repStart, encodedStr);
                 }
             }
         }
@@ -36,13 +36,13 @@ public class EncodeStringWithShortestLengthDP {
         }
     }
 
-    private void updatePreviousCodings(String[][] codings, int e, int repStart, String str) {
-        if (str.length() < codings[repStart][e].length()) {
-            codings[repStart][e] = str;
+    private void updatePreviousCodings(String[][] codings, int e, int repStart, String encodedStr) {
+        if (encodedStr.length() < codings[repStart][e].length()) {
+            codings[repStart][e] = encodedStr;
 
             for (int u = 0; u < repStart; u++) {
-                if (codings[u][repStart - 1].length() + str.length() < codings[u][e].length()) {
-                    codings[u][e] = codings[u][repStart - 1] + str;
+                if (codings[u][repStart - 1].length() + encodedStr.length() < codings[u][e].length()) {
+                    codings[u][e] = codings[u][repStart - 1] + encodedStr;
                 }
             }
 
