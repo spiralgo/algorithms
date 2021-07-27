@@ -5,7 +5,7 @@ public class EncodeStringWithShortestLengthDP {
     public String encode(String s) {
         int n = s.length();
         String[][] codings = new String[n][n];
-        
+
         for (int e = 0; e < n; e++) {
 
             initializeEndings(s, codings, e);
@@ -14,7 +14,7 @@ public class EncodeStringWithShortestLengthDP {
                 String pattern = s.substring(b + 1, e + 1);
                 int patternLen = e - b;
 
-                int maxRepStartIdx = b - (e - b) + 1;
+                int maxRepStartIdx = b - patternLen + 1;
                 for (int repStart = maxRepStartIdx; repStart >= 0
                         && pattern.equals(s.substring(repStart, repStart + patternLen)); repStart -= patternLen) {
 
