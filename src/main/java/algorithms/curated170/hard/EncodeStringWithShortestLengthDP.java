@@ -5,23 +5,26 @@ public class EncodeStringWithShortestLengthDP {
     public String encode(String s) {
         int n = s.length();
         String[][] codings = new String[n][n];
+        
         for (int e = 0; e < n; e++) {
 
             initializeEndings(s, codings, e);
 
-            for (int b = e - 1; 2 * b >= e - 1; --b) {
-                String sub = s.substring(b + 1, e + 1);
-                int encodedStrLen = e - b;
-                
-                for (int repStart = 2 * b - (e - 1); repStart >= 0 && sub.equals(s.substring(repStart, repStart + encodedStrLen)); repStart -= encodedStrLen) {
+            for (int b = e - 1; b - (e - b) + 1 >= 0; --b) {
+                String pattern = s.substring(b + 1, e + 1);
+                int patternLen = e - b;
 
-                    String str = String.valueOf((e - repStart + 1) / encodedStrLen) + "[" + codings[b + 1][e] + "]";
-                    
+                int maxRepStartIdx = b - (e - b) + 1;
+                for (int repStart = maxRepStartIdx; repStart >= 0
+                        && pattern.equals(s.substring(repStart, repStart + patternLen)); repStart -= patternLen) {
+
+                    String str = String.valueOf((e - repStart + 1) / patternLen) + "[" + codings[b + 1][e] + "]";
+
                     updatePreviousCodings(codings, e, repStart, str);
                 }
             }
         }
-        
+
         return codings[0][n - 1];
     }
 
