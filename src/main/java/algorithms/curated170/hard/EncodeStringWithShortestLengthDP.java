@@ -15,8 +15,9 @@ public class EncodeStringWithShortestLengthDP {
                 int patternLen = e - b;
 
                 int maxRepStartIdx = b - patternLen + 1;
-                for (int repStart = maxRepStartIdx; repStart >= 0
-                        && pattern.equals(s.substring(repStart, repStart + patternLen)); repStart -= patternLen) {
+    for (int repStart = maxRepStartIdx; repStart >= 0; repStart -= patternLen) {
+                   if(!pattern.equals(s.substring(repStart, repStart + patternLen)))
+                    break;
 
                     String str = String.valueOf((e - repStart + 1) / patternLen) + "[" + codings[b + 1][e] + "]";
 
