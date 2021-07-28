@@ -3,80 +3,76 @@ package algorithms.curated170.hard.rangesumquery2dmutable;
 public class RangeSumQuery2DMutableSegmentTree {
 
     class NumMatrix {
-        
-        private int m;
-        private int n;
-        private int[][] bit;
-        private int[][] mat;
-
+        final int M, N;
+        int[][] segTree;
+        int[][] _matrix;
         public NumMatrix(int[][] matrix) {
-            m = matrix.length;
-            n = matrix[0].length;
-            this.mat = matrix;
-
-            bit = new int[m + 1][];
-
-            for (int i = 1; i <= m; i++) {
-                bit[i] = new int[n + 1];
-            }
-
-            buildBIT(matrix);
-        }
-
-        public void update(int row, int col, int val) {
-            int oldVal = mat[row][col];
-            int diff = val - oldVal;
+            M=matrix.length;
+            N=matrix[0].length;
+            this._matrix=matrix;
             
-            updateBIT(row+1, col+1, diff);
-            mat[row][col] = val;
+            segTree=new int[M][4*N];    
+            for(int i=0;i<M;i++){
+                insert(i,matrix[i],0,0,N-1);
+            }
         }
-
+        
+        private void insert(int segTreeNum, int[] arr,int treeIdx,int lo, int hi){
+            if(lo==hi){
+                segTree[segTreeNum][treeIdx]=arr[lo];
+                return;
+            }
+            int mid=lo+(hi-lo)/2;
+            insert(segTreeNum,arr,2*treeIdx+1,lo,mid);    
+            insert(segTreeNum,arr,2*treeIdx+2,mid+1,hi);
+            
+            segTree[segTreeNum][treeIdx]=segTree[segTreeNum][2*treeIdx+1]+segTree[segTreeNum][2*treeIdx+2];
+        }
+        
+        
+        private void update(int segTreeNum,int arrIdx,int treeIdx, int lo, int hi ){
+            if(lo==hi){
+                segTree[segTreeNum][treeIdx]=_matrix[segTreeNum][arrIdx];
+                return;
+            }
+            int mid=lo+(hi-lo)/2;
+            if(arrIdx<=mid){
+                update(segTreeNum,arrIdx,2*treeIdx+1,lo,mid);    
+            }else{
+                update(segTreeNum,arrIdx,2*treeIdx+2,mid+1,hi);
+            }
+            segTree[segTreeNum][treeIdx]=segTree[segTreeNum][2*treeIdx+1]+segTree[segTreeNum][2*treeIdx+2];
+        }
+        
+        public void update(int row, int col, int val) {
+            _matrix[row][col]=val;
+            update(row,col,0,0,N-1);
+        }
+        
         public int sumRegion(int row1, int col1, int row2, int col2) {
-
-            row1++;
-            col1++;
-            row2++;
-            col2++;
-
-            int a = queryBIT(row2, col2);
-            int b = queryBIT(row1 - 1, col1 - 1);
-            int c = queryBIT(row2, col1 - 1);
-            int d = queryBIT(row1 - 1, col2);
-
-            return (a + b) - (c + d);
-        }
-
-        private int lsb(int i) {
-            return i & (-i);
-        }
-
-        private void buildBIT(int[][] matrix) {
-            for (int i = 1; i <= m; i++) {
-                for (int j = 1; j <= n; j++) {
-                    int val = matrix[i - 1][j - 1];
-                    updateBIT(i, j, val);
-                }
+            int ans=0;
+            for(int r = row1; r<=row2; r++){
+                ans+=query(r,0,0,N-1,col1,col2);
             }
+            return ans;
         }
-
-        private void updateBIT(int r, int c, int val) {
-            for (int i = r; i <= m; i += lsb(i)) {
-                for (int j = c; j <= n; j += lsb(j)) {
-                    bit[i][j] += val;
-                }
+        
+        private int query(int segTreeNum,int treeIdx, int lo, int hi, int ql, int qr){
+            if(lo>qr||hi<ql){return 0;}
+            if(ql<=lo && qr>=hi){return segTree[segTreeNum][treeIdx];}
+            
+            int mid = lo+(hi-lo)/2;
+            
+            if(qr<=mid){
+                return query(segTreeNum,2*treeIdx+1,lo,mid,ql,qr); 
+            }else if(ql>mid){
+                return query(segTreeNum,2*treeIdx+2,mid+1,hi,ql,qr);
             }
-        }
-
-        private int queryBIT(int r, int c) {
-            int sum = 0;
-
-            for (int i = r; i > 0; i -= lsb(i)) {
-                for (int j = c; j > 0; j -= lsb(j)) {
-                    sum += bit[i][j];
-                }
-            }
-
-            return sum;
+            
+            int left=query(segTreeNum,2*treeIdx+1,lo,mid,ql,mid);
+            int right=query(segTreeNum,2*treeIdx+2,mid+1,hi,mid+1,qr);
+            
+            return left+right;
         }
     }
 }
