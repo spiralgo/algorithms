@@ -22,8 +22,10 @@ public class RangeSumQuery2DMutable {
         }
 
         public void update(int row, int col, int val) {
+            int diff = val - matrix[row][col];
+            
             for (int i = row + 1; i < colSums.length; i++) {
-                colSums[i][col] += (val - matrix[row][col]);
+                colSums[i][col] += diff;
             }
 
             matrix[row][col] = val;
