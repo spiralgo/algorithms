@@ -16,17 +16,14 @@ public class RangeSumQuery2DMutableSegmentTree {
         }
 
         private void buildTree(int[][] mat) {
-            for (int i = m; i < (m << 1); i++) {
-                for (int j = n; j < (n << 1); j++) {
-                    tree[i][j] = mat[i - m][j - n];
-                }
-            }
-            for (int i = m - 1; i > 0; i--) {
-                for (int j = n; j < (n << 1); j++) {
-                    tree[i][j] = tree[2 * i][j] + tree[2 * i + 1][j];
-                }
-            }
+            buildLeavesOfLeaves(mat);
+            
+            buildLeavesOfRoots();
 
+            buildRoots();
+        }
+
+        private void buildRoots() {
             for (int i = 1; i < (m << 1); i++) {
                 for (int j = n - 1; j > 0; j--) {
                     tree[i][j] = tree[i][2 * j] + tree[i][2 * j + 1];
@@ -34,44 +31,77 @@ public class RangeSumQuery2DMutableSegmentTree {
             }
         }
 
+        private void buildLeavesOfRoots() {
+            for (int i = m - 1; i > 0; i--) {
+                for (int j = n; j < (n << 1); j++) {
+                    tree[i][j] = tree[2 * i][j] + tree[2 * i + 1][j];
+                }
+            }
+        }
+
+        private void buildLeavesOfLeaves(int[][] mat) {
+            for (int i = m; i < (m << 1); i++) {
+                for (int j = n; j < (n << 1); j++) {
+                    tree[i][j] = mat[i - m][j - n];
+                }
+            }
+        }
+
         public void update(int row, int col, int val) {
             row += m;
             col += n;
+            
+            tree[row][col] = val;
+            updateBase(row, col);
 
-            int i = row, j = col;
-            for (tree[i][j] = val; j > 0; j >>= 1) {
+            updateRoots(row, col);
+        }
+
+        private void updateBase(int row, int col) {
+            for (int i = row, j = col; j > 0; j >>= 1) {
                 tree[i][j >> 1] = tree[i][j] + tree[i][j ^ 1];
             }
+        }
 
-            for (i = row >> 1; i > 0; i >>= 1) {
+        private void updateRoots(int row, int col) {
+            for (int i = row >> 1; i > 0; i >>= 1) {
                 tree[i][col] = tree[i << 1 | 1][col] + tree[i << 1][col];
-                for (j = col; j > 0; j >>= 1) {
+
+                for (int j = col; j > 0; j >>= 1) {
                     tree[i][j >> 1] = tree[i][j] + tree[i][j ^ 1];
                 }
             }
         }
 
-        public int sumRegion(int row1, int c1, int row2, int c2) {
+        public int sumRegion(int r1, int c1, int r2, int c2) {
             int sum = 0;
-            for (row1 += m, row2 += m; row1 <= row2; row1 >>= 1, row2 >>= 1) {
-                if ((row1 & 1) == 1) {
-                    sum += sumRange(row1, c1, c2);
-                    row1++;
+            for (r1 += m, r2 += m; r1 <= r2; r1 >>= 1, r2 >>= 1) {
+                if (isRightChild(r1)) {
+                    sum += sumRange(r1, c1, c2);
+                    r1++;
                 }
-                if ((row2 & 1) == 0) {
-                    sum += sumRange(row2, c1, c2);
-                    row2--;
+                if (isLeftChild(r2)) {
+                    sum += sumRange(r2, c1, c2);
+                    r2--;
                 }
             }
             return sum;
         }
 
+        private boolean isLeftChild(int r2) {
+            return (r2 & 1) == 0;
+        }
+
+        private boolean isRightChild(int r1) {
+            return (r1 & 1) == 1;
+        }
+
         private int sumRange(int r, int c1, int c2) {
             int sum = 0;
             for (c1 += n, c2 += n; c1 <= c2; c1 >>= 1, c2 >>= 1) {
-                if ((c1 & 1) == 1)
+                if (isRightChild(c1))
                     sum += tree[r][c1++];
-                if ((c2 & 1) == 0)
+                if (isLeftChild(c2))
                     sum += tree[r][c2--];
             }
             return sum;
