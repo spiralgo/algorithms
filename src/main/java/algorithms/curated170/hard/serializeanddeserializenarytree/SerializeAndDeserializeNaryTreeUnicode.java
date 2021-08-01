@@ -3,7 +3,7 @@ package algorithms.curated170.hard.serializeanddeserializenarytree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerializeAndDeserializeNaryTreeASCII {
+public class SerializeAndDeserializeNaryTreeUnicode {
 
     static class Codec {
 

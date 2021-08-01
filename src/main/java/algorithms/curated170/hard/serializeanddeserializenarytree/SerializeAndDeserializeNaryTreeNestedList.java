@@ -31,21 +31,16 @@ public class SerializeAndDeserializeNaryTreeNestedList {
             while (i < data.length()) {
                 int start = i;
 
-                // Move pointer forward until we don't find a digit...
                 while (i < data.length() && Character.isDigit(data.charAt(i))) {
                     i++;
                 }
 
-                // If we haven't found a digit then we must have found the end of a child
-                // list...
                 if (start == i) {
                     Node child = stack.pop();
                     if (stack.isEmpty()) {
                         root = child;
                         break;
                     } else {
-                        // Remove the child from the stack and assign it to the previous node on the
-                        // stack
                         stack.peek().children.add(child);
                     }
                 } else {

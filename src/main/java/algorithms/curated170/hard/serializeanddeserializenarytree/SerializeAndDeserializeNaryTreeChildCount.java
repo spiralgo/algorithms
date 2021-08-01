@@ -10,7 +10,6 @@ public class SerializeAndDeserializeNaryTreeChildCount {
 
     static class Codec {
 
-        // Encodes a tree to a single string.
         public String serialize(Node root) {
             List<String> list = new ArrayList<>();
             encode(root, list);
@@ -29,7 +28,6 @@ public class SerializeAndDeserializeNaryTreeChildCount {
             }
         }
 
-        // Decodes your encoded data to tree.
         public Node deserialize(String data) {
             if (data.isEmpty())
                 return null;
