@@ -1,4 +1,4 @@
-package algorithms.curated170.hard;
+package algorithms.curated170.hard.serializeanddeserializenarytree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
