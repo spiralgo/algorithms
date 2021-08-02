@@ -1,14 +1,14 @@
 package algorithms.curated170.medium.killprocess;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 
 public class KillProcessRecursive {
     public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill)
     {
-        HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
+        HashMap<Integer, HashSet<Integer>> digraph = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
             if (par == 0) {
@@ -18,22 +18,22 @@ public class KillProcessRecursive {
                 }
                 continue;
             }
-            int chi = pid.get(i);
-            parentChildMap.putIfAbsent(par, new HashSet<>());
-            parentChildMap.get(par).add(chi);
+            int child = pid.get(i);
+            digraph.putIfAbsent(par, new HashSet<>());
+            digraph.get(par).add(child);
         }
 
-        List<Integer> pTK = new LinkedList<>();
-        recursiveHelper(pTK, parentChildMap, kill);
-        return pTK;
+        List<Integer> processesKilled = new ArrayList<>();
+        killProcessAndSuccessors(processesKilled, digraph, kill);
+        return processesKilled;
     }
-    private void recursiveHelper(List<Integer> pTK, HashMap<Integer, HashSet<Integer>> parentChildMap, int kill)
+    private void killProcessAndSuccessors(List<Integer> processesKilled, HashMap<Integer, HashSet<Integer>> digraph, int proc)
     {
-        pTK.add(kill);
-        if (parentChildMap.containsKey(kill)) {
-            for(int toKill : parentChildMap.get(kill))
+        processesKilled.add(proc);
+        if (digraph.containsKey(proc)) {
+            for(int successor : digraph.get(proc))
             {
-                recursiveHelper(pTK, parentChildMap, toKill);
+                killProcessAndSuccessors(processesKilled, digraph, successor);
             }
         }
     }
