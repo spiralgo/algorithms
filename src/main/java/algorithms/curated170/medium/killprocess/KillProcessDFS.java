@@ -7,13 +7,12 @@ import java.util.List;
 import java.util.Stack;
 
 public class KillProcessDFS {
-    public static List<Integer> killProcessDFS(List<Integer> pid, List<Integer> ppid, int kill) {
+    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
         HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
             if (par == 0) {
-                if(pid.get(i) == kill)
-                {
+                if (pid.get(i) == kill) {
                     return pid;
                 }
                 continue;
@@ -37,9 +36,10 @@ public class KillProcessDFS {
     }
 
     public static void main(String[] args) {
+        var solution = new KillProcessDFS();
         var pid = List.of(1, 3, 10, 5);
         var ppid = List.of(3, 0, 5, 3);
-        var k1 = killProcessDFS(pid, ppid, 3);
+        var k1 = solution.killProcess(pid, ppid, 3);
         System.out.println(k1);
     }
 }

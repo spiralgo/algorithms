@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class KillProcessBFS {
-    public static List<Integer> killProcessBFS(List<Integer> pid, List<Integer> ppid, int kill) {
+    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
         HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
@@ -37,9 +37,10 @@ public class KillProcessBFS {
     }
 
     public static void main(String[] args) {
+        var solution = new KillProcessBFS();
         var pid = List.of(1, 3, 10, 5);
         var ppid = List.of(3, 0, 5, 3);
-        var k2 = killProcessBFS(pid, ppid, 3);
+        var k2 = solution.killProcess(pid, ppid, 3);
         System.out.println(k2);
     }
 }

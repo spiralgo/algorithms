@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class KillProcessRecursive {
-    public static List<Integer> killProcessRecursive(List<Integer> pid, List<Integer> ppid, int kill)
+    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill)
     {
         HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
@@ -27,7 +27,7 @@ public class KillProcessRecursive {
         recursiveHelper(pTK, parentChildMap, kill);
         return pTK;
     }
-    private static void recursiveHelper(List<Integer> pTK, HashMap<Integer, HashSet<Integer>> parentChildMap, int kill)
+    private void recursiveHelper(List<Integer> pTK, HashMap<Integer, HashSet<Integer>> parentChildMap, int kill)
     {
         pTK.add(kill);
         if (parentChildMap.containsKey(kill)) {
@@ -39,9 +39,10 @@ public class KillProcessRecursive {
     }
 
     public static void main(String[] args) {
+        var solution = new KillProcessRecursive();
         var pid = List.of(1, 3, 10, 5);
         var ppid = List.of(3, 0, 5, 3);
-        var k3 = killProcessRecursive(pid, ppid, 3);
+        var k3 = solution.killProcess(pid, ppid, 3);
         System.out.println(k3);
     }
 }
