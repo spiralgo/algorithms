@@ -4,18 +4,31 @@ public class NumberOfCornerRectanglesRowFirst {
 
     public int countCornerRectangles(int[][] grid) {
         int totalCount = 0;
-        for (int i = 0; i < grid.length - 1; i++) {
-            for (int j = i + 1; j < grid.length; j++) {
-                int count = 0;
-                for (int k = 0; k < grid[0].length; k++) {
-                    if (grid[i][k] == 1 && grid[j][k] == 1)
-                        count++;
+        int[][] counts = new int[grid.length][grid.length];
+        
+        for (int j = 0; j < grid[0].length; j++) {
+            for (int i = 0; i < grid.length; i++) {
+                if (grid[i][j] == 1) {
+                    totalCount += checkNextRowsOfColumn(grid, counts, j, i);
                 }
-                if (count > 0)
-                    totalCount += count * (count - 1) / 2;
+
             }
         }
         return totalCount;
+    }
+
+    private int checkNextRowsOfColumn(int[][] grid, int[][] counts, int j, int i) {
+        int newRechtangles = 0;
+
+        for (int k = i + 1; k < grid.length; k++) {
+            if (grid[k][j] == 1) {
+                int count = counts[i][k];
+                newRechtangles += count;
+                counts[i][k]++;
+            }
+        }
+
+        return newRechtangles;
     }
 
     public static void main(String[] args) {
