@@ -55,7 +55,7 @@ public class SerializeAndDeserializeNaryTreeChildCount {
         Node c1 = new Node(10);
         Node c2 = new Node(77);
         Node c3 = new Node(24);
-        Node root = new Node(90, List.of(c1, c2, c3));
+        Node root = new Node(90,   new ArrayList<>(List.of(c1, c2, c3)));
 
         var codec = new Codec();
         String coded = codec.serialize(root);
