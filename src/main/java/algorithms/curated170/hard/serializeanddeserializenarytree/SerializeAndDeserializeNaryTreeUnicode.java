@@ -2,6 +2,7 @@ package algorithms.curated170.hard.serializeanddeserializenarytree;
 
 import java.util.ArrayList;
 import java.util.List;
+import algorithms.curated170.medium.Node;
 
 public class SerializeAndDeserializeNaryTreeUnicode {
 
