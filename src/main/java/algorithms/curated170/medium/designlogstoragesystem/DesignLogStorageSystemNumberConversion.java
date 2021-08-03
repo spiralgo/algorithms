@@ -1,4 +1,4 @@
-package algorithms.curated170.medium;
+package algorithms.curated170.medium.designlogstoragesystem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
