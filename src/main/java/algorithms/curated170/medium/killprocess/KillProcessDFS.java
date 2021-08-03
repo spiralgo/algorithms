@@ -1,45 +1,50 @@
 package algorithms.curated170.medium.killprocess;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 public class KillProcessDFS {
-    public static List<Integer> killProcessDFS(List<Integer> pid, List<Integer> ppid, int kill) {
-        HashMap<Integer, HashSet<Integer>> parentChildMap = new HashMap<>();
+    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
+        HashMap<Integer, HashSet<Integer>> digraph = new HashMap<>();
         for (int i = 0; i < pid.size(); i++) {
             int par = ppid.get(i);
             if (par == 0) {
-                if(pid.get(i) == kill)
-                {
+                if (pid.get(i) == kill) {
                     return pid;
                 }
                 continue;
             }
-            int chi = pid.get(i);
-            parentChildMap.putIfAbsent(par, new HashSet<>());
-            parentChildMap.get(par).add(chi);
+            int child = pid.get(i);
+            digraph.putIfAbsent(par, new HashSet<>());
+            digraph.get(par).add(child);
         }
 
-        List<Integer> pTK = new LinkedList<>();
-        Stack<Integer> toKill = new Stack<Integer>();
-        toKill.push(kill);
-        while (!toKill.empty()) {
-            int killed = toKill.pop();
-            pTK.add(killed);
-            if (parentChildMap.containsKey(killed)) {
-                toKill.addAll(parentChildMap.get(killed));
+        return dfsProcesses(kill, digraph);
+    }
+
+    private List<Integer> dfsProcesses(int kill, HashMap<Integer, HashSet<Integer>> digraph) {
+        List<Integer> processsesKilled = new ArrayList<>();
+        Stack<Integer> nextProcs = new Stack<Integer>();
+        nextProcs.push(kill);
+        while (!nextProcs.empty()) {
+            int currProc = nextProcs.pop();
+            processsesKilled.add(currProc);
+            if (digraph.containsKey(currProc)) {
+                nextProcs.addAll(digraph.get(currProc));
             }
         }
-        return pTK;
+
+        return processsesKilled;
     }
 
     public static void main(String[] args) {
+        var solution = new KillProcessDFS();
         var pid = List.of(1, 3, 10, 5);
         var ppid = List.of(3, 0, 5, 3);
-        var k1 = killProcessDFS(pid, ppid, 3);
+        var k1 = solution.killProcess(pid, ppid, 3);
         System.out.println(k1);
     }
 }

@@ -5,41 +5,17 @@ import java.util.Map;
 import java.util.Arrays;
 
 public class SparseMatrixMultiplicationWithHashMap {
-    public static int[][] solution(int[][] A, int[][] B) {
-        int m = A.length;
-        int n = A[0].length;
-        int l = B[0].length;
-        int[][] C = new int[m][l];
-        Map<Integer, Map<Integer, Integer>> mapB = new HashMap<>();
-        mapB = compress(B);
-        
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (A[i][j] != 0) {
-                    for (int k : mapB.get(j).keySet()) {
-                        C[i][k] += A[i][j] * mapB.get(j).get(k); // We add these numbers to the positions in the output
-                                                                // accordingly.
-                    }
-                }
-            }
-        }
-        return C;
-    }
-    public static int[][] solutionModular(int[][] A, int[][] B) {
-        int m = A.length;
-        int n = A[0].length;
-        int l = B[0].length;
-        int[][] C = new int[m][l];
-        Map<Integer, Map<Integer, Integer>> mapB = new HashMap<>();
-        mapB = compress(B);
-        Map<Integer, Map<Integer, Integer>> mapA = new HashMap<>();
-        mapA = compress(A);
-        for(int i : mapA.keySet())
-        {
-            for(int j : mapA.get(i).keySet())
-            {
+
+    public static int[][] multiply(int[][] A, int[][] B) {
+        int mA = A.length;
+        int nB = B[0].length;
+        int[][] C = new int[mA][nB];
+        Map<Integer, Map<Integer, Integer>> mapB = compress(B);
+        Map<Integer, Map<Integer, Integer>> mapA = compress(A);
+        for (int i : mapA.keySet()) {
+            for (int j : mapA.get(i).keySet()) {
                 for (int k : mapB.get(j).keySet()) {
-                    C[i][k] += mapA.get(i).get(j) * mapB.get(j).get(k);                                        
+                    C[i][k] += mapA.get(i).get(j) * mapB.get(j).get(k);
                 }
             }
         }
@@ -61,10 +37,9 @@ public class SparseMatrixMultiplicationWithHashMap {
     }
 
     public static void main(String[] args) {
-        int[][] A = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
-        int[][] B = new int[][]{{9,8,7},{12,11,10},{15,14,13}};
-        System.out.println(Arrays.deepToString(solution(A, B)));
-        System.out.println(Arrays.deepToString(solutionModular(A, B)));
+        int[][] A = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        int[][] B = new int[][] { { 9, 8, 7 }, { 12, 11, 10 }, { 15, 14, 13 } };
+        System.out.println(Arrays.deepToString(multiply(A, B)));
 
     }
 }

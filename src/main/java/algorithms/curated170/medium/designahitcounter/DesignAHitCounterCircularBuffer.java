@@ -1,11 +1,10 @@
 package algorithms.curated170.medium.designahitcounter;
 
-public class DesignAHitCounterCircle {
-    public static class HitCounter {
+public class DesignAHitCounterCircularBuffer {
+    public class HitCounter {
         private int[] times;
         private int[] hits;
 
-        //Constructor method
         public HitCounter() {
             times = new int[300];
             hits = new int[300];
@@ -21,7 +20,6 @@ public class DesignAHitCounterCircle {
             }
         }
 
-        // Time Complexity : O(1), does 300 computations each time. 
         public int getHits(int timestamp) {
             int hitCount = 0;
             for (int i = 0; i < 300; ++i) {
@@ -34,7 +32,9 @@ public class DesignAHitCounterCircle {
     }
 
     public static void main(String[] args) {
-        var hitCounter = new HitCounter();
+        var solution = new DesignAHitCounterCircularBuffer();
+        var hitCounter = solution.new HitCounter();
+
         hitCounter.hit(1);
         hitCounter.hit(2);
         hitCounter.hit(3);
