@@ -9,22 +9,18 @@ import java.util.TreeMap;
 public class DesignLogStorageSystemNumberConversion {
 
     public class LogSystem {
-        
-        static HashMap<String, Integer> dataOrderIdx = new HashMap<>();
-        static String[] baseData = new String[] { "1999", "00", "00", "00", "00", "00" };
-        static
-        {
+
+        HashMap<String, Integer> dataOrderIdx = new HashMap<>();
+        String[] baseData = new String[] { "1999", "00", "00", "00", "00", "00" };
+        TreeMap<Long, Integer> map;
+
+        public LogSystem() {
             dataOrderIdx.put("Year", 0);
             dataOrderIdx.put("Month", 1);
             dataOrderIdx.put("Day", 2);
             dataOrderIdx.put("Hour", 3);
             dataOrderIdx.put("Minute", 4);
             dataOrderIdx.put("Second", 5);
-        }
-
-        TreeMap<Long, Integer> map;
-
-        public LogSystem() {
             map = new TreeMap<Long, Integer>();
         }
 
@@ -52,7 +48,7 @@ public class DesignLogStorageSystemNumberConversion {
             ArrayList<Integer> ids = new ArrayList<>();
             int[] start = arrangeGranularity(s, gra, false);
             int[] end = arrangeGranularity(e, gra, true);
-            
+
             long startKey = convert(start);
             long endKey = convert(end);
 
@@ -68,12 +64,12 @@ public class DesignLogStorageSystemNumberConversion {
 
             String[] res = baseData.clone();
             String[] dateStrs = s.split(":");
-            
+
             for (int i = 0; i <= dataOrderIdx.get(gra); i++) {
                 res[i] = dateStrs[i];
             }
             int[] dateNumbers = Arrays.stream(res).mapToInt(Integer::parseInt).toArray();
-            
+
             if (end)
                 dateNumbers[dataOrderIdx.get(gra)]++;
 
