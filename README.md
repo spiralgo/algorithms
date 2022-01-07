@@ -1,3 +1,8 @@
+Our course: (Currently in Turkish)
+
+https://www.udemy.com/course/algoritmalar/
+
+
 Welcome to our spiral!
 
 We voluntarily solve algorithm problems on this repo that we call Spiralgo.
