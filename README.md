@@ -1,3 +1,6 @@
+Our Discord community:
+https://problemsolving.community
+
 Our course: (Currently in Turkish)
 
 https://www.udemy.com/course/algoritmalar/?referralCode=8C9094A4458A588EE916
